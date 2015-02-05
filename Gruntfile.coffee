@@ -16,6 +16,10 @@ module.exports = ->
         ]
 
     # Coding standards
+    yamllint:
+      schemas: ['schemata/*.yaml']
+      examples: ['examples/*.yml']
+
     coffeelint:
       components: ['Gruntfile.coffee', 'spec/*.coffee']
       options:
@@ -45,6 +49,7 @@ module.exports = ->
   @loadNpmTasks 'grunt-yaml'
 
   # Grunt plugins used for testing
+  @loadNpmTasks 'grunt-yamllint'
   @loadNpmTasks 'grunt-coffeelint'
   @loadNpmTasks 'grunt-mocha-test'
 
@@ -58,6 +63,7 @@ module.exports = ->
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>
     @task.run 'coffeelint'
+    @task.run 'yamllint'
     @task.run 'build'
     @task.run 'mochaTest'
 
