@@ -1,0 +1,47 @@
+# Examples of site configs
+-
+  _valid: true
+  _name: 'minimal'
+  _data:
+    name: The Grid
+-
+  _valid: true
+  _name: 'thegrid.io-launchsite'
+  _data:
+    name: The Grid
+    favicon: "https://passport.thegrid.io/favicon.ico"
+    style: A1
+    cta:
+      domain: //s3-us-west-2.amazonaws.com
+      bucket: /cdn.thegrid.io
+      version: 0.2.5
+    analytics:
+      google: UA-50607580-1
+      facebook: "295556487279234"
+      twitter: l4y05
+    opengraph:
+      appId: "1517733501804443"
+      image: "http://s3-us-west-2.amazonaws.com/cdn.thegrid.io/assets/images/purus-fb.png"
+      type: website
+    collections:
+      - filter:
+          notTag:
+            tag: ancillary
+        index:
+          path: /
+          number: 50
+      - filter:
+          tag:
+            tag: ancillary
+        permalink:
+          path: "/:title/"
+      - filter:
+          tag:
+            tag: team
+        permalink:
+          path: /team/
+-
+  _valid: false
+  _name: 'number-as-name'
+  _data:
+    name: 123
