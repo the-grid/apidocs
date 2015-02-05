@@ -1,6 +1,6 @@
 {
   "name": "thegrid-apidocs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "API documentation for The Grid",
   "repository": {
     "type": "git",
@@ -11,6 +11,9 @@
   "bugs": {
     "url": "https://github.com/the-grid/apidocs/issues"
   },
+  "files": [
+    "schemata"
+  ],
   "homepage": "apidocs.thegrid.io",
   "dependencies": {},
   "devDependencies": {
