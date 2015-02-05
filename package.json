@@ -15,7 +15,7 @@
     "schemata",
     "examples"
   ],
-  "homepage": "apidocs.thegrid.io",
+  "homepage": "https://thegrid.io",
   "dependencies": {},
   "devDependencies": {
     "chai": "^1.9.1",
