@@ -1,15 +1,15 @@
 ---
-"$schema": http://json-schema.org/draft-04/schema
+id: "contentblock.json"
+"$schema": "http://json-schema.org/draft-04/schema"
 title: Content block
 description: ""
 definitions:
   uuid:
-    description: unique identifier
+    description: Unique identifier
     format: uuid
     pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
     example: 01234567-89ab-cdef-0123-456789abcdef
-    type:
-      - string
+    type: string
 type:
 - object
 properties:
@@ -18,6 +18,8 @@ properties:
   item:
     "$ref": "#/definitions/uuid"
   type:
+    description: Block type
+    example: "text"
     type: string
     enum:
       - h1
@@ -36,6 +38,8 @@ properties:
       - location
       - cta
   html:
+    description: HTML content of the block
+    example: "<p>Hello, world!</p>"
     type: string
     minLength: 7
   created_at: # FIXME: ISOdate,null
