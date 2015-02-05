@@ -15,6 +15,10 @@ module.exports = ->
           dest: 'schema/'
         ]
 
+    exec:
+      schemas_to_html:
+        command: './node_modules/json-schema-docs-generator/bin/generate.js'
+
     # Coding standards
     yamllint:
       schemas: ['schemata/*.yaml']
@@ -47,6 +51,7 @@ module.exports = ->
 
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-yaml'
+  @loadNpmTasks 'grunt-exec'
 
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-yamllint'
@@ -59,7 +64,7 @@ module.exports = ->
   # Our local tasks
   @registerTask 'build', 'Build', (target = 'all') =>
     @task.run 'yaml'
-    # TODO: build HTML from schemas and examples
+    @task.run 'exec'
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>
     @task.run 'coffeelint'
