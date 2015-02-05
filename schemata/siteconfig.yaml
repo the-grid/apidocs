@@ -1,0 +1,18 @@
+---
+"$schema": http://json-schema.org/draft-04/schema
+id: schemata/siteconfig
+title: Site config
+description: Configuration of a single site
+definitions:
+  id:
+    description: unique identifier of siteconfig
+    example: 01234567-89ab-cdef-0123-456789abcdef
+    format: uuid
+    type:
+    - string
+type:
+- object
+properties:
+  created_at:
+    "$ref": "/schemata/siteconfig#/definitions/created_at"
+
