@@ -22,7 +22,7 @@ describe 'Schema meta validation', ->
   schemas.forEach (schemaFile) ->
     schema = getSchema schemaFile
     tv4.addSchema schema.id, schema
-    describe "testing #{schemaFile} (#{schema.title or schema.description}) against JSON meta schema", ->
-      it 'should validate', ->
+    describe "#{schemaFile} (#{schema.title or schema.description})", ->
+      it 'should validate against JSON meta schema', ->
         result = tv4.validateResult schema, 'http://json-schema.org/draft-04/schema'
         chai.expect(result.valid).to.equal true
