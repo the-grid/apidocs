@@ -12,7 +12,8 @@
     "url": "https://github.com/the-grid/apidocs/issues"
   },
   "files": [
-    "schemata"
+    "schemata",
+    "examples"
   ],
   "homepage": "apidocs.thegrid.io",
   "dependencies": {},
