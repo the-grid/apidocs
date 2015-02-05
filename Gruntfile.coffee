@@ -37,9 +37,15 @@ module.exports = ->
           reporter: 'spec'
           require: 'coffee-script/register'
 
+    copy:
+      schemas:
+        files: [
+          expand: true, src: ['schema/*.json'], dest: 'dist/', filter: 'isFile'
+        ]
+
     'gh-pages':
       options:
-        base: 'browser'
+        base: 'dist'
         clone: 'gh-pages'
         message: 'Updating'
         repo: repo
@@ -52,6 +58,7 @@ module.exports = ->
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-yaml'
   @loadNpmTasks 'grunt-exec'
+  @loadNpmTasks 'grunt-contrib-copy'
 
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-yamllint'
@@ -64,7 +71,9 @@ module.exports = ->
   # Our local tasks
   @registerTask 'build', 'Build', (target = 'all') =>
     @task.run 'yaml'
+    @file.mkdir 'dist'
     @task.run 'exec'
+    @task.run 'copy'
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>
     @task.run 'coffeelint'
