@@ -3,22 +3,7 @@ tv4 = require 'tv4'
 chai = require 'chai' if not chai
 yaml = require 'js-yaml'
 
-path = require 'path'
-fs = require 'fs'
-
-schemaPath = '../schema'
-getSchema = (name) ->
-  filepath = path.join __dirname, schemaPath, name
-  loadSchema filepath
-
-loadSchema = (filepath) ->
-  content = fs.readFileSync filepath, { encoding: 'utf-8' }
-  return JSON.parse content
-
-getExamples = (name) ->
-  filepath = path.join __dirname, '../examples', name+'.yml'
-  content = fs.readFileSync filepath, { encoding: 'utf-8' }
-  return yaml.safeLoad content
+lib = require '../index'
 
 describe 'Schemas', ->
   before: ->
@@ -27,15 +12,13 @@ describe 'Schemas', ->
   after: ->
     tv4.reset()
 
-  schemas = fs.readdirSync path.join __dirname, schemaPath
-  schemas.forEach (schemaFile) ->
-    schema = getSchema schemaFile
+  lib.listSchemas().forEach (schemaName) ->
+    schema = lib.getSchema schemaName
     tv4.addSchema schema.id, schema
-    schemaName = path.basename schemaFile, '.json'
 
     describe "#{schema.id} (#{schema.title})", ->
       try
-        cases = getExamples schemaName
+        cases = lib.getExamples schemaName
       catch e
         return
 
