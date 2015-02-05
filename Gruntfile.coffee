@@ -15,7 +15,7 @@ module.exports = ->
 
     mochaTest:
       nodejs:
-        src: ['test/*.coffee']
+        src: ['spec/*.coffee']
         options:
           reporter: 'spec'
           require: 'coffee-script/register'

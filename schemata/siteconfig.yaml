@@ -13,6 +13,20 @@ definitions:
 type:
 - object
 properties:
-  created_at:
-    "$ref": "/schemata/siteconfig#/definitions/created_at"
+  name:
+    type: string
+  style:
+    type: string
+  favicon:
+    type: string
+  cta:
+    type: object
+  analytics:
+    type: object
+  opengraph:
+    type: object
+  collections:
+    type: array
+
+required: [name]
 
