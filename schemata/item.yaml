@@ -1,30 +1,138 @@
 ---
-id: /item
-"$schema": http://json-schema.org/draft-04/schema
+id: item.json
+"$schema": "http://json-schema.org/draft-04/schema"
 title: Content item
 description: ""
-definitions:
-  uuid:
-    description: Unique identifier
-    format: uuid
-    pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-    example: 01234567-89ab-cdef-0123-456789abcdef
-    type:
-      - string
 type:
 - object
 properties:
   id:
-    "$ref": "#/definitions/uuid"
+    "$ref": "base.json#/definitions/uuid"
+  sites:
+    type: array
+    description: The sites the item is published to or intended for
+    items:
+      type: string
+    uniqueItems: true
+    example:
+    - "the-domains/the-grid"
+  score:
+    type: number
+    default: 0
+    example: 0
   metadata:
-    type: 'object'
+    "$ref": "metadata.json"
   content:
     description: Content blocks of the item
     type: array
     minItems: 0
     uniqueItems: true
     items:
-      items:
-        "$ref": "contentblock.json"
+      "$ref": "contentblock.json"
 
 required: [content]
+
+links:
+-
+  title: Create an item
+  description: Create an item with initial contents and metadata
+  rel: 'create'
+  href: '/item'
+  method: 'POST'
+  authentication_needed: yes
+  required:
+  - content
+  schema:
+    type: object
+    properties:
+      sites:
+        "$ref": "#/properties/sites"
+      metadata:
+        "$ref": "#/properties/metadata"
+      content:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              "$ref": "contentblock.json#/properties/type"
+            html:
+              "$ref": "contentblock.json#/properties/html"
+            metadata:
+              "$ref": "contentblock.json#/properties/metadata"
+          required:
+          - type
+          - html
+-
+  title: All items for the user
+  description: Receive current list of items
+  rel: instances
+  href: '/item'
+  method: 'GET'
+  authentication_needed: yes
+  schema:
+    properties:
+      published:
+        description: Filtering the items by publishing status
+        enum:
+        - 'true'
+        - 'false'
+  targetSchema:
+    type: array
+    uniqueItems: true
+    items:
+      type: object
+      properties:
+        id:
+          "$ref": "#/properties/id"
+        sites:
+          "$ref": "#/properties/sites"
+        metadata:
+          "$ref": "#/properties/metadata"
+        score:
+          "$ref": "#/properties/score"
+        starred:
+          "$ref": "#/properties/content"
+-
+  title: Fetch an item
+  description: Receive current contents of an item
+  rel: 'self'
+  href: '/item/{#/properties/id}'
+  method: 'GET'
+  authentication_needed: yes
+  targetSchema:
+    rel: 'self'
+-
+  title: Update an item
+  description: Update the contents of an item
+  rel: 'self'
+  href: '/item/{#/properties/id}'
+  method: 'PUT'
+  authentication_needed: yes
+  required:
+  - content
+  schema:
+    type: object
+    properties:
+      sites:
+        "$ref": "#/properties/sites"
+      metadata:
+        "$ref": "#/properties/metadata"
+      content:
+        description: "Content blocks of the item"
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              "$ref": "contentblock.json#/properties/type"
+            html:
+              "$ref": "contentblock.json#/properties/html"
+            metadata:
+              "$ref": "contentblock.json#/properties/metadata"
+          required:
+          - type
+          - html
+          - metadata
+  targetSchema:
+    rel: 'self'

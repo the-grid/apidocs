@@ -47,6 +47,17 @@
     },
     "templates": [
       "./node_modules/json-schema-docs-generator/themes/bootstrap/*"
-    ]
+    ],
+    "apiURL": "https://api.thegrid.io",
+    "endpointOptions": {
+      "attributes": ["title", "description", "method"],
+      "attributeParameters": ["name", "type", "example", "description"],
+      "curlHeaders": {
+        "Authorization": "Bearer INSERT_YOUR_TOKEN"
+      }
+    },
+    "templateOptions": {
+      "version": "0.0.1"
+    }
   }
 }

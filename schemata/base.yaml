@@ -1,0 +1,16 @@
+---
+id: base.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Base definitions for Grid content types
+definitions:
+  uuid:
+    description: Unique identifier
+    format: uuid
+    pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    example: 01234567-89ab-cdef-0123-456789abcdef
+    type: string
+  url:
+    description: Unique Resource Locator
+    format: url
+    example: http://example.net/foo
+    type: string

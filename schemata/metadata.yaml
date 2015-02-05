@@ -1,0 +1,84 @@
+---
+id: metadata.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: The Grid metadata definition
+description: ""
+type:
+- object
+properties:
+  "@type":
+    name: "@type"
+    type: string
+    description: Schema.org type the item or block represents
+    example: Article
+  isBasedOnUrl:
+    name: isBasedOnUrl
+    type: string
+    description: Source URL for the item or block
+    example: "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
+  inLanguage:
+    name: inLanguage
+    type: string
+    description: Content language
+    example: en
+    minLength: 2
+  starred:
+    type: boolean
+    example: false
+  keywords:
+    name: keywords
+    description: Tags describing the content
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+    example:
+    - design
+    - blogs
+  publisher:
+    name: publisher
+    description: Original publisher of the item or block
+    type: object
+    properties:
+      name:
+        name: name
+        type: string
+        description: Human-readable publisher name
+        example: Fast Company
+      domain:
+        name: domain
+        type: string
+        description: The publisher's domain name
+        example: www.fastcompany.com
+      url:
+        name: url
+        type: string
+        description: URL of the publisher's main page
+        example: "http://www.fastcompany.com/"
+      favicon:
+        name: favicon
+        type: string
+        description: URL of the publisher's favicon
+        example: "http://www.fastcompany.com/favicon.ico"
+    additionalProperties: false
+  authors:
+    name: authors
+    type: array
+    description: Authors of the item or block
+    items:
+      type: object
+      properties:
+        name:
+          name: name
+          type: string
+          example: Henri Bergius
+        url:
+          "$ref": "base.json#/definitions/url"
+        email:
+          type: string
+          format: email
+          example: bergie@iki.fi
+        avatar:
+          type: object
+      additionalProperties: false
+  additionalProperties: true
