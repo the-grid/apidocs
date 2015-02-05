@@ -5,5 +5,6 @@
 * Add automated smoke/sanity tests for the schemas
 * Add machine-readable docs for HTTP endpoints (Apiary or similar)
 
-
-
+Contentblock schema
+-------------
+* Mark read-only attributes as such

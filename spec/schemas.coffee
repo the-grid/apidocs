@@ -16,21 +16,29 @@ getExamples = (name) ->
   content = fs.readFileSync filepath, { encoding: 'utf-8' }
   return yaml.safeLoad content
 
+schemas =
+  'siteconfig': 'Site config'
+  'contentblock': 'Content block'
+
 describe 'Schemas', ->
 
-  describe 'Site config', ->
-    id = 'siteconfig'
-    cases = getExamples id
-    schema = getSchema id
+  Object.keys(schemas).forEach (schemaName) ->
+    description = schemas[schemaName]
 
-    cases.forEach (testcase) ->
-      describe "#{testcase._name}", ->
-        if testcase._valid
-          it "should be valid", ->
-            results = tv4.validateMultiple testcase._data, schema
-            chai.expect(results.errors).to.eql []
-        else
-          it "should be invalid", ->
-            results = tv4.validateMultiple testcase._data, schema
-            chai.expect(results.errors).to.not.eql []
+    describe description, ->
+      cases = getExamples schemaName
+      schema = getSchema schemaName
+
+      cases.forEach (testcase) ->
+        console.log testcase
+
+        describe "#{testcase._name}", ->
+          if testcase._valid
+            it "should be valid", ->
+              results = tv4.validateMultiple testcase._data, schema
+              chai.expect(results.errors).to.eql []
+          else
+            it "should be invalid", ->
+              results = tv4.validateMultiple testcase._data, schema
+              chai.expect(results.errors).to.not.eql []
 

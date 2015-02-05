@@ -1,0 +1,34 @@
+---
+"$schema": http://json-schema.org/draft-04/schema
+title: Content block
+description: ""
+definitions:
+  id:
+    description: unique identifier of siteconfig
+    example: 01234567-89ab-cdef-0123-456789abcdef
+    format: uuid
+    type:
+    - string
+type:
+- object
+properties:
+  id:
+    type: string
+  item:
+    type: string
+  type:
+    type: string
+  html:
+    type: string
+    minLength: 7
+  created_at: # FIXME: ISOdate,null
+    type: number
+  updated_at: # FIXME: ISOdate,null
+    type: [number, "null"]
+  src:
+    type: [string, "null"]
+  metadata:
+    type: object
+
+required: [id, item, type, html]
+
