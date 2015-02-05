@@ -33,7 +33,7 @@ describe 'Schemas', ->
     tv4.addSchema schema.id, schema
     schemaName = path.basename schemaFile, '.json'
 
-    describe schema.title, ->
+    describe "#{schema.id} (#{schema.title})", ->
       try
         cases = getExamples schemaName
       catch e
