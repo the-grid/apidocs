@@ -30,7 +30,6 @@ describe 'Schemas', ->
       schema = getSchema schemaName
 
       cases.forEach (testcase) ->
-        console.log testcase
 
         describe "#{testcase._name}", ->
           if testcase._valid
