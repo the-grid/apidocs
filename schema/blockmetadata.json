@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "schemata/blockmetadata",
+  "title": "Block metadata",
+  "description": "Metadata for a content block",
+  "definitions": {
+    "id": {
+      "description": "unique identifier of siteconfig",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "format": "uuid",
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "object"
+  ],
+  "properties": null,
+  "required": []
+}

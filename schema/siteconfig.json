@@ -1,0 +1,101 @@
+{
+  "id": "siteconfig.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Site config",
+  "description": "Configuration of a single site",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Website name"
+    },
+    "style": {
+      "type": "string",
+      "description": "Layout filter selected for the site",
+      "example": "A1"
+    },
+    "favicon": {
+      "type": "string",
+      "description": "Favicon URL"
+    },
+    "cta": {
+      "type": "object",
+      "required": [
+        "version"
+      ],
+      "properties": {
+        "domain": {
+          "name": "domain",
+          "description": "CDN to serve the CtA from",
+          "type": "string"
+        },
+        "bucket": {
+          "name": "bucket",
+          "description": "S3 bucket to serve the CtA from",
+          "type": "string"
+        },
+        "version": {
+          "name": "version",
+          "description": "CtA version to use on site",
+          "type": "string",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "analytics": {
+      "type": "object",
+      "properties": {
+        "google": {
+          "name": "google",
+          "type": "string",
+          "description": "Google Analytics ID for the site"
+        },
+        "facebook": {
+          "name": "facebook",
+          "type": "string",
+          "description": "Facebook tracking ID for the site"
+        },
+        "twitter": {
+          "name": "twitter",
+          "type": "string",
+          "description": "Twitter tracking ID for the site"
+        }
+      }
+    },
+    "opengraph": {
+      "type": "object",
+      "required": [
+        "type",
+        "image"
+      ],
+      "properties": {
+        "image": {
+          "name": "image",
+          "description": "Default image to use when sharing the website",
+          "type": "string"
+        },
+        "type": {
+          "name": "type",
+          "description": "Type of the website",
+          "type": "string"
+        },
+        "appId": {
+          "name": "appId",
+          "type": "string",
+          "description": "Facebook App ID associated with the site"
+        }
+      }
+    },
+    "collections": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "collection.json"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "contentblock.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Content block",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "item": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "text",
+        "code",
+        "image",
+        "video",
+        "audio",
+        "article",
+        "quote",
+        "location",
+        "cta"
+      ]
+    },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<p>Hello, world!</p>",
+      "type": "string",
+      "minLength": 7
+    },
+    "metadata": {
+      "$ref": "metadata.json"
+    },
+    "created_at": {
+      "type": "number"
+    },
+    "updated_at": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "src": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "item",
+    "type",
+    "html"
+  ]
+}
