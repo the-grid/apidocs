@@ -45,3 +45,8 @@
   _name: 'number-as-name'
   _data:
     name: 123
+-
+  _valid: false
+  _name: 'missing-name'
+  _data:
+    style: 'A1'
