@@ -26,6 +26,7 @@
     "grunt-contrib-clean": "^0.5.0",
     "grunt-gh-pages": "^0.9.1",
     "grunt-mocha-test": "^0.12.7",
+    "grunt-yaml": "^0.4.1",
     "js-yaml": "^3.2.5",
     "mocha": "^2.1.0",
     "tv4": "^1.1.9"

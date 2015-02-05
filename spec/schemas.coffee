@@ -7,9 +7,9 @@ path = require 'path'
 fs = require 'fs'
 
 getSchema = (name) ->
-  filepath = path.join __dirname, '../schemata', name+'.yaml'
+  filepath = path.join __dirname, '../schema', name+'.json'
   content = fs.readFileSync filepath, { encoding: 'utf-8' }
-  return yaml.safeLoad content
+  return JSON.parse content
 
 getExamples = (name) ->
   filepath = path.join __dirname, '../examples', name+'.yml'

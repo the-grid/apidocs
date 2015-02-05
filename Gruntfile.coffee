@@ -6,6 +6,15 @@ module.exports = ->
   @initConfig
     pkg: @file.readJSON 'package.json'
 
+    yaml:
+      schemas:
+        files: [
+          expand: true
+          cwd: 'schemata/'
+          src: '*.yaml'
+          dest: 'schema/'
+        ]
+
     # Coding standards
     coffeelint:
       components: ['Gruntfile.coffee', 'spec/*.coffee']
@@ -33,6 +42,7 @@ module.exports = ->
       src: '**/*'
 
   # Grunt plugins used for building
+  @loadNpmTasks 'grunt-yaml'
 
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-coffeelint'
@@ -43,11 +53,12 @@ module.exports = ->
 
   # Our local tasks
   @registerTask 'build', 'Build', (target = 'all') =>
-    # TODO: build .yaml schemas into .json
+    @task.run 'yaml'
     # TODO: build HTML from schemas and examples
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>
     @task.run 'coffeelint'
+    @task.run 'build'
     @task.run 'mochaTest'
 
   @registerTask 'default', ['test']
