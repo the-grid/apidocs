@@ -6,7 +6,7 @@ Contentblock schema
 
 API endpoints
 -------------
-Port all documentation from Google Doc.
+Port all documentation from internal Google Doc.
 
 * Authentication
 * Notifications
