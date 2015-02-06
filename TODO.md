@@ -1,6 +1,7 @@
 
 Contentblock schema
 -------------
+* Use isAnyOf for the different block types
 * Mark read-only (set by server) attributes as such
 
 
