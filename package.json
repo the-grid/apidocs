@@ -1,6 +1,6 @@
 {
   "name": "thegrid-apidocs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "API documentation for The Grid",
   "repository": {
     "type": "git",
@@ -13,6 +13,7 @@
   },
   "main": "index.coffee",
   "files": [
+    "index.coffee",
     "schemata",
     "examples"
   ],
