@@ -50,8 +50,8 @@ module.exports = ->
         message: 'Updating'
         repo: repo
         user:
-          name: 'NoFlo bot'
-          email: 'bot@noflo.org'
+          name: 'Grid bot'
+          email: 'bot@thegrid.io'
         silent: true
       src: '**/*'
 
