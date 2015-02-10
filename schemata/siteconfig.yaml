@@ -12,6 +12,7 @@ properties:
     type: string
     description: Layout filter selected for the site
     example: A1
+    default: A1
   favicon:
     type: string
     description: Favicon URL
