@@ -72,5 +72,32 @@ properties:
     uniqueItems: true
     items:
       "$ref": "collection.json"
+  color:
+    type: object
+    properties:
+      brandColors:
+        type: array
+        default: []
+        items:
+          "$ref": "base.json#/definitions/rgbcolor"
+      brandStrength:
+        type: number
+        default: 0.0
+      lightness:
+        type: number
+        default: 0.5
+      saturation:
+        type: number
+        default: 0.5
+  layout:
+    spectrum:
+      type: number
+      description: ""
+      default: 0.5
+  typography:
+    spectrum:
+      type: number
+      description: ""
+      default: 0.5
 
 required: [name]

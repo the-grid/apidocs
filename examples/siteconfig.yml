@@ -50,3 +50,25 @@
   _name: 'missing-name'
   _data:
     style: 'A1'
+-
+  _valid: true
+  _name: 'strong-brand-colors'
+  _data:
+    name: 'GSS site'
+    color:
+        brandColors: [ "#FFFC4F", "#3AFFD6" ]
+        brandStrength: 0.9
+-
+  _valid: true
+  _name: 'typography-layout-spectrums'
+  _data:
+    name: 'GSS site'
+    typography: 0.9
+    layout: 0.1
+-
+  _valid: false
+  _name: 'invalid-brand-color'
+  _data:
+    name: 'GSS site'
+    color:
+        brandColors: [ "#ÆÆÆC44" ]
