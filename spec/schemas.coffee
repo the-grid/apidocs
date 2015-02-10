@@ -20,6 +20,7 @@ describe 'Schemas', ->
       try
         cases = lib.getExamples schemaName
       catch e
+        it.skip "does not have examples"
         return
 
       cases.forEach (testcase) ->
