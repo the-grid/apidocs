@@ -103,19 +103,27 @@
           "default": [],
           "items": {
             "$ref": "base.json#/definitions/rgbcolor"
-          }
+          },
+          "description": "The user-selected brand colors for the site"
         },
         "brandStrength": {
           "type": "number",
-          "default": 0
+          "default": 0,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "How strongly to tend towards brandColors, as opposed to content colors (adaptive)"
         },
         "lightness": {
           "type": "number",
-          "default": 0.5
+          "default": 0.5,
+          "minimum": 0,
+          "maximum": 1
         },
         "saturation": {
           "type": "number",
-          "default": 0.5
+          "default": 0.5,
+          "minimum": 0,
+          "maximum": 1
         }
       }
     },
@@ -123,14 +131,18 @@
       "spectrum": {
         "type": "number",
         "description": "",
-        "default": 0.5
+        "default": 0.5,
+        "minimum": 0,
+        "maximum": 1
       }
     },
     "typography": {
       "spectrum": {
         "type": "number",
         "description": "",
-        "default": 0.5
+        "default": 0.5,
+        "minimum": 0,
+        "maximum": 1
       }
     }
   },
