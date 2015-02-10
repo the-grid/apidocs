@@ -1,0 +1,26 @@
+# Examples of page configs
+-
+  _valid: true
+  _name: 'new-site-no-items'
+  _data:
+    path: "index.html"
+    ordered: false
+    items: []
+    site: "the-domains/ron-conway-alpha-content"
+    title: "Ron Conways blog"
+-
+  _valid: false
+  _name: 'missing-path'
+  _data:
+    ordered: false
+    items: []
+    site: "the-domains/ron-conway-alpha-content"
+    title: "Ron Conways blog"
+-
+  _valid: false
+  _name: 'missing-site'
+  _data:
+    path: "index.html"
+    ordered: false
+    items: []
+    title: "Ron Conways blog"

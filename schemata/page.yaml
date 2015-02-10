@@ -1,0 +1,30 @@
+---
+id: page.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Page
+description: "A page of content"
+type:
+- object
+properties:
+  site:
+    type: string
+    description: Site this page belongs to
+    example: "the-domains/the-grid"
+  path:
+    type: string
+    example: "index.html"
+  title:
+    type: string
+    example: "Home"
+  ordered:
+    type: boolean
+    description: If content is ordered or not
+    example: false
+  items:
+    description: Content items in the page
+    type: array
+    minItems: 0
+    uniqueItems: true
+    items:
+      "$ref": "item.json"
+required: [site, path, items]
