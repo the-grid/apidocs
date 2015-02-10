@@ -20,13 +20,13 @@
 					<li class="dropdown">
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Sections <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#content-collection-configuration">Content collection configuration</a></li>
 							<li><a href="#base-definitions-for-grid-content-types">Base definitions for Grid content types</a></li>
+							<li><a href="#content-collection-configuration">Content collection configuration</a></li>
+							<li><a href="#content-block">Content block</a></li>
 							<li><a href="#content-item">Content item</a></li>
 							<li><a href="#the-grid-metadata-definition">The Grid metadata definition</a></li>
 							<li><a href="#page">Page</a></li>
 							<li><a href="#site-config">Site config</a></li>
-							<li><a href="#content-block">Content block</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -49,6 +49,15 @@
 			<nav>
 				<div class="panel panel-default">
 					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#base-definitions-for-grid-content-types">Base definitions for Grid content types</a></h4>
+					</div>
+					<div class="panel-body api-nav">
+						<ul class="nav nav-pills nav-stacked">
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
 						<h4 class="panel-title"><a href="#content-collection-configuration">Content collection configuration</a></h4>
 					</div>
 					<div class="panel-body api-nav">
@@ -58,7 +67,7 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#base-definitions-for-grid-content-types">Base definitions for Grid content types</a></h4>
+						<h4 class="panel-title"><a href="#content-block">Content block</a></h4>
 					</div>
 					<div class="panel-body api-nav">
 						<ul class="nav nav-pills nav-stacked">
@@ -105,19 +114,34 @@
 						</ul>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#content-block">Content block</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-						</ul>
-					</div>
-				</div>
 			</nav>
 		</div>
 
 		<div class="col-lg-9">
+			<article id="base-definitions-for-grid-content-types" class="row">
+				<header class="col-lg-12">
+					<h2>Base definitions for Grid content types</h2>
+					<p class="lead"></p>
+				</header>
+
+				<section id="base-definitions-for-grid-content-types-properties" class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">base-definitions-for-grid-content-types: definition</h3>
+						</div>
+						<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+					</div>
+				</section>
+			</article>
 			<article id="content-collection-configuration" class="row">
 				<header class="col-lg-12">
 					<h2>Content collection configuration</h2>
@@ -209,16 +233,16 @@
 					</div>
 				</section>
 			</article>
-			<article id="base-definitions-for-grid-content-types" class="row">
+			<article id="content-block" class="row">
 				<header class="col-lg-12">
-					<h2>Base definitions for Grid content types</h2>
+					<h2>Content block</h2>
 					<p class="lead"></p>
 				</header>
 
-				<section id="base-definitions-for-grid-content-types-properties" class="col-lg-12">
+				<section id="content-block-properties" class="col-lg-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">base-definitions-for-grid-content-types: definition</h3>
+							<h3 class="panel-title">content-block: definition</h3>
 						</div>
 						<table class="table table-striped">
 	<thead>
@@ -227,6 +251,239 @@
 		<th>Description</th>
 	</thead>
 	<tbody>
+		<tr>
+			<td><strong>id</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Unique identifier
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>item</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Unique identifier
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>type</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Block type
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>html</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					HTML content of the block
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>metadata</strong></td>
+			<td>object</td>
+			<td>
+				<p>
+					
+					
+					
+				</p>
+
+					<table class="table table-striped">
+						<thead>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Description</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>@type</strong></td>
+								<td>string</td>
+								<td>
+									<p>
+										Schema.org type the item or block represents
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong>isBasedOnUrl</strong></td>
+								<td>string</td>
+								<td>
+									<p>
+										Source URL for the item or block
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong>inLanguage</strong></td>
+								<td>string</td>
+								<td>
+									<p>
+										Content language
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>boolean</td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong>keywords</strong></td>
+								<td>array</td>
+								<td>
+									<p>
+										Tags describing the content
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong>publisher</strong></td>
+								<td>object</td>
+								<td>
+									<p>
+										Original publisher of the item or block
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong>authors</strong></td>
+								<td>array</td>
+								<td>
+									<p>
+										Authors of the item or block
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td></td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>created_at</strong></td>
+			<td>number</td>
+			<td>
+				<p>
+					
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>updated_at</strong></td>
+			<td>number,null</td>
+			<td>
+				<p>
+					
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>src</strong></td>
+			<td>string,null</td>
+			<td>
+				<p>
+					
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
 	</tbody>
 </table>
 
@@ -1391,263 +1648,6 @@
 		<tr>
 			<td><strong>typography</strong></td>
 			<td></td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="content-block" class="row">
-				<header class="col-lg-12">
-					<h2>Content block</h2>
-					<p class="lead"></p>
-				</header>
-
-				<section id="content-block-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">content-block: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>id</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>item</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>type</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Block type
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>html</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					HTML content of the block
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>metadata</strong></td>
-			<td>object</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-					<table class="table table-striped">
-						<thead>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Description</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td><strong>@type</strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										Schema.org type the item or block represents
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>isBasedOnUrl</strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										Source URL for the item or block
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>inLanguage</strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										Content language
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td>boolean</td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>keywords</strong></td>
-								<td>array</td>
-								<td>
-									<p>
-										Tags describing the content
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>publisher</strong></td>
-								<td>object</td>
-								<td>
-									<p>
-										Original publisher of the item or block
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>authors</strong></td>
-								<td>array</td>
-								<td>
-									<p>
-										Authors of the item or block
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td></td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>created_at</strong></td>
-			<td>number</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>updated_at</strong></td>
-			<td>number,null</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>src</strong></td>
-			<td>string,null</td>
 			<td>
 				<p>
 					
