@@ -24,3 +24,37 @@
     ordered: false
     items: []
     title: "Ron Conways blog"
+-
+  _valid: true
+  _name: 'one-item-one-block'
+  _data:
+    path: "index.html"
+    ordered: false
+    site: "the-domains/ron-conway-alpha-content"
+    title: "Wilmer Valderrama on the importance of immigration reform"
+    items: [
+        {
+            "metadata": {
+                "description": "",
+                "isBasedOnUrl": "http://upload.wikimedia.org/wikipedia/commons/e/ec/Ron_Conway_1.jpg",
+                "starred": true,
+                "path": "_posts/2014-07-23-fac01121-4623-4b97-a45b-2babb08f8bb0.md",
+                "@context": "http://schema.org",
+                "@type": "Article"
+            },
+            "id": "6eacc775-5edb-4220-8e6d-a6111624d547",
+            "content": [
+                {
+                    "id": "6eacc775-5edb-4220-8e6d-a6111624d546",
+                    "item": "4eacc775-5edb-4220-8e6d-a6111624d546",
+                    "type": "image",
+                    "src": "http://upload.wikimedia.org/wikipedia/commons/e/ec/Ron_Conway_1.jpg",
+                    "html": "<img src=\"http://upload.wikimedia.org/wikipedia/commons/e/ec/Ron_Conway_1.jpg\" alt=\"\">",
+                    "orientation": "landscape",
+                    "ratio": "3484:2343",
+                    "width": 3484,
+                    "height": 2343
+                }
+            ]
+        }
+      ]
