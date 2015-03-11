@@ -1,0 +1,48 @@
+-
+  _valid: true
+  _name: 'valid-headline'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "headline"
+    html: "<h1>AI Websites That Design Themselves</h1>"
+    text: "AI Websites That Design Themselves"
+    length: 34
+-
+  _valid: false
+  _name: 'missing-text'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "headline"
+    html: "<h1>AI Websites That Design Themselves</h1>"
+    length: 34
+-
+  _valid: false
+  _name: 'text-with-wrong-type'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "headline"
+    text: 42
+    html: "<h1>AI Websites That Design Themselves</h1>"
+    length: 34
+-
+  _valid: false
+  _name: 'missing-length'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "headline"
+    text: "AI Websites That Design Themselves"
+    html: "<h1>AI Websites That Design Themselves</h1>"
+-
+  _valid: false
+  _name: 'length-with-wrong-type'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "headline"
+    html: "<h1>AI Websites That Design Themselves</h1>"
+    text: "AI Websites That Design Themselves"
+    length: "34"

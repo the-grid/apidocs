@@ -1,0 +1,24 @@
+---
+id: video.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Video
+type:
+- object
+properties: 
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    "$ref": "contentblock.json#/definitions/type"
+  html: 
+    "$ref": "contentblock.json#/definitions/html"
+  video: 
+    type: object
+    properties: 
+      src: 
+        type: string
+  src: 
+    type: string
+  cover: 
+    "$ref": "image.json#/definitions/cover"
+
+required: [id, type, html, video, src, cover]

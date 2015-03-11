@@ -1,0 +1,29 @@
+---
+id: cta.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Call to action
+type:
+- object
+properties: 
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    "$ref": "contentblock.json#/definitions/type"
+  uuid: 
+    "$ref": "base.json#/definitions/uuid"
+  verb:
+    example: "purchase"
+    type: string
+  price: 
+    example: "96"
+    type: string
+  html:
+    "$ref": "contentblock.json#/definitions/html"
+  text:
+    example: "Buy now"
+    type: string
+  length:
+    example: 7
+    type: integer
+
+required: [id, type, uuid, verb, price, html]

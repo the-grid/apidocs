@@ -1,0 +1,44 @@
+-
+  _valid: true
+  _name: 'image-d4-withface'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "image"
+    src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
+    html: "<img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\">"
+    metadata:
+      title: "Dan Tocchini"
+      tags: [ "team" ]
+      description: "The Team"
+      "@context": "http://schema.org"
+      "@type": "Person"
+      author: []
+      caption: "Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more."
+      jobTitle: "Founder and CEO"
+      starred: true
+    score: 2
+    created_at: 1412744992396
+    updated_at: 1412745215712
+    title: "Dan Tocchini"
+    caption: "Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more."
+    cover:
+      orientation: "landscape"
+      src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
+      ratio: "217:216"
+      width: 217
+      height: 216
+      faces:
+        -
+          x: 50.61038563900384,
+          y: 70.03941296843249,
+          width: 63.029722675405246,
+          height: 63.029722675405246,
+          neighbors: 4,
+          confidence: 0.4109060300000006
+      colors:
+        - [ 213, 188, 135 ]
+        - [ 59, 50, 90 ]
+        - [ 139, 114, 114 ]
+        - [ 112, 104, 140 ]
+        - [ 148, 148, 164 ]

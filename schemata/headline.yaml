@@ -1,0 +1,23 @@
+---
+id: headline.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: HTML Headline
+type:
+- object
+properties:
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    "$ref": "contentblock.json#/definitions/type"
+  html:
+    "$ref": "contentblock.json#/definitions/html"
+  text:
+    description: Extracted text
+    example: "This is a headline"
+    type: string
+  length:
+    description: Length of extracted text
+    example: 18
+    type: integer
+
+required: [id, type, html, text, length]

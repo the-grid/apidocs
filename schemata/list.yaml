@@ -1,0 +1,18 @@
+---
+id: list.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: HTML list
+type:
+- object
+properties: 
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    "$ref": "contentblock.json#/definitions/type"
+  html:
+    "$ref": "contentblock.json#/definitions/html"
+  items: 
+    type: integer
+
+required: [id, type, html, items]
+
