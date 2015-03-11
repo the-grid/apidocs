@@ -3,21 +3,13 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "title": "Content block",
   "description": "",
-  "type": [
-    "object"
-  ],
-  "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
-    "item": {
-      "$ref": "base.json#/definitions/uuid"
-    },
+  "definitions": {
     "type": {
       "description": "Block type",
       "example": "text",
       "type": "string",
       "enum": [
+        "headline",
         "h1",
         "h2",
         "h3",
@@ -25,6 +17,7 @@
         "h5",
         "h6",
         "text",
+        "list",
         "code",
         "image",
         "video",
@@ -40,6 +33,23 @@
       "example": "<p>Hello, world!</p>",
       "type": "string",
       "minLength": 7
+    }
+  },
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "item": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "type": {
+      "$ref": "#/definitions/type"
+    },
+    "html": {
+      "$ref": "#/definitions/html"
     },
     "metadata": {
       "$ref": "metadata.json"
@@ -58,7 +68,15 @@
         "string",
         "null"
       ]
-    }
+    },
+    "anyOf": [
+      "headline",
+      "text",
+      "cta",
+      "image",
+      "video",
+      "list"
+    ]
   },
   "required": [
     "id",
