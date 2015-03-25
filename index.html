@@ -23,16 +23,11 @@
 							<li><a href="#base-definitions-for-grid-content-types">Base definitions for Grid content types</a></li>
 							<li><a href="#content-collection-configuration">Content collection configuration</a></li>
 							<li><a href="#content-block">Content block</a></li>
-							<li><a href="#call-to-action">Call to action</a></li>
-							<li><a href="#html-headline">HTML Headline</a></li>
-							<li><a href="#image">Image</a></li>
-							<li><a href="#content-item">Content item</a></li>
-							<li><a href="#html-list">HTML list</a></li>
 							<li><a href="#the-grid-metadata-definition">The Grid metadata definition</a></li>
 							<li><a href="#page">Page</a></li>
 							<li><a href="#site-config">Site config</a></li>
-							<li><a href="#text">Text</a></li>
-							<li><a href="#video">Video</a></li>
+							<li><a href="#user">User</a></li>
+							<li><a href="#content-item">Content item</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -82,55 +77,6 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#call-to-action">Call to action</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-						</ul>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#html-headline">HTML Headline</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-						</ul>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#image">Image</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-						</ul>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#content-item">Content item</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#content-item-create-an-item">Create an item</a></li>
-							<li><a href="#content-item-all-items-for-the-user">All items for the user</a></li>
-							<li><a href="#content-item-fetch-an-item">Fetch an item</a></li>
-							<li><a href="#content-item-update-an-item">Update an item</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#html-list">HTML list</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-						</ul>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
 						<h4 class="panel-title"><a href="#the-grid-metadata-definition">The Grid metadata definition</a></h4>
 					</div>
 					<div class="panel-body api-nav">
@@ -158,7 +104,7 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#text">Text</a></h4>
+						<h4 class="panel-title"><a href="#user">User</a></h4>
 					</div>
 					<div class="panel-body api-nav">
 						<ul class="nav nav-pills nav-stacked">
@@ -167,10 +113,14 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#video">Video</a></h4>
+						<h4 class="panel-title"><a href="#content-item">Content item</a></h4>
 					</div>
 					<div class="panel-body api-nav">
 						<ul class="nav nav-pills nav-stacked">
+							<li><a href="#content-item-create-an-item">Create an item</a></li>
+							<li><a href="#content-item-all-items-for-the-user">All items for the user</a></li>
+							<li><a href="#content-item-fetch-an-item">Fetch an item</a></li>
+							<li><a href="#content-item-update-an-item">Update an item</a></li>
 						</ul>
 					</div>
 				</div>
@@ -533,922 +483,6 @@
 		<tr>
 			<td><strong>src</strong></td>
 			<td>string,null</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>anyof</strong></td>
-			<td></td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="call-to-action" class="row">
-				<header class="col-lg-12">
-					<h2>Call to action</h2>
-					<p class="lead"></p>
-				</header>
-
-				<section id="call-to-action-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">call-to-action: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>id</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>type</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Block type
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>uuid</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>verb</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>price</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>html</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					HTML content of the block
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>text</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>length</strong></td>
-			<td>integer</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="html-headline" class="row">
-				<header class="col-lg-12">
-					<h2>HTML Headline</h2>
-					<p class="lead"></p>
-				</header>
-
-				<section id="html-headline-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">html-headline: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>id</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>type</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Block type
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>html</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					HTML content of the block
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>text</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Extracted text
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>length</strong></td>
-			<td>integer</td>
-			<td>
-				<p>
-					Length of extracted text
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="image" class="row">
-				<header class="col-lg-12">
-					<h2>Image</h2>
-					<p class="lead"></p>
-				</header>
-
-				<section id="image-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">image: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>id</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>type</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Block type
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>html</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					HTML content of the block
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>src</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>cover</strong></td>
-			<td></td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="content-item" class="row">
-				<header class="col-lg-12">
-					<h2>Content item</h2>
-					<p class="lead"></p>
-				</header>
-				<section id="content-item-create-an-item" class="col-lg-12">
-					<div class="panel panel-default">
-						<header class="panel-heading">
-							<h3 class="panel-title">Create an item</h3>
-							<p>Create an item with initial contents and metadata</p>
-						</header>
-						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">POST /item</span></div>
-					
-						<h4 class="panel-body"><em>Required</em> parameters</h4>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Name <small>/type</small></th>
-										<th>Description</th>
-										<th>Example</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><strong>content</strong><br /><small><em>array</em></small></td>
-										<td></td>
-										<td class="example-code"><small><code>[null]</code></small></td>
-									</tr>
-								</tbody>
-							</table>
-						<h4 class="panel-body"><em>Optional</em> parameters</h4>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Name <small>/type</small></th>
-										<th>Description</th>
-										<th>Example</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><strong>sites</strong><br /><small><em>array</em></small></td>
-										<td>The sites the item is published to or intended for</td>
-										<td class="example-code"><small><code>[&quot;the-domains/the-grid&quot;]</code></small></td>
-									</tr>
-									<tr>
-										<td><strong>metadata</strong><br /><small><em>object</em></small></td>
-										<td></td>
-										<td class="example-code"><small><code>{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}</code></small></td>
-									</tr>
-								</tbody>
-							</table>
-					
-						<h5 class="panel-body">cURL <sup>example</sup></h5>
-						<pre class="language-bash">$ curl -X POST &quot;https://api.thegrid.io/item&quot;\
-							--data &#x27;{&quot;sites&quot;:[&quot;the-domains/the-grid&quot;],&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]},&quot;content&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;html&quot;:&quot;&lt;p&gt;Hello, world!&lt;/p&gt;&quot;,&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}}]}&#x27;</pre>
-					
-						<h5 class="panel-body">Response <sup>example</sup></h5>
-						<pre class="language-javascript">null</pre>
-					</div>
-				</section>
-				<section id="content-item-all-items-for-the-user" class="col-lg-12">
-					<div class="panel panel-default">
-						<header class="panel-heading">
-							<h3 class="panel-title">All items for the user</h3>
-							<p>Receive current list of items</p>
-						</header>
-						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">GET /item</span></div>
-					
-						<h4 class="panel-body"><em>Optional</em> parameters</h4>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Name <small>/type</small></th>
-										<th>Description</th>
-										<th>Example</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><strong>published</strong><br /><small><em>string</em></small></td>
-										<td>Filtering the items by publishing status</td>
-										<td class="example-code"><small><code></code></small></td>
-									</tr>
-								</tbody>
-							</table>
-					
-						<h5 class="panel-body">cURL <sup>example</sup></h5>
-						<pre class="language-bash">$ curl -X GET &quot;https://api.thegrid.io/item?published=undefined&quot;\
-							</pre>
-					
-						<h5 class="panel-body">Response <sup>example</sup></h5>
-						<pre class="language-javascript">{}</pre>
-					</div>
-				</section>
-				<section id="content-item-fetch-an-item" class="col-lg-12">
-					<div class="panel panel-default">
-						<header class="panel-heading">
-							<h3 class="panel-title">Fetch an item</h3>
-							<p>Receive current contents of an item</p>
-						</header>
-						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">GET /item/:id</span></div>
-					
-					
-						<h5 class="panel-body">cURL <sup>example</sup></h5>
-						<pre class="language-bash">$ curl -X GET &quot;https://api.thegrid.io/item/01234567-89ab-cdef-0123-456789abcdef&quot;\
-							</pre>
-					
-						<h5 class="panel-body">Response <sup>example</sup></h5>
-						<pre class="language-javascript">{
-					  "id": "01234567-89ab-cdef-0123-456789abcdef",
-					  "sites": [
-					    "the-domains/the-grid"
-					  ],
-					  "score": 0,
-					  "metadata": {
-					    "@type": "Article",
-					    "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
-					    "inlanguage": "en",
-					    "starred": false,
-					    "keywords": [
-					      "design",
-					      "blogs"
-					    ],
-					    "publisher": {
-					      "name": "Fast Company",
-					      "domain": "www.fastcompany.com",
-					      "url": "http://www.fastcompany.com/",
-					      "favicon": "http://www.fastcompany.com/favicon.ico"
-					    },
-					    "authors": [
-					      {
-					        "name": "Henri Bergius",
-					        "url": "http://example.net/foo",
-					        "email": "bergie@iki.fi"
-					      }
-					    ]
-					  },
-					  "content": [
-					    {
-					      "id": "01234567-89ab-cdef-0123-456789abcdef",
-					      "item": "01234567-89ab-cdef-0123-456789abcdef",
-					      "type": "text",
-					      "html": "<p>Hello, world!</p>",
-					      "metadata": {
-					        "@type": "Article",
-					        "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
-					        "inlanguage": "en",
-					        "starred": false,
-					        "keywords": [
-					          "design",
-					          "blogs"
-					        ],
-					        "publisher": {
-					          "name": "Fast Company",
-					          "domain": "www.fastcompany.com",
-					          "url": "http://www.fastcompany.com/",
-					          "favicon": "http://www.fastcompany.com/favicon.ico"
-					        },
-					        "authors": [
-					          {
-					            "name": "Henri Bergius",
-					            "url": "http://example.net/foo",
-					            "email": "bergie@iki.fi"
-					          }
-					        ]
-					      }
-					    }
-					  ]
-					}</pre>
-					</div>
-				</section>
-				<section id="content-item-update-an-item" class="col-lg-12">
-					<div class="panel panel-default">
-						<header class="panel-heading">
-							<h3 class="panel-title">Update an item</h3>
-							<p>Update the contents of an item</p>
-						</header>
-						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">PUT /item/:id</span></div>
-					
-						<h4 class="panel-body"><em>Required</em> parameters</h4>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Name <small>/type</small></th>
-										<th>Description</th>
-										<th>Example</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><strong>content</strong><br /><small><em>array</em></small></td>
-										<td>Content blocks of the item</td>
-										<td class="example-code"><small><code>[null]</code></small></td>
-									</tr>
-								</tbody>
-							</table>
-						<h4 class="panel-body"><em>Optional</em> parameters</h4>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Name <small>/type</small></th>
-										<th>Description</th>
-										<th>Example</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><strong>sites</strong><br /><small><em>array</em></small></td>
-										<td>The sites the item is published to or intended for</td>
-										<td class="example-code"><small><code>[&quot;the-domains/the-grid&quot;]</code></small></td>
-									</tr>
-									<tr>
-										<td><strong>metadata</strong><br /><small><em>object</em></small></td>
-										<td></td>
-										<td class="example-code"><small><code>{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}</code></small></td>
-									</tr>
-								</tbody>
-							</table>
-					
-						<h5 class="panel-body">cURL <sup>example</sup></h5>
-						<pre class="language-bash">$ curl -X PUT &quot;https://api.thegrid.io/item/01234567-89ab-cdef-0123-456789abcdef&quot;\
-							--data &#x27;{&quot;sites&quot;:[&quot;the-domains/the-grid&quot;],&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]},&quot;content&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;html&quot;:&quot;&lt;p&gt;Hello, world!&lt;/p&gt;&quot;,&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}}]}&#x27;</pre>
-					
-						<h5 class="panel-body">Response <sup>example</sup></h5>
-						<pre class="language-javascript">{
-					  "id": "01234567-89ab-cdef-0123-456789abcdef",
-					  "sites": [
-					    "the-domains/the-grid"
-					  ],
-					  "score": 0,
-					  "metadata": {
-					    "@type": "Article",
-					    "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
-					    "inlanguage": "en",
-					    "starred": false,
-					    "keywords": [
-					      "design",
-					      "blogs"
-					    ],
-					    "publisher": {
-					      "name": "Fast Company",
-					      "domain": "www.fastcompany.com",
-					      "url": "http://www.fastcompany.com/",
-					      "favicon": "http://www.fastcompany.com/favicon.ico"
-					    },
-					    "authors": [
-					      {
-					        "name": "Henri Bergius",
-					        "url": "http://example.net/foo",
-					        "email": "bergie@iki.fi"
-					      }
-					    ]
-					  },
-					  "content": [
-					    {
-					      "id": "01234567-89ab-cdef-0123-456789abcdef",
-					      "item": "01234567-89ab-cdef-0123-456789abcdef",
-					      "type": "text",
-					      "html": "<p>Hello, world!</p>",
-					      "metadata": {
-					        "@type": "Article",
-					        "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
-					        "inlanguage": "en",
-					        "starred": false,
-					        "keywords": [
-					          "design",
-					          "blogs"
-					        ],
-					        "publisher": {
-					          "name": "Fast Company",
-					          "domain": "www.fastcompany.com",
-					          "url": "http://www.fastcompany.com/",
-					          "favicon": "http://www.fastcompany.com/favicon.ico"
-					        },
-					        "authors": [
-					          {
-					            "name": "Henri Bergius",
-					            "url": "http://example.net/foo",
-					            "email": "bergie@iki.fi"
-					          }
-					        ]
-					      }
-					    }
-					  ]
-					}</pre>
-					</div>
-				</section>
-
-				<section id="content-item-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">content-item: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>id</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>sites</strong></td>
-			<td>array</td>
-			<td>
-				<p>
-					The sites the item is published to or intended for
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>score</strong></td>
-			<td>number</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>metadata</strong></td>
-			<td>object</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-					<table class="table table-striped">
-						<thead>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Description</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td><strong>@type</strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										Schema.org type the item or block represents
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>isBasedOnUrl</strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										Source URL for the item or block
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>inLanguage</strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										Content language
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td>boolean</td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>keywords</strong></td>
-								<td>array</td>
-								<td>
-									<p>
-										Tags describing the content
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>publisher</strong></td>
-								<td>object</td>
-								<td>
-									<p>
-										Original publisher of the item or block
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong>authors</strong></td>
-								<td>array</td>
-								<td>
-									<p>
-										Authors of the item or block
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td></td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>content</strong></td>
-			<td>array</td>
-			<td>
-				<p>
-					Content blocks of the item
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="html-list" class="row">
-				<header class="col-lg-12">
-					<h2>HTML list</h2>
-					<p class="lead"></p>
-				</header>
-
-				<section id="html-list-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">html-list: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>id</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Unique identifier
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>type</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Block type
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>html</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					HTML content of the block
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>items</strong></td>
-			<td>integer</td>
 			<td>
 				<p>
 					
@@ -2143,16 +1177,16 @@
 					</div>
 				</section>
 			</article>
-			<article id="text" class="row">
+			<article id="user" class="row">
 				<header class="col-lg-12">
-					<h2>Text</h2>
-					<p class="lead"></p>
+					<h2>User</h2>
+					<p class="lead">User profile</p>
 				</header>
 
-				<section id="text-properties" class="col-lg-12">
+				<section id="user-properties" class="col-lg-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">text: definition</h3>
+							<h3 class="panel-title">user: definition</h3>
 						</div>
 						<table class="table table-striped">
 	<thead>
@@ -2162,7 +1196,7 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><strong>id</strong></td>
+			<td><strong>uuid</strong></td>
 			<td>string</td>
 			<td>
 				<p>
@@ -2176,11 +1210,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><strong>type</strong></td>
+			<td><strong>email</strong></td>
 			<td>string</td>
 			<td>
 				<p>
-					Block type
+					
 					
 					
 				</p>
@@ -2190,11 +1224,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><strong>html</strong></td>
+			<td><strong>name</strong></td>
 			<td>string</td>
 			<td>
 				<p>
-					HTML content of the block
+					
 					
 					
 				</p>
@@ -2204,25 +1238,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><strong>text</strong></td>
+			<td><strong>avatar</strong></td>
 			<td>string</td>
 			<td>
 				<p>
-					Extracted text
 					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>length</strong></td>
-			<td>integer</td>
-			<td>
-				<p>
-					Length of extracted text
 					
 					
 				</p>
@@ -2237,16 +1257,299 @@
 					</div>
 				</section>
 			</article>
-			<article id="video" class="row">
+			<article id="content-item" class="row">
 				<header class="col-lg-12">
-					<h2>Video</h2>
+					<h2>Content item</h2>
 					<p class="lead"></p>
 				</header>
+				<section id="content-item-create-an-item" class="col-lg-12">
+					<div class="panel panel-default">
+						<header class="panel-heading">
+							<h3 class="panel-title">Create an item</h3>
+							<p>Create an item with initial contents and metadata</p>
+						</header>
+						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">POST /item</span></div>
+					
+						<h4 class="panel-body"><em>Required</em> parameters</h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name <small>/type</small></th>
+										<th>Description</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>content</strong><br /><small><em>array</em></small></td>
+										<td></td>
+										<td class="example-code"><small><code>[null]</code></small></td>
+									</tr>
+								</tbody>
+							</table>
+						<h4 class="panel-body"><em>Optional</em> parameters</h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name <small>/type</small></th>
+										<th>Description</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>sites</strong><br /><small><em>array</em></small></td>
+										<td>The sites the item is published to or intended for</td>
+										<td class="example-code"><small><code>[&quot;the-domains/the-grid&quot;]</code></small></td>
+									</tr>
+									<tr>
+										<td><strong>metadata</strong><br /><small><em>object</em></small></td>
+										<td></td>
+										<td class="example-code"><small><code>{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}</code></small></td>
+									</tr>
+								</tbody>
+							</table>
+					
+						<h5 class="panel-body">cURL <sup>example</sup></h5>
+						<pre class="language-bash">$ curl -X POST &quot;https://api.thegrid.io/item&quot;\
+							--data &#x27;{&quot;sites&quot;:[&quot;the-domains/the-grid&quot;],&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]},&quot;content&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;html&quot;:&quot;&lt;p&gt;Hello, world!&lt;/p&gt;&quot;,&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}}]}&#x27;</pre>
+					
+						<h5 class="panel-body">Response <sup>example</sup></h5>
+						<pre class="language-javascript">null</pre>
+					</div>
+				</section>
+				<section id="content-item-all-items-for-the-user" class="col-lg-12">
+					<div class="panel panel-default">
+						<header class="panel-heading">
+							<h3 class="panel-title">All items for the user</h3>
+							<p>Receive current list of items</p>
+						</header>
+						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">GET /item</span></div>
+					
+						<h4 class="panel-body"><em>Optional</em> parameters</h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name <small>/type</small></th>
+										<th>Description</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>published</strong><br /><small><em>string</em></small></td>
+										<td>Filtering the items by publishing status</td>
+										<td class="example-code"><small><code></code></small></td>
+									</tr>
+								</tbody>
+							</table>
+					
+						<h5 class="panel-body">cURL <sup>example</sup></h5>
+						<pre class="language-bash">$ curl -X GET &quot;https://api.thegrid.io/item?published=undefined&quot;\
+							</pre>
+					
+						<h5 class="panel-body">Response <sup>example</sup></h5>
+						<pre class="language-javascript">{}</pre>
+					</div>
+				</section>
+				<section id="content-item-fetch-an-item" class="col-lg-12">
+					<div class="panel panel-default">
+						<header class="panel-heading">
+							<h3 class="panel-title">Fetch an item</h3>
+							<p>Receive current contents of an item</p>
+						</header>
+						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">GET /item/:id</span></div>
+					
+					
+						<h5 class="panel-body">cURL <sup>example</sup></h5>
+						<pre class="language-bash">$ curl -X GET &quot;https://api.thegrid.io/item/01234567-89ab-cdef-0123-456789abcdef&quot;\
+							</pre>
+					
+						<h5 class="panel-body">Response <sup>example</sup></h5>
+						<pre class="language-javascript">{
+					  "id": "01234567-89ab-cdef-0123-456789abcdef",
+					  "sites": [
+					    "the-domains/the-grid"
+					  ],
+					  "score": 0,
+					  "metadata": {
+					    "@type": "Article",
+					    "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
+					    "inlanguage": "en",
+					    "starred": false,
+					    "keywords": [
+					      "design",
+					      "blogs"
+					    ],
+					    "publisher": {
+					      "name": "Fast Company",
+					      "domain": "www.fastcompany.com",
+					      "url": "http://www.fastcompany.com/",
+					      "favicon": "http://www.fastcompany.com/favicon.ico"
+					    },
+					    "authors": [
+					      {
+					        "name": "Henri Bergius",
+					        "url": "http://example.net/foo",
+					        "email": "bergie@iki.fi"
+					      }
+					    ]
+					  },
+					  "content": [
+					    {
+					      "id": "01234567-89ab-cdef-0123-456789abcdef",
+					      "item": "01234567-89ab-cdef-0123-456789abcdef",
+					      "type": "text",
+					      "html": "<p>Hello, world!</p>",
+					      "metadata": {
+					        "@type": "Article",
+					        "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
+					        "inlanguage": "en",
+					        "starred": false,
+					        "keywords": [
+					          "design",
+					          "blogs"
+					        ],
+					        "publisher": {
+					          "name": "Fast Company",
+					          "domain": "www.fastcompany.com",
+					          "url": "http://www.fastcompany.com/",
+					          "favicon": "http://www.fastcompany.com/favicon.ico"
+					        },
+					        "authors": [
+					          {
+					            "name": "Henri Bergius",
+					            "url": "http://example.net/foo",
+					            "email": "bergie@iki.fi"
+					          }
+					        ]
+					      }
+					    }
+					  ]
+					}</pre>
+					</div>
+				</section>
+				<section id="content-item-update-an-item" class="col-lg-12">
+					<div class="panel panel-default">
+						<header class="panel-heading">
+							<h3 class="panel-title">Update an item</h3>
+							<p>Update the contents of an item</p>
+						</header>
+						<div class="navbar navbar-default navbar-static-top"><span class="navbar-text">PUT /item/:id</span></div>
+					
+						<h4 class="panel-body"><em>Required</em> parameters</h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name <small>/type</small></th>
+										<th>Description</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>content</strong><br /><small><em>array</em></small></td>
+										<td>Content blocks of the item</td>
+										<td class="example-code"><small><code>[null]</code></small></td>
+									</tr>
+								</tbody>
+							</table>
+						<h4 class="panel-body"><em>Optional</em> parameters</h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name <small>/type</small></th>
+										<th>Description</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>sites</strong><br /><small><em>array</em></small></td>
+										<td>The sites the item is published to or intended for</td>
+										<td class="example-code"><small><code>[&quot;the-domains/the-grid&quot;]</code></small></td>
+									</tr>
+									<tr>
+										<td><strong>metadata</strong><br /><small><em>object</em></small></td>
+										<td></td>
+										<td class="example-code"><small><code>{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}</code></small></td>
+									</tr>
+								</tbody>
+							</table>
+					
+						<h5 class="panel-body">cURL <sup>example</sup></h5>
+						<pre class="language-bash">$ curl -X PUT &quot;https://api.thegrid.io/item/01234567-89ab-cdef-0123-456789abcdef&quot;\
+							--data &#x27;{&quot;sites&quot;:[&quot;the-domains/the-grid&quot;],&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]},&quot;content&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;html&quot;:&quot;&lt;p&gt;Hello, world!&lt;/p&gt;&quot;,&quot;metadata&quot;:{&quot;@type&quot;:&quot;Article&quot;,&quot;isbasedonurl&quot;:&quot;http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop&quot;,&quot;inlanguage&quot;:&quot;en&quot;,&quot;starred&quot;:false,&quot;keywords&quot;:[&quot;design&quot;,&quot;blogs&quot;],&quot;publisher&quot;:{&quot;name&quot;:&quot;Fast Company&quot;,&quot;domain&quot;:&quot;www.fastcompany.com&quot;,&quot;url&quot;:&quot;http://www.fastcompany.com/&quot;,&quot;favicon&quot;:&quot;http://www.fastcompany.com/favicon.ico&quot;},&quot;authors&quot;:[{&quot;name&quot;:&quot;Henri Bergius&quot;,&quot;url&quot;:&quot;http://example.net/foo&quot;,&quot;email&quot;:&quot;bergie@iki.fi&quot;}]}}]}&#x27;</pre>
+					
+						<h5 class="panel-body">Response <sup>example</sup></h5>
+						<pre class="language-javascript">{
+					  "id": "01234567-89ab-cdef-0123-456789abcdef",
+					  "sites": [
+					    "the-domains/the-grid"
+					  ],
+					  "score": 0,
+					  "metadata": {
+					    "@type": "Article",
+					    "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
+					    "inlanguage": "en",
+					    "starred": false,
+					    "keywords": [
+					      "design",
+					      "blogs"
+					    ],
+					    "publisher": {
+					      "name": "Fast Company",
+					      "domain": "www.fastcompany.com",
+					      "url": "http://www.fastcompany.com/",
+					      "favicon": "http://www.fastcompany.com/favicon.ico"
+					    },
+					    "authors": [
+					      {
+					        "name": "Henri Bergius",
+					        "url": "http://example.net/foo",
+					        "email": "bergie@iki.fi"
+					      }
+					    ]
+					  },
+					  "content": [
+					    {
+					      "id": "01234567-89ab-cdef-0123-456789abcdef",
+					      "item": "01234567-89ab-cdef-0123-456789abcdef",
+					      "type": "text",
+					      "html": "<p>Hello, world!</p>",
+					      "metadata": {
+					        "@type": "Article",
+					        "isbasedonurl": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop",
+					        "inlanguage": "en",
+					        "starred": false,
+					        "keywords": [
+					          "design",
+					          "blogs"
+					        ],
+					        "publisher": {
+					          "name": "Fast Company",
+					          "domain": "www.fastcompany.com",
+					          "url": "http://www.fastcompany.com/",
+					          "favicon": "http://www.fastcompany.com/favicon.ico"
+					        },
+					        "authors": [
+					          {
+					            "name": "Henri Bergius",
+					            "url": "http://example.net/foo",
+					            "email": "bergie@iki.fi"
+					          }
+					        ]
+					      }
+					    }
+					  ]
+					}</pre>
+					</div>
+				</section>
 
-				<section id="video-properties" class="col-lg-12">
+				<section id="content-item-properties" class="col-lg-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">video: definition</h3>
+							<h3 class="panel-title">content-item: definition</h3>
 						</div>
 						<table class="table table-striped">
 	<thead>
@@ -2270,11 +1573,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><strong>type</strong></td>
-			<td>string</td>
+			<td><strong>sites</strong></td>
+			<td>array</td>
 			<td>
 				<p>
-					Block type
+					The sites the item is published to or intended for
 					
 					
 				</p>
@@ -2284,11 +1587,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><strong>html</strong></td>
-			<td>string</td>
+			<td><strong>score</strong></td>
+			<td>number</td>
 			<td>
 				<p>
-					HTML content of the block
+					
 					
 					
 				</p>
@@ -2298,7 +1601,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td><strong>video</strong></td>
+			<td><strong>metadata</strong></td>
 			<td>object</td>
 			<td>
 				<p>
@@ -2315,11 +1618,11 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><strong></strong></td>
+								<td><strong>@type</strong></td>
 								<td>string</td>
 								<td>
 									<p>
-										
+										Schema.org type the item or block represents
 										
 										
 									</p>
@@ -2328,49 +1631,12 @@
 					
 								</td>
 							</tr>
-						</tbody>
-					</table>
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>src</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>cover</strong></td>
-			<td>object</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-					<table class="table table-striped">
-						<thead>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Description</th>
-						</thead>
-						<tbody>
 							<tr>
-								<td><strong></strong></td>
+								<td><strong>isBasedOnUrl</strong></td>
 								<td>string</td>
 								<td>
 									<p>
-										
+										Source URL for the item or block
 										
 										
 									</p>
@@ -2380,11 +1646,11 @@
 								</td>
 							</tr>
 							<tr>
-								<td><strong></strong></td>
+								<td><strong>inLanguage</strong></td>
 								<td>string</td>
 								<td>
 									<p>
-										
+										Content language
 										
 										
 									</p>
@@ -2395,7 +1661,7 @@
 							</tr>
 							<tr>
 								<td><strong></strong></td>
-								<td>string</td>
+								<td>boolean</td>
 								<td>
 									<p>
 										
@@ -2408,81 +1674,11 @@
 								</td>
 							</tr>
 							<tr>
-								<td><strong></strong></td>
-								<td>string</td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td>number</td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td>integer</td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td>integer</td>
-								<td>
-									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
+								<td><strong>keywords</strong></td>
 								<td>array</td>
 								<td>
 									<p>
-										
-										
-										
-									</p>
-					
-					
-					
-								</td>
-							</tr>
-							<tr>
-								<td><strong></strong></td>
-								<td>array</td>
-								<td>
-									<p>
-										
+										Tags describing the content
 										
 										
 									</p>
@@ -2492,10 +1688,38 @@
 								</td>
 							</tr>
 							<tr>
-								<td><strong></strong></td>
+								<td><strong>publisher</strong></td>
 								<td>object</td>
 								<td>
 									<p>
+										Original publisher of the item or block
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong>authors</strong></td>
+								<td>array</td>
+								<td>
+									<p>
+										Authors of the item or block
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td></td>
+								<td>
+									<p>
 										
 										
 										
@@ -2507,6 +1731,20 @@
 							</tr>
 						</tbody>
 					</table>
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>content</strong></td>
+			<td>array</td>
+			<td>
+				<p>
+					Content blocks of the item
+					
+					
+				</p>
+
 
 
 			</td>
