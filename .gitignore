@@ -2,3 +2,4 @@ node_modules/
 schema/
 dist/
 gh-pages/
+/examples/*.json
