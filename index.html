@@ -150,6 +150,73 @@ a.list-group-item.heading:hover {
 <li><p><a href="api.html">Content Management</a></p></li>
 <li><p><a href="passport.html">User Management</a></p></li>
 </ul>
+<h2>Authentication</h2>
+<p>The Grid operates an OAuth2 provider that is utilized for all authentication purposes.</p>
+<h3>Identity Providers</h3>
+<p>The Grid’s authentication system supports multiple identity providers including:</p>
+<ul>
+<li><p>GitHub (github)</p></li>
+<li><p>Twitter (twitter)</p></li>
+</ul>
+<p>More identity providers are likely to be added later when they are needed. Check back to this document to see the current list.</p>
+<h3>Registering an application</h3>
+<p>The Grid authentication is always granted to the combination of a user and an application. To register an application, log into your The Grid account at <a href="https://passport.thegrid.io/account">https://passport.thegrid.io/account</a></p>
+<p>Go to the Developer Section of your profile page, and you’ll be able to add new OAuth2 client applications. You need the following information:</p>
+<ul>
+<li><p>Application name: name of the application shown to users in the confirmation page</p></li>
+<li><p>Callback URL: the URL in your application users should be redirected to once they complete their login</p></li>
+</ul>
+<p>Once you have registered an application you will get two values from the system:</p>
+<ul>
+<li><p>Application ID: Unique identifier for your application</p></li>
+<li><p>Application secret: Passphrase your application can use to convert authentication grants to tokens</p></li>
+</ul>
+<p><strong>Note:</strong> never let others see your client secret. Otherwise they will be able to impersonate your The Grid application!</p>
+<h3>The OAuth dance</h3>
+<p>When you want to authenticate a user with your The Grid application, you need to first send them to The Grid’s login system. For this you need to construct a login URL with the following parts:</p>
+<ul>
+<li><p>Protocol: https</p></li>
+<li><p>Host: passport.thegrid.io</p></li>
+<li><p>Path: <code>/login/authorize/&lt;identity provider (optional, otherwise will show UI to choose provider)&gt;</code></p></li>
+<li><p>Query:</p>
+<ul>
+<li><code>client_id</code>: the unique identifier of your application</li>
+<li><code>response_type</code>: code</li>
+<li><code>redirect_url</code>: your callback URL</li>
+</ul></li>
+</ul>
+<p>Example: <a href="https://passport.thegrid.io/login/authorize/github?client_id=XXXX&amp;response_type=code&amp;redirect_uri=http://my.app.url">https://passport.thegrid.io/login/authorize/github?client_id=XXXX&amp;response_type=code&amp;redirect_uri=http://my.app.url</a></p>
+<h4>Authentication scopes</h4>
+<p>The default authentication scope will grant you permissions to perform simple operations on behalf of the user. If needed, you can also request additional access to The Grid APIs via OAuth2 scopes. The scopes are added to the authentication request URL with the scope query key.</p>
+<p>The currently supported scopes include:</p>
+<ul>
+<li><p><code>github</code>: get access to the user’s GitHub access token, if any. This will allow you to use the GitHub API on behalf of the user</p></li>
+<li><p><code>github_private</code>: get access to the user’s GitHub access token authorized to access private repositories, if any. This will allow you to use the GitHub API on behalf of the user</p></li>
+<li><p><code>payment</code>: make a payment on behalf of the user</p></li>
+<li><p><code>reserve</code>: manage user’s information on the reserve, including creating CtAs, listing balance etc.</p></li>
+</ul>
+<h4>Getting a token</h4>
+<p>Once the user completes the authentication process and grants your application access to their account, they will be redirected to the redirect_url.</p>
+<p>The redirection will contain an additional query parameter code which contains a one-time access grant.</p>
+<p>To convert this access grant to an access token you have to make a HTTP POST request with the following URL:</p>
+<ul>
+<li><p>Protocol: https</p></li>
+<li><p>Host: passport.thegrid.io</p></li>
+<li><p>Path: /login/authorize/token</p></li>
+</ul>
+<p>The payload should be a URL-encoded string containing the following key-value pairs:</p>
+<ul>
+<li><p><code>client_id</code>: the unique identifier of your application</p></li>
+<li><p><code>client_secret</code>: your application’s passphrase</p></li>
+<li><p><code>code</code>: the access grant you received in the query parameter of your callback URL</p></li>
+<li><p><code>grant_type</code>: <code>authorization_code</code></p></li>
+</ul>
+<p>On a successful code conversion you will receive a JSON-encoded response with an object that will contain the user’s access token in the <code>access_token</code> key.</p>
+<h3>Making authenticated API requests</h3>
+<p>The Grid API calls require authentication unless stated otherwise. This is done using the user’s access token via HTTP Bearer Authentication. Bearer authentication works by adding the Authorization header to your HTTP requests with the value <code>Bearer &lt;access token&gt;</code>.</p>
+<p>For example:</p>
+<pre><code>req.setRequestHeader(<span class="hljs-string">'Authorization'</span>, <span class="hljs-string">'Bearer '</span> + token);
+</code></pre>
 </div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 25 Mar 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
 
 </div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
