@@ -54,6 +54,10 @@ module.exports = ->
         files: [
           src: ['CNAME'], dest: 'dist/'
         ]
+      favicon:
+        files: [
+          src: ['favicon.ico'], dest: 'dist/'
+        ]
 
     'gh-pages':
       options:
