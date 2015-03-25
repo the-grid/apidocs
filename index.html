@@ -26,6 +26,7 @@
 							<li><a href="#content-item">Content item</a></li>
 							<li><a href="#the-grid-metadata-definition">The Grid metadata definition</a></li>
 							<li><a href="#page">Page</a></li>
+							<li><a href="#site">Site</a></li>
 							<li><a href="#site-config">Site config</a></li>
 							<li><a href="#user">User</a></li>
 						</ul>
@@ -100,6 +101,15 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title"><a href="#page">Page</a></h4>
+					</div>
+					<div class="panel-body api-nav">
+						<ul class="nav nav-pills nav-stacked">
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#site">Site</a></h4>
 					</div>
 					<div class="panel-body api-nav">
 						<ul class="nav nav-pills nav-stacked">
@@ -1279,6 +1289,291 @@
 			<td>
 				<p>
 					Content items in the page
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+					</div>
+				</section>
+			</article>
+			<article id="site" class="row">
+				<header class="col-lg-12">
+					<h2>Site</h2>
+					<p class="lead">Grid site</p>
+				</header>
+
+				<section id="site-properties" class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">site: definition</h3>
+						</div>
+						<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>id</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Unique identifier
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>name</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					User-readable name of the website
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>repo</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					GitHub repository path for website sources
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>domain</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Custom domain for the website, if any
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>path</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Subdirectory path for the website, if any
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>config</strong></td>
+			<td>object</td>
+			<td>
+				<p>
+					Configuration of a single site
+					
+					
+				</p>
+
+					<table class="table table-striped">
+						<thead>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Description</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong></strong></td>
+								<td>string</td>
+								<td>
+									<p>
+										Website name
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>string</td>
+								<td>
+									<p>
+										Layout filter selected for the site
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>string</td>
+								<td>
+									<p>
+										Favicon URL
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>object</td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>object</td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>object</td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>array</td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td>object</td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td></td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+							<tr>
+								<td><strong></strong></td>
+								<td></td>
+								<td>
+									<p>
+										
+										
+										
+									</p>
+					
+					
+					
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>owner</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Unique identifier
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>favlogo</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					URL of the website favlogo
 					
 					
 				</p>
