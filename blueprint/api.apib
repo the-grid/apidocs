@@ -54,7 +54,7 @@ HOST: https://api.thegrid.io/
 ## User website [/site/{id}]
 
 + Parameters
-  + id (required, string) - User UUID
+  + id (required, string) - Site UUID
 
 ### Get website details [GET]
 
@@ -167,3 +167,72 @@ There are typically three different things you can be sharing:
   Not allowed to share to the specified website
 
   + Body
+
+## Items list [/item]
+
+### Retrieve user's content items [GET]
+
+When an item is being worked on by a user it is available via the API.
+
++ Response 200 (application/json)
+
+### Create an item [POST]
+
++ Response 201
+
+  + Headers
+
+            Location: /item/b8838e11-1d97-4799-85d8-1aafec52e927
+
++ Response 422
+
+  Missing item information
+
+  + Body
+
+## Item [/item/{id}]
+
++ Parameters
+  + id (required, string) - Site UUID
+
+### Retrieve an item [GET]
+
++ Response 200 (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/item.json) -->
+      ```
+
++ Response 404
+
+### Update item [PUT]
+
++ Response 200 (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/item.json) -->
+      ```
+
++ Response 422
+
+  Missing item information
+
+  + Body
+
+### Update item metadata [PATCH]
+
++ Response 204
+
++ Response 422
+
+  Missing item information
+
+  + Body
+
+### Remove item [DELETE]
+
++ Response 204
