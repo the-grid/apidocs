@@ -287,6 +287,8 @@ The notifications sent to clients use the following schema:
 <!-- include(schema/notification.json) -->
 ```
 
+When reacting to an action the client needs to make the request using the regular Bearer token.
+
 ## User clients [/client]
 
 ### List user's active client apps [GET]
@@ -332,3 +334,21 @@ The notifications sent to clients use the following schema:
 ### Remove a client app [DELETE]
 
 + Response 204
+
+## Notifications testing [/molly/repeat]
+
+### Send a test notification [POST]
+
+For development purposes, you can make Molly talk to you over the registered notification channels (like Google Cloud Messaging).
+
+A push message will be sent to the user's all registered clients.
+
++ Request (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/notification.json) -->
+      ```
+
++ Response 202
