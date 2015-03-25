@@ -50,6 +50,10 @@ module.exports = ->
         files: [
           expand: true, src: ['schema/*.json'], dest: 'dist/', filter: 'isFile'
         ]
+      cname:
+        files: [
+          src: ['CNAME'], dest: 'dist/'
+        ]
 
     'gh-pages':
       options:
