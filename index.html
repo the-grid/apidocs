@@ -24,9 +24,10 @@
 							<li><a href="#content-collection-configuration">Content collection configuration</a></li>
 							<li><a href="#content-block">Content block</a></li>
 							<li><a href="#content-item">Content item</a></li>
-							<li><a href="#the-grid-metadata-definition">The Grid metadata definition</a></li>
 							<li><a href="#page">Page</a></li>
+							<li><a href="#the-grid-metadata-definition">The Grid metadata definition</a></li>
 							<li><a href="#site">Site</a></li>
+							<li><a href="#share">Share</a></li>
 							<li><a href="#site-config">Site config</a></li>
 							<li><a href="#user">User</a></li>
 						</ul>
@@ -91,15 +92,6 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title"><a href="#the-grid-metadata-definition">The Grid metadata definition</a></h4>
-					</div>
-					<div class="panel-body api-nav">
-						<ul class="nav nav-pills nav-stacked">
-						</ul>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
 						<h4 class="panel-title"><a href="#page">Page</a></h4>
 					</div>
 					<div class="panel-body api-nav">
@@ -109,7 +101,25 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#the-grid-metadata-definition">The Grid metadata definition</a></h4>
+					</div>
+					<div class="panel-body api-nav">
+						<ul class="nav nav-pills nav-stacked">
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
 						<h4 class="panel-title"><a href="#site">Site</a></h4>
+					</div>
+					<div class="panel-body api-nav">
+						<ul class="nav nav-pills nav-stacked">
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a href="#share">Share</a></h4>
 					</div>
 					<div class="panel-body api-nav">
 						<ul class="nav nav-pills nav-stacked">
@@ -552,7 +562,7 @@
 								<tbody>
 									<tr>
 										<td><strong>sites</strong><br /><small><em>array</em></small></td>
-										<td>The sites the item is published to or intended for</td>
+										<td>Collection of websites associated with the resource</td>
 										<td class="example-code"><small><code>[&quot;the-domains/the-grid&quot;]</code></small></td>
 									</tr>
 									<tr>
@@ -719,7 +729,7 @@
 								<tbody>
 									<tr>
 										<td><strong>sites</strong><br /><small><em>array</em></small></td>
-										<td>The sites the item is published to or intended for</td>
+										<td>Collection of websites associated with the resource</td>
 										<td class="example-code"><small><code>[&quot;the-domains/the-grid&quot;]</code></small></td>
 									</tr>
 									<tr>
@@ -830,7 +840,7 @@
 			<td>array</td>
 			<td>
 				<p>
-					The sites the item is published to or intended for
+					Collection of websites associated with the resource
 					
 					
 				</p>
@@ -994,6 +1004,100 @@
 			<td>
 				<p>
 					Content blocks of the item
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+					</div>
+				</section>
+			</article>
+			<article id="page" class="row">
+				<header class="col-lg-12">
+					<h2>Page</h2>
+					<p class="lead">A page of content</p>
+				</header>
+
+				<section id="page-properties" class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">page: definition</h3>
+						</div>
+						<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>site</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					Site this page belongs to
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>path</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>title</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>ordered</strong></td>
+			<td>boolean</td>
+			<td>
+				<p>
+					If content is ordered or not
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>items</strong></td>
+			<td>array</td>
+			<td>
+				<p>
+					Content items in the page
 					
 					
 				</p>
@@ -1195,100 +1299,6 @@
 			<td>
 				<p>
 					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-					</div>
-				</section>
-			</article>
-			<article id="page" class="row">
-				<header class="col-lg-12">
-					<h2>Page</h2>
-					<p class="lead">A page of content</p>
-				</header>
-
-				<section id="page-properties" class="col-lg-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">page: definition</h3>
-						</div>
-						<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>site</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					Site this page belongs to
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>path</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>title</strong></td>
-			<td>string</td>
-			<td>
-				<p>
-					
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>ordered</strong></td>
-			<td>boolean</td>
-			<td>
-				<p>
-					If content is ordered or not
-					
-					
-				</p>
-
-
-
-			</td>
-		</tr>
-		<tr>
-			<td><strong>items</strong></td>
-			<td>array</td>
-			<td>
-				<p>
-					Content items in the page
 					
 					
 				</p>
@@ -1574,6 +1584,86 @@
 			<td>
 				<p>
 					URL of the website favlogo
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+					</div>
+				</section>
+			</article>
+			<article id="share" class="row">
+				<header class="col-lg-12">
+					<h2>Share</h2>
+					<p class="lead">Content sharing payload</p>
+				</header>
+
+				<section id="share-properties" class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">share: definition</h3>
+						</div>
+						<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>url</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					URL of the shared resource
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>content</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					HTML or Markdown payload
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>type</strong></td>
+			<td>string</td>
+			<td>
+				<p>
+					MIME type for the content
+					
+					
+				</p>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td><strong>sites</strong></td>
+			<td>array</td>
+			<td>
+				<p>
+					Collection of websites associated with the resource
 					
 					
 				</p>

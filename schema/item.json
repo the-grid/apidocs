@@ -11,15 +11,7 @@
       "$ref": "base.json#/definitions/uuid"
     },
     "sites": {
-      "type": "array",
-      "description": "The sites the item is published to or intended for",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true,
-      "example": [
-        "the-domains/the-grid"
-      ]
+      "$ref": "base.json#/definitions/sites"
     },
     "score": {
       "type": "number",
