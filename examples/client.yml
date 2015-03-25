@@ -1,0 +1,18 @@
+-
+  _valid: true
+  _name: 'gcm'
+  _data:
+    client: cnhq98f3h92cg0c
+    type: gcm
+-
+  _valid: true
+  _name: 'apn'
+  _data:
+    client: jipcen3i2h3f0823h0f
+    type: apn
+-
+  _valid: false
+  _name: 'foo'
+  _data:
+    client: cnhq98f3h92cg0c
+    type: foo

@@ -1,0 +1,15 @@
+---
+id: client.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Client App
+description: ""
+type:
+- object
+properties:
+  client:
+    type: string
+    description: Client identifier for the messaging protocol
+  type:
+    type: string
+    description: Type of the client
+    enum: [gcm, apn]

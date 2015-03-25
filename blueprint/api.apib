@@ -276,3 +276,51 @@ When an item is being worked on by a user it is available via the API.
       ```
 
 + Response 202
+
+# Group Client Application
+
+## User clients [/client]
+
+### List user's active client apps [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/client-gcm.json) -->
+      <!-- include(examples/client-apn.json) -->
+      ]
+      ```
+
+### Register a new client app [POST]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/client-gcm.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/client.json) -->
+      ```
+
++ Response 201
+
+  + Headers
+
+            Location: /client/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
+## Client app [/client/{id}]
+
++ Parameters
+  + id (required, string) - Site UUID
+
+### Remove a client app [DELETE]
+
++ Response 204
