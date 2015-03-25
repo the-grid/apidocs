@@ -26,3 +26,9 @@
     name: "The Grid"
     repo: "the-domains/the-grid"
     owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+-
+  _valid: false
+  _name: 'without-owner'
+  _data:
+    name: "The Grid"
+    repo: "the-domains/the-grid"
