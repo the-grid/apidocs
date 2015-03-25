@@ -1,0 +1,52 @@
+---
+id: notification.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Client Notification
+description: ""
+type:
+- object
+properties:
+  type:
+    type: string
+    description: Message type
+    example: "sync"
+  text:
+    type: string
+    description: Message to show
+  title:
+    type: string
+    description: Title of the notificatio
+  url:
+    type: string
+    example: "https://thegrid.io"
+    description: The site or page which the notification refers to. Opening this URL should be the default action for the notification if it is provided
+  icon:
+    type: string
+    description: URL for icon to show in the notificatio
+  preview:
+    type: string
+    description: URL to a large icon, used for rich notifications on Android Wear and Chrome extension
+  actions:
+    type: array
+    description: List of possible Actions to take from the notification
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Text label for the action
+        icon:
+          type: string
+          description: URL to an icon for the action
+        path:
+          type: string
+          description: HTTP REST path that client should use when activating the action
+        method:
+          type: string
+          description: HTTP method to use for the call
+          enum: [POST, GET]
+        payload:
+          type: object
+          description: Object to pass as payload to when activating action
+      required: [label, icon, path, method]
+required: [title, text]
