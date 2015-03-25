@@ -27,6 +27,7 @@
     "chai": "^1.9.1",
     "coffeelint": "^1.8.1",
     "grunt": "^0.4.4",
+    "grunt-aglio": "^0.3.3",
     "grunt-coffeelint": "0.0.13",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-copy": "^0.7.0",
@@ -54,8 +55,17 @@
     ],
     "apiURL": "https://api.thegrid.io",
     "endpointOptions": {
-      "attributes": ["title", "description", "method"],
-      "attributeParameters": ["name", "type", "example", "description"],
+      "attributes": [
+        "title",
+        "description",
+        "method"
+      ],
+      "attributeParameters": [
+        "name",
+        "type",
+        "example",
+        "description"
+      ],
       "curlHeaders": {
         "Authorization": "Bearer INSERT_YOUR_TOKEN"
       }

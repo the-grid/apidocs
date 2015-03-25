@@ -1,0 +1,20 @@
+---
+id: user.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: User
+description: "User profile"
+type:
+- object
+properties:
+  uuid:
+    "$ref": "base.json#/definitions/uuid"
+  email:
+    type: string
+    example: user@domain.com
+  name:
+    type: string
+    example: "Example User"
+  avatar:
+    type: string
+    example: "http://example.net/user.png"
+required: [uuid, name]

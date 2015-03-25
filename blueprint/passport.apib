@@ -1,0 +1,49 @@
+FORMAT: 1A
+HOST: https://passport.thegrid.io/
+
+# The Grid Passport
+
+The Grid Passport is The Grid's account system that is responsible for access control and user account information.
+# User
+
+## User information [/api/user]
+
+### Get currently authenticated user [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      {
+        "uuid": "0d1fbca0-ee3c-4157-9881-b03db3e462b9",
+        "email": "user@domain.com",
+        "name": "Example User",
+        "avatar": "http://example.net/user.png"
+      }
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/user.json) -->
+      ```
+
+### Update user information [PUT]
+
+Update the current user's profile information, for example to add missing details. The request payload should be a JSON-encoded object containing the following keys:
+
++ email (required, string) - new email address for the user
++ name (string) - User's real name
+
++ Response 200 (application/json)
+
+  User information was successfully updated
+
+  + Body
+
++ Response 422
+
+  Missing details
+
+  + Body

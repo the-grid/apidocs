@@ -19,6 +19,14 @@ module.exports = ->
       schemas_to_html:
         command: './node_modules/json-schema-docs-generator/bin/generate.js'
 
+    aglio:
+      blueprint:
+        files:
+          'dist/passport.html': ['blueprint/passport.apib']
+          'dist/api.html': ['blueprint/api.apib']
+        options:
+          includePath: __dirname
+
     # Coding standards
     yamllint:
       schemas: ['schemata/*.yaml']
@@ -58,6 +66,7 @@ module.exports = ->
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-yaml'
   @loadNpmTasks 'grunt-exec'
+  @loadNpmTasks 'grunt-aglio'
   @loadNpmTasks 'grunt-contrib-copy'
 
   # Grunt plugins used for testing
@@ -74,6 +83,7 @@ module.exports = ->
     @file.mkdir 'dist'
     @task.run 'exec'
     @task.run 'copy'
+    @task.run 'aglio'
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>
     @task.run 'coffeelint'
