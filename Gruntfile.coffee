@@ -88,7 +88,6 @@ module.exports = ->
       basename = path.basename e, '.yml'
       for d in data
         continue unless d._name
-        continue unless d._valid
         filename = "examples/#{basename}-#{d._name}.json"
         @file.write filename, JSON.stringify d._data, null, 2
         @log.writeln "Created example file '#{filename}'"

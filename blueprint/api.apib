@@ -2,3 +2,88 @@ FORMAT: 1A
 HOST: https://api.thegrid.io/
 
 # The Grid API
+
+# Site
+
+## Site information [/site]
+
+### List user websites [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/site-minimal.json) -->
+      ]
+      ```
+
+### Create a website [POST]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/site-without-id.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/site.json) -->
+      ```
+
++ Response 201
+
+  Site was successfully created
+
+  + Headers
+
+            Location: /site/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
++ Response 422
+
+  Missing site information
+
+  + Body
+
+## User website [/site/{id}]
+
++ Parameters
+  + id (required, string) - User UUID
+
+### Get website details [GET]
+
++ Response 200 (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/site.json) -->
+      ```
+
+### Update website details [PUT]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/site-with-config.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/site.json) -->
+      ```
+
++ Response 200 (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/site.json) -->
+      ```

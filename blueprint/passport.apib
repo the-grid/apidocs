@@ -42,3 +42,82 @@ Update the current user's profile information, for example to add missing detail
   Missing details
 
   + Body
+
+## Information about other users [/api/user/{id}]
+
++ Parameters
+  + id (required, string) - User UUID
+
+### Get user information [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/user-without-email.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/user.json) -->
+      ```
+
+## User's public GitHub Token [/api/user/github]
+
+### Get GitHub token for the authenticated user [GET]
+
+This API call requires the `github` scope.
+
++ Response 403
+
+  Failed OAuth or missing `github` scope.
+
+  + Body
+
++ Response 404
+
+  No public GitHub token available
+
+  + Body
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      {
+        "username": "grid-bot",
+        "token": "nijcoqf3h3287f7g"
+      }
+      ```
+
+## User's private GitHub Token [/api/user/github_private]
+
+### Get GitHub token for the authenticated user [GET]
+
+This API call requires the `github` scope.
+
++ Response 403
+
+  Failed OAuth or missing `github` scope.
+
+  + Body
+
++ Response 404
+
+  No private GitHub token available
+
+  + Body
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      {
+        "username": "grid-bot",
+        "token": "nijcoqf3h3287f7g"
+      }
+      ```

@@ -1,0 +1,29 @@
+---
+id: "site.json"
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Site
+description: Grid site
+type: object
+properties:
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  name:
+    type: string
+    description: User-readable name of the website
+  repo:
+    type: string
+    description: GitHub repository path for website sources
+  domain:
+    type: string
+    description: Custom domain for the website, if any
+  path:
+    type: string
+    description: Subdirectory path for the website, if any
+  config:
+    "$ref": "siteconfig.json"
+  owner:
+    "$ref": "base.json#/definitions/uuid"
+  favlogo:
+    type: string
+    description: URL of the website favlogo
+required: [id, name, repo, owner]

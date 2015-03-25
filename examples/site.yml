@@ -1,0 +1,28 @@
+-
+  _valid: true
+  _name: 'minimal'
+  _data:
+    id: "059c8aa5-5fac-4bb7-b160-48689bc12a7c"
+    name: "The Grid"
+    repo: "the-domains/the-grid"
+    owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+-
+  _valid: true
+  _name: 'with-config'
+  _data:
+    id: "059c8aa5-5fac-4bb7-b160-48689bc12a7c"
+    name: "The Grid"
+    repo: "the-domains/the-grid"
+    config:
+      name: 'GSS site'
+      color:
+          brandColors: [ "#FFFC4F", "#3AFFD6" ]
+          brandStrength: 0.9
+    owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+-
+  _valid: false
+  _name: 'without-id'
+  _data:
+    name: "The Grid"
+    repo: "the-domains/the-grid"
+    owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
