@@ -1,0 +1,18 @@
+-
+  _valid: true
+  _name: 'with-sites'
+  _data:
+    item: "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
+    sites:
+    - "the-domains/example.net"
+-
+  _valid: true
+  _name: 'without-sites'
+  _data:
+    item: "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
+-
+  _valid: false
+  _name: 'without-item'
+  _data:
+    sites:
+    - "the-domains/example.net"

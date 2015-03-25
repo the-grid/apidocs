@@ -236,3 +236,43 @@ When an item is being worked on by a user it is available via the API.
 ### Remove item [DELETE]
 
 + Response 204
+
+## Publishing [/publish]
+
+### Publish an item to sites [POST]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/publish-with-sites.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/publish.json) -->
+      ```
+
++ Response 202
+
+## Unpublishing [/unpublish]
+
+### Unpublish an item from sites [POST]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/publish-with-sites.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/publish.json) -->
+      ```
+
++ Response 202

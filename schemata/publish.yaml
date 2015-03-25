@@ -1,0 +1,13 @@
+---
+id: publish.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Publishing or unpublishing request
+description: ""
+type:
+- object
+properties:
+  item:
+    "$ref": "base.json#/definitions/uuid"
+  sites:
+    "$ref": "base.json#/definitions/sites"
+required: [item]
