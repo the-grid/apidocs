@@ -1,0 +1,21 @@
+---
+id: "share.json"
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Share
+description: Content sharing payload
+type: object
+properties:
+  url:
+    type: string
+    description: URL of the shared resource
+    example: "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
+  content:
+    type: string
+    description: HTML or Markdown payload
+  type:
+    type: string
+    description: MIME type for the content
+    example: "text/markdown"
+  sites:
+    "$ref": "base.json#/definitions/sites"
+required: [url]

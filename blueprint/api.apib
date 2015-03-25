@@ -3,7 +3,7 @@ HOST: https://api.thegrid.io/
 
 # The Grid API
 
-# Site
+# Group Site Management
 
 ## Site information [/site]
 
@@ -22,6 +22,8 @@ HOST: https://api.thegrid.io/
 ### Create a website [POST]
 
 + Request (application/json)
+
+  **Note:** the repository must be in `the-domains` organization. The repository name can later be used for sharing content to the newly-created site.
 
   + Body
 
@@ -87,3 +89,81 @@ HOST: https://api.thegrid.io/
       ```
       <!-- include(schema/site.json) -->
       ```
+
+## Website discovery [/site/discover{?url}]
+
+### Match URL to a website [GET]
+
++ Parameters
+  + url (required, string) - URL of the website
+
++ Response 302
+
+  + Headers
+
+            Location: /site/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
++ Response 404
+
+  No Grid site was found for the URL
+
+  + Body
+
+# Group Content Management
+
+## Share [/share]
+
+### Sharing content [POST]
+
+Users can share content to their websites. The shared items will be normalized and made available via the item API.
+
+There are typically three different things you can be sharing:
+* full article pages: share with URL
+* HTML fragments: selection or img tag. Share with content, type text/html and with the URL of the originating page
+* Uploaded files: image, word document, HTML file, Markdown file, etc. Share with multi-part upload, URL and MIME type needed
+
++ Request with JSON payload (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/share-url-only.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/share.json) -->
+      ```
+
+
++ Request with file upload (multipart/form-data)
+
+  For images and other files the content is a file sent via multipart/form-data. If there is no relevant URL for the content, it is a good idea to generate a UUID URI.
+
+  ```
+  formData = new FormData()
+  formData.append 'url', 'content://'
+  formData.append 'type', file.type
+  formData.append 'content', file
+  ```
+
+  + Body
+
++ Response 202
+
+  Sharing was successful and will be processed.
+
+  + Body
+
++ Response 422
+
+  Missing required parameters
+
+  + Body
+
++ Response 403
+
+  Not allowed to share to the specified website
+
+  + Body

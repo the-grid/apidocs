@@ -1,0 +1,5 @@
+-
+  _valid: true
+  _name: 'url-only'
+  _data:
+    url: "http://example.net/some-article"

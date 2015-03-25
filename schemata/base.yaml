@@ -20,3 +20,11 @@ definitions:
     pattern: "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
     example: "#aa33cc"
     type: string
+  sites:
+    type: array
+    description: Collection of websites associated with the resource
+    items:
+      type: string
+    uniqueItems: true
+    example:
+    - "the-domains/the-grid"
