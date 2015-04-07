@@ -176,10 +176,11 @@ a.list-group-item.heading:hover {
 <ul>
 <li><code>client_id</code>: the unique identifier of your application</li>
 <li><code>response_type</code>: code</li>
+<li><code>scope</code>: comma-separated list of requested scopes</li>
 <li><code>redirect_url</code>: your callback URL</li>
 </ul></li>
 </ul>
-<p>Example: <a href="https://passport.thegrid.io/login/authorize/github?client_id=XXXX&amp;response_type=code&amp;redirect_uri=http://my.app.url">https://passport.thegrid.io/login/authorize/github?client_id=XXXX&amp;response_type=code&amp;redirect_uri=http://my.app.url</a></p>
+<p>Example: <a href="https://passport.thegrid.io/login/authorize/github?client_id=XXXX&amp;response_type=code&amp;scope=share&amp;redirect_uri=http://my.app.url">https://passport.thegrid.io/login/authorize/github?client_id=XXXX&amp;response_type=code&amp;scope=share&amp;redirect_uri=http://my.app.url</a></p>
 <h4>Authentication scopes</h4>
 <p>The default authentication scope will grant you permissions to perform simple operations on behalf of the user. If needed, you can also request additional access to The Grid APIs via OAuth2 scopes. The scopes are added to the authentication request URL with the scope query key.</p>
 <p>The currently supported scopes include:</p>
