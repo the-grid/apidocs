@@ -21,6 +21,7 @@ module.exports = ->
       blueprint:
         files:
           'dist/index.html': ['blueprint/index.apib']
+          'dist/authentication.html': ['blueprint/authentication.apib']
           'dist/passport.html': ['blueprint/passport.apib']
           'dist/api.html': ['blueprint/api.apib']
         options:
