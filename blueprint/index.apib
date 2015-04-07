@@ -56,10 +56,15 @@ The default authentication scope will grant you permissions to perform simple op
 
 The currently supported scopes include:
 
+* `content_management`: manage user's content items on The Grid
+* `website_management`: manage user's The Grid sites and publish to them
+* `share`: share new content to The Grid
+* `update_profile`: update the user's profile information
 * `github`: get access to the user's GitHub access token, if any. This will allow you to use the GitHub API on behalf of the user
 * `github_private`: get access to the user's GitHub access token authorized to access private repositories, if any. This will allow you to use the GitHub API on behalf of the user
 * `payment`: make a payment on behalf of the user
-* `reserve`: manage user's information on the reserve, including creating CtAs, listing balance etc.
+* `balance`: see user's account balance and transaction history
+* `cta_management`: manage user's Calls to Action
 
 #### Getting a token
 
