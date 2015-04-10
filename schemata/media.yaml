@@ -58,3 +58,1142 @@ definitions:
                     type: integer
                   - 
                     type: integer
+      negative_space:
+        type: object
+        properties:
+          rectangles:
+            type: array
+            items:
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+              -
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  width:
+                    type: integer
+                  height:
+                    type: integer
+                  text:
+                    type: object
+                    properties:
+                      large:
+                        type: integer
+                      medium:
+                        type: integer
+                      small:
+                        type: integer
+          colors:
+            type: array
+            items:
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+              -
+                type: array
+                items:
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
+                  -
+                    type: array
+                    items:
+                      -
+                        type: integer
+                      -
+                        type: integer
+                      -
+                        type: integer
