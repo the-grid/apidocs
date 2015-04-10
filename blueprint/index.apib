@@ -3,8 +3,79 @@ HOST: https://thegrid.io/
 
 # The Grid API
 
-See the following sections:
+Want to straight to the details?
 
 * [Authentication](authentication.html)
 * [Content Management](api.html)
 * [User Management](passport.html)
+
+# Purpose
+
+[The Grid](https://thegrid.io/) is a next-generation web publishing platform.
+The service provides a complete user experience for making, editing content
+across multiple devices, but also has a complete API available.
+This document describes that API and how it can be used by developers, including third-party.
+
+Functionality provided includes
+
+* Web page auto-design, layout and publishing
+* Content import and analysis
+* Image processing
+* Handling payments (TDB)
+
+What The Grid is not.
+
+Not a web-hosting plastform to run arbitrary PHP/Python/Ruby or databases on.
+
+# Access
+
+API access is available to all users on The Grid.
+If you wish to develop with The Grid, [become a founding member now](https://thegrid.io/).
+
+*Note: we are currently in pre-order and are not auto-activating users yet.*
+
+When your plan has been activated, you may log in and register new apps
+on your [accounts page](https://passport.thegrid.io/
+
+# Example uses of the API
+
+* Mobile apps
+Either single-purpose apps, or full-featured The Grid apps
+for platforms which are not officially supported
+like Windows Phone, Firefox OS, Jolla etc.
+* Social media integration
+Like a Twitter or Facebook app which syncs content to your The Grid site.
+* Content migration
+For importing all of the content from your current website,
+like Wordpress, Squarespace, Medium or Tumbler
+* Embedded/autonomous devices
+Devices that automatically publish their state or results,
+for instance a timelapse camera or 3d-printer.
+* Desktop & web app integration
+For instance "Share to The Grid" functionality
+* Custom content editing user interfaces
+Using specialized user interactions, making use of new technology
+or increased accessibility
+
+# Known consumers
+
+Existing examples of apps and libraries using this API.
+
+* [Flowhub](https://flowhub.io) and [noflo-ui](https://github.com/noflo/noflo-ui)
+* The Grid Android app
+* The Grid iOS app
+* The Grid Chrome extension
+* [thegrid.io](https://thegrid.io) website, including purchasing process
+
+Libraries
+
+* [passport-thegrid](https://www.npmjs.com/package/passport-thegrid):
+Authentication strategy for [Passport.js](http://passportjs.org/)
+
+# Issues or Questions?
+
+This API documentation is [on GitHub](https://github.com/the-grid/apidocs).
+Got any questions or found issues in the documentation?
+[File issues](https://github.com/the-grid/apidocs/issues)
+or create a [pull request](https://github.com/the-grid/apidocs/pulls).
+
