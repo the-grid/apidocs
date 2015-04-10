@@ -2,88 +2,151 @@
 id: media.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Media
+description: "Content blocks like image and video are child of media, both have cover"
 type:
 - object
 definitions:
-  cover: 
+  cover:
+    description: "A cover image that has many details about the media, useful for previews"
     type:
     - object
     properties: 
-      orientation: 
+      orientation:
+        description: "Cover image orientation"
         type: string
-      src: 
+        example: landscape
+      src:
+        description: "URL for the cover image"
         type: string
-      altsrc: 
+        example: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+      altsrc:
+        description: "Original URL (if the image has a fullscale URL, the original URL will be stored here"
         type: string
-      ratio: 
+        example: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+      ratio:
+        description: "Cover image ratio"
         type: string
+        example: "128:101"
       aspect:
+        description: "Calculated image ration"
         type: number
-      width: 
+        example: 1.2673267326732673
+      width:
+        description: "Cover image width"
         type: integer
-      height: 
+        example: 1024
+      height:
+        description: "Cover image height"
         type: integer
-      faces: 
+        example: 808
+      faces:
+        description: "Extracted faces from the image, represented as a rectangle for each face found"
         type: array
-      colors: 
+        example: [[0, 100, 150, 200]]
+      colors:
+        description: "Extracted colors from the image, represented as an array of 5 RGB colors"
         type: array
-      saliency: 
+        example: [[122,174,213],[8,12,21],[255,254,255],[75,108,141],[202,207,203]]
+      saliency:
+        description: "Extracted salient region from the image"
         type: object
         properties: 
-          polygon: 
+          polygon:
+            description: "Polygon around the salient region, represented as x,y points"
             type: array
-          center: 
+            example: [[533,280],[521,280],[491,238],[486,288],[419,289],[411,308],[360,308],[347,298],[343,289],[329,291],[343,326],[356,329],[372,370],[378,365],[421,365],[439,371],[443,360],[454,358],[454,327],[482,315],[522,315],[523,339],[530,339],[533,316],[538,310]]
+          center:
+            description: "Point localized in the center of the salient region"
             type: array
+            example: [433,300]
             items: 
               - 
+                description: "X coordinate"
                 type: integer
+                example: 433
               - 
+                description: "Y coordinate"
                 type: integer
-          radius: 
+                example: 300
+          radius:
+            description: "Radius of the circle around the salient region"
             type: number
-          bounding_rect: 
+            example: 108.079
+          bounding_rect:
+            description: "Rectangle around the salient region"
             type: array
+            example: [[329,238],[539,372]]
             items: 
               - 
+                description: "Top-left point of the rectangle"
                 type: array
+                example: [329,238]
                 items: 
                   - 
+                    description: "X coordinate"
                     type: integer
+                    example: 329
                   - 
+                    description: "Y coordinate"
                     type: integer
+                    example: 238
               - 
+                description: "Bottom-right point of the rectangle"
                 type: array
+                example: [539,372]
                 items: 
                   - 
+                    description: "X coordinate"
                     type: integer
+                    example: 539
                   - 
+                    description: "Y coordinate"
                     type: integer
+                    example: 372
       negative_space:
+        description: "Extracted negative spaces from the cover image, represented as rectangles around negative spaces and colors extracted from each negative space"
         type: object
         properties:
           rectangles:
+            description: "An array of rectangles, each rectangle represents a negative space"
             type: array
             items:
               -
+                description: "A bounding rectangle represented by its coordinates and the maximum length of characters that fills inside the rectangle"
                 type: object
                 properties:
                   x:
+                    description: "X coordinate"
                     type: integer
+                    example: 0
                   y:
+                    description: "Y coordinate"
                     type: integer
+                    example: 378
                   width:
+                    description: "Width of the rectangle"
                     type: integer
+                    example: 1015
                   height:
+                    description: "Height of the rectangle"
                     type: integer
+                    example: 405
                   text:
+                    description: "Maximum character lengths that fills inside the rectangle, distributed in three classes: large, medium and small"
                     type: object
                     properties:
                       large:
+                        description: "Maximum character length considering a large font size"
                         type: integer
+                        example: 321
                       medium:
+                        description: "Maximum character length considering a medium font size"
                         type: integer
+                        example: 1071
                       small:
+                        description: "Maximum character length considering a small font size"
                         type: integer
+                        example: 1803
               -
                 type: object
                 properties:
@@ -265,6 +328,7 @@ definitions:
                       small:
                         type: integer
           colors:
+            description: "Extracted colors from negative spaces. Ten colors are extracted from each negative space"
             type: array
             items:
               -
