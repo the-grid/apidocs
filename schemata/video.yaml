@@ -19,6 +19,6 @@ properties:
   src: 
     type: string
   cover: 
-    "$ref": "image.json#/definitions/cover"
+    "$ref": "media.json#/definitions/cover"
 
 required: [id, type, html, video, src, cover]

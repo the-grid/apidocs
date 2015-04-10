@@ -53,6 +53,6 @@ properties:
     type: [number, "null"]
   src:
     type: [string, "null"]
-  anyOf: [headline, text, cta, image, video, list]
+  anyOf: [headline, text, cta, media, list]
 
 required: [id, item, type, html]

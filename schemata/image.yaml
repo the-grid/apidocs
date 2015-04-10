@@ -4,60 +4,6 @@ id: image.json
 title: Image
 type:
 - object
-definitions:
-  cover: 
-    type:
-    - object
-    properties: 
-      orientation: 
-        type: string
-      src: 
-        type: string
-      altsrc: 
-        type: string
-      ratio: 
-        type: string
-      aspect:
-        type: number
-      width: 
-        type: integer
-      height: 
-        type: integer
-      faces: 
-        type: array
-      colors: 
-        type: array
-      saliency: 
-        type: object
-        properties: 
-          polygon: 
-            type: array
-          center: 
-            type: array
-            items: 
-              - 
-                type: integer
-              - 
-                type: integer
-          radius: 
-            type: number
-          bounding_rect: 
-            type: array
-            items: 
-              - 
-                type: array
-                items: 
-                  - 
-                    type: integer
-                  - 
-                    type: integer
-              - 
-                type: array
-                items: 
-                  - 
-                    type: integer
-                  - 
-                    type: integer
 properties: 
   id:
     "$ref": "base.json#/definitions/uuid"
@@ -68,6 +14,6 @@ properties:
   src: 
     type: string
   cover: 
-    "#ref": "#/definitions/cover"
+    "$ref": "media.json#/definitions/cover"
 
 required: [id, type, src, cover]
