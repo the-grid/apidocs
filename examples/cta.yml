@@ -1,0 +1,165 @@
+-
+  _valid: true
+  _name: "valid-general-cta"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+-
+  _valid: true
+  _name: "valid-cta-with-measurements"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Buy now"
+    length: 7
+-
+  _valid: false
+  _name: "cta-without-id"
+  _data:
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Buy now"
+    length: 7
+-
+  _valid: false
+  _name: "cta-without-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Buy now"
+    length: 7
+-
+  _valid: false
+  _name: "cta-without-uuid"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Buy now"
+    length: 7
+-
+  _valid: false
+  _name: "cta-without-verb"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Buy now"
+    length: 7
+-
+  _valid: false
+  _name: "cta-without-price"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Buy now"
+    length: 7
+-
+  _valid: false
+  _name: "cta-without-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+-
+  _valid: false
+  _name: "cta-with-invalid-id"
+  _data:
+    id: "bdcc6765-114a-4184b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+-
+  _valid: false
+  _name: "cta-with-invalid-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "foobar"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+-
+  _valid: false
+  _name: "cta-with-invalid-uuid"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-08002"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+-
+  _valid: false
+  _name: "cta-with-invalid-verb"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: 42
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+-
+  _valid: false
+  _name: "cta-with-invalid-price"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: 96
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+-
+  _valid: false
+  _name: "cta-with-invalid-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: 31337
+-
+  _valid: false
+  _name: "cta-with-invalid-text"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: 42
+-
+  _valid: false
+  _name: "cta-with-invalid-text-length"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    verb: "purchase"
+    price: "96"
+    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
+    text: "Foo bar"
+    length: "7"
