@@ -1,0 +1,31 @@
+{
+  "id": "image.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Image",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "type": {
+      "$ref": "contentblock.json#/definitions/type"
+    },
+    "html": {
+      "$ref": "contentblock.json#/definitions/html"
+    },
+    "src": {
+      "type": "string"
+    },
+    "cover": {
+      "$ref": "media.json#/definitions/cover"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "src",
+    "cover"
+  ]
+}
