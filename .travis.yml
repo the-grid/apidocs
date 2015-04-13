@@ -7,8 +7,13 @@ env:
   global:
     secure: aOSQkEeIGiLNcMucvVJF4mBpukVkDM0+UbiuX1dunk8tPQbfKlNEACyEZneMAYCDTJBT2wlujKVEIKMzaBsrUKRKPYZ5vi77X/DrowW+3pGF0r2AdYxJKNO3FEHxzCSYaVxusDtMT0ohsDBLwyPxjll8zu9PPfcUe6EIb+AWemQ=
 deploy:
+  provider: npm
+  email: jononor@gmail.com
+  skip_cleanup: true
+  api_key:
+    secure: FjHI+CEzM1CqgynAdIZtd1XPpDEUOplHWOpKRa4epZxm6UK5x5uU1qN8BjntaRdpQyMHF8uhpf8VufWZFPiErymEz/kKa7IURQyL2rESaA39oB/xkXiNAxrxdIYgyM+vE3IgFXY1kaSYXqTXqdUHyb7mG9a2P8lwtSeAtQC0vzk=
   on:
+    tags: true
     repo: the-grid/apidocs
-    branch: master
-before_deploy:
+after_deploy:
 - grunt gh-pages
