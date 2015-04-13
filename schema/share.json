@@ -21,6 +21,10 @@
     },
     "sites": {
       "$ref": "base.json#/definitions/sites"
+    },
+    "compress": {
+      "type": "boolean",
+      "description": "Whether to compress the shared content to a single article block"
     }
   },
   "required": [

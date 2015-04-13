@@ -363,7 +363,7 @@ a.list-group-item.heading:hover {
 <li><p>HTML fragments: selection or img tag. Share with content, type text/html and with the URL of the originating page</p></li>
 <li><p>Uploaded files: image, word document, HTML file, Markdown file, etc. Share with multi-part upload, URL and MIME type needed</p></li>
 </ul>
-</div><ul class="list-group"><li class="list-group-item"><strong>Request&nbsp;&nbsp;<code>with JSON payload</code></strong><a data-toggle="collapse" data-target="#6dcaad938f08a526fe0f0e0dbc66b990" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="6dcaad938f08a526fe0f0e0dbc66b990" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+</div><ul class="list-group"><li class="list-group-item"><strong>Request&nbsp;&nbsp;<code>with JSON payload</code></strong><a data-toggle="collapse" data-target="#f3b0d03a5b9de7207bdc0b6356b5ce1d" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="f3b0d03a5b9de7207bdc0b6356b5ce1d" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
 "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.net/some-article"</span>
 </span>}
 </code></pre><h5>Schema</h5><pre><code>{
@@ -389,6 +389,10 @@ a.list-group-item.heading:hover {
   </span>}</span>,
   "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">compress</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Whether to compress the shared content to a single article block"</span>
   </span>}
 </span>}</span>,
 "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
