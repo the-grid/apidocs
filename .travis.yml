@@ -3,8 +3,6 @@ node_js:
 - '0.10'
 before_script:
 - npm install -g grunt-cli
-after_success:
-- grunt gh-pages
 env:
   global:
     secure: aOSQkEeIGiLNcMucvVJF4mBpukVkDM0+UbiuX1dunk8tPQbfKlNEACyEZneMAYCDTJBT2wlujKVEIKMzaBsrUKRKPYZ5vi77X/DrowW+3pGF0r2AdYxJKNO3FEHxzCSYaVxusDtMT0ohsDBLwyPxjll8zu9PPfcUe6EIb+AWemQ=
@@ -16,3 +14,5 @@ deploy:
   on:
     repo: the-grid/apidocs
     branch: master
+before_deploy:
+- grunt gh-pages
