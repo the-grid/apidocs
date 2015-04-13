@@ -7,10 +7,6 @@ env:
   global:
     secure: aOSQkEeIGiLNcMucvVJF4mBpukVkDM0+UbiuX1dunk8tPQbfKlNEACyEZneMAYCDTJBT2wlujKVEIKMzaBsrUKRKPYZ5vi77X/DrowW+3pGF0r2AdYxJKNO3FEHxzCSYaVxusDtMT0ohsDBLwyPxjll8zu9PPfcUe6EIb+AWemQ=
 deploy:
-  provider: releases
-  api_key:
-    secure: QRTLPY75iTs430ziOJT/SlGyhZu579vVYfzDrZOU+fXeCPgjrZVKyuZbdcJ8VOUZc4An9dE4E372TGKqFcYgWBKB3OggkhjeF/wIwioHHuebMu0A8HPTNym8dTG+ru6o94wgWy4D4XTDobf8Dkd/Y6dB9tLzyAwQjubwq+YTYWk=
-  file: dist/index.html
   on:
     repo: the-grid/apidocs
     branch: master
