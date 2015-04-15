@@ -9,7 +9,7 @@
     text: "AI Websites That Design Themselves"
     length: 34
 -
-  _valid: false
+  _valid: true
   _name: 'missing-text'
   _data:
     id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
@@ -28,7 +28,7 @@
     html: "<h1>AI Websites That Design Themselves</h1>"
     length: 34
 -
-  _valid: false
+  _valid: true
   _name: 'missing-length'
   _data:
     id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
