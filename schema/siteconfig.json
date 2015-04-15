@@ -63,6 +63,28 @@
         }
       }
     },
+    "image_filters": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "string",
+          "description": "URL to the imgflo.org server"
+        },
+        "key": {
+          "type": "string",
+          "description": "imgflo API key"
+        },
+        "secret": {
+          "type": "string",
+          "description": "imgflo API secret"
+        },
+        "required": [
+          "server",
+          "key",
+          "secret"
+        ]
+      }
+    },
     "opengraph": {
       "type": "object",
       "required": [

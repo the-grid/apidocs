@@ -33,11 +33,15 @@
       "items": {
         "$ref": "item.json"
       }
+    },
+    "config": {
+      "$ref": "siteconfig.json"
     }
   },
   "required": [
     "site",
     "path",
-    "items"
+    "items",
+    "config"
   ]
 }
