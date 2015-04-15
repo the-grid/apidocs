@@ -1,0 +1,87 @@
+-
+  _valid: true
+  _name: "valid-text"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "text"
+    html: "<p>Foo bar</p>"
+-
+  _valid: true
+  _name: "valid-text-with-measurements"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "text"
+    html: "<p>Foo bar</p>"
+    text: "Foo bar"
+    length: 7
+-
+  _valid: false
+  _name: "text-without-id"
+  _data:
+    type: "text"
+    html: "<p>Foo bar</p>"
+-
+  _valid: false
+  _name: "text-without-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    html: "<p>Foo bar</p>"
+-
+  _valid: false
+  _name: "text-without-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "text"
+-
+  _valid: false
+  _name: "text-with-invalid-id"
+  _data:
+    id: "bdcc677d-b01d3132ef69"
+    type: "text"
+    html: "<p>Foo bar</p>"
+-
+  _valid: false
+  _name: "text-with-invalid-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "textual"
+    html: "<p>Foo bar</p>"
+-
+  _valid: false
+  _name: "text-with-invalid-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "text"
+    html: "<p>/p>"
+-
+  _valid: false
+  _name: "text-with-invalid-id-type"
+  _data:
+    id: 4242
+    type: "text"
+    html: "<p>Foo bar</p>"
+-
+  _valid: false
+  _name: "text-with-invalid-type-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 31337
+    html: "<p>Foo bar</p>"
+-
+  _valid: false
+  _name: "text-with-invalid-html-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "text"
+    html: 73
+-
+  _valid: false
+  _name: "text-with-invalid-measurements"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "text"
+    html: "<p>Foo bar</p>"
+    text: "Foo bar"
+    length: "7"
+
+
