@@ -27,4 +27,6 @@ properties:
     uniqueItems: true
     items:
       "$ref": "item.json"
-required: [site, path, items]
+  config:
+    "$ref": "siteconfig.json"
+required: [site, path, items, config]

@@ -7,7 +7,9 @@
     ordered: false
     items: []
     site: "the-domains/ron-conway-alpha-content"
-    title: "Ron Conways blog"
+    title: "Ron Conways blog; Home"
+    config:
+      name: 'Ron conways site'
 -
   _valid: false
   _name: 'missing-path'
@@ -16,6 +18,8 @@
     items: []
     site: "the-domains/ron-conway-alpha-content"
     title: "Ron Conways blog"
+    config:
+      name: 'Ron conways site'
 -
   _valid: false
   _name: 'missing-site'
@@ -24,6 +28,8 @@
     ordered: false
     items: []
     title: "Ron Conways blog"
+    config:
+      name: 'Ron conways site'
 -
   _valid: true
   _name: 'one-item-one-block'
@@ -32,6 +38,8 @@
     ordered: false
     site: "the-domains/ron-conway-alpha-content"
     title: "Wilmer Valderrama on the importance of immigration reform"
+    config:
+      name: 'Ron conways site'
     items: [
         {
             "metadata": {
@@ -58,3 +66,14 @@
             ]
         }
       ]
+-
+  _valid: false
+  _name: 'invalid-site-config'
+  _data:
+    path: "index.html"
+    ordered: false
+    items: []
+    site: "the-domains/ron-conway-alpha-content"
+    title: "Ron Conways blog"
+    config:
+      wrongname: ''
