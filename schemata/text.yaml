@@ -2,6 +2,7 @@
 id: text.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Text
+description: "A chunk of text which can be annotated with measurement data like the extracted text and it's length"
 type:
 - object
 properties:
@@ -20,4 +21,4 @@ properties:
     example: 7
     type: integer
 
-required: [id, type, html, text, length]
+required: [id, type, html]
