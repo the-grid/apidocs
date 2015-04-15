@@ -2,6 +2,7 @@
 id: headline.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: HTML Headline
+description: "An HTML headline with measurement data like extracted text and its length in characters"
 type:
 - object
 properties:
