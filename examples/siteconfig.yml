@@ -72,3 +72,13 @@
     name: 'GSS site'
     color:
         brandColors: [ "#ÆÆÆC44" ]
+-
+  _valid: true
+  _name: 'with-image-filters'
+  _data:
+    name: 'imgflo using site'
+    image_filters:
+      server: "https://imgflo.herokuapp.com/"
+      key: "vahj1001exotieMo"
+      secret: "queeLegh6phu4yei"
+
