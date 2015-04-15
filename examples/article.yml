@@ -5,3 +5,52 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "image"
     src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+-
+  _valid: true
+  _name: 'valid-article-with-measurements'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "image"
+    src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+    cover:
+      orientation: "landscape"
+-
+  _valid: false
+  _name: 'article-without-id'
+  _data:
+    type: "image"
+    src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+-
+  _valid: false
+  _name: 'article-without-type'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+-
+  _valid: false
+  _name: 'article-without-src'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "image"
+-
+  _valid: false
+  _name: 'article-with-invalid-id'
+  _data:
+    id: "bababasdafsdf---asdf"
+    type: "image"
+    src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+-
+  _valid: false
+  _name: 'article-with-invalid-type'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "papersz"
+    src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+-
+  _valid: false
+  _name: 'article-with-invalid-src'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "image"
+    src: 42
+
