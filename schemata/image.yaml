@@ -16,4 +16,4 @@ properties:
   cover: 
     "$ref": "media.json#/definitions/cover"
 
-required: [id, type, src, cover]
+required: [id, type, src]
