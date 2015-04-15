@@ -2,7 +2,7 @@
 id: media.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Media
-description: "Content blocks like image and video are child of media, both have cover"
+description: "Content blocks like image, video and article are child of media, both have cover"
 type:
 - object
 definitions:
