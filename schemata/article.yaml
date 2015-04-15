@@ -1,0 +1,22 @@
+---
+id: article.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Article
+description: An article from some source which can have a cover image with measurement data
+type:
+- object
+properties: 
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    "$ref": "contentblock.json#/definitions/type"
+  html: 
+    "$ref": "contentblock.json#/definitions/html"
+  src:
+    description: URL to an article
+    type: string
+    example: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+  cover: 
+    "$ref": "media.json#/definitions/cover"
+
+required: [id, type, src]
