@@ -2,6 +2,7 @@
 id: list.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: HTML list
+description: "An ordered or unordered list of elements. It can be annotated with measurements data like the number of items"
 type:
 - object
 properties: 
@@ -12,7 +13,9 @@ properties:
   html:
     "$ref": "contentblock.json#/definitions/html"
   items: 
+    description: "The measured number of items on the list"
     type: integer
+    example: 3
 
-required: [id, type, html, items]
+required: [id, type, html]
 
