@@ -3,7 +3,7 @@
   _name: 'image-d4-withface'
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    Item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
     type: "image"
     src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
     html: "<img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\">"
