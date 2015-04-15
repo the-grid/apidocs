@@ -642,7 +642,7 @@
       height: 808
       faces: []
 -
-  _valid: false
+  _valid: true
   _name: 'image-without-cover'
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
