@@ -2,7 +2,7 @@
 id: "contentblock.json"
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Content block
-description: ""
+description: "Any valid block of content like text, image or video"
 definitions:
   type:
     description: Block type
