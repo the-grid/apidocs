@@ -2,6 +2,7 @@
 id: video.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Video
+description: "An HTML video element which can have a cover image with annotated measurements data"
 type:
 - object
 properties: 
@@ -14,11 +15,15 @@ properties:
   video: 
     type: object
     properties: 
-      src: 
+      src:
+        description: "URL to a valid video preview"
         type: string
-  src: 
+        example: "//player.vimeo.com/video/91393694?title=0&amp;byline=0&amp;color=ffffff"
+  src:
+    description: "URL to a video"
     type: string
+    example: "//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"
   cover: 
     "$ref": "media.json#/definitions/cover"
 
-required: [id, type, html, video, src, cover]
+required: [id, type]
