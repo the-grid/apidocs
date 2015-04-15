@@ -46,3 +46,46 @@
     html: "<h1>AI Websites That Design Themselves</h1>"
     text: "AI Websites That Design Themselves"
     length: "34"
+-
+  _valid: true
+  _name: 'h1'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    type: "h1"
+    html: "<h1>AI Websites That Design Themselves</h1>"
+-
+  _valid: true
+  _name: 'h2'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    type: "h2"
+    html: "<h2>AI Websites That Design Themselves</h2>"
+-
+  _valid: true
+  _name: 'h3'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    type: "h3"
+    html: "<h3>AI Websites That Design Themselves</h3>"
+-
+  _valid: true
+  _name: 'h4'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    type: "h4"
+    html: "<h4>AI Websites That Design Themselves</h4>"
+-
+  _valid: true
+  _name: 'h5'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    type: "h5"
+    html: "<h5>AI Websites That Design Themselves</h5>"
+-
+  _valid: true
+  _name: 'h6'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    type: "h6"
+    html: "<h6>AI Websites That Design Themselves</h6>"
+
