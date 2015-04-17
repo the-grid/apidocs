@@ -1,0 +1,77 @@
+FORMAT: 1A
+HOST: https://thegrid.io/
+
+# Design systems
+
+The Design System is the piece of The Grid that builds a webpage from page content.
+
+A set of design systems are provided by The Grid. These use techiques like
+finite-domain constraint solvers, decision trees, content analysis,
+and polyrythmic pagination in order to produce a page which:
+
+* Is *content driven*, reflects the particular items on the page
+* Is *visually pleasing*, respecting the users site preferences
+* Is *effective* at achieving the purpose set by the user
+
+In the future, we intent to support "plugins" which can hook into and extend existing design systems.
+Such plugins could build sections for particular types of data, extend content analysis or heruristics,
+add or modify rhythms (scoring functions).
+
+In the meantime the *daring and ambitious* may implement an full design system
+using the mechanism below.
+
+# API
+
+A design system is deployed as a `.js` file, and runs sandboxed in a browser.
+On the server-side this is PhantomJS (with function.bind polyfill),
+on client-side it runs in a WebWorker (no access to DOM).
+
+The design system must expose a `polySolvePage` function as an entry point.
+
+    window.polySolvePage = function (page, options, callback) {
+        var html = "";
+        var err = null;
+
+        return callback(err, html, details);
+    };
+
+The function will be called with a
+[Page object](https://github.com/the-grid/apidocs/blob/master/schemata/page.yaml)
+containing the data to be put on the page.
+The `page` also includes the [Site config](https://github.com/the-grid/apidocs/blob/master/schemata/siteconfig.yaml)
+for the particular page.
+
+The `callback` should be called with the HTML page produced by the design system,
+or an `Error` object in case of failure. `details` may be an object with design-system
+specific information about the produced page or failure, for use in debugging and/or
+machine learning.
+
+Assets in the produced HTML page must either be inlined in the HTML (recommended for CSS, GSS),
+or refer to a *stable* URL on a HTTPS enabled CDN (recommended for fonts, images).
+
+<!-- TODO:
+- give example code of the simplest possible system
+- describe article versus feed pages
+- describe ordered versus non-ordered mode
+- describe/show how to run a page build locally
+-->
+
+# Use custom design system
+
+The settings for running a custom design system on The Grid are currently not publically exposed.
+Interested in running your own design system? [Get in touch](https://github.com/the-grid/apidocs/issues/new)!
+
+# Tools
+
+Designs systems are complex beasts.
+In order to create them we have built a set of libraries, services and tools.
+Several of these are already open source:
+
+- [Grid Style Sheets](gridstylesheets.org) (GSS), constraint-based layout system
+- [imgflo](http://imgflo.org), on-demand server-side image processing.
+Helpers: [RIG](https://github.com/the-grid/rig) and [imgflo-url](https://github.com/the-grid/imgflo-url)
+- [Grid Object Model](https://github.com/the-grid/gom) (GOM), HTML templating and transformations
+
+More to be released soon!
+
+
