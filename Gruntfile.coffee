@@ -24,6 +24,7 @@ module.exports = ->
           'dist/authentication.html': ['blueprint/authentication.apib']
           'dist/passport.html': ['blueprint/passport.apib']
           'dist/api.html': ['blueprint/api.apib']
+          'dist/designsystem.html': ['blueprint/designsystem.apib']
         options:
           includePath: __dirname
           theme: 'slate'
