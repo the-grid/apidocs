@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>The Grid API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Design systems</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
 pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
 pre code{display:block;padding:.5em;background:#272b30}
 .hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
@@ -145,70 +145,63 @@ a.list-group-item.heading:hover {
     max-width: 212px;
   }
 }
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><p style="text-align: center; word-wrap: break-word;"><a href="https://thegrid.io/">https://thegrid.io/</a></p></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">The Grid API</h1></div></header><div class="description"><p>Want to straight to the details?</p>
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><p style="text-align: center; word-wrap: break-word;"><a href="https://thegrid.io/">https://thegrid.io/</a></p></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Design systems</h1></div></header><div class="description"><p>The Design System is the piece of The Grid that builds a webpage from page content.</p>
+<p>A set of design systems are provided by The Grid. These use techiques like
+finite-domain constraint solvers, decision trees, content analysis,
+and polyrythmic pagination in order to produce a page which:</p>
 <ul>
-<li><p><a href="authentication.html">Authentication</a></p></li>
-<li><p><a href="api.html">Content Management</a></p></li>
-<li><p><a href="passport.html">User Management</a></p></li>
-<li><p><a href="designsystem.html">Design Systems</a></p></li>
+<li><p>Is <em>content driven</em>, reflects the particular items on the page</p></li>
+<li><p>Is <em>visually pleasing</em>, respecting the users site preferences</p></li>
+<li><p>Is <em>effective</em> at achieving the purpose set by the user</p></li>
 </ul>
-<h1>Purpose</h1>
-<p><a href="https://thegrid.io/">The Grid</a> is a next-generation web publishing platform.
-The service provides a complete user experience for making, editing content
-across multiple devices, but also has a complete API available.
-This document describes that API and how it can be used by developers, including third-party.</p>
-<p>Functionality provided includes</p>
+<p>In the future, we intent to support “plugins” which can hook into and extend existing design systems.
+Such plugins could build sections for particular types of data, extend content analysis or heruristics,
+add or modify rhythms (scoring functions).</p>
+<p>In the meantime the <em>daring and ambitious</em> may implement an full design system
+using the mechanism below.</p>
+<h1>API</h1>
+<p>A design system is deployed as a <code>.js</code> file, and runs sandboxed in a browser.
+On the server-side this is PhantomJS (with function.bind polyfill),
+on client-side it runs in a WebWorker (no access to DOM).</p>
+<p>The design system must expose a <code>polySolvePage</code> function as an entry point.</p>
+<pre><code>window.polySolvePage = function (page, options, callback) {
+    var html = &quot;&quot;;
+    var err = null;
+
+    return callback(err, html, details);
+};
+</code></pre>
+<p>The function will be called with a
+<a href="https://github.com/the-grid/apidocs/blob/master/schemata/page.yaml">Page object</a>
+containing the data to be put on the page.
+The <code>page</code> also includes the <a href="https://github.com/the-grid/apidocs/blob/master/schemata/siteconfig.yaml">Site config</a>
+for the particular page.</p>
+<p>The <code>callback</code> should be called with the HTML page produced by the design system,
+or an <code>Error</code> object in case of failure. <code>details</code> may be an object with design-system
+specific information about the produced page or failure, for use in debugging and/or
+machine learning.</p>
+<p>Assets in the produced HTML page must either be inlined in the HTML (recommended for CSS, GSS),
+or refer to a <em>stable</em> URL on a HTTPS enabled CDN (recommended for fonts, images).</p>
+<!-- TODO:
+- give example code of the simplest possible system
+- describe article versus feed pages
+- describe ordered versus non-ordered mode
+- describe/show how to run a page build locally
+-->
+<h1>Use custom design system</h1>
+<p>The settings for running a custom design system on The Grid are currently not publically exposed.
+Interested in running your own design system? <a href="https://github.com/the-grid/apidocs/issues/new">Get in touch</a>!</p>
+<h1>Tools</h1>
+<p>Designs systems are complex beasts.
+In order to create them we have built a set of libraries, services and tools.
+Several of these are already open source:</p>
 <ul>
-<li><p>Web page auto-design, layout and publishing</p></li>
-<li><p>Content import and analysis</p></li>
-<li><p>Image processing</p></li>
-<li><p>Handling payments (TDB)</p></li>
+<li><p><a href="gridstylesheets.org">Grid Style Sheets</a> (GSS), constraint-based layout system</p></li>
+<li><p><a href="http://imgflo.org">imgflo</a>, on-demand server-side image processing.
+Helpers: <a href="https://github.com/the-grid/rig">RIG</a> and <a href="https://github.com/the-grid/imgflo-url">imgflo-url</a></p></li>
+<li><p><a href="https://github.com/the-grid/gom">Grid Object Model</a> (GOM), HTML templating and transformations</p></li>
 </ul>
-<p>What The Grid is not.</p>
-<p>Not a web-hosting platform to run arbitrary PHP/Python/Ruby or databases on.</p>
-<h1>Access</h1>
-<p>API access is available to all users on The Grid.
-If you wish to develop with The Grid, <a href="https://thegrid.io/">become a founding member now</a>.</p>
-<p><em>Note: we are currently still <a href="http://launchstatus.thegrid.io">launching</a></em></p>
-<p>When your plan has been activated, you may log in and register new apps
-on your <a href="https://passport.thegrid.io/">accounts page</a></p>
-<h1>Example uses</h1>
-<h2>Mobile apps</h2>
-<p>Either single-purpose apps, or full-featured The Grid apps
-for platforms which are not officially supported
-like Windows Phone, Firefox OS, Jolla etc</p>
-<h2>Social media integration</h2>
-<p>Like a Twitter or Facebook app which syncs content to your The Grid site.</p>
-<h2>Content migration</h2>
-<p>For importing all of the content from your current website,
-like Wordpress, Squarespace, Medium or Tumblr</p>
-<h2>Embedded/autonomous devices</h2>
-<p>Devices that automatically publish their state or results,
-for instance a timelapse camera or 3d-printer.</p>
-<h2>Desktop &amp; web app integration</h2>
-<p>For instance “Share to The Grid” functionality</p>
-<h2>Custom content editing user interfaces</h2>
-<p>Using specialized user interactions, making use of new technology
-or increased accessibility</p>
-<h1>Known consumers</h1>
-<p>Existing examples of apps and libraries using this API.</p>
-<ul>
-<li><p><a href="https://flowhub.io">Flowhub</a> and <a href="https://github.com/noflo/noflo-ui">noflo-ui</a></p></li>
-<li><p>The Grid Android app</p></li>
-<li><p>The Grid iOS app</p></li>
-<li><p>The Grid Chrome extension</p></li>
-<li><p><a href="https://thegrid.io">thegrid.io</a> website, including purchasing process</p></li>
-</ul>
-<p>Libraries</p>
-<ul>
-<li><a href="https://www.npmjs.com/package/passport-thegrid">passport-thegrid</a>:
-Authentication strategy for <a href="http://passportjs.org/">Passport.js</a></li>
-</ul>
-<h1>Issues or Questions?</h1>
-<p>This API documentation is <a href="https://github.com/the-grid/apidocs">on GitHub</a>.
-Got any questions or found issues in the documentation?
-<a href="https://github.com/the-grid/apidocs/issues">File issues</a>
-or create a <a href="https://github.com/the-grid/apidocs/pulls">pull request</a>.</p>
+<p>More to be released soon!</p>
 </div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 27 Apr 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
 
 </div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
