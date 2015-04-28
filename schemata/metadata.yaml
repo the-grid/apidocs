@@ -81,4 +81,24 @@ properties:
         avatar:
           type: object
       additionalProperties: false
+  coverPrefs:
+    name: coverPrefs
+    description: Image processing to allow on the cover. All default true.
+    type: object
+    properties:
+      filter:
+        name: filter
+        type: boolean
+        description: Allow image filtering
+        example: true
+      crop:
+        name: crop
+        type: boolean
+        description: Allow image cropping
+        example: true
+      overlay:
+        name: overlay
+        type: boolean
+        description: Allow image overlaying
+        example: true
   additionalProperties: true
