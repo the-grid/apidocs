@@ -128,3 +128,14 @@
     item: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "text"
     html: "<p></p>"
+-
+  _valid: false
+  _name: 'invalid-cover-prefs'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "article"
+    html: "<p></p>"
+    metadata:
+      coverPrefs:
+        crop: "false"
