@@ -101,7 +101,4 @@ properties:
         type: boolean
         description: Allow image overlaying
         example: true
-    crop: true
-    filter: true
-    overlay: true
   additionalProperties: true
