@@ -39,6 +39,10 @@
       caption: "Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more."
       jobTitle: "Founder and CEO"
       starred: true
+      coverPrefs:
+        crop: true
+        filter: true
+        overlay: true
     score: 2
     created_at: 1412744992396
     updated_at: 1412745215712
