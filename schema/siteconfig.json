@@ -12,8 +12,8 @@
     "style": {
       "type": "string",
       "description": "Layout filter selected for the site",
-      "example": "A1",
-      "default": "A1"
+      "example": "taylor",
+      "default": "taylor"
     },
     "favicon": {
       "type": "string",
