@@ -22,11 +22,13 @@ properties:
     type: boolean
     description: Whether the job failed or not
   started_at:
-    type: boolean
+    type: string
     description: Time the job was started
+    format: 'date-time'
   finished_at:
-    type: boolean
+    type: string
     description: Time the job was finished (failed or completed).
+    format: 'date-time'
   item:
     "$ref": "base.json#/definitions/uuid"
     description: 'The content Item this job is associated with, if any'
