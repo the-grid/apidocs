@@ -125,5 +125,10 @@ properties:
       default: 0.5
       minimum: 0.0
       maximum: 1.0
+  site_lang:
+    type: string
+    description: Primary site content langauge; ISO 693-1 format
+    example: ar
+    default: en
 
 required: [name]

@@ -11,6 +11,7 @@
     name: The Grid
     favicon: "https://passport.thegrid.io/favicon.ico"
     style: A1
+    site_lang: en
     cta:
       domain: //s3-us-west-2.amazonaws.com
       bucket: /cdn.thegrid.io
@@ -81,4 +82,9 @@
       server: "https://imgflo.herokuapp.com/"
       key: "vahj1001exotieMo"
       secret: "queeLegh6phu4yei"
-
+-
+  _valid: false
+  _name: 'undefined site_lang'
+  _data:
+    name: The Grid
+    site_lang: [1, 2, 3]
