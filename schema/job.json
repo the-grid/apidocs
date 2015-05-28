@@ -27,12 +27,14 @@
       "description": "Whether the job failed or not"
     },
     "started_at": {
-      "type": "boolean",
-      "description": "Time the job was started"
+      "type": "string",
+      "description": "Time the job was started",
+      "format": "date-time"
     },
     "finished_at": {
-      "type": "boolean",
-      "description": "Time the job was finished (failed or completed)."
+      "type": "string",
+      "description": "Time the job was finished (failed or completed).",
+      "format": "date-time"
     },
     "item": {
       "$ref": "base.json#/definitions/uuid",
