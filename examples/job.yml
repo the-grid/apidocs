@@ -1,0 +1,19 @@
+# Examples of Jobs
+-
+  _valid: true
+  _name: 'share-completed'
+  _data:
+    id: 'bdcc6765-114a-4184-977d-b01d3132ef69'
+    type: 'share'
+    completed: true
+    failed: false
+    tasks:
+      measure:
+        foo: 'bar'
+-
+  _valid: false
+  _name: 'missing-id-and-type'
+  _data:
+    id: null
+
+
