@@ -3,25 +3,11 @@ HOST: https://api.thegrid.io/
 
 # The Grid API
 
-# Group long-running jobs
-
-## Long-running jobs [/job]
+# Group Long-running jobs
 
 Several actions in the API takes a significant time.
 Current examples include POST /share, /publish and /unpublish.
 Performing such an action returns a Location header with a Job URL.
-
-### Listing jobs [GET]
-
-+ Response 200 (application/json)
-
-  + Body
-
-      ```
-      [
-      <!-- include(examples/job-share-completed.json) -->
-      ]
-      ```
 
 ## Job details [/job/{id}]
 
@@ -35,6 +21,20 @@ Performing such an action returns a Location header with a Job URL.
   + Body
       ```
       <!-- include(examples/job-share-completed.json) -->
+      ```
+
+## Jobs [/job]
+
+### Listing current jobs [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/job-share-completed.json) -->
+      ]
       ```
 
 # Group Site Management
