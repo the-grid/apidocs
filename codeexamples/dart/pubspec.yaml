@@ -1,0 +1,3 @@
+name: thegrid-example-dart
+dependencies:
+  oauth2: any

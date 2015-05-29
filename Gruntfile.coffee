@@ -25,6 +25,7 @@ module.exports = ->
           'dist/passport.html': ['blueprint/passport.apib']
           'dist/api.html': ['blueprint/api.apib']
           'dist/designsystem.html': ['blueprint/designsystem.apib']
+          'dist/examplecode.html': ['blueprint/examplecode.apib']
         options:
           includePath: __dirname
           theme: 'templates/aglio/thegrid'
