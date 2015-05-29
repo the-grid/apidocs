@@ -27,7 +27,7 @@ module.exports = ->
           'dist/designsystem.html': ['blueprint/designsystem.apib']
         options:
           includePath: __dirname
-          theme: 'slate'
+          theme: 'templates/aglio/thegrid'
 
     # Coding standards
     yamllint:
