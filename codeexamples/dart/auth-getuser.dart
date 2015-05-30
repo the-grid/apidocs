@@ -31,12 +31,6 @@ import "dart:async";
 import 'package:oauth2/oauth2.dart' as oauth2;
 
 
-main(List<String> arguments) async{
-  return connect();
-}
-
-
-
 /**
  * This console app will authenticate you with TheGrid and fetch your user
  * profile. No error handling is implemented. The app will print an URL
@@ -44,17 +38,33 @@ main(List<String> arguments) async{
  * your TheGrid app to use your users credentials to perform API calls.
  * A callback will inform the application about the credentials and the
  * app will perform the actual API call.
-**/ 
-connect() async{
+**/
+main(List<String> arguments) async{
+
+  // !!! Get these by registering an app at https://passport.thegrid.io
+  final identifier = "";
+  final secret = "";
+  if (identifier.isEmpty || secret.isEmpty) {
+    throw("You must register an app, and replace identifier and secret in the code!");
+  }
+
+  oauth2.Client client = await connect(identifier, secret);
+
+  // Once you have a Client, you can use it just like any other HTTP
+  var result = await client.read("https://passport.thegrid.io/api/user");
+  print(result);
+  exit(0);
+}
+
+
+oauth2.Client
+connect(final String identifier, final String secret) async{
 
   final authorizationEndpoint =
   Uri.parse("https://passport.thegrid.io/login/authorize/");
   final tokenEndpoint =
   Uri.parse("https://passport.thegrid.io/login/authorize/token");
 
-  // Fill in these values from your TheGrid app
-  final identifier = "xxx";
-  final secret = "xxx";
 
   final redirectUrl = Uri.parse("http://127.0.0.1:3000/");
 
@@ -73,7 +83,8 @@ connect() async{
     var grant = new oauth2.AuthorizationCodeGrant(
         identifier, secret, authorizationEndpoint, tokenEndpoint);
 
-    print(grant.getAuthorizationUrl(redirectUrl, scopes:["website_management", "content_management", "update_profile"]));
+    String authUrl = grant.getAuthorizationUrl(redirectUrl, scopes:["website_management", "content_management", "update_profile"]);
+    print('Open browser and authenticate: ${authUrl}\n');
 
     HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 3000);
 
@@ -90,16 +101,11 @@ connect() async{
     });
 
     client = await completer.future;
+
+    var file = await credentialsFile.open(mode: FileMode.WRITE);
+    await file.writeString(client.credentials.toJson());
+    await file.close();
   }
 
-  // Once you have a Client, you can use it just like any other HTTP
-  var file = await credentialsFile.open(mode: FileMode.WRITE);
-  await file.writeString(client.credentials.toJson());
-  await file.close();
-
-  var result;
-
-  result = await client.read("https://passport.thegrid.io/api/user");
-  print(result);
-
+  return client;
 }
