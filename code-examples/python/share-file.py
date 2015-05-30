@@ -1,7 +1,11 @@
+# Command-line example for sharing files, including text, images etc
 
+import os, sys, uuid, mimetypes
+
+import requests
 from requests_oauthlib import OAuth2Session
 import flask
-import os, sys
+
  
 def debug(*things):
     string = ' '.join(str(t) for t in things)
@@ -46,12 +50,10 @@ class TheGridAuth:
 
     def authenticate(self, *args, **kwargs):
         authorization_url, state = self.session.authorization_url(self.authorization_url)
-        print "Open in browser and authenticate:\n %s" % (authorization_url,)
+        print "Open in browser to authenticate:\n %s" % (authorization_url,)
 
         kwargs['port'] = 3000
         self.flask.run(*args, **kwargs)
- 
-
 
  
 if __name__ == "__main__":
@@ -63,13 +65,26 @@ if __name__ == "__main__":
     app_id = os.environ.get('THEGRID_APP_ID') or ""
     app_secret = os.environ.get('THEGRID_APP_SECRET') or ""
     scopes = ["content_management", "update_profile"]
-
     auth = TheGridAuth(app_id, app_secret, scopes)
 
+    filepath = sys.argv[1]
+    filename = os.path.basename(filepath)
+    mimetype = mimetypes.guess_type(filename)[0]
+    files = {
+        'content': (filename, open(filepath, 'rb'), mimetype),
+        'type': mimetype,
+        'url': 'content://'+str(uuid.uuid4())
+    }
     def upload_file(auth, token):
-        # FIXME: actually perform upload
-        r = auth.session.get("https://passport.thegrid.io/api/user")
-        print r.content
+        print 'Sharing file of type %s: %s' % (mimetype, filepath)
+        r = auth.session.post("https://api.thegrid.io/share", files=files)
+        if r.status_code == 202:
+            job = 'https://api.thegrid.io'+r.headers['location']
+            print 'Success: %s' % (job,)
+            r = auth.session.get(job)
+            print 'Job details: \n%s' % (r.content,)
+        else:
+            sys.stderr.write('ERROR: %s\n %s\n' % (r.status_code, r.content))
 
     auth.on_authenticated = upload_file
     auth.authenticate()
