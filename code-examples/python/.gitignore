@@ -1,0 +1,11 @@
+*-info
+*.pyc
+
+flask/
+itsdangerous.py
+jinja2/
+markupsafe/
+oauthlib/
+requests/
+requests_oauthlib/
+werkzeug/
