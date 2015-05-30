@@ -7,7 +7,7 @@ Documentation for the public APIs of [The Grid](https://thegrid.io).
 The latest built version is at [developer.thegrid.io](http://developer.thegrid.io)
 
 For corrections, improvements file issues or pull requests in the
-[the-grid/apidocs](https://github.com/the-grid/apidocs) Github repository.
+[the-grid/apidocs on Github](https://github.com/the-grid/apidocs).
 
 
 Schemas
