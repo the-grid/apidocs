@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Dart</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Example code for using The Grid API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
 pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
 pre code{display:block;padding:.5em;background:#272b30}
 .hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
@@ -146,7 +146,9 @@ a.list-group-item.heading:hover {
   }
 }
 </style><!-- Based on https://codepo8.github.io/css-fork-on-github-ribbon/--><style>#forkongithub a{background:#000;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:45px;right:-45px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"></nav></div><div class="col-md-8"><span id="forkongithub"><a href="https://github.com/the-grid/apidocs">Fork me on GitHub</a></span><div><header><div class="page-header"><h1 id="top">Dart</h1></div></header><div class="description"><h2>Authenticate and get user information</h2>
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"></nav></div><div class="col-md-8"><span id="forkongithub"><a href="https://github.com/the-grid/apidocs">Fork me on GitHub</a></span><div><header><div class="page-header"><h1 id="top">Example code for using The Grid API</h1></div></header><div class="description"><p><a href="https://github.com/the-grid/apidocs/tree/master/code-examples">Example code directory on Github</a></p>
+<h1>Dart</h1>
+<h2>Authenticate and get user information</h2>
 <pre><code>/*
 The MIT License (MIT)
 
@@ -266,6 +268,110 @@ connect(final String identifier, final String secret) async{
 cd apidocs/code-examples/dart
 pub get
 dart auth-getuser.dart
+</code></pre>
+<h1>Python</h1>
+<h2>Share a file</h2>
+<pre><code># Command-line example for sharing files, including text, images etc
+
+import os, sys, uuid, mimetypes
+
+import requests
+from requests_oauthlib import OAuth2Session
+import flask
+
+ 
+def debug(*things):
+    string = ' '.join(str(t) for t in things)
+    sys.stderr.write(string+'\n')
+
+# Note: No error handling
+class TheGridAuth:
+    authorization_url = &quot;https://passport.thegrid.io/login/authorize&quot;
+    token_url = &quot;https://passport.thegrid.io/login/authorize/token&quot;
+    redirect_uri = 'http://localhost:3000/authenticated'
+
+    def __init__(self, _id, _secret, scopes=[]):
+        self.app_id = _id
+        self.app_secret = _secret
+        self.scopes = scopes
+
+        self.flask = flask.Flask(__name__)
+        # FIXME: implement loading token from disk
+        self.session = OAuth2Session(self.app_id, scope=self.scopes, redirect_uri=self.redirect_uri)
+
+        @self.flask.route(&quot;/authenticated&quot;, methods=[&quot;GET&quot;])
+        def callback():
+            url = flask.request.url
+
+            token = self.session.fetch_token(self.token_url,
+                   client_secret=self.app_secret,
+                   authorization_response=url)
+            debug('/authenticated', 'got token')
+
+            try:
+                self.on_authenticated(self, token)
+            except Exception, e:
+                debug('ERROR', e)
+                return e
+
+             # FIXME: implement persistence of token to disk
+            return 'Authenticated, go back to program'
+
+    # Callback fired when we have been authicated
+    def on_authenticated(self, token):
+        print &quot;%s Subclass or override this handler&quot; % (__name__,)
+
+    def authenticate(self, *args, **kwargs):
+        authorization_url, state = self.session.authorization_url(self.authorization_url)
+        print &quot;Open in browser to authenticate:\n %s&quot; % (authorization_url,)
+
+        kwargs['port'] = 3000
+        self.flask.run(*args, **kwargs)
+
+ 
+if __name__ == &quot;__main__&quot;:
+    # Allow to use plain HTTP callback. Do not use on a production server
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+    os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1' # workaround for https://github.com/idan/oauthlib/pull/323
+
+    # !! Get these by registering an app at https://passport.thegrid.io
+    app_id = os.environ.get('THEGRID_APP_ID') or &quot;&quot;
+    app_secret = os.environ.get('THEGRID_APP_SECRET') or &quot;&quot;
+    scopes = [&quot;content_management&quot;, &quot;update_profile&quot;]
+    auth = TheGridAuth(app_id, app_secret, scopes)
+
+    filepath = sys.argv[1]
+    filename = os.path.basename(filepath)
+    mimetype = mimetypes.guess_type(filename)[0]
+    files = {
+        'content': (filename, open(filepath, 'rb'), mimetype),
+        'type': mimetype,
+        'url': 'content://'+str(uuid.uuid4())
+    }
+    def upload_file(auth, token):
+        print 'Sharing file of type %s: %s' % (mimetype, filepath)
+        r = auth.session.post(&quot;https://api.thegrid.io/share&quot;, files=files)
+        if r.status_code == 202:
+            job = 'https://api.thegrid.io'+r.headers['location']
+            print 'Success: %s' % (job,)
+            r = auth.session.get(job)
+            print 'Job details: \n%s' % (r.content,)
+        else:
+            sys.stderr.write('ERROR: %s\n %s\n' % (r.status_code, r.content))
+
+    auth.on_authenticated = upload_file
+    auth.authenticate()
+</code></pre>
+<h2>Prerequisites</h2>
+<p>Make sure you have <a href="https://www.python.org">Python</a> 2.7 installed,
+as well as <a href="https://pip.pypa.io/en/latest/installing.html">pip</a>.</p>
+<h2>Install</h2>
+<pre><code>git clone https://github.com/the-grid/apidocs.git
+cd apidocs/code-examples/python
+pip install -r requirements.pip -t ./
+</code></pre>
+<h2>Run</h2>
+<pre><code>python share-file.py ./myfile.png
 </code></pre>
 </div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 30 May 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
 
