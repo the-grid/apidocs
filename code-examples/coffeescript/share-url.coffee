@@ -17,6 +17,7 @@ config =
 # Data to be shared
 data =
   url: 'https://flowhub.io'
+  compress: true
 
 # The Grid API supports OAuth2 authentication
 oauth = new OAuth2(
