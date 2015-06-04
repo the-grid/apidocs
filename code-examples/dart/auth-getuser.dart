@@ -40,10 +40,18 @@ import 'package:oauth2/oauth2.dart' as oauth2;
  * app will perform the actual API call.
 **/
 main(List<String> arguments) async{
+  var env = Platform.environment;
 
   // !!! Get these by registering an app at https://passport.thegrid.io
-  final identifier = "";
-  final secret = "";
+  var identifier = env["THEGRID_APP_ID"];
+  if (identifier == null) {
+    identifier = ""; // put app id here
+  }
+  var secret = env["THEGRID_APP_SECRET"];
+  if (secret == null) {
+    secret = ""; // put secret here
+  }
+
   if (identifier.isEmpty || secret.isEmpty) {
     throw("You must register an app, and replace identifier and secret in the code!");
   }
