@@ -8,6 +8,8 @@
   "dependencies": {
     "coffee-script": "~1.7.1",
     "express": "^4.12.4",
-    "oauth": "^0.9.13"
+    "form-data": "^0.2.0",
+    "oauth": "^0.9.13",
+    "uuid": "^2.0.1"
   }
 }

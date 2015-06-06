@@ -11,4 +11,10 @@ Make sure you have [NodeJS](https://www.nodejs.org) installed.
 
 ## Run
 
+To share an URL:
+
     coffee share-url.coffee
+
+To share a local file:
+
+    coffee share-file.coffee myfile.png
