@@ -39,7 +39,7 @@ app.get '/', (req, res) ->
     scope: config.scopes
     response_type: 'code' 
 
-  body = "<a href=\"#{oauthURL}\">Share on The Grid</a>"
+  body = "<a href=\"#{oauthURL}\">Share #{data.url} to The Grid</a>"
 
   res.send body
 
@@ -67,7 +67,7 @@ app.get '/authenticated', (req, res) ->
       req = https.request opts, (result) =>
         if result.statusCode isnt 202
           res.send "Error: #{res.statusCode}"
-        res.send "Content shared!"
+        res.send "Shared #{data.url}!"
       req.write jsonData
       req.end()
   )
