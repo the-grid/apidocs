@@ -57,8 +57,28 @@ or refer to a *stable* URL on a HTTPS enabled CDN (recommended for fonts, images
 
 # Use custom design system
 
-The settings for running a custom design system on The Grid are currently not publically exposed.
-Interested in running your own design system? [Get in touch](https://github.com/the-grid/apidocs/issues/new)!
+You can configure a site to use a custom design system,
+by setting the `style` property to be a URL to .JS file implementing the API above.
+
+`style: http://example.net/path/mydesignsystem-0.1.0.js`
+
+It is heavily recommended that the path is strictly versioned, each new code change gets a new URL.
+and the configuration updated to activate the new version.
+
+Use `config` object of the `PUT /site/$id` API to change site configuration from an app.
+
+Note: This will override the default design system completely!
+To reset back to the default design system, remove the `style` key/value.
+
+# Custom settings
+
+If your design system has settings, they should be persisted in the site config.
+You can use the API in order to build a custom user interface for configuring these settings.
+
+For compatibility, it is recommended that all configuration keys are prefixed with your application/design-system name.
+For instance, if you have an option for 'density', use something like `mysystem_density: 3.3` or use `mysystem: { density: 3.3 }`.
+
+All changes to site configuration will trigger a rebuild of the pages on the site.
 
 # Tools
 
