@@ -50,7 +50,6 @@ updateConfig = (token, sitePath, newConfig, callback) ->
   # To avoid loosing other config values, we fetch existing config first
   getConfig token, sitePath, (err, site) ->
     return callback err if err
-    console.log 'newconfig', newConfig
     for k, v of newConfig
       site.config[k] = v
     setConfig token, sitePath, site, callback

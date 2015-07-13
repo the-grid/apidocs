@@ -66,6 +66,9 @@ It is heavily recommended that the path is strictly versioned, each new code cha
 and the configuration updated to activate the new version.
 
 Use `config` object of the `PUT /site/$id` API to change site configuration from an app.
+For example, using the configure-site example code.
+
+    coffee configure-site.coffee https://thegrid.ai/mysite style http://developer.thegrid.io/designsystems/original-html.js
 
 Note: This will override the default design system completely!
 To reset back to the default design system, remove the `style` key/value.
