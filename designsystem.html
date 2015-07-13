@@ -196,8 +196,9 @@ by setting the <code>style</code> property to be a URL to .JS file implementing 
 <p>It is heavily recommended that the path is strictly versioned, each new code change gets a new URL.
 and the configuration updated to activate the new version.</p>
 <p>Use <code>config</code> object of the <code>PUT /site/$id</code> API to change site configuration from an app.
-For example, using the configure-site example code.</p>
-<pre><code>coffee configure-site.coffee https://thegrid.ai/mysite style http://developer.thegrid.io/designsystems/original-html.js
+For example, using the <a href="https://github.com/the-grid/apidocs/tree/master/code-examples/coffeescript">configure-site example</a> to enable a
+<a href="https://developer.thegrid.io/designsystems/original-html.js">trivial design system</a>.</p>
+<pre><code>coffee configure-site.coffee https://thegrid.ai/mysite style https://developer.thegrid.io/designsystems/original-html.js
 </code></pre>
 <p>Note: This will override the default design system completely!
 To reset back to the default design system, remove the <code>style</code> key/value.</p>
