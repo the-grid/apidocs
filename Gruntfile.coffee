@@ -61,6 +61,10 @@ module.exports = ->
         files: [
           src: ['favicon.ico'], dest: 'dist/'
         ]
+      designsystems:
+        files: [
+          expand: true, cwd: 'code-examples', src: ['designsystems/*.js'], dest: 'dist/'
+        ]
 
     'gh-pages':
       options:
