@@ -93,7 +93,7 @@ properties:
         type: array
         default: []
         items:
-          "$ref": "base.json#/definitions/rgbcolor"
+          "$ref": "base.json#/definitions/hexcolor"
         description: "The user-selected brand colors for the site"
       brandStrength:
         type: number
