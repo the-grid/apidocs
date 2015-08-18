@@ -16,9 +16,9 @@
       "example": "http://example.net/foo",
       "type": "string"
     },
-    "rgbcolor": {
-      "description": "RGB color",
-      "format": "rgbcolor",
+    "hexcolor": {
+      "description": "#RGB color",
+      "format": "rgbhexcolor",
       "pattern": "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$",
       "example": "#aa33cc",
       "type": "string"
