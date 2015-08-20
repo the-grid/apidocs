@@ -16,6 +16,9 @@ properties:
   favicon:
     type: string
     description: Favicon URL
+  logo:
+    type: string
+    description: SVG logo URL
   cta:
     type: object
     required:

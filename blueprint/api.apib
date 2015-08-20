@@ -128,6 +128,18 @@ Performing such an action returns a Location header with a Job URL.
 
 + Response 200
 
+## Site logos [/site/{id}/logo]
+
+### Set website logo [POST]
+
++ Request (multipart/form-data)
+
+  A logo can be provided for a website by uploading it as multipart/form-data. Only SVG logos are supported.
+
++ Response 202
+
+  Logo was successfully updated
+
 ## Website discovery [/site/discover{?url}]
 
 ### Match URL to a website [GET]
