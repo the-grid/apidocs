@@ -114,20 +114,18 @@ properties:
         default: 0.5
         minimum: 0.0
         maximum: 1.0
-  layout:
-    spectrum:
-      type: number
-      description: ""
-      default: 0.5
-      minimum: 0.0
-      maximum: 1.0
-  typography:
-    spectrum:
-      type: number
-      description: ""
-      default: 0.5
-      minimum: 0.0
-      maximum: 1.0
+  layout_spectrum:
+    type: number
+    description: ""
+    default: 0.5
+    minimum: 0.0
+    maximum: 1.0
+  typography_spectrum:
+    type: number
+    description: ""
+    default: 0.5
+    minimum: 0.0
+    maximum: 1.0
   site_lang:
     type: string
     description: Primary site content langauge; ISO 693-1 format
