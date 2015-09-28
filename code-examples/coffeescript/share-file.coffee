@@ -26,7 +26,7 @@ shareFile = (filePath, accessToken, callback) ->
   req.on "response", (result) ->
     callback result
 
-main = () ->
+exports.main = main = () ->
   unless process.argv.length > 2
     console.log "Usage: coffee share-file.coffee myfile.png"
     process.exit 1
