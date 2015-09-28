@@ -13,6 +13,7 @@
   },
   "main": "index.coffee",
   "bin": {
+    "thegrid-authenticate": "./bin/thegrid-authenticate",
     "thegrid-designsystem-update": "./bin/thegrid-designsystem-update",
     "thegrid-site-configure": "./bin/thegrid-site-configure"
   },

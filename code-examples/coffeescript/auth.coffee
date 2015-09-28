@@ -42,7 +42,7 @@ authApp = (config, authCallback) ->
 
   return app
 
-main = () ->
+exports.main = main = () ->
   console.log "Usage: coffee auth.coffee [scope1] [scope2] ..."
 
   if process.argv.length == 2
