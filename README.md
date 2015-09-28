@@ -9,6 +9,25 @@ The latest built version is at [developer.thegrid.io](http://developer.thegrid.i
 For corrections, improvements file issues or pull requests in the
 [the-grid/apidocs on Github](https://github.com/the-grid/apidocs).
 
+## Commandline tools
+
+Several code examples are available as command-line tools, and can be useful for scripting, testing or development.
+You will need to have [node.js](http://nodejs.org) installed.
+
+To install
+
+    npm install -g thegrid-apidocs
+
+Examples:
+
+    thegrid-authenticate             # get a The Grid user token, for use with the other tools
+    
+    thegrid-share-file myfile.jpg    # share a file on disk to The Grid
+    thegrid-share-url http://coolblog.org/nifty.html                 # share article
+    thegrid-share-url http://myoldsite.com/article.html nocompress   # import all content of URL
+
+    thegrid-site-configure http://mygridsite.com colors   # show site config (here for colors)
+    thegrid-site-configure http://mygridsite.com name "My new name"   # set site config (here website title)
 
 Schemas
 --------
