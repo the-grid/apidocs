@@ -12,8 +12,12 @@
     "url": "https://github.com/the-grid/apidocs/issues"
   },
   "main": "index.coffee",
+  "bin": {
+    "thegrid-designsystem-update": "./bin/thegrid-designsystem-update"
+  },
   "files": [
     "index.coffee",
+    "bin",
     "blueprint",
     "schemata",
     "schema",
@@ -22,6 +26,8 @@
   "homepage": "https://thegrid.io",
   "dependencies": {
     "coffee-script": "^1.7.1",
+    "jsonwebtoken": "^5.0.1",
+    "semver": "^4.3.4",
     "js-yaml": "^3.2.5"
   },
   "devDependencies": {
