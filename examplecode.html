@@ -383,82 +383,58 @@ pip install -r requirements.pip -t ./
 </code></pre>
 <h1>CoffeeScript</h1>
 <h2>Share a URL</h2>
-<pre><code>OAuth2 = require('oauth').OAuth2
-express = require 'express'
-https = require 'https'
+<pre><code>https = require 'https'
 
 # Some configurations needed to talk with The Grid API
 config =
   host: 'api.thegrid.io'
   port: 443
   path: '/share'
-  app_id: process.env.THEGRID_APP_ID or ''
-  app_secret: process.env.THEGRID_APP_SECRET or ''
-  scopes: ['share']
-  authorization_url: 'https://passport.thegrid.io/login/authorize'
-  token_url: 'https://passport.thegrid.io/login/authorize/token'
-  callback_url: 'http://localhost:3000/authenticated'
 
-# Data to be shared
-data =
-  url: 'https://flowhub.io'
-  compress: true
+# @url: http(s) URL to publicly available website
+# @compress: true means share an article reference, false means import full page content
+shareUrl = (url, compress, accessToken, callback) -&gt;
+  # Data to be shared
+  data =
+    url: url
+    compress: compress
 
-# The Grid API supports OAuth2 authentication
-oauth = new OAuth2(
-  config.app_id
-  config.app_secret
-  ''
-  config.authorization_url
-  config.token_url
-  null
-)
+  # Receive the token for this session at `accessToken`
+  jsonData = JSON.stringify data
+  opts =
+    host: config.host
+    port: config.port
+    path: config.path
+    method: 'POST'
+    headers:
+      Authorization: &quot;Bearer #{accessToken}&quot;
+      'Content-Type': 'application/json'
+      'Content-Length': jsonData.length
 
-# Create an app that will redirect us to The Grid `config.authorization_url` and
-# then back to our `config.callback_url`
-app = express()
+  req = https.request opts, (res) =&gt;
+    return callback res
+  req.write jsonData
+  req.end()
 
-app.get '/', (req, res) -&gt;
-  oauthURL = oauth.getAuthorizeUrl
-    redirect_uri: config.callback_url
-    scope: config.scopes
-    response_type: 'code' 
+exports.main = main = () -&gt;
+  unless process.argv.length &gt; 2
+    console.log &quot;Usage: thegrid-share-url.coffee http://example.com/foo [nocompress]&quot;
+    process.exit 1
+  url = process.argv[2]
+  nocompress = process.argv[3] and process.argv[3] != 'compress'
 
-  body = &quot;&lt;a href=\&quot;#{oauthURL}\&quot;&gt;Share #{data.url} to The Grid&lt;/a&gt;&quot;
+  token = process.env.THEGRID_TOKEN
+  unless token
+    console.log 'Missing authentication token. Must be configured as environment variable THEGRID_TOKEN'
+    process.exit 2
 
-  res.send body
+  shareUrl url, !nocompress, token, (res) -&gt;
+    if res.statusCode &gt; 202
+      console.log 'Error sharing'
+      process.exit 3
+    console.log &quot;Shared '#{url}': #{res.headers.location}&quot;
 
-app.get '/authenticated', (req, res) -&gt;
-  oauth.getOAuthAccessToken(
-    req.query.code
-    {'redirect_uri': config.callback_url, 'grant_type': 'authorization_code'}
-    (err, accessToken, refreshToken, results) -&gt;
-      if err?
-        res.send &quot;Error: #{err}&quot;
-      if results.error?
-        res.send &quot;Error: #{JSON.stringify(results)}&quot;
-      # Receive the token for this session at `accessToken`
-      jsonData = JSON.stringify data
-      opts =
-        host: config.host
-        port: config.port
-        path: config.path
-        method: 'POST'
-        headers:
-          Authorization: &quot;Bearer #{accessToken}&quot;
-          'Content-Type': 'application/json'
-          'Content-Length': jsonData.length
-      # After having received the token we are good to share
-      req = https.request opts, (result) =&gt;
-        if result.statusCode isnt 202
-          res.send &quot;Error: #{res.statusCode}&quot;
-        res.send &quot;Shared #{data.url}!&quot;
-      req.write jsonData
-      req.end()
-  )
-
-app.listen 3000
-console.log &quot;Share your content at http://localhost:3000&quot;
+main() if not module.parent
 </code></pre>
 <h2>Share a file</h2>
 <pre><code>https = require &quot;https&quot;
@@ -488,7 +464,7 @@ shareFile = (filePath, accessToken, callback) -&gt;
   req.on &quot;response&quot;, (result) -&gt;
     callback result
 
-main = () -&gt;
+exports.main = main = () -&gt;
   unless process.argv.length &gt; 2
     console.log &quot;Usage: coffee share-file.coffee myfile.png&quot;
     process.exit 1
