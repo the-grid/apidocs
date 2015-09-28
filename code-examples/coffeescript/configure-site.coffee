@@ -79,7 +79,7 @@ parseValue = (val) ->
     return v if not isNaN v
   return val
 
-main = () ->
+exports.main = main = () ->
   unless process.argv.length > 2
     console.log "Usage: coffee configure-site.coffee siteUrl [key] [value]"
     process.exit 1

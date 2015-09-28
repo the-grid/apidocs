@@ -13,7 +13,8 @@
   },
   "main": "index.coffee",
   "bin": {
-    "thegrid-designsystem-update": "./bin/thegrid-designsystem-update"
+    "thegrid-designsystem-update": "./bin/thegrid-designsystem-update",
+    "thegrid-site-configure": "./bin/thegrid-site-configure"
   },
   "files": [
     "index.coffee",

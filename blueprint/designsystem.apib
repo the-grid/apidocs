@@ -70,7 +70,7 @@ Use `config` object of the `PUT /site/$id` API to change site configuration from
 For example, using the [configure-site example](https://github.com/the-grid/apidocs/tree/master/code-examples/coffeescript) to enable a
 [trivial design system](https://developer.thegrid.io/designsystems/original-html.js).
 
-    coffee configure-site.coffee https://thegrid.ai/mysite style https://developer.thegrid.io/designsystems/original-html.js
+    thegrid-configure-site https://thegrid.ai/mysite style https://developer.thegrid.io/designsystems/original-html.js
 
 Note: This will override the default design system completely!
 To reset back to the default design system, remove the `style` key/value.
