@@ -19,6 +19,10 @@
       "type": "string",
       "description": "Favicon URL"
     },
+    "logo": {
+      "type": "string",
+      "description": "SVG logo URL"
+    },
     "cta": {
       "type": "object",
       "required": [
@@ -149,23 +153,19 @@
         }
       }
     },
-    "layout": {
-      "spectrum": {
-        "type": "number",
-        "description": "",
-        "default": 0.5,
-        "minimum": 0,
-        "maximum": 1
-      }
+    "layout_spectrum": {
+      "type": "number",
+      "description": "",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 1
     },
-    "typography": {
-      "spectrum": {
-        "type": "number",
-        "description": "",
-        "default": 0.5,
-        "minimum": 0,
-        "maximum": 1
-      }
+    "typography_spectrum": {
+      "type": "number",
+      "description": "",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 1
     },
     "site_lang": {
       "type": "string",
