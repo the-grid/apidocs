@@ -1,5 +1,4 @@
-OAuth2 = require('oauth').OAuth2
-express = require 'express'
+
 https = require 'https'
 
 # Some configurations needed to talk with The Grid API
@@ -7,70 +6,49 @@ config =
   host: 'api.thegrid.io'
   port: 443
   path: '/share'
-  app_id: process.env.THEGRID_APP_ID or ''
-  app_secret: process.env.THEGRID_APP_SECRET or ''
-  scopes: ['share']
-  authorization_url: 'https://passport.thegrid.io/login/authorize'
-  token_url: 'https://passport.thegrid.io/login/authorize/token'
-  callback_url: 'http://localhost:3000/authenticated'
 
-# Data to be shared
-data =
-  url: 'https://flowhub.io'
-  compress: true
+# @url: http(s) URL to publicly available website
+# @compress: true means share an article reference, false means import full page content
+shareUrl = (url, compress, accessToken, callback) ->
+  # Data to be shared
+  data =
+    url: url
+    compress: compress
 
-# The Grid API supports OAuth2 authentication
-oauth = new OAuth2(
-  config.app_id
-  config.app_secret
-  ''
-  config.authorization_url
-  config.token_url
-  null
-)
+  # Receive the token for this session at `accessToken`
+  jsonData = JSON.stringify data
+  opts =
+    host: config.host
+    port: config.port
+    path: config.path
+    method: 'POST'
+    headers:
+      Authorization: "Bearer #{accessToken}"
+      'Content-Type': 'application/json'
+      'Content-Length': jsonData.length
 
-# Create an app that will redirect us to The Grid `config.authorization_url` and
-# then back to our `config.callback_url`
-app = express()
+  req = https.request opts, (res) =>
+    return callback res
+  req.write jsonData
+  req.end()
 
-app.get '/', (req, res) ->
-  oauthURL = oauth.getAuthorizeUrl
-    redirect_uri: config.callback_url
-    scope: config.scopes
-    response_type: 'code' 
+exports.main = main = () ->
+  unless process.argv.length > 2
+    console.log "Usage: thegrid-share-url.coffee http://example.com/foo [nocompress]"
+    process.exit 1
+  url = process.argv[2]
+  nocompress = process.argv[3] and process.argv[3] != 'compress'
 
-  body = "<a href=\"#{oauthURL}\">Share #{data.url} to The Grid</a>"
+  token = process.env.THEGRID_TOKEN
+  unless token
+    console.log 'Missing authentication token. Must be configured as environment variable THEGRID_TOKEN'
+    process.exit 2
 
-  res.send body
+  shareUrl url, !nocompress, token, (res) ->
+    if res.statusCode > 202
+      console.log 'Error sharing'
+      process.exit 3
+    console.log "Shared '#{url}': #{res.headers.location}"
 
-app.get '/authenticated', (req, res) ->
-  oauth.getOAuthAccessToken(
-    req.query.code
-    {'redirect_uri': config.callback_url, 'grant_type': 'authorization_code'}
-    (err, accessToken, refreshToken, results) ->
-      if err?
-        res.send "Error: #{err}"
-      if results.error?
-        res.send "Error: #{JSON.stringify(results)}"
-      # Receive the token for this session at `accessToken`
-      jsonData = JSON.stringify data
-      opts =
-        host: config.host
-        port: config.port
-        path: config.path
-        method: 'POST'
-        headers:
-          Authorization: "Bearer #{accessToken}"
-          'Content-Type': 'application/json'
-          'Content-Length': jsonData.length
-      # After having received the token we are good to share
-      req = https.request opts, (result) =>
-        if result.statusCode isnt 202
-          res.send "Error: #{res.statusCode}"
-        res.send "Shared #{data.url}!"
-      req.write jsonData
-      req.end()
-  )
+main() if not module.parent
 
-app.listen 3000
-console.log "Share your content at http://localhost:3000"
