@@ -45,7 +45,6 @@ sign = (secret, p) ->
       designsystem: p.designsystem
       preventAutosolve: not p.autosolve
       staging: p.staging
-    console.log 'sending', payload
     signed = jwt.sign payload, secret
 
 newVersion = (secret, payload, callback) ->
@@ -69,7 +68,7 @@ parse = (args) ->
   minimist = require 'minimist'
   parseOptions =
     boolean: [ 'autosolve', 'staging' ]
-    defaults:
+    default:
       autosolve: true
       staging: true
   parsed = minimist args, parseOptions
@@ -95,6 +94,6 @@ exports.main = ->
 
   newVersion secret, payload, (err, r) ->
     throw err if err
-    console.log "Updated #{r.designsystem} to version #{r.version}: #{r.url}"
+    console.log "Updated #{r.designsystem} to version #{r.version}: #{r.url} | (autosolve=#{r.autosolve}, staging=#{r.staging})"
     
 
