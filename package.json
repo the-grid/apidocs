@@ -31,9 +31,10 @@
   "homepage": "https://thegrid.io",
   "dependencies": {
     "coffee-script": "^1.7.1",
+    "js-yaml": "^3.2.5",
     "jsonwebtoken": "^5.0.1",
-    "semver": "^4.3.4",
-    "js-yaml": "^3.2.5"
+    "minimist": "^1.2.0",
+    "semver": "^4.3.4"
   },
   "devDependencies": {
     "chai": "^1.9.1",

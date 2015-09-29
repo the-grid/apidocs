@@ -43,7 +43,9 @@ sign = (secret, p) ->
       version: p.version
       url: p.url
       designsystem: p.designsystem
-      preventAutosolve: p.preventAutosolve
+      preventAutosolve: not p.autosolve
+      staging: p.staging
+    console.log 'sending', payload
     signed = jwt.sign payload, secret
 
 newVersion = (secret, payload, callback) ->
@@ -62,15 +64,21 @@ newVersion = (secret, payload, callback) ->
 
 parse = (args) ->
   if args.length < 3
-    throw new Error "Wrong number of arguments. Expected 3+ (name version url [preventAutosolve]), got #{args}"
+    throw new Error "Wrong number of arguments. Expected 3+:\n name version url [--autosolve=false] [--staging=true]\nGot #{args}"
 
-  payload =
-    designsystem: args[0]
-    version: args[1]
-    url: args[2]
-  payload.preventAutoSolve = args[3].toLowerCase() == 'preventautosolve' if args[3]
+  minimist = require 'minimist'
+  parseOptions =
+    boolean: [ 'autosolve', 'staging' ]
+    defaults:
+      autosolve: true
+      staging: true
+  parsed = minimist args, parseOptions
 
-  return payload
+  parsed.designsystem = parsed._[0]
+  parsed.version = parsed._[1]
+  parsed.url = parsed._[2]
+
+  return parsed
 
 validate = (o) ->
   return o.designsystem and
