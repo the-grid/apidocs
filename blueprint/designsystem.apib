@@ -70,7 +70,7 @@ Use `config` object of the `PUT /site/$id` API to change site configuration from
 For example, using the [configure-site example](https://github.com/the-grid/apidocs/tree/master/code-examples/coffeescript) to enable a
 [trivial design system](https://developer.thegrid.io/designsystems/original-html.js).
 
-    thegrid-configure-site https://thegrid.ai/mysite style https://developer.thegrid.io/designsystems/original-html.js
+    thegrid-site-configure https://thegrid.ai/mysite style https://developer.thegrid.io/designsystems/original-html.js
 
 Note: This will override the default design system completely!
 To reset back to the default design system, remove the `style` key/value.
@@ -78,7 +78,7 @@ To reset back to the default design system, remove the `style` key/value.
 # Custom settings
 
 If your design system has settings, they should be persisted in the site config.
-You can use the API in order to build a custom user interface for configuring these settings.
+You can use the API in order to build a web app with custom user interface to let users configuring settings.
 
 For compatibility, it is recommended that all configuration keys are prefixed with your application/design-system name.
 For instance, if you have an option for 'density', use something like `mysystem_density: 3.3` or use `mysystem: { density: 3.3 }`.
