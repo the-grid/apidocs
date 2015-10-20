@@ -45,6 +45,7 @@ sign = (secret, p) ->
       designsystem: p.designsystem
       preventAutosolve: not p.autosolve
       staging: p.staging
+      options: p.options
     signed = jwt.sign payload, secret
 
 newVersion = (secret, payload, callback) ->
@@ -71,11 +72,13 @@ parse = (args) ->
     default:
       autosolve: true
       staging: true
+      options: '{}'
   parsed = minimist args, parseOptions
 
   parsed.designsystem = parsed._[0]
   parsed.version = parsed._[1]
   parsed.url = parsed._[2]
+  parsed.options = JSON.parse(parsed.options)
 
   return parsed
 
