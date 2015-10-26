@@ -140,5 +140,8 @@ properties:
         type: string
       url:
         type: string
+  auto_approve:
+    description: Whether to publish site changes without design review
+    type: boolean
 
 required: [name]
