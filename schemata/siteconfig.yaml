@@ -140,6 +140,17 @@ properties:
         type: string
       url:
         type: string
+  profiles:
+    type: array
+    description: "Social media profile links associated with the site"
+    default: []
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
   auto_approve:
     description: Whether to publish site changes without design review
     type: boolean
