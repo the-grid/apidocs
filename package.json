@@ -15,6 +15,7 @@
   "bin": {
     "thegrid-authenticate": "./bin/thegrid-authenticate",
     "thegrid-designsystem-update": "./bin/thegrid-designsystem-update",
+    "thegrid-designsystem-collaborators": "./bin/thegrid-designsystem-collaborators",
     "thegrid-share-file": "./bin/thegrid-share-file",
     "thegrid-share-url": "./bin/thegrid-share-url",
     "thegrid-site-configure": "./bin/thegrid-site-configure"
