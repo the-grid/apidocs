@@ -131,5 +131,28 @@ properties:
     description: Primary site content langauge; ISO 693-1 format
     example: ar
     default: en
+  author:
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      url:
+        type: string
+  profiles:
+    type: array
+    description: "Social media profile links associated with the site"
+    default: []
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+  auto_approve:
+    description: Whether to publish site changes without design review
+    type: boolean
 
 required: [name]
