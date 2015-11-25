@@ -1,0 +1,146 @@
+FORMAT: 1A
+HOST: https://api.thegrid.io/
+
+# Group Registering for Notifications
+
+Notifications allow applications to instantly know when certain data has changed,
+or certain user actions has been performed. Correct implementation of notifications
+allows user to use multiple devices, with the data always being up-to-date.
+
+To receive notifications, the Grid app needs to be registered as a client application.
+
+The notifications sent to clients follow the [notifications schema](schema/notification.json).
+For how to deal with particular notifications, see the recommendations found below.
+
+When reacting to an action the client needs to make the request using the regular Bearer token.
+
+## User clients [/client]
+
+### List user's active client apps [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/client-gcm.json) -->
+      <!-- include(examples/client-apn.json) -->
+      ]
+      ```
+
+### Register a new client app [POST]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/client-gcm.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/client.json) -->
+      ```
+
++ Response 201
+
+  + Headers
+
+            Location: /client/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
+## Client app [/client/{id}]
+
++ Parameters
+  + id (required, string) - Site UUID
+
+### Remove a client app [DELETE]
+
++ Response 204
+
+## Notifications testing [/molly/repeat]
+
+### Send a test notification [POST]
+
+For development purposes, you can make Molly talk to you over the registered notification channels (like Google Cloud Messaging).
+
+A push message will be sent to the user's all registered clients.
+
++ Request (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/notification.json) -->
+      ```
+
++ Response 202
+
+# Group Available Notifications
+
+## Synchronization
+
+These notification payloads are intended for API clients to refresh changed data from the server. They are not indended to be visualized except for possible data changes in the UI (new items appearing, site configs changing, etc).
+
+User events:
+
+* `user_merge`: user account has been merged with another one. All data should be re-fetched
+* `user_removed`: the user account has been disabled. Remove data and disable application usage
+* `user_activated`: the authenticated user's account has been activated. Re-fetch data and enable full application usage. This one may be worthy of notifying user visually
+
+Item events:
+
+* `new_item`: new item has been created, fetch with `id`
+* `updated_item`: item has been updated, fetch with `id`
+* `published_item`: item has been published to `sites`, update display accordingly. Fetch with `id` if needed
+* `removed_item`: item has been deleted. Remove from app
+
+Site events:
+
+* `new_site`: new site has been created, fetch with `id` or use `repo`
+* `updated_site`: site has been updated, fetch with `id` or use `repo`. These can be also caused by site publishing process
+* `removed_site`: site has been deleted. Remove from app
+
+## Job status
+
+The job status notifications are related to long-running operations initiated by the user or a back-end process that the user should be aware of. These should be shown with persistent progress indicators either in the system's notifications are or in the context of the action made (for example, a "loading" item card).
+
+Job events contain the following information:
+
+* `job_id`: identifier for the long-running job, can be used for polling the job endpoint
+* `item`: item ID associated with the job, if any
+* `job_type`: type of the job, currently either `share` or `publish`
+
+Job status changes cause the following events to be sent:
+
+* `started_job`: job has started. Show progress notification accordingly
+* `updated_job`: there has been progress on the job. Possibly move progress indicator one step forward
+* `failed_job`: job has failed. Replace progress notification with a failure indicator
+* `completed_job`: job has completed. Remove progress notification or replace with a success indicator
+
+## Actionable notifications
+
+These notifications are related to something urgent the user should be able to react to. They should be shown as OS-level notifications that may have additional information like screenshots or action buttons associated with them.
+
+Notifications from the `molly` AI:
+
+These notifications are meant to be shown visually, and contain the texts written by the AI to the user. In general, they have the `molly` collapse key if available on the platform.
+
+Molly notifications contain the following keys:
+
+* `type`: subtype of the notification, for example `review` or `publish`
+* `title`: textual title for the notification
+* `text`: full notification text
+* `url`: URL that the user can visit to see more related to the notification, for example a newly redesigned website of theirs
+* `preview`: Screenshot for the URL above, if any
+* `ipfs`: IPFS hash for the URL, if any
+* `site`: ID of the site associated with the notification
+* `job`: ID of the job associated with the notification, if any. Can be used to morph job progress to visual notification
+* `actions`: array of potential additional actions that user can perform, each containing `label`, `icon`, `path`, `method`, and `payload`
+
+Molly notification types:
+
+* `review`: The AI has multiple designs for the user to review and choose from
+* `publish`: A new version of the site or some pages within is now live

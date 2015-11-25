@@ -26,6 +26,7 @@ module.exports = ->
           'dist/api.html': ['blueprint/api.apib']
           'dist/designsystem.html': ['blueprint/designsystem.apib']
           'dist/examplecode.html': ['blueprint/examplecode.apib']
+          'dist/notifications.html': ['blueprint/notifications.apib']
         options:
           includePath: __dirname
           theme: 'templates/aglio/thegrid'
