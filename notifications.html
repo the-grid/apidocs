@@ -1,0 +1,351 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>API Documentation</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
+pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
+pre code{display:block;padding:.5em;background:#272b30}
+.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+h4,
+h5 {
+  font-family: 'Roboto' sans-serif !important;
+}
+h1,
+h2,
+h3,
+.aglio {
+  font-family: 'Raleway' sans-serif !important;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  display: none;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a,
+h5:hover a {
+  display: inline;
+}
+code {
+  color: #222;
+  background-color: #aaa;
+  font-family: 'Inconsolata' monospace !important;
+}
+a[data-target] {
+  cursor: pointer;
+}
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.back-to-top {
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  right: 24px;
+  padding: 4px 8px;
+  color: #aaa;
+  background-color: #171b20;
+  text-decoration: none !important;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel {
+  overflow: hidden;
+}
+.panel-heading code {
+  margin-left: 3px;
+  color: #000;
+  background-color: rgba(255,255,255,0.7);
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.panel-heading h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+a.list-group-item:hover {
+  background-color: #f8f8f8;
+  border-left: 2px solid #555;
+  padding-left: 15px;
+}
+.indent {
+  display: block;
+  text-indent: 16px;
+}
+.list-group-item {
+  padding-left: 16px;
+}
+.list-group-item .toggle .open {
+  display: block;
+}
+.list-group-item .toggle .closed {
+  display: none;
+}
+.list-group-item.collapsed .toggle .open {
+  display: none;
+}
+.list-group-item.collapsed .toggle .closed {
+  display: block;
+}
+a.list-group-item:hover {
+  background-color: #4b5159;
+  border-left-color: #c8c8c8;
+}
+a.list-group-item {
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+a.list-group-item.heading {
+  font-size: 15px;
+  background-color: #3e444c;
+}
+a.list-group-item.heading:hover {
+  background-color: #4b5159;
+}
+.list-group-item.collapse {
+  display: none;
+}
+.list-group-item.collapse.in {
+  display: block;
+}
+.list-group-item a span.closed {
+  display: none;
+}
+.list-group-item a span.open {
+  display: block;
+}
+.list-group-item a.collapsed span.closed {
+  display: block;
+}
+.list-group-item a.collapsed span.open {
+  display: none;
+}
+#nav {
+  width: inherit;
+  margin-top: 38px;
+  max-width: 255px;
+  top: 0;
+  bottom: 0;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  overflow-y: auto;
+}
+@media (max-width: 1199px) {
+  #nav {
+    max-width: 212px;
+  }
+}
+</style><!-- Based on https://codepo8.github.io/css-fork-on-github-ribbon/--><style>#forkongithub a{background:#000;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:45px;right:-45px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#registering-for-notifications-menu" href="#registering-for-notifications" class="list-group-item heading collapsed">Registering for Notifications</a><div id="registering-for-notifications-menu"><a href="#registering-for-notifications-user-clients" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">User clients</a><a href="#registering-for-notifications-user-clients-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">List user's active client apps</span></a><a href="#registering-for-notifications-user-clients-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Register a new client app</span></a><a href="#registering-for-notifications-client-app" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-danger"><i class="fa fa-times"></i></span>Client app</a><a href="#registering-for-notifications-notifications-testing" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span>Notifications testing</a></div></div><div class="list-group"><a data-toggle="" data-target="#available-notifications-menu" href="#available-notifications" class="list-group-item heading collapsed">Available Notifications</a><div id="available-notifications-menu"></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.thegrid.io/">https://api.thegrid.io/</a></p></nav></div><div class="col-md-8"><span id="forkongithub"><a href="https://github.com/the-grid/apidocs">Fork me on GitHub</a></span><div><header><div class="page-header"><h1 id="top">API Documentation</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="registering-for-notifications">Registering for Notifications&nbsp;<a href="#registering-for-notifications"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Notifications allow applications to instantly know when certain data has changed,
+or certain user actions has been performed. Correct implementation of notifications
+allows user to use multiple devices, with the data always being up-to-date.</p>
+<p>To receive notifications, the Grid app needs to be registered as a client application.</p>
+<p>The notifications sent to clients follow the <a href="schema/notification.json">notifications schema</a>.
+For how to deal with particular notifications, see the recommendations found below.</p>
+<p>When reacting to an action the client needs to make the request using the regular Bearer token.</p>
+<h4 id="registering-for-notifications-user-clients">User clients&nbsp;<a href="#registering-for-notifications-user-clients"><i class="fa fa-link"></i></a></h4><section id="registering-for-notifications-user-clients-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">List user's active client apps</span></div><div style="float:left"><a href="#registering-for-notifications-user-clients-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/client</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#20fa2f80a91afe42a090b58e8f02f96a" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="20fa2f80a91afe42a090b58e8f02f96a" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>[
+{
+"<span class="hljs-attribute">client</span>": <span class="hljs-value"><span class="hljs-string">"cnhq98f3h92cg0c"</span></span>,
+"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"gcm"</span>
+</span>}
+{
+"<span class="hljs-attribute">client</span>": <span class="hljs-value"><span class="hljs-string">"jipcen3i2h3f0823h0f"</span></span>,
+"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"apn"</span>
+</span>}
+]
+</code></pre></li></ul></section><section id="registering-for-notifications-user-clients-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Register a new client app</span></div><div style="float:left"><a href="#registering-for-notifications-user-clients-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/client</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#5aba39d4390a86f704ba9dab4b9a22e8" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="5aba39d4390a86f704ba9dab4b9a22e8" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+"<span class="hljs-attribute">client</span>": <span class="hljs-value"><span class="hljs-string">"cnhq98f3h92cg0c"</span></span>,
+"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"gcm"</span>
+</span>}
+</code></pre><h5>Schema</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"client.json"</span></span>,
+"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Client App"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+"<span class="hljs-attribute">type</span>": <span class="hljs-value">[
+  <span class="hljs-string">"object"</span>
+]</span>,
+"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+  "<span class="hljs-attribute">client</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Client identifier for the messaging protocol"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Type of the client"</span></span>,
+    "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+      <span class="hljs-string">"gcm"</span>,
+      <span class="hljs-string">"apn"</span>
+    ]
+  </span>}
+</span>}
+</span>}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>201</code></strong><a data-toggle="collapse" data-target="#1808080676d53ebf427212a299c2d41a" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="1808080676d53ebf427212a299c2d41a" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/client/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177</span><br></code></pre></li></ul></section><h4 id="registering-for-notifications-client-app">Client app&nbsp;<a href="#registering-for-notifications-client-app"><i class="fa fa-link"></i></a></h4><section id="registering-for-notifications-client-app-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Remove a client app</span></div><div style="float:left"><a href="#registering-for-notifications-client-app-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/client/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li></ul></section><h4 id="registering-for-notifications-notifications-testing">Notifications testing&nbsp;<a href="#registering-for-notifications-notifications-testing"><i class="fa fa-link"></i></a></h4><section id="registering-for-notifications-notifications-testing-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Send a test notification</span></div><div style="float:left"><a href="#registering-for-notifications-notifications-testing-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/molly/repeat</code></div></div><div class="panel-body"><p>For development purposes, you can make Molly talk to you over the registered notification channels (like Google Cloud Messaging).</p>
+<p>A push message will be sent to the user’s all registered clients.</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#37d8b67e78ed288af899059e70be7996" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="37d8b67e78ed288af899059e70be7996" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Schema</h5><pre><code>{
+"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"notification.json"</span></span>,
+"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Client Notification"</span></span>,
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+"<span class="hljs-attribute">type</span>": <span class="hljs-value">[
+  <span class="hljs-string">"object"</span>
+]</span>,
+"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Message type"</span></span>,
+    "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"sync"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">text</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Message to show"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Title of the notificatio"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">url</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"https://thegrid.io"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The site or page which the notification refers to. Opening this URL should be the default action for the notification if it is provided"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">icon</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL for icon to show in the notificatio"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">preview</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL to a large icon, used for rich notifications on Android Wear and Chrome extension"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">actions</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"List of possible Actions to take from the notification"</span></span>,
+    "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">label</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Text label for the action"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">icon</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL to an icon for the action"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"HTTP REST path that client should use when activating the action"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">method</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"HTTP method to use for the call"</span></span>,
+          "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+            <span class="hljs-string">"POST"</span>,
+            <span class="hljs-string">"GET"</span>
+          ]
+        </span>}</span>,
+        "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Object to pass as payload to when activating action"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"label"</span>,
+        <span class="hljs-string">"icon"</span>,
+        <span class="hljs-string">"path"</span>,
+        <span class="hljs-string">"method"</span>
+      ]
+    </span>}
+  </span>}
+</span>}</span>,
+"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+  <span class="hljs-string">"title"</span>,
+  <span class="hljs-string">"text"</span>
+]
+</span>}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong></li></ul></section></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="available-notifications">Available Notifications&nbsp;<a href="#available-notifications"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h2>Synchronization</h2>
+<p>These notification payloads are intended for API clients to refresh changed data from the server. They are not indended to be visualized except for possible data changes in the UI (new items appearing, site configs changing, etc).</p>
+<p>User events:</p>
+<ul>
+<li><p><code>user_merge</code>: user account has been merged with another one. All data should be re-fetched</p></li>
+<li><p><code>user_removed</code>: the user account has been disabled. Remove data and disable application usage</p></li>
+<li><p><code>user_activated</code>: the authenticated user’s account has been activated. Re-fetch data and enable full application usage. This one may be worthy of notifying user visually</p></li>
+</ul>
+<p>Item events:</p>
+<ul>
+<li><p><code>new_item</code>: new item has been created, fetch with <code>id</code></p></li>
+<li><p><code>updated_item</code>: item has been updated, fetch with <code>id</code></p></li>
+<li><p><code>published_item</code>: item has been published to <code>sites</code>, update display accordingly. Fetch with <code>id</code> if needed</p></li>
+<li><p><code>removed_item</code>: item has been deleted. Remove from app</p></li>
+</ul>
+<p>Site events:</p>
+<ul>
+<li><p><code>new_site</code>: new site has been created, fetch with <code>id</code> or use <code>repo</code></p></li>
+<li><p><code>updated_site</code>: site has been updated, fetch with <code>id</code> or use <code>repo</code>. These can be also caused by site publishing process</p></li>
+<li><p><code>removed_site</code>: site has been deleted. Remove from app</p></li>
+</ul>
+<h2>Job status</h2>
+<p>The job status notifications are related to long-running operations initiated by the user or a back-end process that the user should be aware of. These should be shown with persistent progress indicators either in the system’s notifications are or in the context of the action made (for example, a “loading” item card).</p>
+<p>Job events contain the following information:</p>
+<ul>
+<li><p><code>job_id</code>: identifier for the long-running job, can be used for polling the job endpoint</p></li>
+<li><p><code>item</code>: item ID associated with the job, if any</p></li>
+<li><p><code>job_type</code>: type of the job, currently either <code>share</code> or <code>publish</code></p></li>
+</ul>
+<p>Job status changes cause the following events to be sent:</p>
+<ul>
+<li><p><code>started_job</code>: job has started. Show progress notification accordingly</p></li>
+<li><p><code>updated_job</code>: there has been progress on the job. Possibly move progress indicator one step forward</p></li>
+<li><p><code>failed_job</code>: job has failed. Replace progress notification with a failure indicator</p></li>
+<li><p><code>completed_job</code>: job has completed. Remove progress notification or replace with a success indicator</p></li>
+</ul>
+<h2>Actionable notifications</h2>
+<p>These notifications are related to something urgent the user should be able to react to. They should be shown as OS-level notifications that may have additional information like screenshots or action buttons associated with them.</p>
+<p>Notifications from the <code>molly</code> AI:</p>
+<p>These notifications are meant to be shown visually, and contain the texts written by the AI to the user. In general, they have the <code>molly</code> collapse key if available on the platform.</p>
+<p>Molly notifications contain the following keys:</p>
+<ul>
+<li><p><code>type</code>: subtype of the notification, for example <code>review</code> or <code>publish</code></p></li>
+<li><p><code>title</code>: textual title for the notification</p></li>
+<li><p><code>text</code>: full notification text</p></li>
+<li><p><code>url</code>: URL that the user can visit to see more related to the notification, for example a newly redesigned website of theirs</p></li>
+<li><p><code>preview</code>: Screenshot for the URL above, if any</p></li>
+<li><p><code>ipfs</code>: IPFS hash for the URL, if any</p></li>
+<li><p><code>site</code>: ID of the site associated with the notification</p></li>
+<li><p><code>job</code>: ID of the job associated with the notification, if any. Can be used to morph job progress to visual notification</p></li>
+<li><p><code>actions</code>: array of potential additional actions that user can perform, each containing <code>label</code>, <code>icon</code>, <code>path</code>, <code>method</code>, and <code>payload</code></p></li>
+</ul>
+<p>Molly notification types:</p>
+<ul>
+<li><p><code>review</code>: The AI has multiple designs for the user to review and choose from</p></li>
+<li><p><code>publish</code>: A new version of the site or some pages within is now live</p></li>
+</ul>
+</div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 25 Nov 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+
+</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
+  if (location.protocol === 'file:') {
+    document.getElementById('localFile').style.display = 'block';
+  }
+
+}).call(this);
+</script><script>(function() {
+  $('table').addClass('table');
+
+}).call(this);
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-50607580-4', 'auto');
+ga('send', 'pageview');
+</script></html>
