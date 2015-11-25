@@ -1,7 +1,84 @@
 FORMAT: 1A
 HOST: https://api.thegrid.io/
 
-# The Grid Push Notifications
+# Group Registering for Notifications
+
+Notifications allow applications to instantly know when certain data has changed,
+or certain user actions has been performed. Correct implementation of notifications
+allows user to use multiple devices, with the data always being up-to-date.
+
+To receive notifications, the Grid app needs to be registered as a client application.
+
+The notifications sent to clients follow the [notifications schema](schema/notification.json).
+For how to deal with particular notifications, see the recommendations found below.
+
+When reacting to an action the client needs to make the request using the regular Bearer token.
+
+## User clients [/client]
+
+### List user's active client apps [GET]
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/client-gcm.json) -->
+      <!-- include(examples/client-apn.json) -->
+      ]
+      ```
+
+### Register a new client app [POST]
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/client-gcm.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(schema/client.json) -->
+      ```
+
++ Response 201
+
+  + Headers
+
+            Location: /client/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
+## Client app [/client/{id}]
+
++ Parameters
+  + id (required, string) - Site UUID
+
+### Remove a client app [DELETE]
+
++ Response 204
+
+## Notifications testing [/molly/repeat]
+
+### Send a test notification [POST]
+
+For development purposes, you can make Molly talk to you over the registered notification channels (like Google Cloud Messaging).
+
+A push message will be sent to the user's all registered clients.
+
++ Request (application/json)
+
+  + Schema
+
+      ```
+      <!-- include(schema/notification.json) -->
+      ```
+
++ Response 202
+
+# Group Available Notifications
 
 ## Synchronization
 
