@@ -1,4 +1,5 @@
 FORMAT: 1A
+HOST: https://api.thegrid.io/
 
 # Design systems
 
@@ -49,7 +50,6 @@ Assets in the produced HTML page must either be inlined in the HTML (recommended
 or refer to a *stable* URL on a HTTPS enabled CDN (recommended for fonts, images).
 
 <!-- TODO:
-- give example code of the simplest possible system
 - describe article versus feed pages
 - describe ordered versus non-ordered mode
 - describe/show how to run a page build locally
@@ -105,4 +105,101 @@ Helpers: [RIG](https://github.com/the-grid/rig) and [imgflo-url](https://github.
 
 More to be released soon!
 
+# HTTP APIs
+
+# Group Registered design systems
+
+A registered designsystem can be used across many sites by referring to it by name (istead of URL).
+Such a designsystem can have many versions, and new versions will first be pushed into staging,
+where pages are solved without influencing the live site. One can look at and analyze these page *solutions*,
+and once one is confident of the quality of the new version, trigger rollout to all sites with
+that designsystem.
+
+If you want access to this functionality, you need an access token (secret) associated with your design system.
+Contact support@thegrid.io and mark the request with 'designsystem development', and include your TheGrid user UUID.
+In the future, we may support self-service for registering new design systems.
+
+These APIs are [Webhooks](https://en.wikipedia.org/wiki/Webhook) signed as [JSON Web Token](http://jwt.io/).
+
+## Designsystem events [/designsystem_event]
+
+For code examples, see
+[thegrid-designsystem-update](https://github.com/the-grid/apidocs/blob/master/tools/designsystem-update.coffee)
+and [thegrid-designsystem-collaborators](https://github.com/the-grid/apidocs/blob/master/tools/designsystem-collaborators.coffee)
+
+### Registering new design system version [POST]
+
++ Request (application/json)
+
++ Response 202
+
+### Setting design system collaborators [POST]
+
++ Request (application/json)
+
++ Response 202
+
+# Group Solutions
+
+A solution is the page output from a design system for a particular page-solving job, and associated metadata.
+
+These APIs are authenticated with standard OAuth2 Bearer-token.
+The application using them must request the `designsystem_review` scope.
+Permissions are granted per-designsystem, to users registered as a collaborators of the designsystem in question.
+
+## Designsystems [/designsystem]
+
+### List available designsystems [GET]
+
+Lists designsystems you are authorized to access.
+
++ Response 200 (application/json)
+
+## Solutions [/designsystem/{system}/{?site,path,version,published,staged,limit,offset}]
+
+Note that since we create multiple solution variants for one solve job,
+and in future may ask user which one to publish, a solution can be `succeeded: true` but `published: false`.
+`staged: true` implies `published: false`, as user never sees or can publish staging results.
+
++ Parameters
+  + site (optional, string) - Website to return results for.
+  + path (optional, string) - Page path to return results for. Ex: "/index.html" for frontpage.
+  + version (optional, string) - Designsystem version to return results for. Ex: "0.10.0"
+  + published (optional, boolean) - If true, return only solutions which were made live on a site.
+  + staged (optional, boolean) - If true, return only solutions produced in staging. If false, only from production.
+  + limit (optional, number) - Pagination limit
+  + offset (optional, number) - Pagination offset
+
+### List solutions [GET]
+
++ Response 200 (application/json)
+
+## Solution details [/designsystem/{system}/solutions/{id}]
+
+### Get details about a solution [GET]
+
++ Response 200 (application/json)
+
+## Solution output HTML [/designsystem/{system}/solutions/{id}/output]
+
+### Get solution output [GET]
+
+Returns the HTML produced by design system for this solution.
+
++ Response 200 (text/html)
+
+## Solution log [/designsystem/{system}/solutions/{id}/stdout]
+
+### Get job stdout [GET]
+
++ Response 200 (text/plain)
+
+## Solution error log [/designsystem/{system}/solutions/{id}/stderr]
+
+### Get job stderr [GET]
+
++ Response 200 (text/plain)
+
+
+<!-- TODO: allow retrieving solution details and screenshots -->
 
