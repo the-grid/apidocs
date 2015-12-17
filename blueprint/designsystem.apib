@@ -155,15 +155,15 @@ Lists designsystems you are authorized to access.
 
 + Response 200 (application/json)
 
-## Solutions [/designsystem/{system}/{?site,path,version,published,staged,limit,offset}]
+## Solutions [/designsystem/{system}/{?site,path,version,published,staged,limit,offset}/solutions]
 
 Note that since we create multiple solution variants for one solve job,
 and in future may ask user which one to publish, a solution can be `succeeded: true` but `published: false`.
-`staged: true` implies `published: false`, as user never sees or can publish staging results.
+And since user never sees or can publish staging results. `staged: true` implies `published: false`.
 
 + Parameters
-  + site (optional, string) - Website to return results for.
-  + path (optional, string) - Page path to return results for. Ex: "/index.html" for frontpage.
+  + site (optional, string) - Website to return results for. Ex: 'the-domains/d4'
+  + path (optional, string) - Page path to return results for. Ex: "index.html" for frontpage.
   + version (optional, string) - Designsystem version to return results for. Ex: "0.10.0"
   + published (optional, boolean) - If true, return only solutions which were made live on a site.
   + staged (optional, boolean) - If true, return only solutions produced in staging. If false, only from production.
