@@ -32,6 +32,26 @@ shareUrl = (url, compress, accessToken, callback) ->
   req.write jsonData
   req.end()
 
+asyncSeries = (items, func, callback) ->
+  items = items.slice 0
+  results = []
+  next = () ->
+    if items.length == 0
+      return callback null, results
+    item = items.shift()
+    func item, (err, result) ->
+      return callback err if err
+      results.unshift result
+      return next()
+  next()
+
+waitStdinEof = (callback) ->
+  data = ""
+  process.stdin.on 'data', (chunk) ->
+    data += chunk.toString()
+  process.stdin.on 'end', () ->
+    return callback null, data
+
 exports.main = main = () ->
   unless process.argv.length > 2
     console.log "Usage: thegrid-share-url.coffee http://example.com/foo [nocompress]"
@@ -44,11 +64,24 @@ exports.main = main = () ->
     console.log 'Missing authentication token. Must be configured as environment variable THEGRID_TOKEN'
     process.exit 2
 
-  shareUrl url, !nocompress, token, (res) ->
-    if res.statusCode > 202
-      console.log 'Error sharing'
-      process.exit 3
-    console.log "Shared '#{url}': #{res.headers.location}"
+  shareOne = (u, cb) ->
+    shareUrl u, !nocompress, token, (res) ->
+      if res.statusCode > 202
+        return cb new Error "Error sharing: #{res.statusCode}"
+      console.log "Shared '#{u}': #{res.headers.location} import=#{nocompress}"
+      return cb null
+
+  onUrls = (err, urls) ->
+    asyncSeries urls, shareOne, (err) ->
+      throw err if err
+      console.log 'Done'
+
+  if url == '-'
+    waitStdinEof (err, data) ->
+      urls = data.split('\n').filter (u) -> u # remove trailing ''
+      onUrls err, urls
+  else
+    onUrls null, [url]
 
 main() if not module.parent
 
