@@ -79,7 +79,7 @@ properties:
       url:
         name: url
         type: string
-        description: URL of the publisher's main page
+        description: Permalink URL the item was on or URL of the publisher's main page
         example: "https://bergie.today/"
       favicon:
         name: favicon
