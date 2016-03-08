@@ -61,6 +61,32 @@ properties:
         description: URL of the publisher's favicon
         example: "http://www.fastcompany.com/favicon.ico"
     additionalProperties: false
+  via:
+    name: via
+    description: Publisher the item was discovered via
+    type: object
+    properties:
+      name:
+        name: name
+        type: string
+        description: Human-readable publisher name
+        example: Bergie Today
+      domain:
+        name: domain
+        type: string
+        description: The publisher's domain name
+        example: bergie.today
+      url:
+        name: url
+        type: string
+        description: URL of the publisher's main page
+        example: "https://bergie.today/"
+      favicon:
+        name: favicon
+        type: string
+        description: URL of the publisher's favicon
+        example: "https://bergie.today/favicon.ico"
+    additionalProperties: false
   authors:
     name: authors
     type: array
