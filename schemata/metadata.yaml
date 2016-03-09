@@ -16,6 +16,11 @@ properties:
     type: string
     description: Source URL for the item or block
     example: "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
+  permalinkUrl:
+    name: permalinkUrl
+    type: string
+    description: Custom permalink path for the item
+    example: "blog/my-cool-article.html"
   inLanguage:
     name: inLanguage
     type: string
