@@ -226,11 +226,19 @@ Note that publishing an item to a website is a separate step. See /publish
 
   + Body
 
-## Items list [/item]
+## Items list [/item{?published,minimal,offset,limit,site,measurements}]
 
 ### Retrieve user's content items [GET]
 
-When an item is being worked on by a user it is available via the API.
++ Parameters
+  + published (boolean) - Whether to get published or unpublished items only
+  + minimal (boolean) - Whether to receive items without measurements applied
+  + offset (number) - Offset to use for pagination
+  + limit (number) - Limit to use for pagination
+  + site (string) - Receive only items associated with a site
+  + measurements (string) - Selectively get only certain measurements
+
+When an item is being worked on by a user it is available via the API. Queries without selective measurements must be paginated. When using pagination, the `limit` must be smaller than 50.
 
 + Response 200 (application/json)
 
@@ -248,10 +256,11 @@ When an item is being worked on by a user it is available via the API.
 
   + Body
 
-## Item [/item/{id}]
+## Item [/item/{id,?measurements}]
 
 + Parameters
   + id (required, string) - Site UUID
+  + measurements (string) - Selectively get only certain measurements
 
 ### Retrieve an item [GET]
 
