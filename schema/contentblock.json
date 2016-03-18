@@ -25,6 +25,7 @@
         "h5",
         "h6",
         "text",
+        "list",
         "code",
         "image",
         "video",
@@ -32,7 +33,10 @@
         "article",
         "quote",
         "location",
-        "cta"
+        "cta",
+        "interactive",
+        "placeholder",
+        "unknown"
       ]
     },
     "html": {

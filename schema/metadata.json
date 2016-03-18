@@ -19,6 +19,12 @@
       "description": "Source URL for the item or block",
       "example": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
     },
+    "permalinkUrl": {
+      "name": "permalinkUrl",
+      "type": "string",
+      "description": "Custom permalink path for the item",
+      "example": "blog/my-cool-article.html"
+    },
     "inLanguage": {
       "name": "inLanguage",
       "type": "string",
@@ -71,6 +77,38 @@
           "type": "string",
           "description": "URL of the publisher's favicon",
           "example": "http://www.fastcompany.com/favicon.ico"
+        }
+      },
+      "additionalProperties": false
+    },
+    "via": {
+      "name": "via",
+      "description": "Publisher the item was discovered via",
+      "type": "object",
+      "properties": {
+        "name": {
+          "name": "name",
+          "type": "string",
+          "description": "Human-readable publisher name",
+          "example": "Bergie Today"
+        },
+        "domain": {
+          "name": "domain",
+          "type": "string",
+          "description": "The publisher's domain name",
+          "example": "bergie.today"
+        },
+        "url": {
+          "name": "url",
+          "type": "string",
+          "description": "Permalink URL the item was on or URL of the publisher's main page",
+          "example": "https://bergie.today/"
+        },
+        "favicon": {
+          "name": "favicon",
+          "type": "string",
+          "description": "URL of the publisher's favicon",
+          "example": "https://bergie.today/favicon.ico"
         }
       },
       "additionalProperties": false
