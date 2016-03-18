@@ -22,6 +22,7 @@ properties:
       - h5
       - h6
       - text
+      - list
       - code
       - image
       - video
@@ -30,6 +31,9 @@ properties:
       - quote
       - location
       - cta
+      - interactive
+      - placeholder
+      - unknown
   html:
     description: HTML content of the block
     example: "<p>Hello, world!</p>"
