@@ -140,6 +140,17 @@ properties:
         type: string
       url:
         type: string
+  navigation:
+    type: array
+    description: "External links to include in site navigation"
+    default: []
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
   profiles:
     type: array
     description: "Social media profile links associated with the site"
