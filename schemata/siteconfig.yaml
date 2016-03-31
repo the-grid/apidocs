@@ -148,8 +148,13 @@ properties:
       type: object
       properties:
         name:
+          description: "Name to show"
           type: string
         url:
+          description: "URL to link to"
+          type: string
+        rel:
+          description: "HTML link relation"
           type: string
   profiles:
     type: array
