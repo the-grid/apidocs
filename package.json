@@ -41,7 +41,7 @@
     "chai": "^1.9.1",
     "coffeelint": "^1.8.1",
     "grunt": "^0.4.4",
-    "grunt-aglio": "^0.3.3",
+    "grunt-aglio": "^0.4.1",
     "grunt-coffeelint": "0.0.13",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-copy": "^0.7.0",
