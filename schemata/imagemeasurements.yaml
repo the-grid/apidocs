@@ -1,0 +1,64 @@
+---
+id: imagemeasurements.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: ImageMeasurements
+description: "Complex image measurements"
+definitions:
+  face:
+    type: object
+    description: "Bounding box of a detected face"
+    properties:
+      x:
+        name: x
+        type: number
+        description: "Cartesian coordinate along x-axis"
+        example: 608.1907
+      y:
+        name: y
+        type: number
+        description: "Cartesian coordinate along y-axis"
+        example: 189.9090
+      width:
+        name: width
+        type: number
+        description: "Width"
+        example: 229.2087
+      height:
+        name: height
+        type: number
+        description: "Height"
+        example: 229.2087
+      confidence:
+        name: confidence
+        type: number
+        description: "Level of confidence of detected face being a true positive"
+        example: 5.08
+  color:
+    type: array
+    description: "Tuple of RGB values representing a color"
+    items:
+      -
+        type: number
+        description: "Red channel"
+        example: 255
+      -
+        type: number
+        description: "Green channel"
+        example: 200
+      -
+        type: number
+        description: "Blue channel"
+        example: 190
+  faces:
+    description: "Extracted faces from the image, represented as a rectangle for
+      each detected face"
+    type: array
+    items:
+      "$ref": "#/definitions/face"
+  colors:
+    description: "Extracted colors from the image, represented as an array of
+      at least 5 RGB colors"
+    type: array
+    items:
+      "$ref": "#/definitions/color"
+    minItens: 5
