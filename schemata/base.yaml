@@ -28,3 +28,23 @@ definitions:
     uniqueItems: true
     example:
     - "the-domains/the-grid"
+  geo:
+    type: object
+    description: Geographical data
+    properties:
+      latitude:
+        name: latitude
+        type: number
+        description: Latitude coordinate
+        example: 45.5
+      longitude:
+        name: longitude
+        type: number
+        description: Longitude coordinate
+        example: -122.7
+      zoom:
+        name: zoom
+        type: number
+        description: Zoom level of map
+        example: 4.0
+
