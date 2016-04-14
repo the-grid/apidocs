@@ -2,15 +2,17 @@
 id: media.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Media
-description: "Content blocks like image, video and article are child of media, both have cover"
+description: "Content blocks like image, video and article are child of media, both
+  have the `cover` property which stores measurements extracted by AI"
 type:
 - object
 definitions:
   cover:
-    description: "A cover image that has many details about the media, useful for previews"
+    description: "A cover image that has many details about the media, useful for 
+      previews"
     type:
     - object
-    properties: 
+    properties:
       orientation:
         description: "Cover image orientation"
         type: string
@@ -20,7 +22,8 @@ definitions:
         type: string
         example: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
       altsrc:
-        description: "Original URL (if the image has a fullscale URL, the original URL will be stored here"
+        description: "Original URL (if the image has a fullscale URL, the original 
+          URL will be stored here"
         type: string
         example: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
       ratio:
@@ -40,13 +43,9 @@ definitions:
         type: integer
         example: 808
       faces:
-        description: "Extracted faces from the image, represented as a rectangle for each face found"
-        type: array
-        example: [[0, 100, 150, 200]]
+        "$ref": "imagemeasurements.json#/definitions/faces"
       colors:
-        description: "Extracted colors from the image, represented as an array of 5 RGB colors"
-        type: array
-        example: [[122,174,213],[8,12,21],[255,254,255],[75,108,141],[202,207,203]]
+        "$ref": "imagemeasurements.json#/definitions/colors"
       saliency:
         description: "Extracted salient region from the image"
         type: object
