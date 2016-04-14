@@ -31,4 +31,4 @@ properties:
     example: 7
     type: integer
 
-required: [id, type, uuid, verb, price, html]
+required: [id, type, uuid, verb, html]
