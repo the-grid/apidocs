@@ -30,11 +30,10 @@
       height: 216
       faces:
         -
-          x: 50.61038563900384,
-          y: 70.03941296843249,
-          width: 63.029722675405246,
-          height: 63.029722675405246,
-          neighbors: 4,
+          x: 50.61038563900384
+          y: 70.03941296843249
+          width: 63.029722675405246
+          height: 63.029722675405246
           confidence: 0.4109060300000006
       colors:
         - [ 213, 188, 135 ]
@@ -361,8 +360,8 @@
     item: "spaghetti"
     type: "image"
     src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
-    cover: 
-      colors: 
+    cover:
+      colors:
         - [ 122, 174, 213 ]
         - [ 8, 12, 21 ]
         - [ 255, 254, 255 ]
