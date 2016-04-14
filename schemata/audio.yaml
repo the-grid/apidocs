@@ -17,4 +17,4 @@ properties:
     type: string
     example: ""
 
-required: [id, html, type]
+required: [id, type]
