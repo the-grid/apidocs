@@ -61,3 +61,66 @@ definitions:
         "$ref": "base.json#/definitions/arrayrectangle"
         description: "Rectangle around the salient region"
         example: [[329,238],[539,372]]
+  histogram:
+    description: "Histogram of color levels"
+    type: object
+    properties:
+      r:
+        name: r
+        type: array
+        description: "Red channel histogram"
+        items:
+          type: number
+      g:
+        name: g
+        type: array
+        description: "Green channel histogram"
+        items:
+          type: number
+      b:
+        name: b
+        type: array
+        description: "Blue channel histogram"
+        items:
+          type: number
+      a:
+        name: a
+        type: array
+        description: "Alpha channel histogram"
+        items:
+          type: number
+      y:
+        name: y
+        type: array
+        description: "Y histogram (CIE Y Rec. 601)"
+        items:
+          type: number
+      h:
+        name: h
+        type: array
+        description: "Hue histogram (CIE LCH or HSL)"
+        items:
+          type: number
+      s:
+        name: s
+        type: array
+        description: "Saturation histogram (CIE LCH or HSL)"
+        items:
+          type: number
+      l:
+        name: l
+        type: array
+        description: "Lightness histogram (CIE LCH or HSL)"
+        items:
+          type: number
+      c:
+        name: c
+        type: array
+        description: "Chroma histogram (CIE LCH or HSL)"
+  exif:
+    description: "EXIF metadata"
+    type: object
+    properties:
+      exif:
+        name: exif
+        type: object
