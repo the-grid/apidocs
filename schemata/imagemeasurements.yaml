@@ -118,9 +118,95 @@ definitions:
         type: array
         description: "Chroma histogram (CIE LCH or HSL)"
   exif:
-    description: "EXIF metadata"
+    description: "EXIF metadata. A more comprehensive list of available EXIF
+      attributes can be found at
+      http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html"
     type: object
     properties:
       exif:
         name: exif
         type: object
+        properties:
+          image:
+            name: image
+            type: object
+            description: "Image information data (IFD0)"
+            example:
+              "Make": "FUJIFILM"
+              "Model": "FinePix40i"
+              "Orientation": 1
+              "XResolution": 72
+              "YResolution": 72
+              "ResolutionUnit": 2
+              "Software": "Digital Camera FinePix40i Ver1.39"
+              "ModifyDate": "2000:08:04 18:22:57"
+              "YCbCrPositioning": 2
+              "ExifOffset": 250
+          thumbnail:
+            name: thumbnail
+            type: object
+            description: "Information regarding a possibly embedded thumbnail (IFD1)"
+            example:
+              "Compression": 6
+              "Orientation": 1
+              "XResolution": 72
+              "YResolution": 72
+              "ResolutionUnit": 2
+              "ThumbnailOffset": 1074
+              "ThumbnailLength": 8691
+              "YCbCrPositioning": 2
+          exif:
+            name: exif
+            type: object
+            description: "Exif-specific attribute information (Exif IFD)"
+            example:
+              "FNumber": 2.8
+              "ExposureProgram": 2
+              "ISO": 200
+              "DateTimeOriginal": "2000:08:04 18:22:57"
+              "CreateDate": "2000:08:04 18:22:57"
+              "CompressedBitsPerPixel": 1.5
+              "ShutterSpeedValue": 5.5
+              "ApertureValue": 3
+              "BrightnessValue": 0.26
+              "ExposureCompensation": 0
+              "MaxApertureValue": 3
+              "MeteringMode": 5
+              "Flash": 1
+              "FocalLength": 8.7
+              "ColorSpace": 1
+              "ExifImageWidth": 2400
+              "ExifImageHeight": 1800
+              "InteropOffset": 926
+              "FocalPlaneXResolution": 2381
+              "FocalPlaneYResolution": 2381
+              "FocalPlaneResolutionUnit": 3
+              "SensingMethod": 2
+          gps:
+            name: gps
+            type: object
+            description: "GPS information (GPS IFD)"
+          interoperability:
+            name: interoperability
+            type: object
+            description: "Interoperability information (Interoperability IFD)"
+            example:
+              "InteropIndex": "R98"
+          makernote:
+            name: makernote
+            type: object
+            description: "Vendor specific Exif information (Makernotes)"
+            example:
+              "Quality": "NORMAL"
+              "Sharpness": 3
+              "WhiteBalance": 0
+              "FujiFlashMode": 1
+              "FlashExposureComp": 0
+              "Macro": 0
+              "FocusMode": 0
+              "SlowSync": 0
+              "AutoBracketing": 0
+              "BlurWarning": 0
+              "FocusWarning": 0
+              "ExposureWarning": 0
+
