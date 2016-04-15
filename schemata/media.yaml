@@ -74,3 +74,5 @@ definitions:
         "$ref": "imagemeasurements.json#/definitions/histogram"
       exif:
         "$ref": "imagemeasurements.json#/definitions/exif"
+      anyOf:
+        "$ref": "helpermeasurements.json"
