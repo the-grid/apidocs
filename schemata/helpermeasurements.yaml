@@ -1,0 +1,68 @@
+---
+id: helpermeasurements.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: HelperMeasurements
+description: "Measurements calculated by TheGrid's data-helper"
+definitions:
+  scene:
+    description: "Defines the most important region of an image. It is calculated
+      based on other information like salient region, faces and image dimensions"
+    type: object
+    properties:
+      bbox:
+        "$ref": "base.json#/definitions/bbox"
+  lines:
+    description: "This measurement/feature/heuristics takes inspiration from the
+      Rule of Thirds, a well known \"rule of thumb\" in visual composing.
+      Lines are bounding boxes that represent negative spaces as columns or rows
+      around cover's scene. We can overlay content (e.g. text) in space columns
+      or rows around the scene. We also associate a direction to a line, defining
+      the direction we should place content ('horizontal' or 'vertical').
+      We calculate lines for each image that has scene"
+    type: object
+    properties:
+      lines:
+        name: lines
+        type: object
+        properties:
+          direction:
+            description: "Direction we should place content"
+            type: string
+            enum: [ "horizontal", "vertical" ]
+          stripes:
+            description: "Rows or columns representing 3, 2 or 1-stripes around the
+              scene and the scene itself"
+            type: array
+            items:
+              type: object
+              properties:
+                type:
+                  name: type
+                  description: "A negative space or the scene"
+                  type: string
+                  enum: [ "space", "scene" ]
+                bbox:
+                  "$ref": "base.json#/definitions/bbox"
+            minItens: 1
+            maxItens: 3
+  lightness:
+    description: "For blocks that have Lightness histogram we provide a lightness
+      level as a [0-1] float number. Greater the value, more light is the whole
+      image"
+    type: number
+  saturation:
+    description: "For blocks that have Saturation histogram we provide a
+      saturation level as a [0-1] float number. Greater the value, more
+      saturated is the whole image"
+    type: number
+  closest_aspect:
+    description: "For blocks that have dimensions, we try to find the closest
+      aspect ratio, considering well known \"good\" aspects like 2:1, 1:2, 2:3 and
+      so on"
+    type: number
+  transparent:
+    description: "For blocks that have Alpha histogram we provide a transparecy
+      level as a [0-1] float number. Greater the value, more transparent is the
+      whole image. Another way to put it is: if `transparent` is greater than
+      zero, it has at least one transparent pixel"
+    type: number
