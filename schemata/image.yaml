@@ -2,7 +2,8 @@
 id: image.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Image
-description: "An HTML image element which can have a cover image with annotated measurements data"
+description: "An HTML image element which can have a cover image with
+  annotated measurements data"
 type:
 - object
 properties:
@@ -13,10 +14,8 @@ properties:
   html:
     "$ref": "contentblock.json#/definitions/html"
   src:
-    description: "URL to fullscaled image"
-    type: string
-    example: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
+    "$ref": "contentblock.json#/definitions/src"
   cover:
     "$ref": "media.json#/definitions/cover"
 
-required: [id, type, html]
+required: [id, type, html, src]
