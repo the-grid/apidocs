@@ -34,6 +34,10 @@ definitions:
     example: "<p>Hello, world!</p>"
     type: string
     minLength: 7
+  src:
+    description: Source URL
+    example: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+    type: [ "string", "null" ]
 type:
 - object
 properties:
@@ -45,14 +49,14 @@ properties:
     "$ref": "#/definitions/type"
   html:
     "$ref": "#/definitions/html"
+  src:
+    "$ref": "#/definitions/src"
   metadata:
     "$ref": "metadata.json"
   created_at: # FIXME: ISOdate,null
     type: number
   updated_at: # FIXME: ISOdate,null
     type: [number, "null"]
-  src:
-    type: [string, "null"]
   anyOf: [headline, text, cta, media, list]
 
-required: [id, item, type, html]
+required: [id, item, type, html, src]
