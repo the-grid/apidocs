@@ -2,28 +2,25 @@
 id: video.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Video
-description: "An HTML video element which can have a cover image with annotated measurements data"
+description: "An HTML video element which can have a cover image with
+  annotated measurements data"
 type:
 - object
-properties: 
+properties:
   id:
     "$ref": "base.json#/definitions/uuid"
   type:
     "$ref": "contentblock.json#/definitions/type"
-  html: 
+  html:
     "$ref": "contentblock.json#/definitions/html"
-  video: 
-    type: object
-    properties: 
-      src:
-        description: "URL to a valid video preview"
-        type: string
-        example: "//player.vimeo.com/video/91393694?title=0&amp;byline=0&amp;color=ffffff"
   src:
-    description: "URL to a video"
-    type: string
-    example: "//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"
-  cover: 
+    "$ref": "contentblock.json#/definitions/src"
+  video:
+    type: object
+    properties:
+      src:
+        "$ref": "contentblock.json#/definitions/src"
+  cover:
     "$ref": "media.json#/definitions/cover"
 
-required: [id, type]
+required: [id, type, html, src]

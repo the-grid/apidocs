@@ -5,12 +5,15 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "video"
     html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
+    src: null
 -
   _valid: true
   _name: "valid-video-with-src"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "video"
+    html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
+    src: null
     video:
       src: "//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"
 -
@@ -20,6 +23,7 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "video"
     html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
+    src: null
     cover:
       orientation: "landscape"
 -
