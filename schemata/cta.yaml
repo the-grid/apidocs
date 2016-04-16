@@ -2,16 +2,19 @@
 id: cta.json
 "$schema": "http://json-schema.org/draft-04/schema"
 title: Call to action
-description: "An HTML representing a call to action with the verb which defines the action, a tagged price and some measurement data"
+description: "An HTML representing a call to action with the verb
+  which defines the action, a tagged price and some measurement data"
 type:
 - object
-properties: 
+properties:
   id:
     "$ref": "base.json#/definitions/uuid"
   type:
     "$ref": "contentblock.json#/definitions/type"
-  uuid: 
+  uuid:
     "$ref": "base.json#/definitions/uuid"
+  html:
+    "$ref": "contentblock.json#/definitions/html"
   verb:
     description: "A verb that defines the action"
     example: "purchase"
@@ -20,8 +23,6 @@ properties:
     description: "A tagged price"
     example: "96"
     type: string
-  html:
-    "$ref": "contentblock.json#/definitions/html"
   text:
     description: "Extracted text from the HTML"
     example: "Buy now"
