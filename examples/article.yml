@@ -5,6 +5,7 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "image"
     src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+    html: "<img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" />"
 -
   _valid: true
   _name: 'valid-article-with-measurements'
@@ -12,6 +13,7 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "image"
     src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+    html: "<img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" />"
     cover:
       orientation: "landscape"
 -
