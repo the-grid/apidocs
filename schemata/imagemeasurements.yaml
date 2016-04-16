@@ -47,18 +47,22 @@ definitions:
       # To be deprecated:
       polygon:
         "$ref": "base.json#/definitions/arraypolygon"
-        description: "Polygon around the salient region"
+        description: "Polygon around the salient region (warning: to be
+          deprecated by `regions` polygon)"
         example: [[533,280],[521,280],[491,238],[486,288],[419,289],[411,308],[360,308],[347,298],[343,289],[329,291],[343,326],[356,329],[372,370],[378,365],[421,365],[439,371],[443,360],[454,358],[454,327],[482,315],[522,315],[523,339],[530,339],[533,316],[538,310]]
       center:
         "$ref": "base.json#/definitions/arraypoint"
-        description: "Point localized in the center of the salient region"
+        description: "Point localized in the center of the salient region
+          (warning: to be deprecated by `regions` center)"
         example: [433,300]
       radius:
-        description: "Radius of the circle around the salient region"
+        description: "Radius of the circle around the salient region (warning:
+          to be deprecated by `regions` radius)"
         type: number
         example: 108.079
       bounding_rect:
-        "$ref": "base.json#/definitions/arrayrectangle"
+        "$ref": "base.json#/definitions/arrayrectangle (warning: to be
+          deprecated by `regions` bbox)"
         description: "Rectangle around the salient region"
         example: [[329,238],[539,372]]
   histogram:

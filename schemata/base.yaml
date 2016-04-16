@@ -12,7 +12,7 @@ definitions:
   url:
     description: Unique Resource Locator
     format: url
-    example: http://example.net/foo
+    example: http://thegrid.io
     type: string
   hexcolor:
     description: "#RGB color"
@@ -112,7 +112,7 @@ definitions:
     example: 5.08
   # To be deprecated:
   arraypoint:
-    description: "Coordinate in a 2D plane"
+    description: "Coordinate in a 2D plane (warning: to be deprecated by `point`)"
     type: array
     items:
       -
@@ -122,12 +122,14 @@ definitions:
         type: number
         description: "Value on y-axis"
   arraypolygon:
-    description: "Coordinates of a 2D polygon shape"
+    description: "Coordinates of a 2D polygon shape (warning: to be
+      deprecated by `polygon`)"
     type: array
     items:
       "$ref": "#/definitions/arraypoint"
   arrayrectangle:
-    description: "Coordinates of a 2D rectangle shape"
+    description: "Coordinates of a 2D rectangle shape (warning: to be
+      deprecated by `bbox`)"
     type: array
     items:
       -
