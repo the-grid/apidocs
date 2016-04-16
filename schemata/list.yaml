@@ -5,14 +5,14 @@ title: HTML list
 description: "An ordered or unordered list of elements. It can be annotated with measurements data like the number of items"
 type:
 - object
-properties: 
+properties:
   id:
     "$ref": "base.json#/definitions/uuid"
   type:
     "$ref": "contentblock.json#/definitions/type"
   html:
     "$ref": "contentblock.json#/definitions/html"
-  items: 
+  items:
     description: "The measured number of items on the list"
     type: integer
     example: 3

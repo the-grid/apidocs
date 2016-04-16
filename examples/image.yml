@@ -6,6 +6,7 @@
     item: "05008f0b-8f71-4bc7-a6df-160e0e30b4fc"
     type: "image"
     html: "<img src=\"https://the-grid-user-content.s3-us-west-2.amazonaws.com/1ac86894-bf90-4369-b359-14d6ba9f1c00.jpg\">"
+    src: null
     created_at: null
     updated_at: null
     metadata:
