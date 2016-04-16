@@ -13,8 +13,6 @@ properties:
   html:
     "$ref": "contentblock.json#/definitions/html"
   src:
-    description: "URL to audio"
-    type: string
-    example: ""
+    "$ref": "contentblock.json#/definitions/src"
 
-required: [id, type]
+required: [id, type, html, src]
