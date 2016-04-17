@@ -86,6 +86,13 @@ properties:
         name: appId
         type: string
         description: Facebook App ID associated with the site
+  content_rating:
+    type: object
+    properties:
+      adult:
+        name: adult
+        description: Whether the site contains adult content
+        type: boolean
   collections:
     type: array
     minItems: 1
