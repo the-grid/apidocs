@@ -8,6 +8,9 @@ properties:
   name:
     type: string
     description: Website name
+  title:
+    type: string
+    description: Website tagline
   style:
     type: string
     description: Layout filter selected for the site
