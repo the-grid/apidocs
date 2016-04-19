@@ -49,6 +49,7 @@
     "grunt-mocha-test": "^0.12.7",
     "grunt-yaml": "^0.4.1",
     "grunt-yamllint": "^0.2.0",
+    "json-schema-deref-sync": "^0.3.0",
     "mocha": "^2.1.0",
     "tv4": "^1.1.9"
   },
