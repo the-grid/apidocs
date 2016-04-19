@@ -1,0 +1,77 @@
+-
+  _valid: true
+  _name: "valid-general-list"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "list"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: true
+  _name: "valid-general-list-with-measurements"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "list"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+    items: 2
+-
+  _valid: false
+  _name: "list-without-id"
+  _data:
+    type: "list"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: false
+  _name: "list-without-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: false
+  _name: "list-without-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "list"
+-
+  _valid: false
+  _name: "list-with-invalid-id"
+  _data:
+    id: "bdcc6765-114a-41977d-b01d3132ef69"
+    type: "list"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+    items: 2
+-
+  _valid: false
+  _name: "list-with-invalid-id-type"
+  _data:
+    id: 31337
+    type: "list"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: false
+  _name: "list-with-invalid-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "bazinga"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: false
+  _name: "list-with-invalid-type-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 73
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: false
+  _name: "list-with-invalid-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "list"
+    html: "<a></>"
+-
+  _valid: false
+  _name: "list-with-invalid-html-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "list"
+    html: 42
+

@@ -1,0 +1,80 @@
+-
+  _valid: true
+  _name: "valid-location"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "location"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: true
+  _name: "valid-location-with-measurements"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "location"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+    metadata:
+      geo:
+        latitude: 44.5
+        longitude: -90.2
+        zoom: 1.0
+      address: "4242 Blue St. San Francisco, CA"
+-
+  _valid: false
+  _name: "location-without-id"
+  _data:
+    type: "location"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: false
+  _name: "location-without-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: false
+  _name: "location-without-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "location"
+-
+  _valid: false
+  _name: "location-with-invalid-id"
+  _data:
+    id: "bdcc677d-b01d3132ef69"
+    type: "location"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: false
+  _name: "location-with-invalid-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "l0c4t10n"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: false
+  _name: "location-with-invalid-html"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "location"
+    html: "<p>/p>"
+-
+  _valid: false
+  _name: "location-with-invalid-id-type"
+  _data:
+    id: 4242
+    type: "location"
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: false
+  _name: "location-with-invalid-type-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 31337
+    html: "<p>4242 Blue St. San Francisco, CA</p>"
+-
+  _valid: false
+  _name: "location-with-invalid-html-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "location"
+    html: 73

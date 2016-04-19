@@ -1,0 +1,20 @@
+-
+  _valid: true
+  _name: "valid-uuid"
+  _data:
+    uuid: "bdcc6765-114a-4184-977d-b01d3132ef69"
+-
+  _valid: true
+  _name: "valid-url"
+  _data:
+    url: "http://foo.com"
+-
+  _valid: true
+  _name: "valid-rgbcolor"
+  _data:
+    rgbcolor: "#33aa33"
+-
+  _valid: true
+  _name: "valid-sites"
+  _data:
+    sites: "the-domains/foo-bar"

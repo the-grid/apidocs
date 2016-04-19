@@ -12,7 +12,7 @@ definitions:
   url:
     description: Unique Resource Locator
     format: url
-    example: http://example.net/foo
+    example: http://thegrid.io
     type: string
   hexcolor:
     description: "#RGB color"
@@ -28,3 +28,114 @@ definitions:
     uniqueItems: true
     example:
     - "the-domains/the-grid"
+  geo:
+    type: object
+    description: Geographical data
+    properties:
+      latitude:
+        name: latitude
+        type: number
+        description: Latitude coordinate
+        example: 45.5
+      longitude:
+        name: longitude
+        type: number
+        description: Longitude coordinate
+        example: -122.7
+      zoom:
+        name: zoom
+        type: number
+        description: Zoom level of map
+        example: 4.0
+  bbox:
+    type: object
+    properties:
+      x:
+        name: x
+        type: number
+        description: "Cartesian coordinate along x-axis"
+        example: 608.1907
+      y:
+        name: y
+        type: number
+        description: "Cartesian coordinate along y-axis"
+        example: 189.9090
+      width:
+        name: width
+        type: number
+        description: "Width"
+        example: 229.2087
+      height:
+        name: height
+        type: number
+        description: "Height"
+        example: 229.2087
+  tuplecolor:
+    type: array
+    description: "Tuple of RGB values representing a color"
+    items:
+      -
+        type: number
+        description: "Red channel"
+        example: 255
+      -
+        type: number
+        description: "Green channel"
+        example: 200
+      -
+        type: number
+        description: "Blue channel"
+        example: 190
+  point:
+    description: "Cartesian coordinate"
+    type: object
+    properties:
+      x:
+        name: x
+        type: number
+        description: "Value on x-axis"
+        example: 4.2
+      y:
+        name: y
+        type: number
+        description: "Value on y-axis"
+        example: 2.4
+  polygon:
+    description: "Coordinates of a polygon shape"
+    type: array
+    items:
+      "$ref": "#/definitions/point"
+  confidence:
+    description: "How much an extracted feature should be considered as a true
+      positive"
+    type: number
+    example: 5.08
+  # To be deprecated:
+  arraypoint:
+    description: "Coordinate in a 2D plane (warning: to be deprecated by `point`)"
+    type: array
+    items:
+      -
+        type: number
+        description: "Value on x-axis"
+      -
+        type: number
+        description: "Value on y-axis"
+  arraypolygon:
+    description: "Coordinates of a 2D polygon shape (warning: to be
+      deprecated by `polygon`)"
+    type: array
+    items:
+      "$ref": "#/definitions/arraypoint"
+  arrayrectangle:
+    description: "Coordinates of a 2D rectangle shape (warning: to be
+      deprecated by `bbox`)"
+    type: array
+    items:
+      -
+        "$ref": "#/definitions/arraypoint"
+        description: "Top-left point"
+      -
+        "$ref": "#/definitions/arraypoint"
+        description: "Bottom-right point"
+

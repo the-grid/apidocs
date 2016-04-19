@@ -1,0 +1,79 @@
+---
+id: media.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Media
+description: "Content blocks like image, video and article are child of media,
+  both have the `cover` property which stores measurements extracted by AI"
+type:
+- object
+definitions:
+  cover:
+    description: "A cover image that has many details about the media, useful
+      for previews"
+    type:
+    - object
+    properties:
+      src:
+        description: "Cached URL for the cover image. Caching is generally done
+          by ImgFlo"
+        type: string
+        example: "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+      original:
+        description: "Original URL, no matter if it's a salvaged media or not,
+          this property stores the URL shared/uploaded to TheGrid at the
+          first time"
+        type: string
+        example: "http://automata.cc/thumb-chuck-wiimote.png"
+      altsrc:
+        description: "Alternative URL, if the image has a fullscale URL, the
+          original URL will be stored here"
+        type: string
+        example: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+      imgflosrc:
+        description: "Cached URL"
+        type: string
+        example: "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+      ratio:
+        description: "Cover image ratio"
+        type: string
+        example: "128:101"
+      aspect:
+        description: "Calculated image ration"
+        type: number
+        example: 1.2673267326732673
+      orientation:
+        description: "Cover image orientation"
+        type: string
+        example: landscape
+      width:
+        description: "Cover image width"
+        type: integer
+        example: 1024
+      height:
+        description: "Cover image height"
+        type: integer
+        example: 808
+      rotation:
+        description: "Rotation performed by AI using auto-rotate based on EXIF
+          or user preference"
+        type: integer
+        example: 90
+      animated:
+        description: "Is GIF animated?"
+        type: boolean
+      unsalvageable:
+        description: "Is media unsalvageable a.k.a cannot be rescued on
+          Archive or other mirror?"
+        type: boolean
+      faces:
+        "$ref": "imagemeasurements.json#/definitions/faces"
+      colors:
+        "$ref": "imagemeasurements.json#/definitions/colors"
+      saliency:
+        "$ref": "imagemeasurements.json#/definitions/saliency"
+      histogram:
+        "$ref": "imagemeasurements.json#/definitions/histogram"
+      exif:
+        "$ref": "imagemeasurements.json#/definitions/exif"
+      anyOf:
+        "$ref": "helpermeasurements.json"

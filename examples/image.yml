@@ -1,0 +1,495 @@
+-
+  _valid: true
+  _name: 'image-with-caliper-measurements'
+  _data:
+    id: "d37158b3-3fc8-4cf8-8133-3aa96f9fec5b"
+    item: "05008f0b-8f71-4bc7-a6df-160e0e30b4fc"
+    type: "image"
+    html: "<img src=\"https://the-grid-user-content.s3-us-west-2.amazonaws.com/1ac86894-bf90-4369-b359-14d6ba9f1c00.jpg\">"
+    src: null
+    created_at: null
+    updated_at: null
+    metadata:
+      starred: true
+      source: "05008f0b-8f71-4bc7-a6df-160e0e30b4fc"
+      publisher: {}
+    cover:
+      animated: false
+      exif:
+        image:
+          "Orientation": 6
+          "ExifOffset": 38
+        thumbnail: {}
+        exif:
+          "ColorSpace": 1
+          "ExifImageWidth": 4032
+          "ExifImageHeight": 3024
+        gps: {}
+        interoperability: {}
+        makernote: {}
+      rotation: 90
+      colors:
+        - [21, 16, 13]
+        - [204, 130, 65]
+        - [167, 91, 42]
+        - [184, 165, 148]
+        - [56, 116, 104]
+      width: 3024
+      height: 4032
+      orientation: "portrait"
+      ratio: "3:4"
+      aspect: 0.75
+      histogram:
+        r: [0, 0, 0, 0, 0, 1]
+      imgflosrc: "https://s3-us-west-2.amazonaws.com/the-grid-img/p/dbb4faece6806332d9875e0ba8096990758a321c.jpg"
+      scene:
+        bbox:
+          x: 945
+          y: 1382.0625
+          width: 1449
+          height: 1578.9375
+      saliency:
+        bounding_rect:
+          - [945, 1382.0625]
+          - [2394, 2961]
+        bbox:
+          x: 945
+          y: 1382.0625
+          width: 1449
+          height: 1578.9375
+        confidence: 0.357013
+        polygon:
+          - [2039.625, 1382.0625]
+          - [1909.6875, 1393.875]
+          - [1874.25, 1449]
+          - [1775.8125, 1720.6875]
+          - [1728.5625, 1787.625]
+          - [1641.9375, 1854.5625]
+          - [1413.5625, 1874.25]
+          - [1256.0625, 1823.0625]
+          - [1200.9375, 1760.0625]
+          - [1122.1875, 1563.1875]
+          - [992.25, 1641.9375]
+          - [952.875, 1771.875]
+          - [960.75, 1858.5]
+          - [1004.0625, 1929.375]
+          - [976.5, 2012.0625]
+          - [1027.6875, 2023.875]
+          - [1063.125, 2059.3125]
+          - [1153.6875, 2208.9375]
+          - [1165.5, 2271.9375]
+          - [1161.5625, 2394]
+          - [1130.0625, 2460.9375]
+          - [1094.625, 2492.4375]
+          - [1000.125, 2516.0625]
+          - [952.875, 2563.3125]
+          - [945, 2661.75]
+          - [980.4375, 2724.75]
+          - [1039.5, 2937.375]
+          - [1102.5, 2957.0625]
+          - [1137.9375, 2933.4375]
+          - [1291.5, 2925.5625]
+          - [1358.4375, 2949.1875]
+          - [1421.4375, 2890.125]
+          - [1582.875, 2890.125]
+          - [1756.125, 2858.625]
+          - [2098.6875, 2728.6875]
+          - [2342.8125, 2583]
+          - [2390.0625, 2441.25]
+          - [2382.1875, 2224.6875]
+          - [2342.8125, 2208.9375]
+          - [2212.875, 2090.8125]
+          - [2197.125, 1980.5625]
+          - [2216.8125, 1933.3125]
+          - [2145.9375, 1858.5]
+          - [2090.8125, 1846.6875]
+          - [2055.375, 1803.375]
+          - [2016, 1456.875]
+        center: [1571.0625, 2169.5625]
+        radius: 943.8463125
+        regions:
+          -
+            polygon:
+              -
+                x: 2039.625
+                y: 1382.0625
+              -
+                x: 1909.6875
+                y: 1393.875
+              -
+                x: 1874.25
+                y: 1449
+              -
+                x: 1775.8125
+                y: 1720.6875
+              -
+                x: 1728.5625
+                y: 1787.625
+              -
+                x: 1641.9375
+                y: 1854.5625
+              -
+                x: 1413.5625
+                y: 1874.25
+              -
+                x: 1256.0625
+                y: 1823.0625
+              -
+                x: 1200.9375
+                y: 1760.0625
+              -
+                x: 1122.1875
+                y: 1563.1875
+              -
+                x: 992.25
+                y: 1641.9375
+              -
+                x: 952.875
+                y: 1771.875
+              -
+                x: 960.75
+                y: 1858.5
+              -
+                x: 1004.0625
+                y: 1929.375
+              -
+                x: 976.5
+                y: 2012.0625
+              -
+                x: 1027.6875
+                y: 2023.875
+              -
+                x: 1063.125
+                y: 2059.3125
+              -
+                x: 1153.6875
+                y: 2208.9375
+              -
+                x: 1165.5
+                y: 2271.9375
+              -
+                x: 1161.5625
+                y: 2394
+              -
+                x: 1130.0625
+                y: 2460.9375
+              -
+                x: 1094.625
+                y: 2492.4375
+              -
+                x: 1000.125
+                y: 2516.0625
+              -
+                x: 952.875
+                y: 2563.3125
+              -
+                x: 945
+                y: 2661.75
+              -
+                x: 980.4375
+                y: 2724.75
+              -
+                x: 1039.5
+                y: 2937.375
+              -
+                x: 1102.5
+                y: 2957.0625
+              -
+                x: 1137.9375
+                y: 2933.4375
+              -
+                x: 1291.5
+                y: 2925.5625
+              -
+                x: 1358.4375
+                y: 2949.1875
+              -
+                x: 1421.4375
+                y: 2890.125
+              -
+                x: 1582.875
+                y: 2890.125
+              -
+                x: 1756.125
+                y: 2858.625
+              -
+                x: 2098.6875
+                y: 2728.6875
+              -
+                x: 2342.8125
+                y: 2583
+              -
+                x: 2390.0625
+                y: 2441.25
+              -
+                x: 2382.1875
+                y: 2224.6875
+              -
+                x: 2342.8125
+                y: 2208.9375
+              -
+                x: 2212.875
+                y: 2090.8125
+              -
+                x: 2197.125
+                y: 1980.5625
+              -
+                x: 2216.8125
+                y: 1933.3125
+              -
+                x: 2145.9375
+                y: 1858.5
+              -
+                x: 2090.8125
+                y: 1846.6875
+              -
+                x: 2055.375
+                y: 1803.375
+              -
+                x: 2016
+                y: 1456.875
+            center:
+              x: 1571.0625
+              y: 2169.5625
+            radius: 943.8463125
+            bbox:
+              x: 945
+              y: 1382.0625
+              width: 1449
+              height: 1578.9375
+      faces:
+        -
+          x: 956.8125
+          y: 1197
+          width: 948.9375
+          height: 948.9375
+          confidence: 5.013538
+      original: "https://the-grid-user-content.s3-us-west-2.amazonaws.com/1ac86894-bf90-4369-b359-14d6ba9f1c00.jpg"
+      src: "https://s3-us-west-2.amazonaws.com/the-grid-img/p/dbb4faece6806332d9875e0ba8096990758a321c.jpg"
+    "measurementVersion": 16
+    "measurementHash": "bb9bc2937bb3be0ca86e3beed2874bee"
+-
+  _valid: true
+  _name: 'image-d4-withface'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    type: "image"
+    src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
+    html: "<img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\">"
+    metadata:
+      title: "Dan Tocchini"
+      tags: [ "team" ]
+      description: "The Team"
+      "@context": "http://schema.org"
+      "@type": "Person"
+      author: []
+      caption: "Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more."
+      jobTitle: "Founder and CEO"
+      starred: true
+    score: 2
+    created_at: 1412744992396
+    updated_at: 1412745215712
+    title: "Dan Tocchini"
+    caption: "Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more."
+    cover:
+      orientation: "landscape"
+      src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
+      ratio: "217:216"
+      width: 217
+      height: 216
+      faces:
+        -
+          x: 50.61038563900384
+          y: 70.03941296843249
+          width: 63.029722675405246
+          height: 63.029722675405246
+          confidence: 0.4109060300000006
+      colors:
+        - [ 213, 188, 135 ]
+        - [ 59, 50, 90 ]
+        - [ 139, 114, 114 ]
+        - [ 112, 104, 140 ]
+        - [ 148, 148, 164 ]
+-
+  _valid: true
+  _name: 'image-with-saliency-and-negativespace'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "spaghetti"
+    type: "image"
+    html: "<img src=\"https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg\">"
+    src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+    cover:
+      colors:
+        - [ 122, 174, 213 ]
+        - [ 8, 12, 21 ]
+        - [ 255, 254, 255 ]
+        - [ 75, 108, 141 ]
+        - [ 202, 207, 203 ]
+      src: ""
+      orientation: "landscape"
+      ratio: "128:101"
+      aspect: 1.2673267326732673
+      width: 1024
+      height: 808
+      faces: []
+      saliency:
+        polygon:
+          - [ 533, 280 ]
+          - [ 521, 280 ]
+          - [ 491, 238 ]
+          - [ 486, 288 ]
+          - [ 419, 289 ]
+          - [ 411, 308 ]
+          - [ 360, 308 ]
+          - [ 347, 298 ]
+          - [ 343, 289 ]
+          - [ 329, 291 ]
+          - [ 343, 326 ]
+          - [ 356, 329 ]
+          - [ 372, 370 ]
+          - [ 378, 365 ]
+          - [ 421, 365 ]
+          - [ 439, 371 ]
+          - [ 443, 360 ]
+          - [ 454, 358 ]
+          - [ 454, 327 ]
+          - [ 482, 315 ]
+          - [ 522, 315 ]
+          - [ 523, 339 ]
+          - [ 530, 339 ]
+          - [ 533, 316 ]
+          - [ 538, 310 ]
+        center: [ 433, 300]
+        radius: 108.079
+        bounding_rect:
+          - [ 329, 238 ]
+          - [ 539, 372 ]
+-
+  _valid: true
+  _name: 'image-with-saliency-only'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "spaghetti"
+    type: "image"
+    html: "<img src=\"https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg\">"
+    src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+    cover:
+      colors:
+        - [ 122, 174, 213 ]
+        - [ 8, 12, 21 ]
+        - [ 255, 254, 255 ]
+        - [ 75, 108, 141 ]
+        - [ 202, 207, 203 ]
+      src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+      orientation: "landscape"
+      ratio: "128:101"
+      aspect: 1.2673267326732673
+      width: 1024
+      height: 808
+      faces: []
+      saliency:
+        polygon:
+          - [ 533, 280 ]
+          - [ 521, 280 ]
+          - [ 491, 238 ]
+          - [ 486, 288 ]
+          - [ 419, 289 ]
+          - [ 411, 308 ]
+          - [ 360, 308 ]
+          - [ 347, 298 ]
+          - [ 343, 289 ]
+          - [ 329, 291 ]
+          - [ 343, 326 ]
+          - [ 356, 329 ]
+          - [ 372, 370 ]
+          - [ 378, 365 ]
+          - [ 421, 365 ]
+          - [ 439, 371 ]
+          - [ 443, 360 ]
+          - [ 454, 358 ]
+          - [ 454, 327 ]
+          - [ 482, 315 ]
+          - [ 522, 315 ]
+          - [ 523, 339 ]
+          - [ 530, 339 ]
+          - [ 533, 316 ]
+          - [ 538, 310 ]
+        center: [ 433, 300]
+        radius: 108.079
+        bounding_rect:
+          - [ 329, 238 ]
+          - [ 539, 372 ]
+-
+  _valid: false
+  _name: 'image-without-id'
+  _data:
+    item: "spaghetti"
+    type: "image"
+    src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+    cover:
+      colors:
+        - [ 122, 174, 213 ]
+        - [ 8, 12, 21 ]
+        - [ 255, 254, 255 ]
+        - [ 75, 108, 141 ]
+        - [ 202, 207, 203 ]
+      src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+      orientation: "landscape"
+      ratio: "128:101"
+      aspect: 1.2673267326732673
+      width: 1024
+      height: 808
+      faces: []
+-
+  _valid: false
+  _name: 'image-without-type'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "spaghetti"
+    src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+    cover:
+      colors:
+        - [ 122, 174, 213 ]
+        - [ 8, 12, 21 ]
+        - [ 255, 254, 255 ]
+        - [ 75, 108, 141 ]
+        - [ 202, 207, 203 ]
+      src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+      orientation: "landscape"
+      ratio: "128:101"
+      aspect: 1.2673267326732673
+      width: 1024
+      height: 808
+      faces: []
+-
+  _valid: false
+  _name: 'image-without-src'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "spaghetti"
+    type: "image"
+    cover:
+      colors:
+        - [ 122, 174, 213 ]
+        - [ 8, 12, 21 ]
+        - [ 255, 254, 255 ]
+        - [ 75, 108, 141 ]
+        - [ 202, 207, 203 ]
+      src: ""
+      orientation: "landscape"
+      ratio: "128:101"
+      aspect: 1.2673267326732673
+      width: 1024
+      height: 808
+      faces: []
+-
+  _valid: true
+  _name: 'image-without-cover'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "spaghetti"
+    type: "image"
+    html: "<img src=\"https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg\">"
+    src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
