@@ -20,10 +20,13 @@ definitions:
     pattern: "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
     example: "#aa33cc"
     type: string
+  site:
+    type: string
+    example: "the-domains/the-grid"
   sites:
     type: array
     description: Collection of websites associated with the resource
-    items:
+    items: # FIXME, reference above site definition
       type: string
     uniqueItems: true
     example:
