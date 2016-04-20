@@ -1,0 +1,32 @@
+{
+  "id": "image.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Image",
+  "description": "An HTML image element which can have a cover image with annotated measurements data",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "type": {
+      "$ref": "contentblock.json#/definitions/type"
+    },
+    "html": {
+      "$ref": "contentblock.json#/definitions/html"
+    },
+    "src": {
+      "$ref": "contentblock.json#/definitions/src"
+    },
+    "cover": {
+      "$ref": "media.json#/definitions/cover"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "html",
+    "src"
+  ]
+}

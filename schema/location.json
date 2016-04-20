@@ -1,0 +1,25 @@
+{
+  "id": "location.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Location",
+  "description": "A geographical location",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "type": {
+      "$ref": "contentblock.json#/definitions/type"
+    },
+    "html": {
+      "$ref": "contentblock.json#/definitions/html"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "html"
+  ]
+}

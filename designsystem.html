@@ -1,177 +1,34 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Design systems</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
-pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
-pre code{display:block;padding:.5em;background:#272b30}
-.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
-h4,
-h5 {
-  font-family: 'Roboto' sans-serif !important;
-}
-h1,
-h2,
-h3,
-.aglio {
-  font-family: 'Raleway' sans-serif !important;
-}
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a {
-  display: none;
-}
-h1:hover a,
-h2:hover a,
-h3:hover a,
-h4:hover a,
-h5:hover a {
-  display: inline;
-}
-code {
-  color: #222;
-  background-color: #aaa;
-  font-family: 'Inconsolata' monospace !important;
-}
-a[data-target] {
-  cursor: pointer;
-}
-h4 {
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.back-to-top {
-  position: fixed;
-  z-index: 1;
-  bottom: 0px;
-  right: 24px;
-  padding: 4px 8px;
-  color: #aaa;
-  background-color: #171b20;
-  text-decoration: none !important;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-left: 1px solid rgba(0,0,0,0.1);
-  border-right: 1px solid rgba(0,0,0,0.1);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.panel {
-  overflow: hidden;
-}
-.panel-heading code {
-  margin-left: 3px;
-  color: #000;
-  background-color: rgba(255,255,255,0.7);
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-}
-.panel-heading h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-a.list-group-item:hover {
-  background-color: #f8f8f8;
-  border-left: 2px solid #555;
-  padding-left: 15px;
-}
-.indent {
-  display: block;
-  text-indent: 16px;
-}
-.list-group-item {
-  padding-left: 16px;
-}
-.list-group-item .toggle .open {
-  display: block;
-}
-.list-group-item .toggle .closed {
-  display: none;
-}
-.list-group-item.collapsed .toggle .open {
-  display: none;
-}
-.list-group-item.collapsed .toggle .closed {
-  display: block;
-}
-a.list-group-item:hover {
-  background-color: #4b5159;
-  border-left-color: #c8c8c8;
-}
-a.list-group-item {
-  font-size: 13px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-a.list-group-item.heading {
-  font-size: 15px;
-  background-color: #3e444c;
-}
-a.list-group-item.heading:hover {
-  background-color: #4b5159;
-}
-.list-group-item.collapse {
-  display: none;
-}
-.list-group-item.collapse.in {
-  display: block;
-}
-.list-group-item a span.closed {
-  display: none;
-}
-.list-group-item a span.open {
-  display: block;
-}
-.list-group-item a.collapsed span.closed {
-  display: block;
-}
-.list-group-item a.collapsed span.open {
-  display: none;
-}
-#nav {
-  width: inherit;
-  margin-top: 38px;
-  max-width: 255px;
-  top: 0;
-  bottom: 0;
-  padding-right: 12px;
-  padding-bottom: 12px;
-  overflow-y: auto;
-}
-@media (max-width: 1199px) {
-  #nav {
-    max-width: 212px;
-  }
-}
-</style><!-- Based on https://codepo8.github.io/css-fork-on-github-ribbon/--><style>#forkongithub a{background:#000;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:45px;right:-45px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#registered-design-systems-menu" href="#registered-design-systems" class="list-group-item heading collapsed">Registered design systems</a><div id="registered-design-systems-menu"><a href="#registered-design-systems-designsystem-events" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Designsystem events</a><a href="#registered-design-systems-designsystem-events-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Registering new design system version</span></a><a href="#registered-design-systems-designsystem-events-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Setting design system collaborators</span></a></div></div><div class="list-group"><a data-toggle="" data-target="#solutions-menu" href="#solutions" class="list-group-item heading collapsed">Solutions</a><div id="solutions-menu"><a href="#solutions-designsystems" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Designsystems</a><a href="#solutions-solutions" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Solutions</a><a href="#solutions-solution-details" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Solution details</a><a href="#solutions-solution-output-html" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Solution output HTML</a><a href="#solutions-solution-log" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Solution log</a><a href="#solutions-solution-error-log" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Solution error log</a></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.thegrid.io/">https://api.thegrid.io/</a></p></nav></div><div class="col-md-8"><span id="forkongithub"><a href="https://github.com/the-grid/apidocs">Fork me on GitHub</a></span><div><header><div class="page-header"><h1 id="top">Design systems</h1></div></header><div class="description"><p>The Design System is the piece of The Grid that builds a webpage from page content.</p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Design systems</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-api">API</a></li><li><a href="#header-use-custom-design-system">Use custom design system</a></li><li><a href="#header-custom-settings">Custom settings</a></li><li><a href="#header-debugging">Debugging</a></li><li><a href="#header-tools">Tools</a></li><li><a href="#header-http-apis">HTTP APIs</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#registered-design-systems">Registered design systems</a></div><div class="collapse-content"><ul><li><a href="#registered-design-systems-designsystem-events">Designsystem events</a><ul><li><a href="#registered-design-systems-designsystem-events-post"><span class="badge post"><i class="fa fa-plus"></i></span>Registering new design system version</a></li><li><a href="#registered-design-systems-designsystem-events-post-1"><span class="badge post"><i class="fa fa-plus"></i></span>Setting design system collaborators</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#solutions">Solutions</a></div><div class="collapse-content"><ul><li><a href="#solutions-designsystems-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List available designsystems</a></li><li><a href="#solutions-solutions-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List solutions</a></li><li><a href="#solutions-solution-details-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get details about a solution</a></li><li><a href="#solutions-solution-output-html-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get solution output</a></li><li><a href="#solutions-solution-log-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get job stdout</a></li><li><a href="#solutions-solution-error-log-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get job stderr</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.thegrid.io/">https://api.thegrid.io/</a></p></nav><div class="content"><header><h1 id="top">Design systems</h1></header><p>The Design System is the piece of The Grid that builds a webpage from page content.</p>
 <p>A set of design systems are provided by The Grid. These use techiques like
 finite-domain constraint solvers, decision trees, content analysis,
 and polyrythmic pagination in order to produce a page which:</p>
 <ul>
-<li><p>Is <em>content driven</em>, reflects the particular items on the page</p></li>
-<li><p>Is <em>visually pleasing</em>, respecting the users site preferences</p></li>
-<li><p>Is <em>effective</em> at achieving the purpose set by the user</p></li>
+<li>
+<p>Is <em>content driven</em>, reflects the particular items on the page</p>
+</li>
+<li>
+<p>Is <em>visually pleasing</em>, respecting the users site preferences</p>
+</li>
+<li>
+<p>Is <em>effective</em> at achieving the purpose set by the user</p>
+</li>
 </ul>
 <p>In the future, we intent to support “plugins” which can hook into and extend existing design systems.
 Such plugins could build sections for particular types of data, extend content analysis or heruristics,
 add or modify rhythms (scoring functions).</p>
 <p>In the meantime the <em>daring and ambitious</em> may implement an full design system
 using the mechanism below.</p>
-<h1>API</h1>
+<h1 id="header-api">API <a class="permalink" href="#header-api" aria-hidden="true">¶</a></h1>
 <p>A design system is deployed as a <code>.js</code> file, and runs sandboxed in a browser.
 On the server-side this is PhantomJS (with function.bind polyfill),
 on client-side it runs in a WebWorker (no access to DOM).</p>
 <p>The design system must expose a <code>polySolvePage</code> function as an entry point.</p>
-<pre><code>window.polySolvePage = function (page, options, callback) {
-    var html = &quot;&quot;;
-    var err = null;
+<pre><code>window.polySolvePage = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(page, options, callback)</span> </span>{
+    <span class="hljs-keyword">var</span> html = <span class="hljs-string">""</span>;
+    <span class="hljs-keyword">var</span> err = <span class="hljs-literal">null</span>;
 
-    return callback(err, html, details);
-};
-</code></pre>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">callback</span>(err, html, details);
+};</code></pre>
 <p>The function will be called with a
 <a href="https://github.com/the-grid/apidocs/blob/master/schemata/page.yaml">Page object</a>
 containing the data to be put on the page.
@@ -188,7 +45,7 @@ or refer to a <em>stable</em> URL on a HTTPS enabled CDN (recommended for fonts,
 - describe ordered versus non-ordered mode
 - describe/show how to run a page build locally
 -->
-<h1>Use custom design system</h1>
+<h1 id="header-use-custom-design-system">Use custom design system <a class="permalink" href="#header-use-custom-design-system" aria-hidden="true">¶</a></h1>
 <p>You can configure a site to use a custom design system,
 by setting the <code>style</code> property to be a URL to .JS file implementing the API above.</p>
 <p><code>style: https://example.net/path/mydesignsystem-0.1.0.js</code></p>
@@ -198,77 +55,292 @@ the configuration is updated to activate the new version.</p>
 <p>Use <code>config</code> object of the <code>PUT /site/$id</code> API to change site configuration from an app.
 For example, using the <a href="https://github.com/the-grid/apidocs/tree/master/code-examples/coffeescript">configure-site example</a> to enable a
 <a href="https://developer.thegrid.io/designsystems/original-html.js">trivial design system</a>.</p>
-<pre><code>thegrid-site-configure https://thegrid.ai/mysite style https://developer.thegrid.io/designsystems/original-html.js
-</code></pre>
+<pre><code>thegrid-site-configure <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/thegrid.ai/mysite</span> style <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/developer.thegrid.io/designsystems</span><span class="hljs-regexp">/original-html.js
+</span></code></pre>
 <p>Note: This will override the default design system completely!
 To reset back to the default design system, remove the <code>style</code> key/value.</p>
-<h1>Custom settings</h1>
+<h1 id="header-custom-settings">Custom settings <a class="permalink" href="#header-custom-settings" aria-hidden="true">¶</a></h1>
 <p>If your design system has settings, they should be persisted in the site config.
 You can use the API in order to build a web app with custom user interface to let users configuring settings.</p>
 <p>For compatibility, it is recommended that all configuration keys are prefixed with your application/design-system name.
-For instance, if you have an option for 'density’, use something like <code>mysystem_density: 3.3</code> or use <code>mysystem: { density: 3.3 }</code>.</p>
+For instance, if you have an option for ‘density’, use something like <code>mysystem_density: 3.3</code> or use <code>mysystem: { density: 3.3 }</code>.</p>
 <p>All changes to site configuration will trigger a rebuild of the pages on the site.</p>
-<h1>Debugging</h1>
+<h1 id="header-debugging">Debugging <a class="permalink" href="#header-debugging" aria-hidden="true">¶</a></h1>
 <p>There are currently no tools to run a page build job locally.
 There is currently no way to get the output/errors from a failed page build job.</p>
-<h1>Tools</h1>
+<h1 id="header-tools">Tools <a class="permalink" href="#header-tools" aria-hidden="true">¶</a></h1>
 <p>Designs systems are complex beasts.
 In order to create them we have built a set of libraries, services and tools.
 Several of these are already open source:</p>
 <ul>
-<li><p><a href="gridstylesheets.org">Grid Style Sheets</a> (GSS), constraint-based layout system</p></li>
-<li><p><a href="http://imgflo.org">imgflo</a>, on-demand server-side image processing.
-Helpers: <a href="https://github.com/the-grid/rig">RIG</a> and <a href="https://github.com/the-grid/imgflo-url">imgflo-url</a></p></li>
-<li><p><a href="https://github.com/the-grid/gom">Grid Object Model</a> (GOM), HTML templating and transformations</p></li>
-<li><p><a href="https://github.com/the-grid/Flowerflip">Flowerflip</a>, Promise-based finite-domain constraint solver</p></li>
-<li><p><a href="https://github.com/the-grid/regimen">Regimen</a>, Chai.js-based expectations for item/block consumption</p></li>
+<li>
+<p><a href="gridstylesheets.org">Grid Style Sheets</a> (GSS), constraint-based layout system</p>
+</li>
+<li>
+<p><a href="http://imgflo.org">imgflo</a>, on-demand server-side image processing.
+Helpers: <a href="https://github.com/the-grid/rig">RIG</a> and <a href="https://github.com/the-grid/imgflo-url">imgflo-url</a></p>
+</li>
+<li>
+<p><a href="https://github.com/the-grid/gom">Grid Object Model</a> (GOM), HTML templating and transformations</p>
+</li>
+<li>
+<p><a href="https://github.com/the-grid/Flowerflip">Flowerflip</a>, Promise-based finite-domain constraint solver</p>
+</li>
+<li>
+<p><a href="https://github.com/the-grid/regimen">Regimen</a>, Chai.js-based expectations for item/block consumption</p>
+</li>
 </ul>
 <p>More to be released soon!</p>
-<h1>HTTP APIs</h1>
-</div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="registered-design-systems">Registered design systems&nbsp;<a href="#registered-design-systems"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>A registered designsystem can be used across many sites by referring to it by name (istead of URL).
+<h1 id="header-http-apis">HTTP APIs <a class="permalink" href="#header-http-apis" aria-hidden="true">¶</a></h1>
+<section id="registered-design-systems" class="resource-group"><h2 class="group-heading">Registered design systems <a href="#registered-design-systems" class="permalink">&para;</a></h2><p>A registered designsystem can be used across many sites by referring to it by name (istead of URL).
 Such a designsystem can have many versions, and new versions will first be pushed into staging,
 where pages are solved without influencing the live site. One can look at and analyze these page <em>solutions</em>,
 and once one is confident of the quality of the new version, trigger rollout to all sites with
 that designsystem.</p>
 <p>If you want access to this functionality, you need an access token (secret) associated with your design system.
-Contact <a href="mailto:support@thegrid.io">support@thegrid.io</a> and mark the request with 'designsystem development’, and include your TheGrid user UUID.
+Contact <a href="mailto:support@thegrid.io">support@thegrid.io</a> and mark the request with ‘designsystem development’, and include your TheGrid user UUID.
 In the future, we may support self-service for registering new design systems.</p>
 <p>These APIs are <a href="https://en.wikipedia.org/wiki/Webhook">Webhooks</a> signed as <a href="http://jwt.io/">JSON Web Token</a>.</p>
-<h4 id="registered-design-systems-designsystem-events">Designsystem events&nbsp;<a href="#registered-design-systems-designsystem-events"><i class="fa fa-link"></i></a></h4><p>For code examples, see
+<div id="registered-design-systems-designsystem-events" class="resource"><h3 class="resource-heading">Designsystem events <a href="#registered-design-systems-designsystem-events" class="permalink">&nbsp;&para;</a></h3><p>For code examples, see
 <a href="https://github.com/the-grid/apidocs/blob/master/tools/designsystem-update.coffee">thegrid-designsystem-update</a>
 and <a href="https://github.com/the-grid/apidocs/blob/master/tools/designsystem-collaborators.coffee">thegrid-designsystem-collaborators</a></p>
-<section id="registered-design-systems-designsystem-events-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Registering new design system version</span></div><div style="float:left"><a href="#registered-design-systems-designsystem-events-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/designsystem_event</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#02a8d26e7dff8ee94084ee4a2a0074c0" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="02a8d26e7dff8ee94084ee4a2a0074c0" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong></li></ul></section><section id="registered-design-systems-designsystem-events-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Setting design system collaborators</span></div><div style="float:left"><a href="#registered-design-systems-designsystem-events-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/designsystem_event</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#f8ff4842ffeec7411e446f5176ab5e0e" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="f8ff4842ffeec7411e446f5176ab5e0e" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong></li></ul></section></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="solutions">Solutions&nbsp;<a href="#solutions"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>A solution is the page output from a design system for a particular page-solving job, and associated metadata.</p>
+<div id="registered-design-systems-designsystem-events-post" class="action post"><h4 class="action-heading"><div class="name">Registering new design system version</div><a href="#registered-design-systems-designsystem-events-post" class="method post">POST</a><code class="uri">/designsystem_event</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem_event</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong></div></div><div id="registered-design-systems-designsystem-events-post-1" class="action post"><h4 class="action-heading"><div class="name">Setting design system collaborators</div><a href="#registered-design-systems-designsystem-events-post-1" class="method post">POST</a><code class="uri">/designsystem_event</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem_event</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong></div></div></div></section><section id="solutions" class="resource-group"><h2 class="group-heading">Solutions <a href="#solutions" class="permalink">&para;</a></h2><p>A solution is the page output from a design system for a particular page-solving job, and associated metadata.</p>
 <p>These APIs are authenticated with standard OAuth2 Bearer-token.
 The application using them must request the <code>designsystem_review</code> scope.
 Permissions are granted per-designsystem, to users registered as a collaborators of the designsystem in question.</p>
-<h4 id="solutions-designsystems">Designsystems&nbsp;<a href="#solutions-designsystems"><i class="fa fa-link"></i></a></h4><section id="solutions-designsystems-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">List available designsystems</span></div><div style="float:left"><a href="#solutions-designsystems-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/designsystem</code></div></div><div class="panel-body"><p>Lists designsystems you are authorized to access.</p>
-</div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#0ebebbab945777abfe84c13bc3a4283b" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="0ebebbab945777abfe84c13bc3a4283b" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre></li></ul></section><h4 id="solutions-solutions">Solutions&nbsp;<a href="#solutions-solutions"><i class="fa fa-link"></i></a></h4><p>Note that since we create multiple solution variants for one solve job,
+<div id="solutions-designsystems" class="resource"><h3 class="resource-heading">Designsystems <a href="#solutions-designsystems" class="permalink">&nbsp;&para;</a></h3><div id="solutions-designsystems-get" class="action get"><h4 class="action-heading"><div class="name">List available designsystems</div><a href="#solutions-designsystems-get" class="method get">GET</a><code class="uri">/designsystem</code></h4><p>Lists designsystems you are authorized to access.</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="solutions-solutions" class="resource"><h3 class="resource-heading">Solutions <a href="#solutions-solutions" class="permalink">&nbsp;&para;</a></h3><p>Note that since we create multiple solution variants for one solve job,
 and in future may ask user which one to publish, a solution can be <code>succeeded: true</code> but <code>published: false</code>.
 And since user never sees or can publish staging results. <code>staged: true</code> implies <code>published: false</code>.</p>
-<section id="solutions-solutions-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">List solutions</span></div><div style="float:left"><a href="#solutions-solutions-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/designsystem/{system}/{?site,path,version,published,staged,limit,offset}/solutions</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>site</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>Website to return results for. Ex: ‘the-domains/d4’</p>
+<div id="solutions-solutions-get" class="action get"><h4 class="action-heading"><div class="name">List solutions</div><a href="#solutions-solutions-get" class="method get">GET</a><code class="uri">/designsystem/{?site,path,version,published,staged,limit,offset}/solutions</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem/?<span class="hljs-attribute">site=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">path=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">version=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">published=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">staged=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">limit=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">offset=</span><span class="hljs-literal"></span>/solutions</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>site</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>Website to return results for. Ex: ‘the-domains/d4’</p>
 </dd><dt>path</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>Page path to return results for. Ex: “index.html” for frontpage.</p>
 </dd><dt>version</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>Designsystem version to return results for. Ex: “0.10.0”</p>
 </dd><dt>published</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<p>If true, return only solutions which were made live on a site.</p>
 </dd><dt>staged</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<p>If true, return only solutions produced in staging. If false, only from production.</p>
 </dd><dt>limit</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<p>Pagination limit. Defaults to 100</p>
 </dd><dt>offset</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<p>Pagination offset</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#f0628fef9c90b5db11163002c3cdda8f" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="f0628fef9c90b5db11163002c3cdda8f" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre></li></ul></section><h4 id="solutions-solution-details">Solution details&nbsp;<a href="#solutions-solution-details"><i class="fa fa-link"></i></a></h4><section id="solutions-solution-details-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get details about a solution</span></div><div style="float:left"><a href="#solutions-solution-details-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/designsystem/{system}/solutions/{id}</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#357013dbd8213a49da4f0388d63a2a0d" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="357013dbd8213a49da4f0388d63a2a0d" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre></li></ul></section><h4 id="solutions-solution-output-html">Solution output HTML&nbsp;<a href="#solutions-solution-output-html"><i class="fa fa-link"></i></a></h4><section id="solutions-solution-output-html-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get solution output</span></div><div style="float:left"><a href="#solutions-solution-output-html-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/designsystem/{system}/solutions/{id}/output</code></div></div><div class="panel-body"><p>Returns the HTML produced by design system for this solution.</p>
-</div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#20f706737bf2b150764c75ac7107d162" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="20f706737bf2b150764c75ac7107d162" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/html</span><br></code></pre></li></ul></section><h4 id="solutions-solution-log">Solution log&nbsp;<a href="#solutions-solution-log"><i class="fa fa-link"></i></a></h4><section id="solutions-solution-log-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get job stdout</span></div><div style="float:left"><a href="#solutions-solution-log-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/designsystem/{system}/solutions/{id}/stdout</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#bdf3e5cb08a1669e424adabc8ce30886" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="bdf3e5cb08a1669e424adabc8ce30886" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span><br></code></pre></li></ul></section><h4 id="solutions-solution-error-log">Solution error log&nbsp;<a href="#solutions-solution-error-log"><i class="fa fa-link"></i></a></h4><section id="solutions-solution-error-log-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get job stderr</span></div><div style="float:left"><a href="#solutions-solution-error-log-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/designsystem/{system}/solutions/{id}/stderr</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#6ef36e5e54a3d142277fb02ea549b60c" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="6ef36e5e54a3d142277fb02ea549b60c" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span><br></code></pre></li></ul></section></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 18 Mar 2016</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="solutions-solution-details" class="resource"><h3 class="resource-heading">Solution details <a href="#solutions-solution-details" class="permalink">&nbsp;&para;</a></h3><div id="solutions-solution-details-get" class="action get"><h4 class="action-heading"><div class="name">Get details about a solution</div><a href="#solutions-solution-details-get" class="method get">GET</a><code class="uri">/designsystem/solutions</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem/solutions</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="solutions-solution-output-html" class="resource"><h3 class="resource-heading">Solution output HTML <a href="#solutions-solution-output-html" class="permalink">&nbsp;&para;</a></h3><div id="solutions-solution-output-html-get" class="action get"><h4 class="action-heading"><div class="name">Get solution output</div><a href="#solutions-solution-output-html-get" class="method get">GET</a><code class="uri">/designsystem/solutions/output</code></h4><p>Returns the HTML produced by design system for this solution.</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem/solutions/output</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/html</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="solutions-solution-log" class="resource"><h3 class="resource-heading">Solution log <a href="#solutions-solution-log" class="permalink">&nbsp;&para;</a></h3><div id="solutions-solution-log-get" class="action get"><h4 class="action-heading"><div class="name">Get job stdout</div><a href="#solutions-solution-log-get" class="method get">GET</a><code class="uri">/designsystem/solutions/stdout</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem/solutions/stdout</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="solutions-solution-error-log" class="resource"><h3 class="resource-heading">Solution error log <a href="#solutions-solution-error-log" class="permalink">&nbsp;&para;</a></h3><div id="solutions-solution-error-log-get" class="action get"><h4 class="action-heading"><div class="name">Get job stderr</div><a href="#solutions-solution-error-log-get" class="method get">GET</a><code class="uri">/designsystem/solutions/stderr</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/designsystem/solutions/stderr</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span></code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 20 Apr 2016</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
 
-</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
-  if (location.protocol === 'file:') {
-    document.getElementById('localFile').style.display = 'block';
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
   }
 
-}).call(this);
-</script><script>(function() {
-  $('table').addClass('table');
+  return filtered;
+}
 
-}).call(this);
-</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-50607580-4', 'auto');
-ga('send', 'pageview');
-</script></html>
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>

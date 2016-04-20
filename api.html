@@ -1,611 +1,653 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>The Grid API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
-pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
-pre code{display:block;padding:.5em;background:#272b30}
-.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
-h4,
-h5 {
-  font-family: 'Roboto' sans-serif !important;
-}
-h1,
-h2,
-h3,
-.aglio {
-  font-family: 'Raleway' sans-serif !important;
-}
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a {
-  display: none;
-}
-h1:hover a,
-h2:hover a,
-h3:hover a,
-h4:hover a,
-h5:hover a {
-  display: inline;
-}
-code {
-  color: #222;
-  background-color: #aaa;
-  font-family: 'Inconsolata' monospace !important;
-}
-a[data-target] {
-  cursor: pointer;
-}
-h4 {
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.back-to-top {
-  position: fixed;
-  z-index: 1;
-  bottom: 0px;
-  right: 24px;
-  padding: 4px 8px;
-  color: #aaa;
-  background-color: #171b20;
-  text-decoration: none !important;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-left: 1px solid rgba(0,0,0,0.1);
-  border-right: 1px solid rgba(0,0,0,0.1);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.panel {
-  overflow: hidden;
-}
-.panel-heading code {
-  margin-left: 3px;
-  color: #000;
-  background-color: rgba(255,255,255,0.7);
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-}
-.panel-heading h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-a.list-group-item:hover {
-  background-color: #f8f8f8;
-  border-left: 2px solid #555;
-  padding-left: 15px;
-}
-.indent {
-  display: block;
-  text-indent: 16px;
-}
-.list-group-item {
-  padding-left: 16px;
-}
-.list-group-item .toggle .open {
-  display: block;
-}
-.list-group-item .toggle .closed {
-  display: none;
-}
-.list-group-item.collapsed .toggle .open {
-  display: none;
-}
-.list-group-item.collapsed .toggle .closed {
-  display: block;
-}
-a.list-group-item:hover {
-  background-color: #4b5159;
-  border-left-color: #c8c8c8;
-}
-a.list-group-item {
-  font-size: 13px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-a.list-group-item.heading {
-  font-size: 15px;
-  background-color: #3e444c;
-}
-a.list-group-item.heading:hover {
-  background-color: #4b5159;
-}
-.list-group-item.collapse {
-  display: none;
-}
-.list-group-item.collapse.in {
-  display: block;
-}
-.list-group-item a span.closed {
-  display: none;
-}
-.list-group-item a span.open {
-  display: block;
-}
-.list-group-item a.collapsed span.closed {
-  display: block;
-}
-.list-group-item a.collapsed span.open {
-  display: none;
-}
-#nav {
-  width: inherit;
-  margin-top: 38px;
-  max-width: 255px;
-  top: 0;
-  bottom: 0;
-  padding-right: 12px;
-  padding-bottom: 12px;
-  overflow-y: auto;
-}
-@media (max-width: 1199px) {
-  #nav {
-    max-width: 212px;
-  }
-}
-</style><!-- Based on https://codepo8.github.io/css-fork-on-github-ribbon/--><style>#forkongithub a{background:#000;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:45px;right:-45px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#long-running-jobs-menu" href="#long-running-jobs" class="list-group-item heading collapsed">Long-running jobs</a><div id="long-running-jobs-menu"><a href="#long-running-jobs-job-details" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Job details</a><a href="#long-running-jobs-jobs" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Jobs</a></div></div><div class="list-group"><a data-toggle="" data-target="#site-management-menu" href="#site-management" class="list-group-item heading collapsed">Site Management</a><div id="site-management-menu"><a href="#site-management-site-information" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Site information</a><a href="#site-management-site-information-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">List user websites</span></a><a href="#site-management-site-information-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Create a website</span></a><a href="#site-management-user-website" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">User website</a><a href="#site-management-user-website-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">Get website details</span></a><a href="#site-management-user-website-put" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-warning"><i class="fa fa-pencil"></i></span><span class="indent">Update website details</span></a><a href="#site-management-user-website-delete" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-danger"><i class="fa fa-times"></i></span><span class="indent">Delete website</span></a><a href="#site-management-site-logos" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span>Site logos</a><a href="#site-management-website-discovery" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Website discovery</a></div></div><div class="list-group"><a data-toggle="" data-target="#content-management-menu" href="#content-management" class="list-group-item heading collapsed">Content Management</a><div id="content-management-menu"><a href="#content-management-share" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span>Share</a><a href="#content-management-items-list" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Items list</a><a href="#content-management-items-list-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">Retrieve user's content items</span></a><a href="#content-management-items-list-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Create an item</span></a><a href="#content-management-item" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Item</a><a href="#content-management-item-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">Retrieve an item</span></a><a href="#content-management-item-put" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-warning"><i class="fa fa-pencil"></i></span><span class="indent">Update item</span></a><a href="#content-management-item-patch" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-warning"><i class="fa fa-pencil"></i></span><span class="indent">Update item metadata</span></a><a href="#content-management-item-delete" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-danger"><i class="fa fa-times"></i></span><span class="indent">Remove item</span></a><a href="#content-management-publishing" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span>Publishing</a><a href="#content-management-unpublishing" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span>Unpublishing</a></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.thegrid.io/">https://api.thegrid.io/</a></p></nav></div><div class="col-md-8"><span id="forkongithub"><a href="https://github.com/the-grid/apidocs">Fork me on GitHub</a></span><div><header><div class="page-header"><h1 id="top">The Grid API</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="long-running-jobs">Long-running jobs&nbsp;<a href="#long-running-jobs"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Several actions in the API takes a significant time.
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>The Grid API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#long-running-jobs">Long-running jobs</a></div><div class="collapse-content"><ul><li><a href="#long-running-jobs-job-details-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retriving job details</a></li><li><a href="#long-running-jobs-jobs-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Listing current jobs</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#site-management">Site Management</a></div><div class="collapse-content"><ul><li><a href="#site-management-site-information">Site information</a><ul><li><a href="#site-management-site-information-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List user websites</a></li><li><a href="#site-management-site-information-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a website</a></li></ul></li><li><a href="#site-management-user-website">User website</a><ul><li><a href="#site-management-user-website-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get website details</a></li><li><a href="#site-management-user-website-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Update website details</a></li><li><a href="#site-management-user-website-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete website</a></li></ul></li><li><a href="#site-management-site-logos-post"><span class="badge post"><i class="fa fa-plus"></i></span>Set website logo</a></li><li><a href="#site-management-website-discovery-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Match URL to a website</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#content-management">Content Management</a></div><div class="collapse-content"><ul><li><a href="#content-management-share-post"><span class="badge post"><i class="fa fa-plus"></i></span>Sharing content</a></li><li><a href="#content-management-items-list">Items list</a><ul><li><a href="#content-management-items-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve user's content items</a></li><li><a href="#content-management-items-list-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create an item</a></li></ul></li><li><a href="#content-management-item">Item</a><ul><li><a href="#content-management-item-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve an item</a></li><li><a href="#content-management-item-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Update item</a></li><li><a href="#content-management-item-patch"><span class="badge patch"><i class="fa fa-pencil"></i></span>Update item metadata</a></li><li><a href="#content-management-item-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Remove item</a></li></ul></li><li><a href="#content-management-publishing-post"><span class="badge post"><i class="fa fa-plus"></i></span>Publish an item to sites</a></li><li><a href="#content-management-unpublishing-post"><span class="badge post"><i class="fa fa-plus"></i></span>Unpublish an item from sites</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.thegrid.io/">https://api.thegrid.io/</a></p></nav><div class="content"><header><h1 id="top">The Grid API</h1></header><section id="long-running-jobs" class="resource-group"><h2 class="group-heading">Long-running jobs <a href="#long-running-jobs" class="permalink">&para;</a></h2><p>Several actions in the API takes a significant time.
 Current examples include POST /share, /publish and /unpublish.
 Performing such an action returns a Location header with a Job URL.</p>
-<h4 id="long-running-jobs-job-details">Job details&nbsp;<a href="#long-running-jobs-job-details"><i class="fa fa-link"></i></a></h4><section id="long-running-jobs-job-details-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retriving job details</span></div><div style="float:left"><a href="#long-running-jobs-job-details-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/job/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Job UUID</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#6fd67c86facfd581a55e7eb963c1ffa9" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="6fd67c86facfd581a55e7eb963c1ffa9" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code><span class="hljs-escape">``</span><span class="hljs-escape">`
-</span>{
-<span class="hljs-string">"id"</span>: <span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span>,
-<span class="hljs-string">"type"</span>: <span class="hljs-string">"share"</span>,
-<span class="hljs-string">"completed"</span>: <span class="hljs-literal">true</span>,
-<span class="hljs-string">"failed"</span>: <span class="hljs-literal">false</span>,
-<span class="hljs-string">"tasks"</span>: {
-  <span class="hljs-string">"measure"</span>: {
-    <span class="hljs-string">"foo"</span>: <span class="hljs-string">"bar"</span>
+<div id="long-running-jobs-job-details" class="resource"><h3 class="resource-heading">Job details <a href="#long-running-jobs-job-details" class="permalink">&nbsp;&para;</a></h3><div id="long-running-jobs-job-details-get" class="action get"><h4 class="action-heading"><div class="name">Retriving job details</div><a href="#long-running-jobs-job-details-get" class="method get">GET</a><code class="uri">/job/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/job/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Job UUID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code><span class="hljs-string">``</span><span class="hljs-string">`
+{
+"id": "bdcc6765-114a-4184-977d-b01d3132ef69",
+"type": "share",
+"completed": true,
+"failed": false,
+"tasks": {
+  "measure": {
+    "foo": "bar"
   }
 }
 }
-<span class="hljs-escape">``</span><span class="hljs-escape">`
-</span>
-</code></pre></li></ul></section><h4 id="long-running-jobs-jobs">Jobs&nbsp;<a href="#long-running-jobs-jobs"><i class="fa fa-link"></i></a></h4><section id="long-running-jobs-jobs-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Listing current jobs</span></div><div style="float:left"><a href="#long-running-jobs-jobs-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/job</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#9e40b2ae14752d7a9de5db8ee16bc2f3" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="9e40b2ae14752d7a9de5db8ee16bc2f3" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>[
-{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"share"</span></span>,
-"<span class="hljs-attribute">completed</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-"<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
-"<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">measure</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">foo</span>": <span class="hljs-value"><span class="hljs-string">"bar"</span>
+`</span><span class="hljs-string">``</span></code></pre><div style="height: 1px;"></div></div></div></div></div><div id="long-running-jobs-jobs" class="resource"><h3 class="resource-heading">Jobs <a href="#long-running-jobs-jobs" class="permalink">&nbsp;&para;</a></h3><div id="long-running-jobs-jobs-get" class="action get"><h4 class="action-heading"><div class="name">Listing current jobs</div><a href="#long-running-jobs-jobs-get" class="method get">GET</a><code class="uri">/job</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/job</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"share"</span></span>,
+    "<span class="hljs-attribute">completed</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">measure</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">foo</span>": <span class="hljs-value"><span class="hljs-string">"bar"</span>
+      </span>}
+    </span>}
   </span>}
-</span>}
-</span>}
-]
-</code></pre></li></ul></section></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="site-management">Site Management&nbsp;<a href="#site-management"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="site-management-site-information">Site information&nbsp;<a href="#site-management-site-information"><i class="fa fa-link"></i></a></h4><section id="site-management-site-information-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">List user websites</span></div><div style="float:left"><a href="#site-management-site-information-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/site</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#340ce0c8eee0bc8930fe66851fbcfaef" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="340ce0c8eee0bc8930fe66851fbcfaef" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>[
-{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"059c8aa5-5fac-4bb7-b160-48689bc12a7c"</span></span>,
-"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
-"<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
-"<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span>
-</span>}
-]
-</code></pre></li></ul></section><section id="site-management-site-information-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Create a website</span></div><div style="float:left"><a href="#site-management-site-information-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/site</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#e4514991ead59f434ba604675d39b2fa" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="e4514991ead59f434ba604675d39b2fa" class="list-group-item panel-collapse collapse"><div class="description"><p><strong>Note:</strong> the repository must be in <code>the-domains</code> organization. The repository name can later be used for sharing content to the newly-created site.</p>
-</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
-"<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span>
-</span>}
-</code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="site-management" class="resource-group"><h2 class="group-heading">Site Management <a href="#site-management" class="permalink">&para;</a></h2><div id="site-management-site-information" class="resource"><h3 class="resource-heading">Site information <a href="#site-management-site-information" class="permalink">&nbsp;&para;</a></h3><div id="site-management-site-information-get" class="action get"><h4 class="action-heading"><div class="name">List user websites</div><a href="#site-management-site-information-get" class="method get">GET</a><code class="uri">/site</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"059c8aa5-5fac-4bb7-b160-48689bc12a7c"</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
+    "<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
+    "<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div></div><div id="site-management-site-information-post" class="action post"><h4 class="action-heading"><div class="name">Create a website</div><a href="#site-management-site-information-post" class="method post">POST</a><code class="uri">/site</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>Note:</strong> the repository must be in <code>the-domains</code> organization. The repository name can later be used for sharing content to the newly-created site.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
+  "<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"id"</span>,
+    <span class="hljs-string">"name"</span>,
+    <span class="hljs-string">"repo"</span>,
+    <span class="hljs-string">"owner"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Site was successfully created</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/site/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing site information</p>
+</div></div></div></div></div><div id="site-management-user-website" class="resource"><h3 class="resource-heading">User website <a href="#site-management-user-website" class="permalink">&nbsp;&para;</a></h3><div id="site-management-user-website-get" class="action get"><h4 class="action-heading"><div class="name">Get website details</div><a href="#site-management-user-website-get" class="method get">GET</a><code class="uri">/site/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
-  </span>}</span>,
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"id"</span>,
+    <span class="hljs-string">"name"</span>,
+    <span class="hljs-string">"repo"</span>,
+    <span class="hljs-string">"owner"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="site-management-user-website-put" class="action put"><h4 class="action-heading"><div class="name">Update website details</div><a href="#site-management-user-website-put" class="method put">PUT</a><code class="uri">/site/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"059c8aa5-5fac-4bb7-b160-48689bc12a7c"</span></span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
+  "<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
   "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"GSS site"</span></span>,
+    "<span class="hljs-attribute">color</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">brandColors</span>": <span class="hljs-value">[
+        <span class="hljs-string">"#FFFC4F"</span>,
+        <span class="hljs-string">"#3AFFD6"</span>
+      ]</span>,
+      "<span class="hljs-attribute">brandStrength</span>": <span class="hljs-value"><span class="hljs-number">0.9</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+  "<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"id"</span>,
-  <span class="hljs-string">"name"</span>,
-  <span class="hljs-string">"repo"</span>,
-  <span class="hljs-string">"owner"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>201</code></strong><a data-toggle="collapse" data-target="#c374ee6728300e0fc667f60ab72b7aed" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="c374ee6728300e0fc667f60ab72b7aed" class="list-group-item panel-collapse collapse"><div class="description"><p>Site was successfully created</p>
-</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/site/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>422</code></strong><a data-toggle="collapse" data-target="#b9f5118a5967117d70751550ec2d896b" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="b9f5118a5967117d70751550ec2d896b" class="list-group-item panel-collapse collapse"><div class="description"><p>Missing site information</p>
-</div></li></ul></section><h4 id="site-management-user-website">User website&nbsp;<a href="#site-management-user-website"><i class="fa fa-link"></i></a></h4><section id="site-management-user-website-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get website details</span></div><div style="float:left"><a href="#site-management-user-website-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/site/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#d021f65fc27ef33124fc304935d20ceb" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="d021f65fc27ef33124fc304935d20ceb" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"id"</span>,
+    <span class="hljs-string">"name"</span>,
+    <span class="hljs-string">"repo"</span>,
+    <span class="hljs-string">"owner"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"id"</span>,
-  <span class="hljs-string">"name"</span>,
-  <span class="hljs-string">"repo"</span>,
-  <span class="hljs-string">"owner"</span>
-]
-</span>}
-</code></pre></li></ul></section><section id="site-management-user-website-put" class="panel panel-warning"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Update website details</span></div><div style="float:left"><a href="#site-management-user-website-put" class="btn btn-xs btn-warning">PUT</a></div><div style="overflow:hidden"><code>/site/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#60279da01fbb3c54724943aef6b5aee3" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="60279da01fbb3c54724943aef6b5aee3" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"059c8aa5-5fac-4bb7-b160-48689bc12a7c"</span></span>,
-"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
-"<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
-"<span class="hljs-attribute">config</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"GSS site"</span></span>,
-  "<span class="hljs-attribute">color</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">brandColors</span>": <span class="hljs-value">[
-      <span class="hljs-string">"#FFFC4F"</span>,
-      <span class="hljs-string">"#3AFFD6"</span>
-    ]</span>,
-    "<span class="hljs-attribute">brandStrength</span>": <span class="hljs-value"><span class="hljs-number">0.9</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span>
-</span>}
-</code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"id"</span>,
-  <span class="hljs-string">"name"</span>,
-  <span class="hljs-string">"repo"</span>,
-  <span class="hljs-string">"owner"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#670a33c4f3574a3ac1de4d12bce66646" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="670a33c4f3574a3ac1de4d12bce66646" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"site.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Site"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Grid site"</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"User-readable name of the website"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">repo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"GitHub repository path for website sources"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">domain</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Custom domain for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">path</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Subdirectory path for the website, if any"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"siteconfig.json"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">owner</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">favlogo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the website favlogo"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"id"</span>,
-  <span class="hljs-string">"name"</span>,
-  <span class="hljs-string">"repo"</span>,
-  <span class="hljs-string">"owner"</span>
-]
-</span>}
-</code></pre></li></ul></section><section id="site-management-user-website-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Delete website</span></div><div style="float:left"><a href="#site-management-user-website-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/site/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong></li></ul></section><h4 id="site-management-site-logos">Site logos&nbsp;<a href="#site-management-site-logos"><i class="fa fa-link"></i></a></h4><section id="site-management-site-logos-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Set website logo</span></div><div style="float:left"><a href="#site-management-site-logos-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/site/{id}/logo</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#e949b75eaf709e77c29f481cb9db2e36" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="e949b75eaf709e77c29f481cb9db2e36" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span><br></code></pre><h5>Body</h5><pre><code>A logo can be provided <span class="hljs-keyword">for</span> <span class="hljs-operator">a</span> website <span class="hljs-keyword">by</span> uploading <span class="hljs-keyword">it</span> <span class="hljs-keyword">as</span> multipart/form-data. Only SVG logos are supported.
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong><a data-toggle="collapse" data-target="#85844dc344ee0dc19a3af7e516f0e382" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="85844dc344ee0dc19a3af7e516f0e382" class="list-group-item panel-collapse collapse"><h5>Body</h5><pre><code><span class="hljs-title">Logo</span> was successfully updated
-</code></pre></li></ul></section><h4 id="site-management-website-discovery">Website discovery&nbsp;<a href="#site-management-website-discovery"><i class="fa fa-link"></i></a></h4><section id="site-management-website-discovery-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Match URL to a website</span></div><div style="float:left"><a href="#site-management-website-discovery-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/site/discover{?url}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>url</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>URL of the website</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>302</code></strong><a data-toggle="collapse" data-target="#328ff0b70e070725695e488f648986ed" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="328ff0b70e070725695e488f648986ed" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/site/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>404</code></strong><a data-toggle="collapse" data-target="#91976279e3ad87d1cb94623a4eebb1c4" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="91976279e3ad87d1cb94623a4eebb1c4" class="list-group-item panel-collapse collapse"><div class="description"><p>No Grid site was found for the URL</p>
-</div></li></ul></section></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="content-management">Content Management&nbsp;<a href="#content-management"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="content-management-share">Share&nbsp;<a href="#content-management-share"><i class="fa fa-link"></i></a></h4><section id="content-management-share-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Sharing content</span></div><div style="float:left"><a href="#content-management-share-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/share</code></div></div><div class="panel-body"><p>Users can share content to The Grid. The shared items will be normalized, analyzed and made available via the item API.
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"id"</span>,
+    <span class="hljs-string">"name"</span>,
+    <span class="hljs-string">"repo"</span>,
+    <span class="hljs-string">"owner"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="site-management-user-website-delete" class="action delete"><h4 class="action-heading"><div class="name">Delete website</div><a href="#site-management-user-website-delete" class="method delete">DELETE</a><code class="uri">/site/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong></div></div></div><div id="site-management-site-logos" class="resource"><h3 class="resource-heading">Site logos <a href="#site-management-site-logos" class="permalink">&nbsp;&para;</a></h3><div id="site-management-site-logos-post" class="action post"><h4 class="action-heading"><div class="name">Set website logo</div><a href="#site-management-site-logos-post" class="method post">POST</a><code class="uri">/site/logo</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/logo</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>A logo can be provided <span class="hljs-keyword">for</span> a website by uploading it <span class="hljs-keyword">as</span> multipart/form-data. Only SVG logos are supported.</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>Logo was successfully updated</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="site-management-website-discovery" class="resource"><h3 class="resource-heading">Website discovery <a href="#site-management-website-discovery" class="permalink">&nbsp;&para;</a></h3><div id="site-management-website-discovery-get" class="action get"><h4 class="action-heading"><div class="name">Match URL to a website</div><a href="#site-management-website-discovery-get" class="method get">GET</a><code class="uri">/site/discover{?url}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/discover?<span class="hljs-attribute">url=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>url</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>URL of the website</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>302</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/site/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>No Grid site was found for the URL</p>
+</div></div></div></div></div></section><section id="content-management" class="resource-group"><h2 class="group-heading">Content Management <a href="#content-management" class="permalink">&para;</a></h2><div id="content-management-share" class="resource"><h3 class="resource-heading">Share <a href="#content-management-share" class="permalink">&nbsp;&para;</a></h3><div id="content-management-share-post" class="action post"><h4 class="action-heading"><div class="name">Sharing content</div><a href="#content-management-share-post" class="method post">POST</a><code class="uri">/share</code></h4><p>Users can share content to The Grid. The shared items will be normalized, analyzed and made available via the item API.
 Sharing creates a Job, whos progress can be monitored using the /job API.</p>
 <p>There are typically three different things you can be sharing:</p>
 <ul>
-<li><p>Full article pages: share with URL</p></li>
-<li><p>HTML fragments: selection or img tag. Share with content, type text/html and with the URL of the originating page</p></li>
-<li><p>Uploaded files: image, word document, HTML file, Markdown file, etc. Share with multi-part upload, URL and MIME type needed</p></li>
+<li>
+<p>Full article pages: share with URL</p>
+</li>
+<li>
+<p>HTML fragments: selection or img tag. Share with content, type text/html and with the URL of the originating page</p>
+</li>
+<li>
+<p>Uploaded files: image, word document, HTML file, Markdown file, etc. Share with multi-part upload, URL and MIME type needed</p>
+</li>
 </ul>
 <p>Note that publishing an item to a website is a separate step. See /publish</p>
-</div><ul class="list-group"><li class="list-group-item"><strong>Request&nbsp;&nbsp;<code>with JSON payload</code></strong><a data-toggle="collapse" data-target="#f3b0d03a5b9de7207bdc0b6356b5ce1d" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="f3b0d03a5b9de7207bdc0b6356b5ce1d" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.net/some-article"</span>
-</span>}
-</code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"share.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Share"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Content sharing payload"</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">url</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the shared resource"</span></span>,
-    "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"</span>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/share</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>with JSON payload</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://example.net/some-article"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"share.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Share"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Content sharing payload"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"URL of the shared resource"</span></span>,
+      "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"HTML or Markdown payload"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"MIME type for the content"</span></span>,
+      "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"text/markdown"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">compress</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Whether to compress the shared content to a single article block"</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"HTML or Markdown payload"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"MIME type for the content"</span></span>,
-    "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"text/markdown"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">compress</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Whether to compress the shared content to a single article block"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"url"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Request&nbsp;&nbsp;<code>with file upload</code></strong><a data-toggle="collapse" data-target="#e421de68bc3db106146b93f0c1fc3e56" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="e421de68bc3db106146b93f0c1fc3e56" class="list-group-item panel-collapse collapse"><div class="description"><p>For images and other files the content is a file sent via multipart/form-data. If there is no relevant URL for the content, it is a good idea to generate a UUID URI.</p>
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"url"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>with file upload</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>For images and other files the content is a file sent via multipart/form-data. If there is no relevant URL for the content, it is a good idea to generate a UUID URI.</p>
 <pre><code>formData = new <span class="hljs-function"><span class="hljs-title">FormData</span><span class="hljs-params">()</span></span>
 formData<span class="hljs-class">.append</span> <span class="hljs-string">'url'</span>, <span class="hljs-string">'content://'</span>
 formData<span class="hljs-class">.append</span> <span class="hljs-string">'type'</span>, file<span class="hljs-class">.type</span>
-formData<span class="hljs-class">.append</span> <span class="hljs-string">'content'</span>, file
-</code></pre>
-</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong><a data-toggle="collapse" data-target="#37c785c9c7f5501b765956c1a1d873c1" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="37c785c9c7f5501b765956c1a1d873c1" class="list-group-item panel-collapse collapse"><div class="description"><p>Sharing was successful and will be processed.</p>
-</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/job/b8838e11-1d97-4799-85d8-1aafec52e927</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>422</code></strong><a data-toggle="collapse" data-target="#c742b1d28a199cb31f05adf71b78b7d3" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="c742b1d28a199cb31f05adf71b78b7d3" class="list-group-item panel-collapse collapse"><div class="description"><p>Missing required parameters</p>
-</div></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>403</code></strong><a data-toggle="collapse" data-target="#243bd69bdf3be0269f0b96cd37da4198" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="243bd69bdf3be0269f0b96cd37da4198" class="list-group-item panel-collapse collapse"><div class="description"><p>Not allowed to share to the specified website</p>
-</div></li></ul></section><h4 id="content-management-items-list">Items list&nbsp;<a href="#content-management-items-list"><i class="fa fa-link"></i></a></h4><section id="content-management-items-list-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve user's content items</span></div><div style="float:left"><a href="#content-management-items-list-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/item{?published,minimal,offset,limit,site,measurements}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>published</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Whether to get published or unpublished items only</p>
+formData<span class="hljs-class">.append</span> <span class="hljs-string">'content'</span>, file</code></pre>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Sharing was successful and will be processed.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/job/b8838e11-1d97-4799-85d8-1aafec52e927</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing required parameters</p>
+</div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Not allowed to share to the specified website</p>
+</div></div></div></div></div><div id="content-management-items-list" class="resource"><h3 class="resource-heading">Items list <a href="#content-management-items-list" class="permalink">&nbsp;&para;</a></h3><div id="content-management-items-list-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve user's content items</div><a href="#content-management-items-list-get" class="method get">GET</a><code class="uri">/item{?published,minimal,offset,limit,site,measurements}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item?<span class="hljs-attribute">published=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">minimal=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">offset=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">limit=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">site=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">measurements=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>published</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Whether to get published or unpublished items only</p>
 </dd><dt>minimal</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Whether to receive items without measurements applied</p>
 </dd><dt>offset</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Offset to use for pagination</p>
 </dd><dt>limit</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Limit to use for pagination</p>
 </dd><dt>site</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Receive only items associated with a site</p>
 </dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#726bc36bc60fa5139e2f6aa00644361c" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="726bc36bc60fa5139e2f6aa00644361c" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre></li></ul></section><section id="content-management-items-list-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Create an item</span></div><div style="float:left"><a href="#content-management-items-list-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/item{?published,minimal,offset,limit,site,measurements}</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>201</code></strong><a data-toggle="collapse" data-target="#604cce3fc6a6ec92bb89b3ad791717cb" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="604cce3fc6a6ec92bb89b3ad791717cb" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/item/b8838e11-1d97-4799-85d8-1aafec52e927</span><br></code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>422</code></strong><a data-toggle="collapse" data-target="#34a84fb124efcc93afafdc6dc3793f42" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="34a84fb124efcc93afafdc6dc3793f42" class="list-group-item panel-collapse collapse"><div class="description"><p>Missing item information</p>
-</div></li></ul></section><h4 id="content-management-item">Item&nbsp;<a href="#content-management-item"><i class="fa fa-link"></i></a></h4><section id="content-management-item-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve an item</span></div><div style="float:left"><a href="#content-management-item-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/item/{id,?measurements}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div><div id="content-management-items-list-post" class="action post"><h4 class="action-heading"><div class="name">Create an item</div><a href="#content-management-items-list-post" class="method post">POST</a><code class="uri">/item</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/item/b8838e11-1d97-4799-85d8-1aafec52e927</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing item information</p>
+</div></div></div></div></div><div id="content-management-item" class="resource"><h3 class="resource-heading">Item <a href="#content-management-item" class="permalink">&nbsp;&para;</a></h3><div id="content-management-item-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve an item</div><a href="#content-management-item-get" class="method get">GET</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
 </dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#526090804069c33d4b37d38b2b29270f" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="526090804069c33d4b37d38b2b29270f" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"item.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Content item"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value">[
-  <span class="hljs-string">"object"</span>
-]</span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">score</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
-    "<span class="hljs-attribute">default</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-number">0</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"metadata.json"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Content blocks of the item"</span></span>,
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
-    "<span class="hljs-attribute">minItems</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">uniqueItems</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-    "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"contentblock.json"</span>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"item.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Content item"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value">[
+    <span class="hljs-string">"object"</span>
+  ]</span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">score</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+      "<span class="hljs-attribute">default</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"metadata.json"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Content blocks of the item"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">minItems</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">uniqueItems</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"contentblock.json"</span>
+      </span>}
     </span>}
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"content"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>404</code></strong></li></ul></section><section id="content-management-item-put" class="panel panel-warning"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Update item</span></div><div style="float:left"><a href="#content-management-item-put" class="btn btn-xs btn-warning">PUT</a></div><div style="overflow:hidden"><code>/item/{id,?measurements}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+  </span>}</span>,
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"content"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong></div></div><div id="content-management-item-put" class="action put"><h4 class="action-heading"><div class="name">Update item</div><a href="#content-management-item-put" class="method put">PUT</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
 </dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#d4001b3a6d7085dda6506347a972059a" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="d4001b3a6d7085dda6506347a972059a" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"item.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Content item"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value">[
-  <span class="hljs-string">"object"</span>
-]</span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">score</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
-    "<span class="hljs-attribute">default</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-number">0</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"metadata.json"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Content blocks of the item"</span></span>,
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
-    "<span class="hljs-attribute">minItems</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">uniqueItems</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-    "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"contentblock.json"</span>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"item.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Content item"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value">[
+    <span class="hljs-string">"object"</span>
+  ]</span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">score</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+      "<span class="hljs-attribute">default</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"metadata.json"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Content blocks of the item"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">minItems</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">uniqueItems</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"contentblock.json"</span>
+      </span>}
     </span>}
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"content"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>422</code></strong><a data-toggle="collapse" data-target="#d120d51f370188d011a5843700997731" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="d120d51f370188d011a5843700997731" class="list-group-item panel-collapse collapse"><div class="description"><p>Missing item information</p>
-</div></li></ul></section><section id="content-management-item-patch" class="panel panel-warning"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Update item metadata</span></div><div style="float:left"><a href="#content-management-item-patch" class="btn btn-xs btn-warning">PATCH</a></div><div style="overflow:hidden"><code>/item/{id,?measurements}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
-</dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>422</code></strong><a data-toggle="collapse" data-target="#c63539df80b209980f7df82b0ab1b689" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="c63539df80b209980f7df82b0ab1b689" class="list-group-item panel-collapse collapse"><div class="description"><p>Missing item information</p>
-</div></li></ul></section><section id="content-management-item-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Remove item</span></div><div style="float:left"><a href="#content-management-item-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/item/{id,?measurements}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
-</dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
-</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong></li></ul></section><h4 id="content-management-publishing">Publishing&nbsp;<a href="#content-management-publishing"><i class="fa fa-link"></i></a></h4><section id="content-management-publishing-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Publish an item to sites</span></div><div style="float:left"><a href="#content-management-publishing-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/publish</code></div></div><div class="panel-body"><p>TODO: make return a Job id in Location header</p>
-</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#44054302aba194caf5191521668da408" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="44054302aba194caf5191521668da408" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">item</span>": <span class="hljs-value"><span class="hljs-string">"4c72b88a-052d-4fcf-b6dc-1a66a25ed982"</span></span>,
-"<span class="hljs-attribute">sites</span>": <span class="hljs-value">[
-  <span class="hljs-string">"the-domains/example.net"</span>
-]
-</span>}
-</code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"publish.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Publishing or unpublishing request"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value">[
-  <span class="hljs-string">"object"</span>
-]</span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">item</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
   </span>}</span>,
-  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"item"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong></li></ul></section><h4 id="content-management-unpublishing">Unpublishing&nbsp;<a href="#content-management-unpublishing"><i class="fa fa-link"></i></a></h4><section id="content-management-unpublishing-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Unpublish an item from sites</span></div><div style="float:left"><a href="#content-management-unpublishing-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/unpublish</code></div></div><div class="panel-body"><p>TODO: make return a Job id in Location header</p>
-</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#449f977b634751443c58ab0fe4827016" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="449f977b634751443c58ab0fe4827016" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">item</span>": <span class="hljs-value"><span class="hljs-string">"4c72b88a-052d-4fcf-b6dc-1a66a25ed982"</span></span>,
-"<span class="hljs-attribute">sites</span>": <span class="hljs-value">[
-  <span class="hljs-string">"the-domains/example.net"</span>
-]
-</span>}
-</code></pre><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"publish.json"</span></span>,
-"<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
-"<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Publishing or unpublishing request"</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-"<span class="hljs-attribute">type</span>": <span class="hljs-value">[
-  <span class="hljs-string">"object"</span>
-]</span>,
-"<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-  "<span class="hljs-attribute">item</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"content"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing item information</p>
+</div></div></div></div><div id="content-management-item-patch" class="action patch"><h4 class="action-heading"><div class="name">Update item metadata</div><a href="#content-management-item-patch" class="method patch">PATCH</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method patch">PATCH</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>204</code></strong></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing item information</p>
+</div></div></div></div><div id="content-management-item-delete" class="action delete"><h4 class="action-heading"><div class="name">Remove item</div><a href="#content-management-item-delete" class="method delete">DELETE</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
+</dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong></div></div></div><div id="content-management-publishing" class="resource"><h3 class="resource-heading">Publishing <a href="#content-management-publishing" class="permalink">&nbsp;&para;</a></h3><div id="content-management-publishing-post" class="action post"><h4 class="action-heading"><div class="name">Publish an item to sites</div><a href="#content-management-publishing-post" class="method post">POST</a><code class="uri">/publish</code></h4><p>TODO: make return a Job id in Location header</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/publish</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">item</span>": <span class="hljs-value"><span class="hljs-string">"4c72b88a-052d-4fcf-b6dc-1a66a25ed982"</span></span>,
+  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">[
+    <span class="hljs-string">"the-domains/example.net"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"publish.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Publishing or unpublishing request"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value">[
+    <span class="hljs-string">"object"</span>
+  ]</span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">item</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
+    </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
-  </span>}
-</span>}</span>,
-"<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-  <span class="hljs-string">"item"</span>
-]
-</span>}
-</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>202</code></strong></li></ul></section></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 18 Mar 2016</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"item"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong></div></div></div><div id="content-management-unpublishing" class="resource"><h3 class="resource-heading">Unpublishing <a href="#content-management-unpublishing" class="permalink">&nbsp;&para;</a></h3><div id="content-management-unpublishing-post" class="action post"><h4 class="action-heading"><div class="name">Unpublish an item from sites</div><a href="#content-management-unpublishing-post" class="method post">POST</a><code class="uri">/unpublish</code></h4><p>TODO: make return a Job id in Location header</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/unpublish</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">item</span>": <span class="hljs-value"><span class="hljs-string">"4c72b88a-052d-4fcf-b6dc-1a66a25ed982"</span></span>,
+  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">[
+    <span class="hljs-string">"the-domains/example.net"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"publish.json"</span></span>,
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema"</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Publishing or unpublishing request"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value">[
+    <span class="hljs-string">"object"</span>
+  ]</span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">item</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/uuid"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">$ref</span>": <span class="hljs-value"><span class="hljs-string">"base.json#/definitions/sites"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"item"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 20 Apr 2016</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
 
-</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
-  if (location.protocol === 'file:') {
-    document.getElementById('localFile').style.display = 'block';
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
   }
 
-}).call(this);
-</script><script>(function() {
-  $('table').addClass('table');
+  return filtered;
+}
 
-}).call(this);
-</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-50607580-4', 'auto');
-ga('send', 'pageview');
-</script></html>
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>
