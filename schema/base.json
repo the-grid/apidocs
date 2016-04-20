@@ -23,6 +23,10 @@
       "example": "#aa33cc",
       "type": "string"
     },
+    "site": {
+      "type": "string",
+      "example": "the-domains/the-grid"
+    },
     "sites": {
       "type": "array",
       "description": "Collection of websites associated with the resource",
