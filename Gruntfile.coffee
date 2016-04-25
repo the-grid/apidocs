@@ -1,4 +1,5 @@
 path = require 'path'
+deref = require 'json-schema-deref-sync'
 
 module.exports = ->
   # Project configuration
@@ -105,12 +106,27 @@ module.exports = ->
         @file.write filename, JSON.stringify d._data, null, 2
         @log.writeln "Created example file '#{filename}'"
 
+  # Custom task for generating full JSON schemas by dereferencing original schemas
+  @registerTask 'build_fullschemas', 'Create full schemas dereferencing them', =>
+    options =
+      baseFolder: 'schema'
+    @file.mkdir 'full-schema'
+    schemas = @file.expand ['schema/*.json']
+    schemas.forEach (e) =>
+      schema = @file.readJSON e
+      fullschema = deref schema, options
+      basename = path.basename e
+      filename = "full-schema/#{basename}"
+      @file.write filename, JSON.stringify fullschema, null, 2
+      @log.writeln "Created full schema #{filename}"
+
   # Our local tasks
   @registerTask 'build', 'Build', (target = 'all') =>
     @task.run 'yaml'
     @file.mkdir 'dist'
     @task.run 'copy'
     @task.run 'build_examples'
+    @task.run 'build_fullschemas'
     @task.run 'aglio'
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>

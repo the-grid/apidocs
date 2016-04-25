@@ -1,5 +1,6 @@
 node_modules/
 schema/
+full-schema/
 dist/
 gh-pages/
 /examples/*.json
