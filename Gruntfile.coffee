@@ -67,6 +67,10 @@ module.exports = ->
         files: [
           expand: true, cwd: 'code-examples', src: ['designsystems/*.js'], dest: 'dist/'
         ]
+      fullschemas:
+        files: [
+          expand: true, src: ['full-schema/*.json'], dest: 'dist/', filter: 'isFile'
+        ]
 
     'gh-pages':
       options:
@@ -124,9 +128,9 @@ module.exports = ->
   @registerTask 'build', 'Build', (target = 'all') =>
     @task.run 'yaml'
     @file.mkdir 'dist'
-    @task.run 'copy'
     @task.run 'build_examples'
     @task.run 'build_fullschemas'
+    @task.run 'copy'
     @task.run 'aglio'
 
   @registerTask 'test', 'Build and run tests', (target = 'all') =>
