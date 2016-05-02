@@ -1,0 +1,427 @@
+{
+  "id": "imagemeasurements.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "ImageMeasurements",
+  "description": "Complex image measurements",
+  "definitions": {
+    "faces": {
+      "description": "Extracted faces from the image",
+      "type": "array",
+      "items": {
+        "description": "Bounding box of a detected face",
+        "allOf": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "name": "x",
+              "type": "number",
+              "description": "Cartesian coordinate along x-axis",
+              "example": 608.1907
+            },
+            "y": {
+              "name": "y",
+              "type": "number",
+              "description": "Cartesian coordinate along y-axis",
+              "example": 189.909
+            },
+            "width": {
+              "name": "width",
+              "type": "number",
+              "description": "Width",
+              "example": 229.2087
+            },
+            "height": {
+              "name": "height",
+              "type": "number",
+              "description": "Height",
+              "example": 229.2087
+            }
+          }
+        },
+        "properties": {
+          "description": "How much an extracted feature should be considered as a true positive",
+          "type": "number",
+          "example": 5.08
+        }
+      }
+    },
+    "colors": {
+      "description": "Extracted colors from the image, represented as an array of at least 5 RGB colors",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "description": "Tuple of RGB values representing a color",
+        "items": [
+          {
+            "type": "number",
+            "description": "Red channel",
+            "example": 255
+          },
+          {
+            "type": "number",
+            "description": "Green channel",
+            "example": 200
+          },
+          {
+            "type": "number",
+            "description": "Blue channel",
+            "example": 190
+          }
+        ]
+      },
+      "minItens": 5
+    },
+    "saliency": {
+      "description": "Extracted salient region from an image",
+      "type": "object",
+      "properties": {
+        "bbox": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "name": "x",
+              "type": "number",
+              "description": "Cartesian coordinate along x-axis",
+              "example": 608.1907
+            },
+            "y": {
+              "name": "y",
+              "type": "number",
+              "description": "Cartesian coordinate along y-axis",
+              "example": 189.909
+            },
+            "width": {
+              "name": "width",
+              "type": "number",
+              "description": "Width",
+              "example": 229.2087
+            },
+            "height": {
+              "name": "height",
+              "type": "number",
+              "description": "Height",
+              "example": 229.2087
+            }
+          }
+        },
+        "confidence": {
+          "description": "How much an extracted feature should be considered as a true positive",
+          "type": "number",
+          "example": 5.08
+        },
+        "regions": {
+          "description": "Extracted salient regions",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bbox": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "name": "x",
+                    "type": "number",
+                    "description": "Cartesian coordinate along x-axis",
+                    "example": 608.1907
+                  },
+                  "y": {
+                    "name": "y",
+                    "type": "number",
+                    "description": "Cartesian coordinate along y-axis",
+                    "example": 189.909
+                  },
+                  "width": {
+                    "name": "width",
+                    "type": "number",
+                    "description": "Width",
+                    "example": 229.2087
+                  },
+                  "height": {
+                    "name": "height",
+                    "type": "number",
+                    "description": "Height",
+                    "example": 229.2087
+                  }
+                }
+              },
+              "center": {
+                "description": "Cartesian coordinate",
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "name": "x",
+                    "type": "number",
+                    "description": "Value on x-axis",
+                    "example": 4.2
+                  },
+                  "y": {
+                    "name": "y",
+                    "type": "number",
+                    "description": "Value on y-axis",
+                    "example": 2.4
+                  }
+                }
+              },
+              "radius": {
+                "type": "number"
+              },
+              "polygon": {
+                "description": "Coordinates of a polygon shape",
+                "type": "array",
+                "items": {
+                  "description": "Cartesian coordinate",
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "name": "x",
+                      "type": "number",
+                      "description": "Value on x-axis",
+                      "example": 4.2
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "number",
+                      "description": "Value on y-axis",
+                      "example": 2.4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "polygon": {
+          "description": "Coordinates of a 2D polygon shape (warning: to be deprecated by `polygon`)",
+          "type": "array",
+          "items": {
+            "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+            "type": "array",
+            "items": [
+              {
+                "type": "number",
+                "description": "Value on x-axis"
+              },
+              {
+                "type": "number",
+                "description": "Value on y-axis"
+              }
+            ]
+          }
+        },
+        "center": {
+          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+          "type": "array",
+          "items": [
+            {
+              "type": "number",
+              "description": "Value on x-axis"
+            },
+            {
+              "type": "number",
+              "description": "Value on y-axis"
+            }
+          ]
+        },
+        "radius": {
+          "description": "Radius of the circle around the salient region (warning: to be deprecated by `regions` radius)",
+          "type": "number",
+          "example": 108.079
+        },
+        "bounding_rect": {
+          "$ref": "base.json#/definitions/arrayrectangle (warning: to be deprecated by `regions` bbox)",
+          "description": "Rectangle around the salient region",
+          "example": [
+            [
+              329,
+              238
+            ],
+            [
+              539,
+              372
+            ]
+          ]
+        }
+      }
+    },
+    "histogram": {
+      "description": "Histogram of color levels",
+      "type": "object",
+      "properties": {
+        "r": {
+          "name": "r",
+          "type": "array",
+          "description": "Red channel histogram",
+          "items": {
+            "type": "number"
+          }
+        },
+        "g": {
+          "name": "g",
+          "type": "array",
+          "description": "Green channel histogram",
+          "items": {
+            "type": "number"
+          }
+        },
+        "b": {
+          "name": "b",
+          "type": "array",
+          "description": "Blue channel histogram",
+          "items": {
+            "type": "number"
+          }
+        },
+        "a": {
+          "name": "a",
+          "type": "array",
+          "description": "Alpha channel histogram",
+          "items": {
+            "type": "number"
+          }
+        },
+        "y": {
+          "name": "y",
+          "type": "array",
+          "description": "Y histogram (CIE Y Rec. 601)",
+          "items": {
+            "type": "number"
+          }
+        },
+        "h": {
+          "name": "h",
+          "type": "array",
+          "description": "Hue histogram (CIE LCH or HSL)",
+          "items": {
+            "type": "number"
+          }
+        },
+        "s": {
+          "name": "s",
+          "type": "array",
+          "description": "Saturation histogram (CIE LCH or HSL)",
+          "items": {
+            "type": "number"
+          }
+        },
+        "l": {
+          "name": "l",
+          "type": "array",
+          "description": "Lightness histogram (CIE LCH or HSL)",
+          "items": {
+            "type": "number"
+          }
+        },
+        "c": {
+          "name": "c",
+          "type": "array",
+          "description": "Chroma histogram (CIE LCH or HSL)"
+        }
+      }
+    },
+    "exif": {
+      "description": "EXIF metadata. A more comprehensive list of available EXIF attributes can be found at http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html",
+      "type": "object",
+      "properties": {
+        "exif": {
+          "name": "exif",
+          "type": "object",
+          "properties": {
+            "image": {
+              "name": "image",
+              "type": "object",
+              "description": "Image information data (IFD0)",
+              "example": {
+                "Make": "FUJIFILM",
+                "Model": "FinePix40i",
+                "Orientation": 1,
+                "XResolution": 72,
+                "YResolution": 72,
+                "ResolutionUnit": 2,
+                "Software": "Digital Camera FinePix40i Ver1.39",
+                "ModifyDate": "2000:08:04 18:22:57",
+                "YCbCrPositioning": 2,
+                "ExifOffset": 250
+              }
+            },
+            "thumbnail": {
+              "name": "thumbnail",
+              "type": "object",
+              "description": "Information regarding a possibly embedded thumbnail (IFD1)",
+              "example": {
+                "Compression": 6,
+                "Orientation": 1,
+                "XResolution": 72,
+                "YResolution": 72,
+                "ResolutionUnit": 2,
+                "ThumbnailOffset": 1074,
+                "ThumbnailLength": 8691,
+                "YCbCrPositioning": 2
+              }
+            },
+            "exif": {
+              "name": "exif",
+              "type": "object",
+              "description": "Exif-specific attribute information (Exif IFD)",
+              "example": {
+                "FNumber": 2.8,
+                "ExposureProgram": 2,
+                "ISO": 200,
+                "DateTimeOriginal": "2000:08:04 18:22:57",
+                "CreateDate": "2000:08:04 18:22:57",
+                "CompressedBitsPerPixel": 1.5,
+                "ShutterSpeedValue": 5.5,
+                "ApertureValue": 3,
+                "BrightnessValue": 0.26,
+                "ExposureCompensation": 0,
+                "MaxApertureValue": 3,
+                "MeteringMode": 5,
+                "Flash": 1,
+                "FocalLength": 8.7,
+                "ColorSpace": 1,
+                "ExifImageWidth": 2400,
+                "ExifImageHeight": 1800,
+                "InteropOffset": 926,
+                "FocalPlaneXResolution": 2381,
+                "FocalPlaneYResolution": 2381,
+                "FocalPlaneResolutionUnit": 3,
+                "SensingMethod": 2
+              }
+            },
+            "gps": {
+              "name": "gps",
+              "type": "object",
+              "description": "GPS information (GPS IFD)"
+            },
+            "interoperability": {
+              "name": "interoperability",
+              "type": "object",
+              "description": "Interoperability information (Interoperability IFD)",
+              "example": {
+                "InteropIndex": "R98"
+              }
+            },
+            "makernote": {
+              "name": "makernote",
+              "type": "object",
+              "description": "Vendor specific Exif information (Makernotes)",
+              "example": {
+                "Quality": "NORMAL",
+                "Sharpness": 3,
+                "WhiteBalance": 0,
+                "FujiFlashMode": 1,
+                "FlashExposureComp": 0,
+                "Macro": 0,
+                "FocusMode": 0,
+                "SlowSync": 0,
+                "AutoBracketing": 0,
+                "BlurWarning": 0,
+                "FocusWarning": 0,
+                "ExposureWarning": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

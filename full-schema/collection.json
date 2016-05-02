@@ -1,0 +1,83 @@
+{
+  "id": "collection.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Content collection configuration",
+  "description": "",
+  "definitions": {
+    "filtertag": {
+      "name": "tag",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "name": "tag",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag"
+      ]
+    },
+    "filternottag": {
+      "name": "notTag",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "name": "tag",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "filter": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "name": "tag",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "name": "tag",
+              "type": "string"
+            }
+          },
+          "required": [
+            "tag"
+          ]
+        },
+        "notTag": {
+          "name": "notTag",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "name": "tag",
+              "type": "string"
+            }
+          },
+          "required": [
+            "tag"
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "tag"
+          ]
+        },
+        {
+          "required": [
+            "notTag"
+          ]
+        }
+      ]
+    },
+    "index": {
+      "type": "object"
+    }
+  }
+}

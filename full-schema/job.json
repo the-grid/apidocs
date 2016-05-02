@@ -1,0 +1,60 @@
+{
+  "id": "job.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Job",
+  "description": "Long-running job",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "description": "The specific type of job",
+      "example": "share"
+    },
+    "source": {
+      "type": "string",
+      "description": "The endpoint that created this job",
+      "example": "/share"
+    },
+    "completed": {
+      "type": "boolean",
+      "description": "Whether the job is completed or not"
+    },
+    "failed": {
+      "type": "boolean",
+      "description": "Whether the job failed or not"
+    },
+    "started_at": {
+      "type": "string",
+      "description": "Time the job was started",
+      "format": "date-time"
+    },
+    "finished_at": {
+      "type": "string",
+      "description": "Time the job was finished (failed or completed).",
+      "format": "date-time"
+    },
+    "item": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "tasks": {
+      "type": "object",
+      "description": "Details about the tasks in this job. Job type specific."
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "tasks"
+  ]
+}

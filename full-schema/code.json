@@ -1,0 +1,71 @@
+{
+  "id": "code.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Code",
+  "description": "A source code snippet",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "headline",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "text",
+        "list",
+        "code",
+        "image",
+        "video",
+        "audio",
+        "article",
+        "quote",
+        "location",
+        "cta",
+        "interactive",
+        "placeholder",
+        "unknown"
+      ]
+    },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<p>Hello, world!</p>",
+      "type": "string",
+      "minLength": 7
+    },
+    "text": {
+      "description": "Extracted text",
+      "example": "var foo = 42;",
+      "type": "string"
+    },
+    "length": {
+      "description": "Length of extracted text",
+      "example": 13,
+      "type": "integer"
+    },
+    "programming_language": {
+      "description": "Detected programming language",
+      "example": "javascript",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "html"
+  ]
+}
