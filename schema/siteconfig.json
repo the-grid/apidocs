@@ -164,6 +164,13 @@
           "default": 0.5,
           "minimum": 0,
           "maximum": 1
+        },
+        "rhythmicContrast": {
+          "description": "The amount of color variation",
+          "type": "number",
+          "default": 0.5,
+          "minimum": 0,
+          "maximum": 1
         }
       }
     },
