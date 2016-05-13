@@ -14,4 +14,4 @@ properties:
     "$ref": "base.json#/definitions/sites"
   metadata:
     "$ref": "metadata.json"
-required: [item]
+required: [items]
