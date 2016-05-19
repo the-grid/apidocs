@@ -104,6 +104,12 @@ Site events:
 * `updated_site`: site has been updated, fetch with `id` or use `repo`. These can be also caused by site publishing process
 * `removed_site`: site has been deleted. Remove from app
 
+Redesign events:
+
+* `new_redesign`: new redesign is available for the site, fetch with `id`
+* `updated_redesign`: redesign has been updated (usually with a rating), fetch with `id`
+* `removed_redesign`: redesign has been removed. Remove from app
+
 ## Job status
 
 The job status notifications are related to long-running operations initiated by the user or a back-end process that the user should be aware of. These should be shown with persistent progress indicators either in the system's notifications are or in the context of the action made (for example, a "loading" item card).
