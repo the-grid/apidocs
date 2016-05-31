@@ -259,7 +259,7 @@ When an item is being worked on by a user it is available via the API. Queries w
 ## Item [/item/{id,?measurements}]
 
 + Parameters
-  + id (required, string) - Site UUID
+  + id (required, string) - Item UUID
   + measurements (string) - Selectively get only certain measurements
 
 ### Retrieve an item [GET]
@@ -348,3 +348,60 @@ TODO: make return a Job id in Location header
 
 + Response 202
 
+## Copying [/copy/{id}]
+
++ Parameters
+  + id (required, string) - Item UUID
+
+### Copy an item [POST]
+
++ Request
+
+  + Schema
+
+      ```
+      <!-- include(full-schema/copymove.json) -->
+      ```
+
++ Response 200
+
+  Item was successfully copied. New item location can be found from the location header.
+
+  + Headers
+
+            Location: /item/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
++ Response 422
+
+  Missing item information
+
+  + Body
+
+## Moving [/move/{id}]
+
++ Parameters
+  + id (required, string) - Item UUID
+
+### Move an item to another site [POST]
+
++ Request
+
+  + Schema
+
+      ```
+      <!-- include(full-schema/copymove.json) -->
+      ```
+
++ Response 200
+
+  Item was successfully moved.
+
+  + Headers
+
+            Location: /item/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
++ Response 422
+
+  Missing item information
+
+  + Body
