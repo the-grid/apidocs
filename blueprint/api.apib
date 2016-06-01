@@ -226,6 +226,16 @@ Note that publishing an item to a website is a separate step. See /publish
 
   + Body
 
+## Random content [/share/random{?category,number}]
+
+### Retrieve some pre-populated random content [GET]
+
++ Parameters
+  + category (string) - Content category, for example `technology`
+  + number (number) - How many items to retrieve
+
++ Response 200 (application/json)
+
 ## Items list [/item{?published,minimal,offset,limit,site,measurements}]
 
 ### Retrieve user's content items [GET]
