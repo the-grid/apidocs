@@ -128,17 +128,18 @@ Performing such an action returns a Location header with a Job URL.
 
 + Response 200
 
-## Site logos [/site/{id}/logo]
+## Site DNS status [/site/{id}/dns]
 
-### Set website logo [POST]
++ Parameters
+  + id (required, string) - Site UUID
 
-+ Request (multipart/form-data)
+### Check website DNS status [POST]
 
-  A logo can be provided for a website by uploading it as multipart/form-data. Only SVG logos are supported.
++ Response 200 (application/json)
 
-+ Response 202
+  + Body 
 
-  Logo was successfully updated
+       { "valid": true }
 
 ## Website discovery [/site/discover{?url}]
 
