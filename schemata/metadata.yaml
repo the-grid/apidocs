@@ -92,8 +92,8 @@ properties:
         description: URL of the publisher's favicon
         example: "https://bergie.today/favicon.ico"
     additionalProperties: false
-  authors:
-    name: authors
+  author:
+    name: author
     type: array
     description: Authors of the item or block
     items:
