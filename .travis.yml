@@ -1,9 +1,17 @@
 language: node_js
 node_js:
 - '0.10'
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 before_script:
 - npm install -g grunt-cli
 env:
+  matrix:
+  - CXX=g++-4.8
   global:
     secure: aOSQkEeIGiLNcMucvVJF4mBpukVkDM0+UbiuX1dunk8tPQbfKlNEACyEZneMAYCDTJBT2wlujKVEIKMzaBsrUKRKPYZ5vi77X/DrowW+3pGF0r2AdYxJKNO3FEHxzCSYaVxusDtMT0ohsDBLwyPxjll8zu9PPfcUe6EIb+AWemQ=
 deploy:
