@@ -1,0 +1,18 @@
+{
+  "id": "copymove.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Copy or move request",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "site": {
+      "$ref": "base.json#/definitions/site"
+    },
+    "publish": {
+      "description": "Whether to publish immediately",
+      "type": "boolean"
+    }
+  }
+}

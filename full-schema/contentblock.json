@@ -220,8 +220,8 @@
           },
           "additionalProperties": false
         },
-        "authors": {
-          "name": "authors",
+        "author": {
+          "name": "author",
           "type": "array",
           "description": "Authors of the item or block",
           "items": {

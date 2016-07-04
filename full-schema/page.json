@@ -177,8 +177,8 @@
                 },
                 "additionalProperties": false
               },
-              "authors": {
-                "name": "authors",
+              "author": {
+                "name": "author",
                 "type": "array",
                 "description": "Authors of the item or block",
                 "items": {
@@ -497,8 +497,8 @@
                       },
                       "additionalProperties": false
                     },
-                    "authors": {
-                      "name": "authors",
+                    "author": {
+                      "name": "author",
                       "type": "array",
                       "description": "Authors of the item or block",
                       "items": {
@@ -957,6 +957,31 @@
         "auto_approve": {
           "description": "Whether to publish site changes without design review",
           "type": "boolean"
+        },
+        "coverPrefs": {
+          "name": "coverPrefs",
+          "description": "Image processing to allow on the site. All default true.",
+          "type": "object",
+          "properties": {
+            "filter": {
+              "name": "filter",
+              "type": "boolean",
+              "description": "Allow image filtering",
+              "example": true
+            },
+            "crop": {
+              "name": "crop",
+              "type": "boolean",
+              "description": "Allow image cropping",
+              "example": true
+            },
+            "overlay": {
+              "name": "overlay",
+              "type": "boolean",
+              "description": "Allow image overlaying",
+              "example": true
+            }
+          }
         }
       },
       "required": [

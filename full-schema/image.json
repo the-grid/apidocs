@@ -62,7 +62,7 @@
       ],
       "properties": {
         "src": {
-          "description": "Cached URL for the cover image. Caching is generally done by ImgFlo",
+          "description": "ImgFlo URL for the cover image. Caching is generally done by ImgFlo and this URL redirects the consumer to the cached URL. This URL preserves all the queries requested for the ImgFlo image processing graph",
           "type": "string",
           "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
         },
@@ -77,9 +77,14 @@
           "example": "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
         },
         "imgflosrc": {
-          "description": "Cached URL",
+          "description": "ImgFlo'ed URL",
           "type": "string",
           "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+        },
+        "resized": {
+          "description": "URL to image resized by Caliper and used by its preprocess and feature extract workers. In other words, that is the image Caliper really process and extract features from",
+          "type": "string",
+          "example": "http://caliper-tests.s3-us-west-2.amazonaws.com/caliper-resized/87abee46986c09f0b721f73dd309ed99.png"
         },
         "ratio": {
           "description": "Cover image ratio",
@@ -87,13 +92,18 @@
           "example": "128:101"
         },
         "aspect": {
-          "description": "Calculated image ration",
+          "description": "Calculated image ratio",
           "type": "number",
           "example": 1.2673267326732673
         },
         "orientation": {
-          "description": "Cover image orientation",
+          "description": "Cover image orientation based on image ratio. If image ration equals 1:1 then its orientation is square. If image's width is larger than its height then its orientation is landscape. If image's height is larger than its width then its orientation is portrait",
           "type": "string",
+          "enum": [
+            "landscape",
+            "portrait",
+            "square"
+          ],
           "example": "landscape"
         },
         "width": {
