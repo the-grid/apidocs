@@ -46,12 +46,19 @@ definitions:
         type: string
         example: "128:101"
       aspect:
-        description: "Calculated image ration"
+        description: "Calculated image ratio"
         type: number
         example: 1.2673267326732673
       orientation:
-        description: "Cover image orientation"
+        description: "Cover image orientation based on image ratio. If image ration equals 1:1
+          then its orientation is square. If image's width is larger than its height then its
+          orientation is landscape. If image's height is larger than its width then its
+          orientation is portrait"
         type: string
+        enum:
+          - landscape
+          - portrait
+          - square
         example: landscape
       width:
         description: "Cover image width"
