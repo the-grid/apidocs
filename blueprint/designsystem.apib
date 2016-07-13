@@ -85,10 +85,21 @@ For instance, if you have an option for 'density', use something like `mysystem_
 
 All changes to site configuration will trigger a rebuild of the pages on the site.
 
-# Debugging
+# Running locally
 
-There are currently no tools to run a page build job locally.
-There is currently no way to get the output/errors from a failed page build job.
+Assuming `mypage.json` is a page input datastructure, you can execute your designsystem locally using
+
+    thegrid-designsystem-run https://developer.thegrid.io/designsystems/original-html.js mypage.json > output.html
+
+You can now open `output.html` in your browser.
+
+You should have PhantomJS 2.x installed, and `phantomjs` should existing on PATH.
+This is then executed in the same way as on the production infrastructure.
+
+
+<!-- TODO:
+- tool for getting page input datastructure
+-->
 
 # Tools
 
