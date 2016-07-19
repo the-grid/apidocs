@@ -37,6 +37,27 @@ Performing such an action returns a Location header with a Job URL.
       ]
       ```
 
+# Group Newsfeed
+
+## User's newsfeed [/updates{?offset,limit,measurements}]
+
+### Fetch user's latest newsfeed [GET]
+
++ Parameters
+  + offset (number) - Offset to use for pagination
+  + limit (number) - Limit to use for pagination
+  + measurements (string) - Selectively get only certain measurements
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/item-valid-minimal-item.json) -->
+      ]
+      ```
+
 # Group Site Management
 
 ## Site information [/site]
