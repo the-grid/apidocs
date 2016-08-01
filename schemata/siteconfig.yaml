@@ -169,6 +169,8 @@ properties:
         url:
           description: "URL to link to"
           type: string
+        id:
+          "$ref": "base.json#/definitions/uuid"
         rel:
           description: "HTML link relation"
           type: string
@@ -180,8 +182,15 @@ properties:
       type: object
       properties:
         name:
+          description: "Name to show"
           type: string
         url:
+          description: "URL to link to"
+          type: string
+        id:
+          "$ref": "base.json#/definitions/uuid"
+        rel:
+          description: "HTML link relation"
           type: string
   auto_approve:
     description: Whether to publish site changes without design review
