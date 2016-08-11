@@ -1,0 +1,29 @@
+---
+id: sitepurpose.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Site Purpose
+description: "Definition of a purpose for a website, with potential attached action"
+type:
+- object
+properties:
+  type:
+    description: "Type of the site purpose"
+    example: 'purchase'
+    type: string
+  text:
+    description: "Textual label for the site purpose"
+    example: "Become a Founding Member"
+    type: string
+  url:
+    description: "External URL to link to"
+    type: string
+  item:
+    "$ref": "base.json#/definitions/uuid"
+  cta:
+    "$ref": "base.json#/definitions/uuid"
+  price:
+    description: "A tagged price, in USD cents"
+    example: "9600"
+    type: string
+
+required: [type]
