@@ -10,7 +10,7 @@ properties:
     description: "Type of the site purpose"
     example: 'purchase'
     type: string
-  text:
+  label:
     description: "Textual label for the site purpose"
     example: "Become a Founding Member"
     type: string
