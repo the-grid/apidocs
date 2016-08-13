@@ -215,5 +215,12 @@ properties:
         type: boolean
         description: Allow image overlaying
         example: true
+  purpose:
+    description: Site purposes
+    type: array
+    minItems: 0
+    uniqueItems: true
+    items:
+      "$ref": "sitepurpose.json"
 
 required: [name]

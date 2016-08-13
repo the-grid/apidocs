@@ -1,0 +1,36 @@
+-
+  _valid: true
+  _name: 'grid-founding-member'
+  _data:
+    type: 'purchase'
+    label: 'Become a Founding Member'
+    cta: 'f6a4bd8d-55ec-4c3a-9ccd-9c5f3df80802'
+    price: '9600'
+-
+  _valid: true
+  _name: 'contact-telephone'
+  _data:
+    type: 'contact'
+    label: 'Call me'
+    url: 'tel:+1555042'
+-
+  _valid: true
+  _name: 'contact-email'
+  _data:
+    type: 'contact'
+    label: 'Get in Touch'
+    url: 'mailto:example@domain.com'
+-
+  _valid: true
+  _name: 'external-link'
+  _data:
+    type: 'follow'
+    label: 'Follow me on Twitter'
+    url: 'https://twitter.com/thegrid'
+-
+  _valid: true
+  _name: 'internal-link'
+  _data:
+    type: 'video'
+    label: 'Watch the Video'
+    item: '58864068-f46f-487a-8820-67b81f0d77d3'
