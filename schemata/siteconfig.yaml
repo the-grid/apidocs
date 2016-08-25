@@ -10,6 +10,9 @@ properties:
     description: Website name
   title:
     type: string
+    description: Website title
+  description:
+    type: string
     description: Website tagline
   style:
     type: string
