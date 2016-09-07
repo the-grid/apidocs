@@ -20,8 +20,10 @@ definitions:
     items:
       "$ref": "base.json#/definitions/tuplecolor"
     minItens: 5
-  textregions: "Extracted regions with textual data from an image. Such regions can
-    be used as input for an OCR implementation to extract text information"
+  textregions:
+    description: "Extracted regions with textual data from an image. Such
+      regions can be used as input for an OCR implementation to extract
+      text information"
     type: array
     items:
       "$ref":  "base.json#/definitions/bbox"
