@@ -48,6 +48,12 @@
           y: 1382.0625
           width: 1449
           height: 1578.9375
+      textregions: [
+        x: 10
+        y: 12
+        width: 230
+        height: 55
+      ]
       saliency:
         bounding_rect:
           - [945, 1382.0625]
