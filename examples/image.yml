@@ -48,12 +48,12 @@
           y: 1382.0625
           width: 1449
           height: 1578.9375
-      textregions: [
-        x: 10
-        y: 12
-        width: 230
-        height: 55
-      ]
+      textregions:
+        -
+          x: 10
+          y: 12
+          width: 230
+          height: 55
       saliency:
         bounding_rect:
           - [945, 1382.0625]
@@ -498,4 +498,16 @@
     item: "spaghetti"
     type: "image"
     html: "<img src=\"https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg\">"
+    src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+-
+  _valid: false
+  _name: 'image-with-invalid-textregions'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    item: "textregions-item"
+    type: "image"
+    cover:
+      src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
+      textregions:
+        - [ 100, 50, 20]
     src: "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5_b.jpg"
