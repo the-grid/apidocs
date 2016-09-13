@@ -11,6 +11,10 @@
     },
     "title": {
       "type": "string",
+      "description": "Website title"
+    },
+    "description": {
+      "type": "string",
       "description": "Website tagline"
     },
     "style": {
@@ -223,6 +227,9 @@
             "description": "URL to link to",
             "type": "string"
           },
+          "id": {
+            "$ref": "base.json#/definitions/uuid"
+          },
           "rel": {
             "description": "HTML link relation",
             "type": "string"
@@ -238,9 +245,18 @@
         "type": "object",
         "properties": {
           "name": {
+            "description": "Name to show",
             "type": "string"
           },
           "url": {
+            "description": "URL to link to",
+            "type": "string"
+          },
+          "id": {
+            "$ref": "base.json#/definitions/uuid"
+          },
+          "rel": {
+            "description": "HTML link relation",
             "type": "string"
           }
         }
@@ -273,6 +289,15 @@
           "description": "Allow image overlaying",
           "example": true
         }
+      }
+    },
+    "purpose": {
+      "description": "Site purposes",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "sitepurpose.json"
       }
     }
   },

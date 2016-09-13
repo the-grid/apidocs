@@ -11,6 +11,10 @@
     },
     "title": {
       "type": "string",
+      "description": "Website title"
+    },
+    "description": {
+      "type": "string",
       "description": "Website tagline"
     },
     "style": {
@@ -307,6 +311,13 @@
             "description": "URL to link to",
             "type": "string"
           },
+          "id": {
+            "description": "Unique identifier",
+            "format": "uuid",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "type": "string"
+          },
           "rel": {
             "description": "HTML link relation",
             "type": "string"
@@ -322,9 +333,22 @@
         "type": "object",
         "properties": {
           "name": {
+            "description": "Name to show",
             "type": "string"
           },
           "url": {
+            "description": "URL to link to",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier",
+            "format": "uuid",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "type": "string"
+          },
+          "rel": {
+            "description": "HTML link relation",
             "type": "string"
           }
         }
@@ -357,6 +381,59 @@
           "description": "Allow image overlaying",
           "example": true
         }
+      }
+    },
+    "purpose": {
+      "description": "Site purposes",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "id": "sitepurpose.json",
+        "$schema": "http://json-schema.org/draft-04/schema",
+        "title": "Site Purpose",
+        "description": "Definition of a purpose for a website, with potential attached action",
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "description": "Type of the site purpose",
+            "example": "purchase",
+            "type": "string"
+          },
+          "label": {
+            "description": "Textual label for the site purpose",
+            "example": "Become a Founding Member",
+            "type": "string"
+          },
+          "url": {
+            "description": "External URL to link to",
+            "type": "string"
+          },
+          "item": {
+            "description": "Unique identifier",
+            "format": "uuid",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "type": "string"
+          },
+          "cta": {
+            "description": "Unique identifier",
+            "format": "uuid",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "type": "string"
+          },
+          "price": {
+            "description": "A tagged price, in USD cents",
+            "example": "9600",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
       }
     }
   },

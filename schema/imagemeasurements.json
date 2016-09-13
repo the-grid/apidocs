@@ -25,6 +25,13 @@
       },
       "minItens": 5
     },
+    "textregions": {
+      "description": "Extracted regions with textual data from an image. Such regions can be used as input for an OCR implementation to extract text information",
+      "type": "array",
+      "items": {
+        "$ref": "base.json#/definitions/bbox"
+      }
+    },
     "saliency": {
       "description": "Extracted salient region from an image",
       "type": "object",

@@ -71,6 +71,39 @@
       },
       "minItens": 5
     },
+    "textregions": {
+      "description": "Extracted regions with textual data from an image. Such regions can be used as input for an OCR implementation to extract text information",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "name": "x",
+            "type": "number",
+            "description": "Cartesian coordinate along x-axis",
+            "example": 608.1907
+          },
+          "y": {
+            "name": "y",
+            "type": "number",
+            "description": "Cartesian coordinate along y-axis",
+            "example": 189.909
+          },
+          "width": {
+            "name": "width",
+            "type": "number",
+            "description": "Width",
+            "example": 229.2087
+          },
+          "height": {
+            "name": "height",
+            "type": "number",
+            "description": "Height",
+            "example": 229.2087
+          }
+        }
+      }
+    },
     "saliency": {
       "description": "Extracted salient region from an image",
       "type": "object",

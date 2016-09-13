@@ -25,8 +25,8 @@
       "type": "string"
     },
     "price": {
-      "description": "A tagged price",
-      "example": "96",
+      "description": "A tagged price, in USD cents",
+      "example": "9600",
       "type": "string"
     },
     "text": {
