@@ -21,7 +21,7 @@ properties:
   compress:
     type: boolean
     description: Whether to compress the shared content to a single article block
-  global:
+  sitemedia:
     type: boolean
     description: Whether to share to site media instead of an item
   item:
