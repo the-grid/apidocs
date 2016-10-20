@@ -1,0 +1,6 @@
+-
+  _valid: true
+  _name: 'response'
+  _data:
+    signedUrl: 'https://example.net/some/upload/target'
+    publicUrl: 'https://example.net/file/after/upload'
