@@ -198,7 +198,6 @@ There are typically three different things you can be sharing:
 
 * Full article pages: share with URL
 * HTML fragments: selection or img tag. Share with content, type text/html and with the URL of the originating page
-* Uploaded files: image, word document, HTML file, Markdown file, etc. Share with multi-part upload, URL and MIME type needed
 
 Note that publishing an item to a website is a separate step. See /publish
 
@@ -215,20 +214,6 @@ Note that publishing an item to a website is a separate step. See /publish
       ```
       <!-- include(full-schema/share.json) -->
       ```
-
-
-+ Request with file upload (multipart/form-data)
-
-  For images and other files the content is a file sent via multipart/form-data. If there is no relevant URL for the content, it is a good idea to generate a UUID URI.
-
-  ```
-  formData = new FormData()
-  formData.append 'url', 'content://'
-  formData.append 'type', file.type
-  formData.append 'content', file
-  ```
-
-  + Body
 
 + Response 202
 
