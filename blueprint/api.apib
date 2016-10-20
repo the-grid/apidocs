@@ -194,7 +194,7 @@ Performing such an action returns a Location header with a Job URL.
 Users can share content to The Grid. The shared items will be normalized, analyzed and made available via the item API.
 Sharing creates a Job, whos progress can be monitored using the /job API.
 
-There are typically three different things you can be sharing:
+There are typically two different things you can be sharing:
 
 * Full article pages: share with URL
 * HTML fragments: selection or img tag. Share with content, type text/html and with the URL of the originating page
@@ -236,6 +236,33 @@ Note that publishing an item to a website is a separate step. See /publish
   Not allowed to share to the specified website
 
   + Body
+
+## Upload signing [/share/sign{?objectName,contentType}]
+
+### Signing intent to upload [POST]
+
+In situations where users want to share content from their local filesystem (images, Markdown files, etc), this is done by uploading them to Amazon S3. The share intent signing API provides a temporary upload URL, as well as the permanent URL where the file will reside after upload has completed.
+
+After the file has been uploaded to S3, it can be shared to a Grid site using the normal [share flow](#content-management-share-post).
+
++ Parameters
+  + objectName (string) - Name of the file being uploaded
+  + contentType (string) - File MIME type
+
++ Response 422
+
+  Missing required parameters
+
+  + Body
+
++ Response 200 (application/json)
+
+  A temporary upload signature has been generated. Use the provided `signedUrl` to upload via `HTTP PUT`. The `publicUrl` is the URL that the file will have after upload has completed.
+
+  + Body
+      ```
+      <!-- include(examples/sharesign-response.json) -->
+      ```
 
 ## Random content [/share/random{?category,number}]
 
