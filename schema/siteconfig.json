@@ -299,6 +299,15 @@
       "items": {
         "$ref": "sitepurpose.json"
       }
+    },
+    "content": {
+      "description": "Site media content blocks",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "contentblock.json"
+      }
     }
   },
   "required": [

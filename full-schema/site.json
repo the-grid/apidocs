@@ -465,6 +465,354 @@
               "type"
             ]
           }
+        },
+        "content": {
+          "description": "Site media content blocks",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "items": {
+            "id": "contentblock.json",
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "title": "Content block",
+            "description": "Any valid block of content like text, image or video",
+            "definitions": {
+              "type": {
+                "description": "Block type",
+                "example": "text",
+                "type": "string",
+                "enum": [
+                  "headline",
+                  "h1",
+                  "h2",
+                  "h3",
+                  "h4",
+                  "h5",
+                  "h6",
+                  "text",
+                  "list",
+                  "code",
+                  "image",
+                  "video",
+                  "audio",
+                  "article",
+                  "quote",
+                  "location",
+                  "cta",
+                  "interactive",
+                  "hr",
+                  "placeholder",
+                  "unknown"
+                ]
+              },
+              "html": {
+                "description": "HTML content of the block",
+                "example": "<p>Hello, world!</p>",
+                "type": "string",
+                "minLength": 7
+              },
+              "src": {
+                "description": "Source URL",
+                "example": "http://techcrunch.com/2015/04/15/mozilla-restructure/",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "description": "Unique identifier",
+                "format": "uuid",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "example": "01234567-89ab-cdef-0123-456789abcdef",
+                "type": "string"
+              },
+              "item": {
+                "description": "Unique identifier",
+                "format": "uuid",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "example": "01234567-89ab-cdef-0123-456789abcdef",
+                "type": "string"
+              },
+              "type": {
+                "description": "Block type",
+                "example": "text",
+                "type": "string",
+                "enum": [
+                  "headline",
+                  "h1",
+                  "h2",
+                  "h3",
+                  "h4",
+                  "h5",
+                  "h6",
+                  "text",
+                  "list",
+                  "code",
+                  "image",
+                  "video",
+                  "audio",
+                  "article",
+                  "quote",
+                  "location",
+                  "cta",
+                  "interactive",
+                  "hr",
+                  "placeholder",
+                  "unknown"
+                ]
+              },
+              "html": {
+                "description": "HTML content of the block",
+                "example": "<p>Hello, world!</p>",
+                "type": "string",
+                "minLength": 7
+              },
+              "src": {
+                "description": "Source URL",
+                "example": "http://techcrunch.com/2015/04/15/mozilla-restructure/",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "metadata": {
+                "id": "metadata.json",
+                "$schema": "http://json-schema.org/draft-04/schema",
+                "title": "The Grid metadata definition",
+                "description": "",
+                "type": [
+                  "object"
+                ],
+                "properties": {
+                  "@type": {
+                    "name": "@type",
+                    "type": "string",
+                    "description": "Schema.org type the item or block represents",
+                    "example": "Article"
+                  },
+                  "isBasedOnUrl": {
+                    "name": "isBasedOnUrl",
+                    "type": "string",
+                    "description": "Source URL for the item or block",
+                    "example": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
+                  },
+                  "permalinkUrl": {
+                    "name": "permalinkUrl",
+                    "type": "string",
+                    "description": "Custom permalink path for the item",
+                    "example": "blog/my-cool-article.html"
+                  },
+                  "inLanguage": {
+                    "name": "inLanguage",
+                    "type": "string",
+                    "description": "Content language",
+                    "example": "en",
+                    "minLength": 2
+                  },
+                  "starred": {
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "keywords": {
+                    "name": "keywords",
+                    "description": "Tags describing the content",
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "design",
+                      "blogs"
+                    ]
+                  },
+                  "publisher": {
+                    "name": "publisher",
+                    "description": "Original publisher of the item or block",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "name": "name",
+                        "type": "string",
+                        "description": "Human-readable publisher name",
+                        "example": "Fast Company"
+                      },
+                      "domain": {
+                        "name": "domain",
+                        "type": "string",
+                        "description": "The publisher's domain name",
+                        "example": "www.fastcompany.com"
+                      },
+                      "url": {
+                        "name": "url",
+                        "type": "string",
+                        "description": "URL of the publisher's main page",
+                        "example": "http://www.fastcompany.com/"
+                      },
+                      "favicon": {
+                        "name": "favicon",
+                        "type": "string",
+                        "description": "URL of the publisher's favicon",
+                        "example": "http://www.fastcompany.com/favicon.ico"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "via": {
+                    "name": "via",
+                    "description": "Publisher the item was discovered via",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "name": "name",
+                        "type": "string",
+                        "description": "Human-readable publisher name",
+                        "example": "Bergie Today"
+                      },
+                      "domain": {
+                        "name": "domain",
+                        "type": "string",
+                        "description": "The publisher's domain name",
+                        "example": "bergie.today"
+                      },
+                      "url": {
+                        "name": "url",
+                        "type": "string",
+                        "description": "Permalink URL the item was on or URL of the publisher's main page",
+                        "example": "https://bergie.today/"
+                      },
+                      "favicon": {
+                        "name": "favicon",
+                        "type": "string",
+                        "description": "URL of the publisher's favicon",
+                        "example": "https://bergie.today/favicon.ico"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "author": {
+                    "name": "author",
+                    "type": "array",
+                    "description": "Authors of the item or block",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "name": "name",
+                          "type": "string",
+                          "example": "Henri Bergius"
+                        },
+                        "url": {
+                          "description": "Unique Resource Locator",
+                          "format": "url",
+                          "example": "http://thegrid.io",
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string",
+                          "format": "email",
+                          "example": "bergie@iki.fi"
+                        },
+                        "avatar": {
+                          "type": "object"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "coverPrefs": {
+                    "name": "coverPrefs",
+                    "description": "Image processing to allow on the cover. All default true.",
+                    "type": "object",
+                    "properties": {
+                      "filter": {
+                        "name": "filter",
+                        "type": "boolean",
+                        "description": "Allow image filtering",
+                        "example": true
+                      },
+                      "crop": {
+                        "name": "crop",
+                        "type": "boolean",
+                        "description": "Allow image cropping",
+                        "example": true
+                      },
+                      "overlay": {
+                        "name": "overlay",
+                        "type": "boolean",
+                        "description": "Allow image overlaying",
+                        "example": true
+                      }
+                    }
+                  },
+                  "geo": {
+                    "type": "object",
+                    "description": "Geographical data",
+                    "properties": {
+                      "latitude": {
+                        "name": "latitude",
+                        "type": "number",
+                        "description": "Latitude coordinate",
+                        "example": 45.5
+                      },
+                      "longitude": {
+                        "name": "longitude",
+                        "type": "number",
+                        "description": "Longitude coordinate",
+                        "example": -122.7
+                      },
+                      "zoom": {
+                        "name": "zoom",
+                        "type": "number",
+                        "description": "Zoom level of map",
+                        "example": 4
+                      }
+                    }
+                  },
+                  "address": {
+                    "name": "address",
+                    "type": "string",
+                    "description": "Location address",
+                    "example": "4242 Blue Street, San Francisco, CA"
+                  },
+                  "hasMap": {
+                    "name": "hasMap",
+                    "type": "url",
+                    "description": "Map URL"
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "anyOf": [
+                "headline",
+                "text",
+                "cta",
+                "media",
+                "list"
+              ]
+            },
+            "required": [
+              "id",
+              "item",
+              "type",
+              "html",
+              "src"
+            ]
+          }
         }
       },
       "required": [

@@ -272,6 +272,7 @@
               "location",
               "cta",
               "interactive",
+              "hr",
               "placeholder",
               "unknown"
             ]
@@ -332,6 +333,7 @@
               "location",
               "cta",
               "interactive",
+              "hr",
               "placeholder",
               "unknown"
             ]
