@@ -1,12 +1,12 @@
 language: node_js
 node_js:
-- '0.10'
+- '4.6'
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
 before_script:
 - npm install -g grunt-cli
 env:
@@ -16,10 +16,10 @@ env:
     secure: aOSQkEeIGiLNcMucvVJF4mBpukVkDM0+UbiuX1dunk8tPQbfKlNEACyEZneMAYCDTJBT2wlujKVEIKMzaBsrUKRKPYZ5vi77X/DrowW+3pGF0r2AdYxJKNO3FEHxzCSYaVxusDtMT0ohsDBLwyPxjll8zu9PPfcUe6EIb+AWemQ=
 deploy:
   provider: npm
-  email: jononor@gmail.com
+  email: henri.bergius@iki.fi
   skip_cleanup: true
   api_key:
-    secure: FjHI+CEzM1CqgynAdIZtd1XPpDEUOplHWOpKRa4epZxm6UK5x5uU1qN8BjntaRdpQyMHF8uhpf8VufWZFPiErymEz/kKa7IURQyL2rESaA39oB/xkXiNAxrxdIYgyM+vE3IgFXY1kaSYXqTXqdUHyb7mG9a2P8lwtSeAtQC0vzk=
+    secure: YIvAJl+dEyCg6d6nY0Zm2ZeRnS3PuK2zXFwhqU0RBuAeG6DpEpu/0bIMWov4TqkQ6AzYHEnxSivcCEkQCMKTXr1RrsqH58kzIRR1BFRsqdrZLGIHqiBOtPuHu0WemoaMYtvKW/u8Mdn1y9pRvtBOkct+wqBomW6CYHJ6rokAPPc=
   on:
     tags: true
     repo: the-grid/apidocs
