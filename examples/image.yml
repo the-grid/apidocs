@@ -48,6 +48,9 @@
           y: 1382.0625
           width: 1449
           height: 1578.9375
+        center:
+          x: 1669.5
+          y: 2269.9
       textregions:
         -
           x: 10
