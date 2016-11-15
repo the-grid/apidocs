@@ -32,13 +32,13 @@ describe 'Schemas', ->
           if testcase._valid
             it "should be valid", ->
               results = tv4.validateMultiple testcase._data, schema.id
-              chai.expect(results.valid).to.equal true
               chai.expect(results.errors).to.eql []
               chai.expect(results.missing).to.eql []
+              chai.expect(results.valid).to.equal true
           else
             it "should be invalid", ->
               results = tv4.validateMultiple testcase._data, schema.id
-              chai.expect(results.valid).to.equal false
-              chai.expect(results.missing).to.eql []
               chai.expect(results.errors).to.not.eql []
+              chai.expect(results.missing).to.eql []
+              chai.expect(results.valid).to.equal false
 

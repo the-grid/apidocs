@@ -30,6 +30,6 @@ describe 'Schema meta validation', ->
     describe "#{schema.id} (#{schema.title or schema.description})", ->
       it 'should validate against JSON meta schema', ->
         result = tv4.validateMultiple schema, 'http://json-schema.org/draft-04/schema'
-        chai.expect(result.valid).to.equal true
-        chai.expect(result.errors).to.eql []
         chai.expect(result.missing).to.eql []
+        chai.expect(result.errors).to.eql []
+        chai.expect(result.valid).to.equal true
