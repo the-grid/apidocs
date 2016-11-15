@@ -16,7 +16,7 @@
       "@context": "http://schema.org"
       author: []
     score: 0,
-    created_at: 1412744992292
+    created_at: '2014-05-08 13:22:59'
     updated_at: null
     text: "AI Websites That Design Themselves"
     length: 34
@@ -44,8 +44,8 @@
         filter: true
         overlay: true
     score: 2
-    created_at: 1412744992396
-    updated_at: 1412745215712
+    created_at: '2014-05-08 13:22:59'
+    updated_at: '2014-05-08 15:22:59'
     title: "Dan Tocchini"
     caption: "Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more."
     cover:

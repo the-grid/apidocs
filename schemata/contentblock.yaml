@@ -54,10 +54,10 @@ properties:
     "$ref": "#/definitions/src"
   metadata:
     "$ref": "metadata.json"
-  created_at: # FIXME: ISOdate,null
+  created_at:
     type: string
     format: 'date-time'
-  updated_at: # FIXME: ISOdate,null
+  updated_at:
     type: [string, "null"]
     format: 'date-time'
 anyOf: [
