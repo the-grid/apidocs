@@ -6,6 +6,7 @@ yaml = require 'js-yaml'
 lib = require '../index'
 
 describe 'Schemas', ->
+  schemas = []
   before: ->
     metaSchema = loadSchema path.join __dirname, 'json-schema.json'
     tv4.addSchema 'http://json-schema.org/draft-04/schema', metaSchema
@@ -15,7 +16,9 @@ describe 'Schemas', ->
   lib.listSchemas().forEach (schemaName) ->
     schema = lib.getSchema schemaName
     tv4.addSchema schema.id, schema
+    schemas.push schema
 
+  schemas.forEach (schema) ->
     describe "#{schema.id} (#{schema.title})", ->
       try
         cases = lib.getExamples schemaName
@@ -31,8 +34,10 @@ describe 'Schemas', ->
             it "should be valid", ->
               results = tv4.validateMultiple testcase._data, schema.id
               chai.expect(results.errors).to.eql []
+              chai.expect(results.missing).to.eql []
           else
             it "should be invalid", ->
               results = tv4.validateMultiple testcase._data, schema.id
+              chai.expect(results.missing).to.eql []
               chai.expect(results.errors).to.not.eql []
 
