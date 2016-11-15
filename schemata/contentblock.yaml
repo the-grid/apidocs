@@ -55,9 +55,21 @@ properties:
   metadata:
     "$ref": "metadata.json"
   created_at: # FIXME: ISOdate,null
-    type: number
+    type: string
+    format: 'date-time'
   updated_at: # FIXME: ISOdate,null
-    type: [number, "null"]
-  anyOf: [headline, text, cta, media, list]
+    type: [string, "null"]
+    format: 'date-time'
+anyOf: [
+  '$ref': 'headline.json'
+,
+  '$ref': 'text.json'
+,
+  '$ref': 'cta.json'
+,
+  '$ref': 'media.json'
+,
+  '$ref': 'list.json'
+]
 
 required: [id, item, type, html, src]

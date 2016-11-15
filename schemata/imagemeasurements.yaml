@@ -9,10 +9,13 @@ definitions:
     type: array
     items:
       description: "Bounding box of a detected face"
-      allOf:
+      allOf: [
         "$ref": "base.json#/definitions/bbox"
+      ]
       properties:
-        "$ref": "base.json#/definitions/confidence"
+        confidence:
+          name: confidence
+          "$ref": "base.json#/definitions/confidence"
   colors:
     description: "Extracted colors from the image, represented as an array of
       at least 5 RGB colors"
