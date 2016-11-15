@@ -2,6 +2,7 @@
 tv4 = require 'tv4'
 chai = require 'chai' if not chai
 yaml = require 'js-yaml'
+path = require 'path'
 
 lib = require '../index'
 
@@ -21,7 +22,7 @@ describe 'Schemas', ->
   schemas.forEach (schema) ->
     describe "#{schema.id} (#{schema.title})", ->
       try
-        cases = lib.getExamples schemaName
+        cases = lib.getExamples path.basename schema.id, path.extname schema.id
       catch e
         it.skip "does not have examples"
         return
