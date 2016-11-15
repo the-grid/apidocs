@@ -16,7 +16,7 @@ properties:
     type: string
   url:
     description: "External URL to link to"
-    type: string
+    "$ref": "base.json#/definitions/url"
   item:
     "$ref": "base.json#/definitions/uuid"
   cta:
