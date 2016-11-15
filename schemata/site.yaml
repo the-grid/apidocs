@@ -25,6 +25,12 @@ properties:
   owner:
     "$ref": "base.json#/definitions/uuid"
   favlogo:
-    type: string
     description: URL of the website favlogo
+    "$ref": "base.json#/definitions/url"
+  created_at:
+    type: string
+    format: 'date-time'
+  updated_at:
+    type: [string, "null"]
+    format: 'date-time'
 required: [id, name, repo, owner]
