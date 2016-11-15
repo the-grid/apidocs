@@ -15,10 +15,10 @@ properties:
     description: GitHub repository path for website sources
     "$ref": "base.json#/definitions/site"
   domain:
-    type: string
+    type: [string, "null"]
     description: Custom domain for the website, if any
   path:
-    type: string
+    type: [string, "null"]
     description: Subdirectory path for the website, if any
   config:
     "$ref": "siteconfig.json"
