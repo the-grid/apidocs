@@ -1,6 +1,6 @@
 # Examples of page configs
 -
-  _valid: true
+  _valid: false
   _name: 'new-site-no-items'
   _data:
     path: "index.html"
