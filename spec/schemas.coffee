@@ -8,11 +8,9 @@ lib = require '../index'
 
 describe 'Schemas', ->
   schemas = []
-  before: ->
-    metaSchema = loadSchema path.join __dirname, 'json-schema.json'
-    tv4.addSchema 'http://json-schema.org/draft-04/schema', metaSchema
-  after: ->
+  after ->
     tv4.reset()
+    tv4.dropSchemas()
 
   lib.listSchemas().forEach (schemaName) ->
     schema = lib.getSchema schemaName
@@ -34,11 +32,13 @@ describe 'Schemas', ->
           if testcase._valid
             it "should be valid", ->
               results = tv4.validateMultiple testcase._data, schema.id
+              chai.expect(results.valid).to.equal true
               chai.expect(results.errors).to.eql []
               chai.expect(results.missing).to.eql []
           else
             it "should be invalid", ->
               results = tv4.validateMultiple testcase._data, schema.id
+              chai.expect(results.valid).to.equal false
               chai.expect(results.missing).to.eql []
               chai.expect(results.errors).to.not.eql []
 
