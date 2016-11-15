@@ -155,4 +155,13 @@ properties:
     "$ref": "base.json#/definitions/url"
     name: hasMap
     description: Map URL
+  dateCreated:
+    type: [string, "null"]
+    format: 'date-time'
+  dateModified:
+    type: [string, "null"]
+    format: 'date-time'
+  datePublished:
+    type: [string, "null"]
+    format: 'date-time'
 additionalProperties: true
