@@ -71,8 +71,7 @@ definitions:
         type: number
         example: 108.079
       bounding_rect:
-        "$ref": "base.json#/definitions/arrayrectangle (warning: to be
-          deprecated by `regions` bbox)"
+        "$ref": "base.json#/definitions/arrayrectangle" # (warning: to be deprecated by `regions` bbox)
         description: "Rectangle around the salient region"
         example: [[329,238],[539,372]]
   histogram:
