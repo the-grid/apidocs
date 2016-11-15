@@ -29,7 +29,19 @@ properties:
     minLength: 2
   starred:
     type: boolean
+    description: Indicates if an item should be shown on feed or not
     example: false
+  emphasis:
+    type: number
+    description: 'How much emphasis an item has in some context. For example, we
+      can say if an image has low emphasis (thumbnail, icon) or high emphasis
+      level (a.k.a. "Please, show this image bigger"). Helps to reproduce a
+      client - designer feedback cycle: show the client a layout and he can
+      say if designer should increase emphasis or decrease it. That is why
+      emphasis can be a negative value, in a range from -1.0 to 1.0.'
+    example: -1.0
+    minimum: -1.0
+    maximum: 1.0
   keywords:
     name: keywords
     description: Tags describing the content
