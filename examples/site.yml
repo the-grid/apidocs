@@ -32,3 +32,11 @@
   _data:
     name: "The Grid"
     repo: "the-domains/the-grid"
+-
+  _valid: false
+  _name: 'invalid-repo'
+  _data:
+    id: "059c8aa5-5fac-4bb7-b160-48689bc12a7c"
+    name: "The Grid"
+    repo: "the-grid"
+    owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"

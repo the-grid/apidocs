@@ -13,6 +13,7 @@ properties:
   repo:
     type: string
     description: GitHub repository path for website sources
+    "$ref": "base.json#/definitions/site"
   domain:
     type: string
     description: Custom domain for the website, if any
