@@ -152,7 +152,7 @@ properties:
     description: Location address
     example: 4242 Blue Street, San Francisco, CA
   hasMap:
+    "$ref": "base.json#/definitions/url"
     name: hasMap
-    type: url
     description: Map URL
-  additionalProperties: true
+additionalProperties: true
