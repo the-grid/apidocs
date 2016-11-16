@@ -38,7 +38,9 @@ definitions:
   src:
     description: Source URL
     example: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
-    type: [ "string", "null" ]
+    oneOf:
+    - { type: 'null' }
+    - { type: 'string', format: 'uri' }
 type:
 - object
 properties:
@@ -68,4 +70,4 @@ anyOf:
 - { '$ref': 'media.json' }
 - { '$ref': 'list.json' }
 
-required: [id, item, type, html, src]
+required: [type, html]
