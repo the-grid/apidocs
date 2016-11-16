@@ -1,0 +1,22 @@
+---
+id: navigationentry.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Navigation Entry
+description: "Definition of a navigation entry on a website"
+type:
+- object
+properties:
+  name:
+    description: "Name to show"
+    type: string
+  url:
+    description: "External URL to link to"
+    "$ref": "base.json#/definitions/url"
+  id:
+    description: "Internal item to link to"
+    "$ref": "base.json#/definitions/uuid"
+  rel:
+    description: "HTML link relation"
+    type: string
+
+required: [name]

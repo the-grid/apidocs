@@ -163,38 +163,18 @@ properties:
     type: array
     description: "External links to include in site navigation"
     default: []
+    minItems: 0
+    uniqueItems: true
     items:
-      type: object
-      properties:
-        name:
-          description: "Name to show"
-          type: string
-        url:
-          description: "URL to link to"
-          type: string
-        id:
-          "$ref": "base.json#/definitions/uuid"
-        rel:
-          description: "HTML link relation"
-          type: string
+      "$ref": "navigationentry.json"
   profiles:
     type: array
     description: "Social media profile links associated with the site"
     default: []
+    minItems: 0
+    uniqueItems: true
     items:
-      type: object
-      properties:
-        name:
-          description: "Name to show"
-          type: string
-        url:
-          description: "URL to link to"
-          type: string
-        id:
-          "$ref": "base.json#/definitions/uuid"
-        rel:
-          description: "HTML link relation"
-          type: string
+      "$ref": "navigationentry.json"
   auto_approve:
     description: Whether to publish site changes without design review
     type: boolean
