@@ -1,5 +1,6 @@
 
 tv4 = require 'tv4'
+tv4Formats = require 'tv4-formats'
 chai = require 'chai' if not chai
 yaml = require 'js-yaml'
 path = require 'path'
@@ -8,6 +9,8 @@ lib = require '../index'
 
 describe 'Schemas', ->
   schemas = []
+  before ->
+    tv4.addFormat tv4Formats
   after ->
     tv4.reset()
     tv4.dropSchemas()

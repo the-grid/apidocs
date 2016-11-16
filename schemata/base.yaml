@@ -152,4 +152,3 @@ definitions:
       -
         "$ref": "#/definitions/arraypoint"
         description: "Bottom-right point"
-

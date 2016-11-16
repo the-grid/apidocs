@@ -34,8 +34,10 @@ properties:
     type: string
     format: 'date-time'
   updated_at:
-    type: [string, "null"]
-    format: 'date-time'
+    oneOf:
+    - { type: 'null' }
+    - { type: 'string', format: 'date-time' }
+
 required: [name, repo]
 oneOf: [
   required: [domain]
