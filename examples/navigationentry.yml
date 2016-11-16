@@ -32,3 +32,9 @@
     name: 'About Us'
     url: 'https://blog.thegrid.io'
     id: '0ac76e35-4236-4bc3-b933-e295c1f5bfd7'
+-
+  _valid: false
+  _name: 'invalid-url'
+  _data:
+    name: 'About Us'
+    url: 'LINK HERE'
