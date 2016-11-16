@@ -206,6 +206,7 @@ properties:
     description: Site purposes
     type: array
     minItems: 0
+    maxItems: 2
     uniqueItems: true
     items:
       "$ref": "sitepurpose.json"
