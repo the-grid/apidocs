@@ -34,3 +34,43 @@
     type: 'video'
     label: 'Watch the Video'
     item: '58864068-f46f-487a-8820-67b81f0d77d3'
+-
+  _valid: false
+  _name: 'grid-founding-member-no-price'
+  _data:
+    type: 'purchase'
+    label: 'Become a Founding Member'
+    cta: 'f6a4bd8d-55ec-4c3a-9ccd-9c5f3df80802'
+-
+  _valid: false
+  _name: 'internal-external-link'
+  _data:
+    type: 'video'
+    label: 'Watch the Video'
+    item: '58864068-f46f-487a-8820-67b81f0d77d3'
+    url: 'https://twitter.com/thegrid'
+-
+  _valid: false
+  _name: 'no-link'
+  _data:
+    type: 'video'
+    label: 'Watch the Video'
+-
+  _valid: false
+  _name: 'no-type'
+  _data:
+    label: 'Watch the Video'
+    item: '58864068-f46f-487a-8820-67b81f0d77d3'
+-
+  _valid: false
+  _name: 'no-label'
+  _data:
+    type: 'video'
+    item: '58864068-f46f-487a-8820-67b81f0d77d3'
+-
+  _valid: false
+  _name: 'invalid-url'
+  _data:
+    type: 'purchase'
+    label: 'Buy our product'
+    url: 'ENTER LINK HERE'

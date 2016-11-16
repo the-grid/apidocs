@@ -10,9 +10,11 @@ definitions:
     items:
       description: "Bounding box of a detected face"
       allOf:
-        "$ref": "base.json#/definitions/bbox"
+        - { "$ref": "base.json#/definitions/bbox" }
       properties:
-        "$ref": "base.json#/definitions/confidence"
+        confidence:
+          name: confidence
+          "$ref": "base.json#/definitions/confidence"
   colors:
     description: "Extracted colors from the image, represented as an array of
       at least 5 RGB colors"
@@ -68,8 +70,7 @@ definitions:
         type: number
         example: 108.079
       bounding_rect:
-        "$ref": "base.json#/definitions/arrayrectangle (warning: to be
-          deprecated by `regions` bbox)"
+        "$ref": "base.json#/definitions/arrayrectangle" # (warning: to be deprecated by `regions` bbox)
         description: "Rectangle around the salient region"
         example: [[329,238],[539,372]]
   histogram:

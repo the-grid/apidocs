@@ -23,5 +23,12 @@ properties:
     uniqueItems: true
     items:
       "$ref": "contentblock.json"
+  created_at:
+    type: string
+    format: 'date-time'
+  updated_at:
+    oneOf:
+    - { type: 'null' }
+    - { type: 'string', format: 'date-time' }
 
 required: [content]

@@ -16,14 +16,20 @@ properties:
     type: string
   url:
     description: "External URL to link to"
-    type: string
+    "$ref": "base.json#/definitions/url"
   item:
+    description: "Internal item to link to"
     "$ref": "base.json#/definitions/uuid"
   cta:
+    description: "The Grid Reserve CTA associated with the entry"
     "$ref": "base.json#/definitions/uuid"
   price:
     description: "A tagged price, in USD cents"
     example: "9600"
     type: string
 
-required: [type]
+required: [type,label]
+oneOf:
+  - { required: [url] }
+  - { required: [item] }
+  - { required: [cta,price] }

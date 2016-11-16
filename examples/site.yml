@@ -2,10 +2,17 @@
   _valid: true
   _name: 'minimal'
   _data:
-    id: "059c8aa5-5fac-4bb7-b160-48689bc12a7c"
     name: "The Grid"
     repo: "the-domains/the-grid"
+    domain: 'thegrid.io'
     owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+-
+  _valid: true
+  _name: 'without-owner'
+  _data:
+    name: "The Grid"
+    repo: "the-domains/the-grid"
+    domain: 'thegrid.io'
 -
   _valid: true
   _name: 'with-config'
@@ -13,6 +20,7 @@
     id: "059c8aa5-5fac-4bb7-b160-48689bc12a7c"
     name: "The Grid"
     repo: "the-domains/the-grid"
+    domain: 'thegrid.io'
     config:
       name: 'GSS site'
       color:
@@ -21,14 +29,26 @@
     owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
 -
   _valid: false
-  _name: 'without-id'
+  _name: 'without-domain-path'
   _data:
     name: "The Grid"
     repo: "the-domains/the-grid"
     owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
 -
   _valid: false
-  _name: 'without-owner'
+  _name: 'invalid-repo'
   _data:
+    id: "059c8aa5-5fac-4bb7-b160-48689bc12a7c"
+    name: "The Grid"
+    repo: "the-grid"
+    path: '/blog'
+    owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+-
+  _valid: false
+  _name: 'invalid-id'
+  _data:
+    id: "helloworld"
     name: "The Grid"
     repo: "the-domains/the-grid"
+    path: '/blog'
+    owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
