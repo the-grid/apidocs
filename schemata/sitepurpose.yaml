@@ -28,4 +28,11 @@ properties:
     example: "9600"
     type: string
 
-required: [type]
+required: [type,label]
+oneOf: [
+  required: [url]
+,
+  required: [item]
+,
+  required: [cta,price]
+]
