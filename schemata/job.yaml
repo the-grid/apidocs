@@ -11,6 +11,9 @@ properties:
     type: string
     description: The specific type of job
     example: "share"
+    enum:
+      - share
+      - publish
   source:
     type: string
     description: The endpoint that created this job
@@ -26,13 +29,14 @@ properties:
     description: Time the job was started
     format: 'date-time'
   finished_at:
-    type: string
     description: Time the job was finished (failed or completed).
-    format: 'date-time'
+    oneOf:
+    - { type: 'null' }
+    - { type: 'string', format: 'date-time' }
   item:
     "$ref": "base.json#/definitions/uuid"
     description: 'The content Item this job is associated with, if any'
   tasks:
     type: object
     description: Details about the tasks in this job. Job type specific.
-required: [id, type, tasks]
+required: [type, tasks]
