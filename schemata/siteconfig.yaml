@@ -18,7 +18,7 @@ properties:
     type: string
     description: Layout filter selected for the site
     example: taylor
-    default: the-composer
+    default: 'the-composer'
   favicon:
     description: Favicon URL
     "$ref": "base.json#/definitions/url"

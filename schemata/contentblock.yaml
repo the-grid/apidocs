@@ -61,16 +61,11 @@ properties:
     oneOf:
     - { type: 'null' }
     - { type: 'string', format: 'date-time' }
-anyOf: [
-  '$ref': 'headline.json'
-,
-  '$ref': 'text.json'
-,
-  '$ref': 'cta.json'
-,
-  '$ref': 'media.json'
-,
-  '$ref': 'list.json'
-]
+anyOf:
+- { '$ref': 'headline.json' }
+- { '$ref': 'text.json' }
+- { '$ref': 'cta.json' }
+- { '$ref': 'media.json' }
+- { '$ref': 'list.json' }
 
 required: [id, item, type, html, src]

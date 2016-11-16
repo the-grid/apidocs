@@ -20,8 +20,6 @@ properties:
     type: string
 
 required: [name]
-oneOf: [
-  required: [url]
-,
-  required: [id]
-]
+oneOf:
+  - { required: [url] }
+  - { required: [id] }

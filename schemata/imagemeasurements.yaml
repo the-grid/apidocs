@@ -9,9 +9,8 @@ definitions:
     type: array
     items:
       description: "Bounding box of a detected face"
-      allOf: [
-        "$ref": "base.json#/definitions/bbox"
-      ]
+      allOf:
+        - { "$ref": "base.json#/definitions/bbox" }
       properties:
         confidence:
           name: confidence

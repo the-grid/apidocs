@@ -29,10 +29,7 @@ properties:
     type: string
 
 required: [type,label]
-oneOf: [
-  required: [url]
-,
-  required: [item]
-,
-  required: [cta,price]
-]
+oneOf:
+  - { required: [url] }
+  - { required: [item] }
+  - { required: [cta,price] }

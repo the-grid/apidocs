@@ -39,8 +39,6 @@ properties:
     - { type: 'string', format: 'date-time' }
 
 required: [name, repo]
-oneOf: [
-  required: [domain]
-,
-  required: [path]
-]
+oneOf:
+  - { required: [domain] }
+  - { required: [path] }
