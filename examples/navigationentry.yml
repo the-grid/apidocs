@@ -1,0 +1,34 @@
+-
+  _valid: true
+  _name: 'external-link'
+  _data:
+    name: 'Blog'
+    url: 'https://blog.thegrid.io'
+-
+  _valid: true
+  _name: 'internal-link'
+  _data:
+    name: 'About Us'
+    id: '0ac76e35-4236-4bc3-b933-e295c1f5bfd7'
+-
+  _valid: false
+  _name: 'no-link'
+  _data:
+    name: 'About Us'
+-
+  _valid: false
+  _name: 'no-name-external'
+  _data:
+    url: 'https://blog.thegrid.io'
+-
+  _valid: false
+  _name: 'no-name-internal'
+  _data:
+    id: '0ac76e35-4236-4bc3-b933-e295c1f5bfd7'
+-
+  _valid: false
+  _name: 'link-and-id'
+  _data:
+    name: 'About Us'
+    url: 'https://blog.thegrid.io'
+    id: '0ac76e35-4236-4bc3-b933-e295c1f5bfd7'
