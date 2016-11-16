@@ -18,8 +18,10 @@ properties:
     description: "External URL to link to"
     "$ref": "base.json#/definitions/url"
   item:
+    description: "Internal item to link to"
     "$ref": "base.json#/definitions/uuid"
   cta:
+    description: "The Grid Reserve CTA associated with the entry"
     "$ref": "base.json#/definitions/uuid"
   price:
     description: "A tagged price, in USD cents"
