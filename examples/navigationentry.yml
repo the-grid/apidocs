@@ -6,6 +6,18 @@
     url: 'https://blog.thegrid.io'
 -
   _valid: true
+  _name: 'external-link-mailto'
+  _data:
+    name: 'Contact us'
+    url: 'mailto:info@thegrid.io'
+-
+  _valid: true
+  _name: 'external-link-tel'
+  _data:
+    name: 'Call us'
+    url: 'tel:+15551234565'
+-
+  _valid: true
   _name: 'internal-link'
   _data:
     name: 'About Us'
@@ -38,3 +50,9 @@
   _data:
     name: 'About Us'
     url: 'LINK HERE'
+-
+  _valid: false
+  _name: 'invalid-item'
+  _data:
+    name: 'About Us'
+    id: 'LINK HERE'
