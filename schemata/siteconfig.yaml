@@ -9,10 +9,10 @@ properties:
     type: string
     description: Website name
   title:
-    type: string
+    type: [string, "null"]
     description: Website title
   description:
-    type: string
+    type: [string, "null"]
     description: Website tagline
   style:
     type: string
@@ -21,14 +21,16 @@ properties:
     default: 'the-composer'
   favicon:
     description: Favicon URL
-    "$ref": "base.json#/definitions/url"
+    oneOf:
+    - { type: 'null' }
+    - { "$ref": "base.json#/definitions/url" }
   logo:
     description: SVG logo URL
-    "$ref": "base.json#/definitions/url"
+    oneOf:
+    - { type: 'null' }
+    - { "$ref": "base.json#/definitions/url" }
   cta:
     type: object
-    required:
-    - version
     properties:
       domain:
         name: domain
@@ -80,14 +82,14 @@ properties:
       image:
         name: image
         description: Default image to use when sharing the website
-        type: string
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/url" }
       type:
-        name: type
+        type: [string, "null"]
         description: Type of the website
-        type: string
       appId:
-        name: appId
-        type: string
+        type: [string, "null"]
         description: Facebook App ID associated with the site
   content_rating:
     type: object
@@ -146,7 +148,7 @@ properties:
     minimum: 0.0
     maximum: 1.0
   site_lang:
-    type: string
+    type: [string, "null"]
     description: Primary site content langauge; ISO 693-1 format
     example: ar
     default: en
