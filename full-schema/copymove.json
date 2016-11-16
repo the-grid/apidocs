@@ -9,7 +9,8 @@
   "properties": {
     "site": {
       "type": "string",
-      "example": "the-domains/the-grid"
+      "example": "the-domains/the-grid",
+      "pattern": "^[a-z0-9-_\\.]+/[a-z0-9-_\\.]+$"
     },
     "publish": {
       "description": "Whether to publish immediately",

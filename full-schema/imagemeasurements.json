@@ -9,39 +9,43 @@
       "type": "array",
       "items": {
         "description": "Bounding box of a detected face",
-        "allOf": {
-          "type": "object",
-          "properties": {
-            "x": {
-              "name": "x",
-              "type": "number",
-              "description": "Cartesian coordinate along x-axis",
-              "example": 608.1907
-            },
-            "y": {
-              "name": "y",
-              "type": "number",
-              "description": "Cartesian coordinate along y-axis",
-              "example": 189.909
-            },
-            "width": {
-              "name": "width",
-              "type": "number",
-              "description": "Width",
-              "example": 229.2087
-            },
-            "height": {
-              "name": "height",
-              "type": "number",
-              "description": "Height",
-              "example": 229.2087
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "x": {
+                "name": "x",
+                "type": "number",
+                "description": "Cartesian coordinate along x-axis",
+                "example": 608.1907
+              },
+              "y": {
+                "name": "y",
+                "type": "number",
+                "description": "Cartesian coordinate along y-axis",
+                "example": 189.909
+              },
+              "width": {
+                "name": "width",
+                "type": "number",
+                "description": "Width",
+                "example": 229.2087
+              },
+              "height": {
+                "name": "height",
+                "type": "number",
+                "description": "Height",
+                "example": 229.2087
+              }
             }
           }
-        },
+        ],
         "properties": {
-          "description": "How much an extracted feature should be considered as a true positive",
-          "type": "number",
-          "example": 5.08
+          "confidence": {
+            "description": "How much an extracted feature should be considered as a true positive",
+            "type": "number",
+            "example": 5.08
+          }
         }
       }
     },
@@ -261,17 +265,37 @@
           "example": 108.079
         },
         "bounding_rect": {
-          "$ref": "base.json#/definitions/arrayrectangle (warning: to be deprecated by `regions` bbox)",
-          "description": "Rectangle around the salient region",
-          "example": [
-            [
-              329,
-              238
-            ],
-            [
-              539,
-              372
-            ]
+          "description": "Coordinates of a 2D rectangle shape (warning: to be deprecated by `bbox`)",
+          "type": "array",
+          "items": [
+            {
+              "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+              "type": "array",
+              "items": [
+                {
+                  "type": "number",
+                  "description": "Value on x-axis"
+                },
+                {
+                  "type": "number",
+                  "description": "Value on y-axis"
+                }
+              ]
+            },
+            {
+              "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+              "type": "array",
+              "items": [
+                {
+                  "type": "number",
+                  "description": "Value on x-axis"
+                },
+                {
+                  "type": "number",
+                  "description": "Value on y-axis"
+                }
+              ]
+            }
           ]
         }
       }

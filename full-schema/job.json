@@ -15,7 +15,11 @@
     "type": {
       "type": "string",
       "description": "The specific type of job",
-      "example": "share"
+      "example": "share",
+      "enum": [
+        "share",
+        "publish"
+      ]
     },
     "source": {
       "type": "string",
@@ -36,9 +40,16 @@
       "format": "date-time"
     },
     "finished_at": {
-      "type": "string",
       "description": "Time the job was finished (failed or completed).",
-      "format": "date-time"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
     },
     "item": {
       "description": "Unique identifier",
@@ -53,7 +64,6 @@
     }
   },
   "required": [
-    "id",
     "type",
     "tasks"
   ]

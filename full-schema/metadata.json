@@ -15,7 +15,15 @@
     },
     "isBasedOnUrl": {
       "name": "isBasedOnUrl",
-      "type": "string",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
       "description": "Source URL for the item or block",
       "example": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
     },
@@ -34,7 +42,15 @@
     },
     "starred": {
       "type": "boolean",
+      "description": "Indicates if an item should be shown on feed or not",
       "example": false
+    },
+    "emphasis": {
+      "type": "number",
+      "description": "How much emphasis an item has in some context. For example, we can say if an image has low emphasis (thumbnail, icon) or high emphasis level (a.k.a. \"Please, show this image bigger\"). Helps to reproduce a client - designer feedback cycle: show the client a layout and he can say if designer should increase emphasis or decrease it. That is why emphasis can be a negative value, in a range from -1.0 to 1.0.",
+      "example": -1,
+      "minimum": -1,
+      "maximum": 1
     },
     "keywords": {
       "name": "keywords",
@@ -63,18 +79,21 @@
         "domain": {
           "name": "domain",
           "type": "string",
+          "format": "hostname",
           "description": "The publisher's domain name",
           "example": "www.fastcompany.com"
         },
         "url": {
           "name": "url",
           "type": "string",
+          "format": "uri",
           "description": "URL of the publisher's main page",
           "example": "http://www.fastcompany.com/"
         },
         "favicon": {
           "name": "favicon",
           "type": "string",
+          "format": "uri",
           "description": "URL of the publisher's favicon",
           "example": "http://www.fastcompany.com/favicon.ico"
         }
@@ -96,17 +115,20 @@
           "name": "domain",
           "type": "string",
           "description": "The publisher's domain name",
-          "example": "bergie.today"
+          "example": "bergie.today",
+          "format": "hostname"
         },
         "url": {
           "name": "url",
           "type": "string",
+          "format": "uri",
           "description": "Permalink URL the item was on or URL of the publisher's main page",
           "example": "https://bergie.today/"
         },
         "favicon": {
           "name": "favicon",
           "type": "string",
+          "format": "uri",
           "description": "URL of the publisher's favicon",
           "example": "https://bergie.today/favicon.ico"
         }
@@ -127,7 +149,7 @@
           },
           "url": {
             "description": "Unique Resource Locator",
-            "format": "url",
+            "format": "uri",
             "example": "http://thegrid.io",
             "type": "string"
           },
@@ -199,10 +221,32 @@
       "example": "4242 Blue Street, San Francisco, CA"
     },
     "hasMap": {
-      "name": "hasMap",
-      "type": "url",
-      "description": "Map URL"
+      "description": "Unique Resource Locator",
+      "format": "uri",
+      "example": "http://thegrid.io",
+      "type": "string"
     },
-    "additionalProperties": true
-  }
+    "dateCreated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "dateModified": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "datePublished": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
 }

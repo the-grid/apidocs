@@ -7,10 +7,13 @@
     "object"
   ],
   "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
     "site": {
-      "type": "string",
       "description": "Site this page belongs to",
-      "example": "the-domains/the-grid"
+      "example": "the-domains/the-grid",
+      "$ref": "base.json#/definitions/site"
     },
     "path": {
       "type": "string",
@@ -28,7 +31,7 @@
     "items": {
       "description": "Content items in the page",
       "type": "array",
-      "minItems": 0,
+      "minItems": 1,
       "uniqueItems": true,
       "items": {
         "$ref": "item.json"
@@ -36,6 +39,17 @@
     },
     "config": {
       "$ref": "siteconfig.json"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "null"
+        }
+      ]
     }
   },
   "required": [

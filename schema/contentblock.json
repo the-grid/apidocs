@@ -41,9 +41,14 @@
     "src": {
       "description": "Source URL",
       "example": "http://techcrunch.com/2015/04/15/mozilla-restructure/",
-      "type": [
-        "string",
-        "null"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
       ]
     }
   },
@@ -70,27 +75,40 @@
       "$ref": "metadata.json"
     },
     "created_at": {
-      "type": "number"
+      "type": "string",
+      "format": "date-time"
     },
     "updated_at": {
-      "type": [
-        "number",
-        "null"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
       ]
-    },
-    "anyOf": [
-      "headline",
-      "text",
-      "cta",
-      "media",
-      "list"
-    ]
+    }
   },
+  "anyOf": [
+    {
+      "$ref": "headline.json"
+    },
+    {
+      "$ref": "text.json"
+    },
+    {
+      "$ref": "cta.json"
+    },
+    {
+      "$ref": "media.json"
+    },
+    {
+      "$ref": "list.json"
+    }
+  ],
   "required": [
-    "id",
-    "item",
     "type",
-    "html",
-    "src"
+    "html"
   ]
 }

@@ -14,14 +14,24 @@
     },
     "repo": {
       "type": "string",
-      "description": "GitHub repository path for website sources"
+      "description": "GitHub repository path for website sources",
+      "$ref": "base.json#/definitions/site"
     },
     "domain": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "hostname",
+      "example": "blog.thegrid.io",
       "description": "Custom domain for the website, if any"
     },
     "path": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": "/news",
       "description": "Subdirectory path for the website, if any"
     },
     "config": {
@@ -31,14 +41,39 @@
       "$ref": "base.json#/definitions/uuid"
     },
     "favlogo": {
+      "description": "URL of the website favlogo",
+      "$ref": "base.json#/definitions/url"
+    },
+    "created_at": {
       "type": "string",
-      "description": "URL of the website favlogo"
+      "format": "date-time"
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
     }
   },
   "required": [
-    "id",
     "name",
-    "repo",
-    "owner"
+    "repo"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "domain"
+      ]
+    },
+    {
+      "required": [
+        "path"
+      ]
+    }
   ]
 }

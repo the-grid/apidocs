@@ -21,15 +21,15 @@
       "type": "string",
       "description": "Layout filter selected for the site",
       "example": "taylor",
-      "default": "taylor"
+      "default": "the-composer"
     },
     "favicon": {
-      "type": "string",
-      "description": "Favicon URL"
+      "description": "Favicon URL",
+      "$ref": "base.json#/definitions/url"
     },
     "logo": {
-      "type": "string",
-      "description": "SVG logo URL"
+      "description": "SVG logo URL",
+      "$ref": "base.json#/definitions/url"
     },
     "cta": {
       "type": "object",
@@ -79,8 +79,8 @@
       "type": "object",
       "properties": {
         "server": {
-          "type": "string",
-          "description": "URL to the imgflo.org server"
+          "description": "URL to the imgflo.org server",
+          "$ref": "base.json#/definitions/url"
         },
         "key": {
           "type": "string",
@@ -89,13 +89,13 @@
         "secret": {
           "type": "string",
           "description": "imgflo API secret"
-        },
-        "required": [
-          "server",
-          "key",
-          "secret"
-        ]
-      }
+        }
+      },
+      "required": [
+        "server",
+        "key",
+        "secret"
+      ]
     },
     "opengraph": {
       "type": "object",
@@ -180,14 +180,14 @@
     },
     "layout_spectrum": {
       "type": "number",
-      "description": "",
+      "description": "Site layout spectrum",
       "default": 0.5,
       "minimum": 0,
       "maximum": 1
     },
     "typography_spectrum": {
       "type": "number",
-      "description": "",
+      "description": "Site typography spectrum",
       "default": 0.5,
       "minimum": 0,
       "maximum": 1
@@ -205,10 +205,12 @@
           "type": "string"
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "$ref": "base.json#/definitions/email"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "$ref": "base.json#/definitions/url"
         }
       }
     },
@@ -216,50 +218,20 @@
       "type": "array",
       "description": "External links to include in site navigation",
       "default": [],
+      "minItems": 0,
+      "uniqueItems": true,
       "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Name to show",
-            "type": "string"
-          },
-          "url": {
-            "description": "URL to link to",
-            "type": "string"
-          },
-          "id": {
-            "$ref": "base.json#/definitions/uuid"
-          },
-          "rel": {
-            "description": "HTML link relation",
-            "type": "string"
-          }
-        }
+        "$ref": "navigationentry.json"
       }
     },
     "profiles": {
       "type": "array",
       "description": "Social media profile links associated with the site",
       "default": [],
+      "minItems": 0,
+      "uniqueItems": true,
       "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Name to show",
-            "type": "string"
-          },
-          "url": {
-            "description": "URL to link to",
-            "type": "string"
-          },
-          "id": {
-            "$ref": "base.json#/definitions/uuid"
-          },
-          "rel": {
-            "description": "HTML link relation",
-            "type": "string"
-          }
-        }
+        "$ref": "navigationentry.json"
       }
     },
     "auto_approve": {

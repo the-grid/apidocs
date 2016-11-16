@@ -18,7 +18,9 @@
       "type": "string"
     },
     "url": {
-      "description": "External URL to link to",
+      "description": "Unique Resource Locator",
+      "format": "uri",
+      "example": "http://thegrid.io",
       "type": "string"
     },
     "item": {
@@ -42,6 +44,25 @@
     }
   },
   "required": [
-    "type"
+    "type",
+    "label"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "url"
+      ]
+    },
+    {
+      "required": [
+        "item"
+      ]
+    },
+    {
+      "required": [
+        "cta",
+        "price"
+      ]
+    }
   ]
 }

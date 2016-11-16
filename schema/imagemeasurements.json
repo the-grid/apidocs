@@ -9,11 +9,16 @@
       "type": "array",
       "items": {
         "description": "Bounding box of a detected face",
-        "allOf": {
-          "$ref": "base.json#/definitions/bbox"
-        },
+        "allOf": [
+          {
+            "$ref": "base.json#/definitions/bbox"
+          }
+        ],
         "properties": {
-          "$ref": "base.json#/definitions/confidence"
+          "confidence": {
+            "name": "confidence",
+            "$ref": "base.json#/definitions/confidence"
+          }
         }
       }
     },
@@ -185,7 +190,7 @@
           "example": 108.079
         },
         "bounding_rect": {
-          "$ref": "base.json#/definitions/arrayrectangle (warning: to be deprecated by `regions` bbox)",
+          "$ref": "base.json#/definitions/arrayrectangle",
           "description": "Rectangle around the salient region",
           "example": [
             [

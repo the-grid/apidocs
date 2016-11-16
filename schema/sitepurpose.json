@@ -19,12 +19,14 @@
     },
     "url": {
       "description": "External URL to link to",
-      "type": "string"
+      "$ref": "base.json#/definitions/url"
     },
     "item": {
+      "description": "Internal item to link to",
       "$ref": "base.json#/definitions/uuid"
     },
     "cta": {
+      "description": "The Grid Reserve CTA associated with the entry",
       "$ref": "base.json#/definitions/uuid"
     },
     "price": {
@@ -34,6 +36,25 @@
     }
   },
   "required": [
-    "type"
+    "type",
+    "label"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "url"
+      ]
+    },
+    {
+      "required": [
+        "item"
+      ]
+    },
+    {
+      "required": [
+        "cta",
+        "price"
+      ]
+    }
   ]
 }
