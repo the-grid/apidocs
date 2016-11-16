@@ -52,3 +52,6 @@ properties:
         example: Bergie Today
     required: [url]
 required: [url]
+dependencies:
+  publish: [site]
+  block: [item]
