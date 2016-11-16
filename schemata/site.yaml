@@ -36,4 +36,9 @@ properties:
   updated_at:
     type: [string, "null"]
     format: 'date-time'
-required: [id, name, repo, owner]
+required: [name, repo]
+oneOf: [
+  required: [domain]
+,
+  required: [path]
+]
