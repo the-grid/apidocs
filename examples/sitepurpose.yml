@@ -55,3 +55,15 @@
   _data:
     type: 'video'
     label: 'Watch the Video'
+-
+  _valid: false
+  _name: 'no-type'
+  _data:
+    label: 'Watch the Video'
+    item: '58864068-f46f-487a-8820-67b81f0d77d3'
+-
+  _valid: false
+  _name: 'no-label'
+  _data:
+    type: 'video'
+    item: '58864068-f46f-487a-8820-67b81f0d77d3'
