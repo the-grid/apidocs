@@ -40,17 +40,6 @@
     length: 7
 -
   _valid: false
-  _name: "cta-without-id"
-  _data:
-    type: "cta"
-    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
-    verb: "purchase"
-    price: "96"
-    html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    label: "Buy now"
-    length: 7
--
-  _valid: false
   _name: "cta-without-type"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"

@@ -22,4 +22,4 @@ properties:
     example: 18
     type: integer
 
-required: [id, type, html]
+required: [type, html]

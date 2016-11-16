@@ -15,12 +15,6 @@
     items: 2
 -
   _valid: false
-  _name: "list-without-id"
-  _data:
-    type: "list"
-    html: "<ul><li>Foo</li><li>Bar</li></ul>"
--
-  _valid: false
   _name: "list-without-type"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
