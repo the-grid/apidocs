@@ -5,9 +5,10 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     sites:
       - "the-domains/the-grid"
-    score: 8.0
+    score: 8
     metadata:
       inLanguage: en
+      dateCreated: '2014-05-08T13:22:59.000Z'
     content:
       - 
         id: "bdcc6765-114a-4184-977d-b01d3132ef69"
@@ -15,6 +16,30 @@
         type: "image"
         src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
         html: "<img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\">"
+    created_at: '2014-05-08T13:22:59.000Z'
+    updated_at: null
+-
+  _valid: true
+  _name: "valid-listing-item"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    sites:
+      - "the-domains/the-grid"
+    score: 8
+    metadata:
+      inLanguage: en
+      dateCreated: '2014-05-08T13:22:59.000Z'
+    starred:
+      -
+        id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+        item: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+        metadata:
+          starred: true
+        type: "image"
+        src: "https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"
+        html: "<img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\">"
+    created_at: '2014-05-08T13:22:59.000Z'
+    updated_at: null
 -
   _valid: true
   _name: "valid-minimal-item"
