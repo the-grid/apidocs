@@ -16,9 +16,12 @@ properties:
     "$ref": "base.json#/definitions/site"
   domain:
     type: [string, "null"]
+    format: hostname
+    example: 'blog.thegrid.io'
     description: Custom domain for the website, if any
   path:
     type: [string, "null"]
+    example: '/news'
     description: Subdirectory path for the website, if any
   config:
     "$ref": "siteconfig.json"

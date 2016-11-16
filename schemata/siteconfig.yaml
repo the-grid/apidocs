@@ -18,13 +18,13 @@ properties:
     type: string
     description: Layout filter selected for the site
     example: taylor
-    default: taylor
+    default: the-composer
   favicon:
-    type: string
     description: Favicon URL
+    "$ref": "base.json#/definitions/url"
   logo:
-    type: string
     description: SVG logo URL
+    "$ref": "base.json#/definitions/url"
   cta:
     type: object
     required:
@@ -62,8 +62,8 @@ properties:
     type: object
     properties:
       server:
-        type: string
         description: 'URL to the imgflo.org server'
+        "$ref": "base.json#/definitions/url"
       key:
         type: string
         description: 'imgflo API key'
@@ -135,13 +135,13 @@ properties:
         maximum: 1.0
   layout_spectrum:
     type: number
-    description: ""
+    description: "Site layout spectrum"
     default: 0.5
     minimum: 0.0
     maximum: 1.0
   typography_spectrum:
     type: number
-    description: ""
+    description: "Site typography spectrum"
     default: 0.5
     minimum: 0.0
     maximum: 1.0
@@ -157,8 +157,10 @@ properties:
         type: string
       email:
         type: string
+        "$ref": "base.json#/definitions/email"
       url:
         type: string
+        "$ref": "base.json#/definitions/url"
   navigation:
     type: array
     description: "External links to include in site navigation"

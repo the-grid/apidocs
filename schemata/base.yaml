@@ -11,8 +11,18 @@ definitions:
     type: string
   url:
     description: Unique Resource Locator
-    format: url
+    format: uri
     example: http://thegrid.io
+    type: string
+  email:
+    description: Email address
+    format: email
+    example: 'info@thegrid.io'
+    type: string
+  hostname:
+    description: Hostname
+    format: hostname
+    example: 'blog.thegrid.io'
     type: string
   hexcolor:
     description: "#RGB color"
