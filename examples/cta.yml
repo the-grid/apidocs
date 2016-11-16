@@ -4,7 +4,7 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
@@ -14,42 +14,51 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "follow"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="follow">Follow</button>'
+-
+  _valid: true
+  _name: "valid-external-cta"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "cta"
+    verb: "purchase"
+    html: '<a href="http://example.net/checkout" data-role="cta" data-verb="purchase">Buy now</button>'
+    url: 'http://example.net/checkout'
 -
   _valid: true
   _name: "valid-cta-with-measurements"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Buy now"
+    label: "Buy now"
     length: 7
 -
   _valid: false
   _name: "cta-without-id"
   _data:
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Buy now"
+    label: "Buy now"
     length: 7
 -
   _valid: false
   _name: "cta-without-type"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Buy now"
+    label: "Buy now"
     length: 7
 -
   _valid: false
@@ -59,34 +68,34 @@
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Buy now"
+    label: "Buy now"
     length: 7
 -
   _valid: false
   _name: "cta-without-verb"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Buy now"
+    label: "Buy now"
     length: 7
 -
   _valid: false
   _name: "cta-without-price"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Buy now"
+    label: "Buy now"
     length: 7
 -
   _valid: false
   _name: "cta-without-html"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
 -
@@ -95,7 +104,7 @@
   _data:
     id: "bdcc6765-114a-4184b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
@@ -105,7 +114,7 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "foobar"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
@@ -115,7 +124,7 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-08002"
+    cta: "71bfc2e0-4a96-11e4-916c-08002"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
@@ -125,7 +134,7 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: 42
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
@@ -135,7 +144,7 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: 96
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
@@ -145,7 +154,7 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: 31337
@@ -155,20 +164,20 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: 42
+    label: 42
 -
   _valid: false
   _name: "cta-with-invalid-text-length"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "cta"
-    uuid: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
+    cta: "71bfc2e0-4a96-11e4-916c-0800200c9a66"
     verb: "purchase"
     price: "96"
     html: '<button data-uuid="71bfc2e0-4a96-11e4-916c-0800200c9a66" data-role="cta" data-verb="purchase" data-price="96">Buy now</button>'
-    text: "Foo bar"
+    label: "Foo bar"
     length: "7"

@@ -11,19 +11,23 @@ properties:
     "$ref": "base.json#/definitions/uuid"
   type:
     "$ref": "contentblock.json#/definitions/type"
-  uuid:
-    "$ref": "base.json#/definitions/uuid"
   html:
     "$ref": "contentblock.json#/definitions/html"
   verb:
     description: "A verb that defines the action"
     example: "purchase"
     type: string
+  url:
+    description: "URL for external CTAs"
+    "$ref": "base.json#/definitions/url"
+  cta:
+    description: "The Grid Reserve CTA associated with the entry"
+    "$ref": "base.json#/definitions/uuid"
   price:
     description: "A tagged price, in USD cents"
     example: "9600"
     type: string
-  text:
+  label:
     description: "Extracted text from the HTML"
     example: "Buy now"
     type: string
@@ -32,4 +36,7 @@ properties:
     example: 7
     type: integer
 
-required: [id, type, uuid, verb, html]
+required: [id, type, html]
+oneOf:
+  - { required: [url] }
+  - { required: [cta] }
