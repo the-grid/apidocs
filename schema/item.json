@@ -21,6 +21,15 @@
     "metadata": {
       "$ref": "metadata.json"
     },
+    "starred": {
+      "description": "Starred content blocks of the item in items listing",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "contentblock.json"
+      }
+    },
     "content": {
       "description": "Content blocks of the item",
       "type": "array",
@@ -46,7 +55,16 @@
       ]
     }
   },
-  "required": [
-    "content"
+  "oneOf": [
+    {
+      "required": [
+        "content"
+      ]
+    },
+    {
+      "required": [
+        "starred"
+      ]
+    }
   ]
 }

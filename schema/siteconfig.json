@@ -10,11 +10,17 @@
       "description": "Website name"
     },
     "title": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Website title"
     },
     "description": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Website tagline"
     },
     "style": {
@@ -25,17 +31,28 @@
     },
     "favicon": {
       "description": "Favicon URL",
-      "$ref": "base.json#/definitions/url"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "base.json#/definitions/url"
+        }
+      ]
     },
     "logo": {
       "description": "SVG logo URL",
-      "$ref": "base.json#/definitions/url"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "base.json#/definitions/url"
+        }
+      ]
     },
     "cta": {
       "type": "object",
-      "required": [
-        "version"
-      ],
       "properties": {
         "domain": {
           "name": "domain",
@@ -107,16 +124,27 @@
         "image": {
           "name": "image",
           "description": "Default image to use when sharing the website",
-          "type": "string"
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "base.json#/definitions/url"
+            }
+          ]
         },
         "type": {
-          "name": "type",
-          "description": "Type of the website",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Type of the website"
         },
         "appId": {
-          "name": "appId",
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "Facebook App ID associated with the site"
         }
       }
@@ -193,7 +221,10 @@
       "maximum": 1
     },
     "site_lang": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Primary site content langauge; ISO 693-1 format",
       "example": "ar",
       "default": "en"
@@ -267,6 +298,7 @@
       "description": "Site purposes",
       "type": "array",
       "minItems": 0,
+      "maxItems": 2,
       "uniqueItems": true,
       "items": {
         "$ref": "sitepurpose.json"

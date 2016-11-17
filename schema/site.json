@@ -40,6 +40,10 @@
     "owner": {
       "$ref": "base.json#/definitions/uuid"
     },
+    "url": {
+      "description": "Full site URL based on domain and path",
+      "$ref": "base.json#/definitions/url"
+    },
     "favlogo": {
       "description": "URL of the website favlogo",
       "$ref": "base.json#/definitions/url"
@@ -64,7 +68,7 @@
     "name",
     "repo"
   ],
-  "oneOf": [
+  "anyOf": [
     {
       "required": [
         "domain"

@@ -72,5 +72,13 @@
   },
   "required": [
     "url"
-  ]
+  ],
+  "dependencies": {
+    "publish": [
+      "site"
+    ],
+    "block": [
+      "item"
+    ]
+  }
 }

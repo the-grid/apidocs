@@ -43,10 +43,26 @@ Performing such an action returns a Location header with a Job URL.</p>
   </span>}
 ]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="site-management" class="resource-group"><h2 class="group-heading">Site Management <a href="#site-management" class="permalink">&para;</a></h2><div id="site-management-site-information" class="resource"><h3 class="resource-heading">Site information <a href="#site-management-site-information" class="permalink">&nbsp;&para;</a></h3><div id="site-management-site-information-get" class="action get"><h4 class="action-heading"><div class="name">List user websites</div><a href="#site-management-site-information-get" class="method get">GET</a><code class="uri">/site</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
   {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"059c8aa5-5fac-4bb7-b160-48689bc12a7c"</span></span>,
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
     "<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
     "<span class="hljs-attribute">domain</span>": <span class="hljs-value"><span class="hljs-string">"thegrid.io"</span></span>,
-    "<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span>
+    "<span class="hljs-attribute">path</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://thegrid.io"</span></span>,
+    "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"GSS site"</span></span>,
+      "<span class="hljs-attribute">color</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">brandColors</span>": <span class="hljs-value">[
+          <span class="hljs-string">"#FFFC4F"</span>,
+          <span class="hljs-string">"#3AFFD6"</span>
+        ]</span>,
+        "<span class="hljs-attribute">brandStrength</span>": <span class="hljs-value"><span class="hljs-number">0.9</span>
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span></span>,
+    "<span class="hljs-attribute">collaborators</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-05-08T13:22:59.000Z"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
   </span>}
 ]</code></pre><div style="height: 1px;"></div></div></div></div><div id="site-management-site-information-post" class="action post"><h4 class="action-heading"><div class="name">Create a website</div><a href="#site-management-site-information-post" class="method post">POST</a><code class="uri">/site</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>Note:</strong> the repository must be in <code>the-domains</code> organization. The repository name can later be used for sharing content to the newly-created site.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -58,10 +74,10 @@ Performing such an action returns a Location header with a Job URL.</p>
 </div></div></div></div></div><div id="site-management-user-website" class="resource"><h3 class="resource-heading">User website <a href="#site-management-user-website" class="permalink">&nbsp;&para;</a></h3><div id="site-management-user-website-get" class="action get"><h4 class="action-heading"><div class="name">Get website details</div><a href="#site-management-user-website-get" class="method get">GET</a><code class="uri">/site/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{}</code></pre><div style="height: 1px;"></div></div></div></div><div id="site-management-user-website-put" class="action put"><h4 class="action-heading"><div class="name">Update website details</div><a href="#site-management-user-website-put" class="method put">PUT</a><code class="uri">/site/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"059c8aa5-5fac-4bb7-b160-48689bc12a7c"</span></span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"The Grid"</span></span>,
   "<span class="hljs-attribute">repo</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
   "<span class="hljs-attribute">domain</span>": <span class="hljs-value"><span class="hljs-string">"thegrid.io"</span></span>,
+  "<span class="hljs-attribute">path</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
   "<span class="hljs-attribute">config</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"GSS site"</span></span>,
     "<span class="hljs-attribute">color</span>": <span class="hljs-value">{
@@ -71,8 +87,7 @@ Performing such an action returns a Location header with a Job URL.</p>
       ]</span>,
       "<span class="hljs-attribute">brandStrength</span>": <span class="hljs-value"><span class="hljs-number">0.9</span>
     </span>}
-  </span>}</span>,
-  "<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-string">"0d1fbca0-ee3c-4157-9881-b03db3e462b9"</span>
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{}</code></pre><div style="height: 1px;"></div></div></div></div><div id="site-management-user-website-delete" class="action delete"><h4 class="action-heading"><div class="name">Delete website</div><a href="#site-management-user-website-delete" class="method delete">DELETE</a><code class="uri">/site/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong></div></div></div><div id="site-management-site-dns-status" class="resource"><h3 class="resource-heading">Site DNS status <a href="#site-management-site-dns-status" class="permalink">&nbsp;&para;</a></h3><div id="site-management-site-dns-status-post" class="action post"><h4 class="action-heading"><div class="name">Check website DNS status</div><a href="#site-management-site-dns-status-post" class="method post">POST</a><code class="uri">/site/{id}/dns</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/site/<span class="hljs-attribute" title="id">id</span>/dns</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Site UUID</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -167,7 +182,15 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
   </span>}</span>,
   "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
     <span class="hljs-string">"url"</span>
-  ]
+  ]</span>,
+  "<span class="hljs-attribute">dependencies</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">publish</span>": <span class="hljs-value">[
+      <span class="hljs-string">"site"</span>
+    ]</span>,
+    "<span class="hljs-attribute">block</span>": <span class="hljs-value">[
+      <span class="hljs-string">"item"</span>
+    ]
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Sharing was successful and will be processed.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/job/b8838e11-1d97-4799-85d8-1aafec52e927</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing required parameters</p>
 </div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Not allowed to share to the specified website</p>
@@ -190,9 +213,56 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
 </dd><dt>blocktype</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Only items containing at least one block of given type</p>
 </dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div><div id="content-management-items-list-post" class="action post"><h4 class="action-heading"><div class="name">Create an item</div><a href="#content-management-items-list-post" class="method post">POST</a><code class="uri">/item</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/item/b8838e11-1d97-4799-85d8-1aafec52e927</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing item information</p>
-</div></div></div></div></div><div id="content-management-item" class="resource"><h3 class="resource-heading">Item <a href="#content-management-item" class="permalink">&nbsp;&para;</a></h3><div id="content-management-item-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve an item</div><a href="#content-management-item-get" class="method get">GET</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Item UUID</p>
+</div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span></span>,
+    "<span class="hljs-attribute">sites</span>": <span class="hljs-value">[
+      <span class="hljs-string">"the-domains/the-grid"</span>
+    ]</span>,
+    "<span class="hljs-attribute">score</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+    "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">inLanguage</span>": <span class="hljs-value"><span class="hljs-string">"en"</span></span>,
+      "<span class="hljs-attribute">dateCreated</span>": <span class="hljs-value"><span class="hljs-string">"2014-05-08T13:22:59.000Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">starred</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span></span>,
+        "<span class="hljs-attribute">item</span>": <span class="hljs-value"><span class="hljs-string">"b04d3a7f-689f-4bc5-a7c6-304b39f271f3"</span></span>,
+        "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">starred</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"image"</span></span>,
+        "<span class="hljs-attribute">src</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"</span></span>,
+        "<span class="hljs-attribute">html</span>": <span class="hljs-value"><span class="hljs-string">"&lt;img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\"&gt;"</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-05-08T13:22:59.000Z"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="content-management-item" class="resource"><h3 class="resource-heading">Item <a href="#content-management-item" class="permalink">&nbsp;&para;</a></h3><div id="content-management-item-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve an item</div><a href="#content-management-item-get" class="method get">GET</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Item UUID</p>
 </dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
-</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong></div></div><div id="content-management-item-put" class="action put"><h4 class="action-heading"><div class="name">Update item</div><a href="#content-management-item-put" class="method put">PUT</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Item UUID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span></span>,
+  "<span class="hljs-attribute">sites</span>": <span class="hljs-value">[
+    <span class="hljs-string">"the-domains/the-grid"</span>
+  ]</span>,
+  "<span class="hljs-attribute">score</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+  "<span class="hljs-attribute">metadata</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">inLanguage</span>": <span class="hljs-value"><span class="hljs-string">"en"</span></span>,
+    "<span class="hljs-attribute">dateCreated</span>": <span class="hljs-value"><span class="hljs-string">"2014-05-08T13:22:59.000Z"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">content</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"bdcc6765-114a-4184-977d-b01d3132ef69"</span></span>,
+      "<span class="hljs-attribute">item</span>": <span class="hljs-value"><span class="hljs-string">"b04d3a7f-689f-4bc5-a7c6-304b39f271f3"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"image"</span></span>,
+      "<span class="hljs-attribute">src</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png"</span></span>,
+      "<span class="hljs-attribute">html</span>": <span class="hljs-value"><span class="hljs-string">"&lt;img src=\"https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/team/Dan.png\" title=\"Dan Tocchini\" alt=\"Creator of GSS (Grid Style Sheets) and Partner of D4 Interactive Agency. Producing interactive works for Audi, Microsoft and more.\"&gt;"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-05-08T13:22:59.000Z"</span></span>,
+  "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong></div></div><div id="content-management-item-put" class="action put"><h4 class="action-heading"><div class="name">Update item</div><a href="#content-management-item-put" class="method put">PUT</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Item UUID</p>
 </dd><dt>measurements</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Selectively get only certain measurements</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing item information</p>
 </div></div></div></div><div id="content-management-item-patch" class="action patch"><h4 class="action-heading"><div class="name">Update item metadata</div><a href="#content-management-item-patch" class="method patch">PATCH</a><code class="uri">/item/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method patch">PATCH</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/item/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Item UUID</p>
@@ -266,6 +336,16 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
           ]</span>,
           "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Source URL for the item or block"</span></span>,
           "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"title"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Textual title for the entry"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"description"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Textual title for the entry"</span>
         </span>}</span>,
         "<span class="hljs-attribute">permalinkUrl</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"permalinkUrl"</span></span>,
@@ -561,6 +641,16 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
           "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Source URL for the item or block"</span></span>,
           "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"</span>
         </span>}</span>,
+        "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"title"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Textual title for the entry"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"description"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Textual title for the entry"</span>
+        </span>}</span>,
         "<span class="hljs-attribute">permalinkUrl</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"permalinkUrl"</span></span>,
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
@@ -832,7 +922,7 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
   </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Item was successfully moved.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Location</span>: <span class="hljs-string">/item/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Missing item information</p>
-</div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 16 Nov 2016</p><script>/* eslint-env browser */
+</div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 17 Nov 2016</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
