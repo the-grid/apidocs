@@ -3,3 +3,41 @@
   _name: 'url-only'
   _data:
     url: "http://example.net/some-article"
+-
+  _valid: true
+  _name: 'url-and-content'
+  _data:
+    url: "http://example.net/some-article"
+    content: '<p>Hello world</p>'
+-
+  _valid: true
+  _name: 'url-publish'
+  _data:
+    url: "http://example.net/some-article"
+    site: 'the-domains/the-grid'
+    publish: true
+-
+  _valid: true
+  _name: 'target-item'
+  _data:
+    url: "http://example.net/some-article"
+    item: "bdcc6765-114a-4184-977d-b01d3132ef69"
+-
+  _valid: true
+  _name: 'target-item-block'
+  _data:
+    url: "http://example.net/some-article"
+    item: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    block: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+-
+  _valid: false
+  _name: 'url-publish-no-site'
+  _data:
+    url: "http://example.net/some-article"
+    publish: true
+-
+  _valid: false
+  _name: 'target-block-no-item'
+  _data:
+    url: "http://example.net/some-article"
+    block: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"

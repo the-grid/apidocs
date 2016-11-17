@@ -17,5 +17,4 @@ properties:
     type: integer
     example: 3
 
-required: [id, type, html]
-
+required: [type, html]

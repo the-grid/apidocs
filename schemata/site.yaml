@@ -27,6 +27,9 @@ properties:
     "$ref": "siteconfig.json"
   owner:
     "$ref": "base.json#/definitions/uuid"
+  url:
+    description: Full site URL based on domain and path
+    "$ref": "base.json#/definitions/url"
   favlogo:
     description: URL of the website favlogo
     "$ref": "base.json#/definitions/url"
@@ -39,6 +42,6 @@ properties:
     - { type: 'string', format: 'date-time' }
 
 required: [name, repo]
-oneOf:
+anyOf:
   - { required: [domain] }
   - { required: [path] }

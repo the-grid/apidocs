@@ -21,12 +21,30 @@
     name: "The Grid"
     repo: "the-domains/the-grid"
     domain: 'thegrid.io'
+    path: null
+    url: 'http://thegrid.io'
     config:
       name: 'GSS site'
       color:
           brandColors: [ "#FFFC4F", "#3AFFD6" ]
           brandStrength: 0.9
     owner: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+    collaborators: []
+    created_at: '2014-05-08T13:22:59.000Z'
+    updated_at: null
+-
+  _valid: true
+  _name: 'without-owner-with-config'
+  _data:
+    name: "The Grid"
+    repo: "the-domains/the-grid"
+    domain: 'thegrid.io'
+    path: null
+    config:
+      name: 'GSS site'
+      color:
+          brandColors: [ "#FFFC4F", "#3AFFD6" ]
+          brandStrength: 0.9
 -
   _valid: false
   _name: 'without-domain-path'

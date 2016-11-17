@@ -18,6 +18,14 @@ properties:
     - { type: 'string', format: 'uri' }
     description: Source URL for the item or block
     example: "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
+  title:
+    name: title
+    type: string
+    description: "Textual title for the entry"
+  description:
+    name: description
+    type: string
+    description: "Textual title for the entry"
   permalinkUrl:
     name: permalinkUrl
     type: string
