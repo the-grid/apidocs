@@ -22,6 +22,9 @@ definitions:
     items:
       "$ref": "base.json#/definitions/tuplecolor"
     minItens: 5
+  focalPoint:
+    "$ref": "base.json#/definitions/point"
+    description: "The focal point of the image defined by user on metadata.coverPrefs"
   textregions:
     description: "Extracted regions with textual data from an image. Such
       regions can be used as input for an OCR implementation to extract

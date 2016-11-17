@@ -42,6 +42,9 @@
       histogram:
         r: [0, 0, 0, 0, 0, 1]
       imgflosrc: "https://s3-us-west-2.amazonaws.com/the-grid-img/p/dbb4faece6806332d9875e0ba8096990758a321c.jpg"
+      focalPoint:
+        x: 1660
+        y: 2245
       scene:
         bbox:
           x: 945

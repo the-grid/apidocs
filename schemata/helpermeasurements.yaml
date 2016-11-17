@@ -7,15 +7,13 @@ definitions:
   scene:
     description: "Defines the most important region of an image. It is calculated
       based on other information like salient or text regions, faces and image
-      dimensions. The scene center point is treated as the focal point of the image
-      and defaults to scene's center"
+      dimensions."
     type: object
     properties:
       bbox:
         "$ref": "base.json#/definitions/bbox"
       center:
-        description: "Center point of the scene. It is absolute to image dimensions.
-        Defaults to scene's center"
+        description: "Center point of the scene. It is absolute to image dimensions"
         "$ref": "base.json#/definitions/point"
   lines:
     description: "This measurement/feature/heuristics takes inspiration from the
