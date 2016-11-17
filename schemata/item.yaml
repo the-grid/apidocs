@@ -38,6 +38,6 @@ properties:
     - { type: 'null' }
     - { type: 'string', format: 'date-time' }
 
-anyOf:
+oneOf:
   - { required: [content] }
   - { required: [starred] }
