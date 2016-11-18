@@ -46,7 +46,14 @@
     },
     "favlogo": {
       "description": "URL of the website favlogo",
-      "$ref": "base.json#/definitions/url"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "base.json#/definitions/url"
+        }
+      ]
     },
     "created_at": {
       "type": "string",
