@@ -44,7 +44,7 @@
       "type": "array",
       "description": "Collection of websites associated with the resource",
       "items": {
-        "type": "string"
+        "$ref": "#/definitions/site"
       },
       "uniqueItems": true,
       "example": [

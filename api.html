@@ -297,11 +297,20 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
       </span>}
     </span>}</span>,
+    "<span class="hljs-attribute">item</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Unique identifier"</span></span>,
+      "<span class="hljs-attribute">format</span>": <span class="hljs-value"><span class="hljs-string">"uuid"</span></span>,
+      "<span class="hljs-attribute">pattern</span>": <span class="hljs-value"><span class="hljs-string">"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"</span></span>,
+      "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"01234567-89ab-cdef-0123-456789abcdef"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
     "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Collection of websites associated with the resource"</span></span>,
       "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
-        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+        "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
+        "<span class="hljs-attribute">pattern</span>": <span class="hljs-value"><span class="hljs-string">"^[a-z0-9-_\\.]+/[a-z0-9-_\\.]+$"</span>
       </span>}</span>,
       "<span class="hljs-attribute">uniqueItems</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
       "<span class="hljs-attribute">example</span>": <span class="hljs-value">[
@@ -589,8 +598,17 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
       "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
     </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-    <span class="hljs-string">"items"</span>
+  "<span class="hljs-attribute">oneOf</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"items"</span>
+      ]
+    </span>},
+    {
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"item"</span>
+      ]
+    </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong></div></div></div><div id="content-management-unpublishing" class="resource"><h3 class="resource-heading">Unpublishing <a href="#content-management-unpublishing" class="permalink">&nbsp;&para;</a></h3><div id="content-management-unpublishing-post" class="action post"><h4 class="action-heading"><div class="name">Unpublish items from a site</div><a href="#content-management-unpublishing-post" class="method post">POST</a><code class="uri">/unpublish</code></h4><p>TODO: make return a Job id in Location header</p>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/unpublish</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -619,11 +637,20 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
       </span>}
     </span>}</span>,
+    "<span class="hljs-attribute">item</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Unique identifier"</span></span>,
+      "<span class="hljs-attribute">format</span>": <span class="hljs-value"><span class="hljs-string">"uuid"</span></span>,
+      "<span class="hljs-attribute">pattern</span>": <span class="hljs-value"><span class="hljs-string">"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"</span></span>,
+      "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"01234567-89ab-cdef-0123-456789abcdef"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
     "<span class="hljs-attribute">sites</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Collection of websites associated with the resource"</span></span>,
       "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
-        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+        "<span class="hljs-attribute">example</span>": <span class="hljs-value"><span class="hljs-string">"the-domains/the-grid"</span></span>,
+        "<span class="hljs-attribute">pattern</span>": <span class="hljs-value"><span class="hljs-string">"^[a-z0-9-_\\.]+/[a-z0-9-_\\.]+$"</span>
       </span>}</span>,
       "<span class="hljs-attribute">uniqueItems</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
       "<span class="hljs-attribute">example</span>": <span class="hljs-value">[
@@ -911,8 +938,17 @@ Sharing creates a Job, whos progress can be monitored using the /job API.</p>
       "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
     </span>}
   </span>}</span>,
-  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-    <span class="hljs-string">"items"</span>
+  "<span class="hljs-attribute">oneOf</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"items"</span>
+      ]
+    </span>},
+    {
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"item"</span>
+      ]
+    </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong></div></div></div><div id="content-management-copying" class="resource"><h3 class="resource-heading">Copying <a href="#content-management-copying" class="permalink">&nbsp;&para;</a></h3><div id="content-management-copying-post" class="action post"><h4 class="action-heading"><div class="name">Copy an item</div><a href="#content-management-copying-post" class="method post">POST</a><code class="uri">/copy/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.thegrid.io/</span>/copy/<span class="hljs-attribute" title="id">id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>Item UUID</p>
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Schema</h5><pre><code>{

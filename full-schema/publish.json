@@ -17,11 +17,20 @@
         "type": "string"
       }
     },
+    "item": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
     "sites": {
       "type": "array",
       "description": "Collection of websites associated with the resource",
       "items": {
-        "type": "string"
+        "type": "string",
+        "example": "the-domains/the-grid",
+        "pattern": "^[a-z0-9-_\\.]+/[a-z0-9-_\\.]+$"
       },
       "uniqueItems": true,
       "example": [
@@ -309,7 +318,16 @@
       "additionalProperties": true
     }
   },
-  "required": [
-    "items"
+  "oneOf": [
+    {
+      "required": [
+        "items"
+      ]
+    },
+    {
+      "required": [
+        "item"
+      ]
+    }
   ]
 }

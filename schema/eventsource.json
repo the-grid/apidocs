@@ -1,0 +1,15 @@
+{
+  "id": "eventsource.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "EventSource subscription",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "client": {
+      "description": "Client identifier",
+      "$ref": "base.json#/definitions/uuid"
+    }
+  }
+}

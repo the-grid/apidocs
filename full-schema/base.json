@@ -44,7 +44,9 @@
       "type": "array",
       "description": "Collection of websites associated with the resource",
       "items": {
-        "type": "string"
+        "type": "string",
+        "example": "the-domains/the-grid",
+        "pattern": "^[a-z0-9-_\\.]+/[a-z0-9-_\\.]+$"
       },
       "uniqueItems": true,
       "example": [
