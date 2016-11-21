@@ -112,6 +112,8 @@ properties:
         default: []
         items:
           "$ref": "base.json#/definitions/hexcolor"
+        minItems: 1
+        maxItems: 5
         description: "The user-selected brand colors for the site"
       brandStrength:
         type: number
