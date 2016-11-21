@@ -1,0 +1,42 @@
+-
+  _valid: true
+  _name: "valid-two-items"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    site: "the-domains/example.net"
+    published: true
+-
+  _valid: true
+  _name: "valid-minimal"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+-
+  _valid: false
+  _name: "invalid-duplicate-items"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+-
+  _valid: false
+  _name: "invalid-published"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    site: "the-domains/example.net"
+    published: "sure"
+-
+  _valid: false
+  _name: "invalid-site"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    site: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    published: false

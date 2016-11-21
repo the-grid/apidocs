@@ -160,7 +160,9 @@ Performing such an action returns a Location header with a Job URL.
 
   + Body 
 
-       { "valid": true }
+      ```
+      { "valid": true }
+      ```
 
 ## Website discovery [/site/discover{?url}]
 
@@ -449,6 +451,44 @@ TODO: make return a Job id in Location header
   + Headers
 
             Location: /item/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
++ Response 422
+
+  Missing item information
+
+  + Body
+
+## Reordering items [/reorder/item]
+
+### Reorder an items list [POST]
+
++ Request
+
+  + Body
+
+      ```
+      <!-- include(examples/reorderitems-valid-two-items.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(full-schema/reorderitems.json) -->
+      ```
+
++ Response 200
+
+  Items were successfully reordered.
+
+  + Body
+
+      ```
+      [
+        "bdcc6765-114a-4184-977d-b01d3132ef69",
+        "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+      ]
+      ```
+
 
 + Response 422
 
