@@ -37,8 +37,8 @@ definitions:
   sites:
     type: array
     description: Collection of websites associated with the resource
-    items: # FIXME, reference above site definition
-      type: string
+    items:
+      "$ref": "#/definitions/site"
     uniqueItems: true
     example:
     - "the-domains/the-grid"

@@ -10,8 +10,12 @@ properties:
     type: array
     items:
       "$ref": "base.json#/definitions/uuid"
+  item:
+    "$ref": "base.json#/definitions/uuid"
   sites:
     "$ref": "base.json#/definitions/sites"
   metadata:
     "$ref": "metadata.json"
-required: [items]
+oneOf:
+  - { required: [items] }
+  - { required: [item] }
