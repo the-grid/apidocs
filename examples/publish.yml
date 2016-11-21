@@ -13,8 +13,52 @@
     items:
     - "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
 -
+  _valid: true
+  _name: 'single-without-sites'
+  _data:
+    item: "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
+-
+  _valid: true
+  _name: 'single-with-sites'
+  _data:
+    item: "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
+    sites:
+    - "the-domains/example.net"
+-
   _valid: false
   _name: 'without-item'
   _data:
+    sites:
+    - "the-domains/example.net"
+-
+  _valid: false
+  _name: 'invalid-site'
+  _data:
+    items:
+    - "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
+    sites:
+    - "foo"
+-
+  _valid: false
+  _name: 'invalid-items'
+  _data:
+    items:
+    - "foo"
+    sites:
+    - "the-domains/example.net"
+-
+  _valid: false
+  _name: 'invalid-item'
+  _data:
+    item: "foo"
+    sites:
+    - "the-domains/example.net"
+-
+  _valid: false
+  _name: 'invalid-item-items'
+  _data:
+    items:
+    - "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
+    item: "4c72b88a-052d-4fcf-b6dc-1a66a25ed982"
     sites:
     - "the-domains/example.net"
