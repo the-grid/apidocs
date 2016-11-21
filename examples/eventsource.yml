@@ -1,0 +1,10 @@
+-
+  _valid: true
+  _name: 'correct-uuid'
+  _data:
+    client: 'b4b5e559-10d8-4033-b895-87e71ca0672c'
+-
+  _valid: false
+  _name: 'incorrect-uuid'
+  _data:
+    client: 'hello world'
