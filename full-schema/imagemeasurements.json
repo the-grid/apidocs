@@ -75,6 +75,24 @@
       },
       "minItens": 5
     },
+    "focalPoint": {
+      "description": "Cartesian coordinate",
+      "type": "object",
+      "properties": {
+        "x": {
+          "name": "x",
+          "type": "number",
+          "description": "Value on x-axis",
+          "example": 4.2
+        },
+        "y": {
+          "name": "y",
+          "type": "number",
+          "description": "Value on y-axis",
+          "example": 2.4
+        }
+      }
+    },
     "textregions": {
       "description": "Extracted regions with textual data from an image. Such regions can be used as input for an OCR implementation to extract text information",
       "type": "array",

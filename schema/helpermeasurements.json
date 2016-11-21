@@ -5,11 +5,15 @@
   "description": "Measurements calculated by TheGrid's data-helper",
   "definitions": {
     "scene": {
-      "description": "Defines the most important region of an image. It is calculated based on other information like salient region, faces and image dimensions",
+      "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
       "type": "object",
       "properties": {
         "bbox": {
           "$ref": "base.json#/definitions/bbox"
+        },
+        "center": {
+          "description": "Center point of the scene. It is absolute to image dimensions",
+          "$ref": "base.json#/definitions/point"
         }
       }
     },
@@ -46,6 +50,9 @@
                   },
                   "bbox": {
                     "$ref": "base.json#/definitions/bbox"
+                  },
+                  "center": {
+                    "$ref": "base.json#/definitions/point"
                   }
                 }
               },

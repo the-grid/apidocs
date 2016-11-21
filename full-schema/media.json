@@ -531,7 +531,7 @@
           "description": "Measurements calculated by TheGrid's data-helper",
           "definitions": {
             "scene": {
-              "description": "Defines the most important region of an image. It is calculated based on other information like salient region, faces and image dimensions",
+              "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
               "type": "object",
               "properties": {
                 "bbox": {
@@ -560,6 +560,24 @@
                       "type": "number",
                       "description": "Height",
                       "example": 229.2087
+                    }
+                  }
+                },
+                "center": {
+                  "description": "Cartesian coordinate",
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "name": "x",
+                      "type": "number",
+                      "description": "Value on x-axis",
+                      "example": 4.2
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "number",
+                      "description": "Value on y-axis",
+                      "example": 2.4
                     }
                   }
                 }
@@ -622,6 +640,24 @@
                                 "type": "number",
                                 "description": "Height",
                                 "example": 229.2087
+                              }
+                            }
+                          },
+                          "center": {
+                            "description": "Cartesian coordinate",
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Value on x-axis",
+                                "example": 4.2
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Value on y-axis",
+                                "example": 2.4
                               }
                             }
                           }

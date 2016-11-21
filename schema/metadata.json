@@ -102,10 +102,16 @@
         },
         "favicon": {
           "name": "favicon",
-          "type": "string",
-          "format": "uri",
           "description": "URL of the publisher's favicon",
-          "example": "http://www.fastcompany.com/favicon.ico"
+          "example": "http://www.fastcompany.com/favicon.ico",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "base.json#/definitions/url"
+            }
+          ]
         }
       },
       "additionalProperties": false
@@ -137,10 +143,16 @@
         },
         "favicon": {
           "name": "favicon",
-          "type": "string",
-          "format": "uri",
           "description": "URL of the publisher's favicon",
-          "example": "https://bergie.today/favicon.ico"
+          "example": "https://bergie.today/favicon.ico",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "base.json#/definitions/url"
+            }
+          ]
         }
       },
       "additionalProperties": false
