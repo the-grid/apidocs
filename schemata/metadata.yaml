@@ -86,10 +86,11 @@ properties:
         example: "http://www.fastcompany.com/"
       favicon:
         name: favicon
-        type: string
-        format: uri
         description: URL of the publisher's favicon
         example: "http://www.fastcompany.com/favicon.ico"
+        oneOf:
+          - { type: 'null' }
+          - { "$ref": "base.json#/definitions/url" }
     additionalProperties: false
   via:
     name: via
@@ -115,10 +116,11 @@ properties:
         example: "https://bergie.today/"
       favicon:
         name: favicon
-        type: string
-        format: uri
-        description: URL of the publisher's favicon
+        description: "URL of the publisher's favicon"
         example: "https://bergie.today/favicon.ico"
+        oneOf:
+          - { type: 'null' }
+          - { "$ref": "base.json#/definitions/url" }
     additionalProperties: false
   author:
     name: author
