@@ -23,6 +23,15 @@
       "minimum": 1,
       "maximum": 5
     },
+    "brandColors": {
+      "type": "array",
+      "description": "New user-selected brand colors for the site",
+      "items": {
+        "$ref": "base.json#/definitions/hexcolor"
+      },
+      "minItems": 1,
+      "maxItems": 5
+    },
     "filterRating": {
       "type": "integer",
       "description": "Image filters rating",
@@ -30,10 +39,5 @@
       "maximum": 5
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "layoutRating",
-    "typographyRating",
-    "colorRating"
-  ]
+  "additionalProperties": false
 }

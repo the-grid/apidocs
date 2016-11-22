@@ -23,6 +23,19 @@
       "minimum": 1,
       "maximum": 5
     },
+    "brandColors": {
+      "type": "array",
+      "description": "New user-selected brand colors for the site",
+      "items": {
+        "description": "#RGB color",
+        "format": "rgbhexcolor",
+        "pattern": "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$",
+        "example": "#aa33cc",
+        "type": "string"
+      },
+      "minItems": 1,
+      "maxItems": 5
+    },
     "filterRating": {
       "type": "integer",
       "description": "Image filters rating",
@@ -30,10 +43,5 @@
       "maximum": 5
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "layoutRating",
-    "typographyRating",
-    "colorRating"
-  ]
+  "additionalProperties": false
 }
