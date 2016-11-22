@@ -1,0 +1,31 @@
+-
+  _valid: true
+  _name: 'email'
+  _data:
+    email: 'user@example.net'
+    name: 'Test User'
+    subject: 'Join my cool site'
+    sender: 'A Grid User'
+-
+  _valid: true
+  _name: 'url'
+  _data:
+    url: 'https://example.net'
+-
+  _valid: false
+  _name: 'url-and-email'
+  _data:
+    url: 'https://example.net'
+    email: 'user@example.net'
+    name: 'Test User'
+-
+  _valid: false
+  _name: 'invalid-email'
+  _data:
+    email: 'foobar'
+    name: 'Test User'
+-
+  _valid: false
+  _name: 'invalid-url'
+  _data:
+    url: 'Cool Site'

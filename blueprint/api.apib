@@ -271,6 +271,47 @@ A site can be updated to use any of the redesigns by publishing it. This will tr
 
 + Response 200 (text/html)
 
+## Collaboration [/site/{id}/collaborator]
+
+### Listing collaborators [GET]
+
+Site owner can list the site's collaborators.
+
++ Parameters
+  + id (required, string) - Site UUID
+
++ Response 200 (application/json)
+
+  + Body
+
+      ```
+      [
+      <!-- include(examples/collaborator-accepted-by-url.json) -->
+      ]
+      ```
+
+
+### Inviting a new collaborator [POST]
+
+Site owner can invite new collaborators to a site. Collaborators can be invited either by email or by URL of a Grid site.
+
++ Parameters
+  + id (required, string) - Site UUID
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/collaboratorinvite-email.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(full-schema/collaboratorinvite.json) -->
+      ```
+
 # Group Content Management
 
 ## Share [/share]
