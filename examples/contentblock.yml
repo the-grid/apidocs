@@ -70,6 +70,13 @@
         - [ 148, 148, 164 ]
 -
   _valid: true
+  _name: 'interactive'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 'interactive'
+    html: '<iframe src="https://google.com"></iframe>'
+-
+  _valid: true
   _name: 'placeholder'
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
