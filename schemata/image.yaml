@@ -11,15 +11,13 @@ properties:
     "$ref": "base.json#/definitions/uuid"
   type:
     description: Block type
-    example: "text"
+    example: "image"
     type: string
     enum:
-      - code
       - image
       - video
       - audio
       - article
-      - quote
       - location
       - interactive
   html:

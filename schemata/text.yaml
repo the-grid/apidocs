@@ -14,6 +14,8 @@ properties:
     type: string
     enum:
       - text
+      - code
+      - quote
       - hr
       - unknown
   html:
