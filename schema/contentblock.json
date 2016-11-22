@@ -90,25 +90,33 @@
       ]
     }
   },
-  "anyOf": [
+  "allOf": [
     {
-      "$ref": "headline.json"
+      "required": [
+        "type"
+      ]
     },
     {
-      "$ref": "text.json"
-    },
-    {
-      "$ref": "cta.json"
-    },
-    {
-      "$ref": "media.json"
-    },
-    {
-      "$ref": "list.json"
+      "oneOf": [
+        {
+          "$ref": "headline.json"
+        },
+        {
+          "$ref": "text.json"
+        },
+        {
+          "$ref": "cta.json"
+        },
+        {
+          "$ref": "image.json"
+        },
+        {
+          "$ref": "list.json"
+        },
+        {
+          "$ref": "placeholder.json"
+        }
+      ]
     }
-  ],
-  "required": [
-    "type",
-    "html"
   ]
 }

@@ -11,7 +11,12 @@
       "$ref": "base.json#/definitions/uuid"
     },
     "type": {
-      "$ref": "contentblock.json#/definitions/type"
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "cta"
+      ]
     },
     "html": {
       "$ref": "contentblock.json#/definitions/html"
@@ -48,17 +53,5 @@
   "required": [
     "type",
     "html"
-  ],
-  "oneOf": [
-    {
-      "required": [
-        "url"
-      ]
-    },
-    {
-      "required": [
-        "cta"
-      ]
-    }
   ]
 }

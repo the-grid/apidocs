@@ -11,7 +11,17 @@
       "$ref": "base.json#/definitions/uuid"
     },
     "type": {
-      "$ref": "contentblock.json#/definitions/type"
+      "description": "Block type",
+      "example": "image",
+      "type": "string",
+      "enum": [
+        "image",
+        "video",
+        "audio",
+        "article",
+        "location",
+        "interactive"
+      ]
     },
     "html": {
       "$ref": "contentblock.json#/definitions/html"
@@ -21,12 +31,16 @@
     },
     "cover": {
       "$ref": "media.json#/definitions/cover"
+    },
+    "title": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "string"
     }
   },
   "required": [
-    "id",
     "type",
-    "html",
-    "src"
+    "html"
   ]
 }
