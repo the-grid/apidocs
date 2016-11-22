@@ -1,0 +1,48 @@
+{
+  "id": "collaborator.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Site collaborator",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "collaborator": {
+      "describe": "Collaborator label",
+      "oneOf": [
+        {
+          "$ref": "base.json#/definitions/url"
+        },
+        {
+          "$ref": "base.json#/definitions/email"
+        }
+      ]
+    },
+    "accepted": {
+      "describe": "Whether collaborator has accepted the invitation",
+      "type": "boolean"
+    },
+    "rejected": {
+      "describe": "Whether collaborator has rejected the invitation",
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    }
+  }
+}

@@ -314,9 +314,11 @@
       "items": {
         "$ref": "contentblock.json"
       }
+    },
+    "github": {
+      "description": "Whether to synchronize site to GitHub",
+      "type": "boolean",
+      "default": false
     }
-  },
-  "required": [
-    "name"
-  ]
+  }
 }

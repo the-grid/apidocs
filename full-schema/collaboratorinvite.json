@@ -1,0 +1,49 @@
+{
+  "id": "collaboratorinvite.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Site collaborator invitation",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "url": {
+      "description": "Unique Resource Locator",
+      "format": "uri",
+      "example": "http://thegrid.io",
+      "type": "string"
+    },
+    "email": {
+      "description": "Email address",
+      "format": "email",
+      "example": "info@thegrid.io",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the person to invite",
+      "type": "string"
+    },
+    "subject": {
+      "description": "Subject of the invitation",
+      "type": "string"
+    },
+    "sender": {
+      "description": "Invitation sender name",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "required": [
+        "url"
+      ]
+    },
+    {
+      "required": [
+        "email",
+        "name"
+      ]
+    }
+  ]
+}
