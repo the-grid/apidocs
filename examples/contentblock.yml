@@ -56,11 +56,11 @@
       height: 216
       faces:
         -
-          x: 50.61038563900384,
-          y: 70.03941296843249,
-          width: 63.029722675405246,
-          height: 63.029722675405246,
-          neighbors: 4,
+          x: 50.61038563900384
+          y: 70.03941296843249
+          width: 63.029722675405246
+          height: 63.029722675405246
+          neighbors: 4
           confidence: 0.4109060300000006
       colors:
         - [ 213, 188, 135 ]
@@ -68,6 +68,19 @@
         - [ 139, 114, 114 ]
         - [ 112, 104, 140 ]
         - [ 148, 148, 164 ]
+-
+  _valid: true
+  _name: 'interactive'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 'interactive'
+    html: '<iframe src="https://google.com"></iframe>'
+-
+  _valid: true
+  _name: 'placeholder'
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 'placeholder'
 -
   _valid: false
   _name: 'text-h1-join-evolution-invalid-author'
@@ -164,6 +177,28 @@
       author: []
     score: 0,
     created_at: 'helloworld'
+    updated_at: null
+    text: "AI Websites That Design Themselves"
+    length: 34
+-
+  _valid: false
+  _name: 'invalid-author'
+  _data:
+    id: "9a502705-bb6c-4b03-95ee-492dbdd295e4"
+    item: "8a342d34-bdc1-427d-9b34-4b3392828d69"
+    type: "h1"
+    src: null
+    html: "<h1>AI Websites That Design Themselves</h1>"
+    metadata:
+      title: "Join the Evolution"
+      datePublished: "2014-10-05T04:37:05.900Z"
+      description: "AI Websites That Design Themselves\nJoin the Evolution\n\n\nBecome a Founding Member"
+      "@type": "Product"
+      "@context": "http://schema.org"
+      author:
+        name: 'Some Person'
+    score: 0,
+    created_at: '2014-05-08T13:22:59.000Z'
     updated_at: null
     text: "AI Websites That Design Themselves"
     length: 34

@@ -1,0 +1,20 @@
+---
+id: placeholder.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: HTML placeholder
+description: "Placeholder for content being shared"
+type:
+- object
+properties:
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    description: Block type
+    example: "text"
+    type: string
+    enum:
+      - placeholder
+  html:
+    "$ref": "contentblock.json#/definitions/html"
+
+required: [type]
