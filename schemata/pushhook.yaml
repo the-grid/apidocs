@@ -1,0 +1,51 @@
+---
+id: pushhook.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: GitHub Push webhook
+description: ""
+type:
+- object
+properties:
+  ref:
+    description: Git reference
+    type: string
+    example: 'refs/heads/master'
+  repository:
+    description: Repository information
+    type: object
+    properties:
+      full_name:
+        description: Full repository name
+        type: string
+        example: 'the-domains/the-grid'
+    additionalProperties: true
+  commits:
+    description: Commits included in the push
+    type: array
+    items:
+      type: object
+      properties:
+        committer:
+          type: object
+          properties:
+            username:
+              type: string
+              example: 'bergie'
+          additionalProperties: true
+        distinct:
+          type: boolean
+        added:
+          type: array
+          items:
+            type: string
+            example: 'README.md'
+        modified:
+          type: array
+          items:
+            type: string
+            example: 'README.md'
+        removed:
+          type: array
+          items:
+            type: string
+            example: 'README.md'
