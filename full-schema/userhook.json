@@ -1,0 +1,26 @@
+{
+  "id": "userhook.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "User webhook",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "call": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "jwt": {
+      "description": "JWT-encrypted payload",
+      "type": "string"
+    }
+  },
+  "required": [
+    "call",
+    "jwt"
+  ]
+}

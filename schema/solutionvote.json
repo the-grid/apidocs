@@ -1,0 +1,57 @@
+{
+  "id": "solutionvote.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Solution vote",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "value": {
+      "description": "Vote score",
+      "type": "number"
+    },
+    "source": {
+      "description": "Agent performing vote",
+      "type": "string",
+      "enum": [
+        "human",
+        "machine"
+      ]
+    },
+    "agent": {
+      "description": "User Agent vote evaluation was made on",
+      "type": "string"
+    },
+    "reason": {
+      "description": "Reason for the vote",
+      "type": "string"
+    },
+    "width": {
+      "description": "User Agent width in pixels",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "height": {
+      "description": "User Agent height in pixels",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "required": [
+    "value",
+    "source"
+  ]
+}

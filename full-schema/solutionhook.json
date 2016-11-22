@@ -1,0 +1,18 @@
+{
+  "id": "solutionhook.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Solution publishing webhook",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "jwt": {
+      "description": "JWT-encrypted payload",
+      "type": "string"
+    }
+  },
+  "required": [
+    "jwt"
+  ]
+}

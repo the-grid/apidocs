@@ -1,0 +1,24 @@
+{
+  "id": "designsystemhook.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Design System webhook",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "designsystem": {
+      "description": "Design System name",
+      "type": "string",
+      "example": "the-composer"
+    },
+    "jwt": {
+      "description": "JWT-encrypted payload",
+      "type": "string"
+    }
+  },
+  "required": [
+    "designsystem",
+    "jwt"
+  ]
+}
