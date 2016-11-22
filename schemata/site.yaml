@@ -15,10 +15,11 @@ properties:
     description: GitHub repository path for website sources
     "$ref": "base.json#/definitions/site"
   domain:
-    type: [string, "null"]
-    format: hostname
     example: 'blog.thegrid.io'
     description: Custom domain for the website, if any
+    oneOf:
+    - { type: 'null' }
+    - { type: 'string', format: 'hostname' }
   path:
     type: [string, "null"]
     example: '/news'
