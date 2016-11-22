@@ -1,0 +1,15 @@
+---
+id: userhook.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: User webhook
+description: ""
+type:
+- object
+properties:
+  call:
+    description: Reserve CTA identifier
+    "$ref": "base.json#/definitions/uuid"
+  jwt:
+    description: JWT-encrypted payload
+    type: string
+required: [call, jwt]
