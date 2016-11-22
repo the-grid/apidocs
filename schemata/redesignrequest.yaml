@@ -5,6 +5,10 @@ title: Redesign request
 description: ''
 type: object
 properties:
+  id:
+    oneOf:
+      - { type: 'null' }
+      - { "$ref": "base.json#/definitions/uuid" }
   parent:
     oneOf:
       - { type: 'null' }
