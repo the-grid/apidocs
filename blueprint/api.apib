@@ -223,6 +223,49 @@ New redesigns can be requested by submitting a rating on an existing design.
 
             Location: /job/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
 
+## Redesign [/site/{id}/redesign/{redesign}{?inflight}]
+
+### Individual redesign [GET]
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+  + inflight (optional, boolean) - Whether to include in-flight redesigns in the listing
+
++ Response 200 (application/json)
+
+### Publish a redesign [POST]
+
+A site can be updated to use any of the redesigns by publishing it. This will trigger a re-solve of the website.
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+
++ Response 202
+
+  + Headers
+
+            Location: /job/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
+### Delete a redesign [DELETE]
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+
++ Response 200
+
+## Redesign Previews [/site/{id}/redesign/{redesign}/preview]
+
+### Showing redesign preview [GET]
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+
++ Response 200 (text/html)
+
 # Group Content Management
 
 ## Share [/share]
