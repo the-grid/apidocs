@@ -10,12 +10,27 @@ properties:
   id:
     "$ref": "base.json#/definitions/uuid"
   type:
-    "$ref": "contentblock.json#/definitions/type"
+    description: Block type
+    example: "text"
+    type: string
+    enum:
+      - code
+      - image
+      - video
+      - audio
+      - article
+      - quote
+      - location
+      - interactive
   html:
     "$ref": "contentblock.json#/definitions/html"
   src:
     "$ref": "contentblock.json#/definitions/src"
   cover:
     "$ref": "media.json#/definitions/cover"
+  title:
+    type: string
+  caption:
+    type: string
 
-required: [id, type, html, src]
+required: [type, html]
