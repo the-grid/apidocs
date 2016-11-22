@@ -16,7 +16,8 @@
       "description": "Type of the client",
       "enum": [
         "gcm",
-        "apn"
+        "apn_production",
+        "apn_development"
       ]
     }
   },
