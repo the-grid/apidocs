@@ -1,0 +1,8 @@
+-
+  _valid: true
+  _name: "accepted-by-url"
+  _data:
+    id: 5
+    collaborator: 'http://bergie.today/'
+    accepted: true
+    rejected: false

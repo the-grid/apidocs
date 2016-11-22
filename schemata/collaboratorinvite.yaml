@@ -1,0 +1,28 @@
+---
+id: collaboratorinvite.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: Site collaborator invitation
+description: ""
+type:
+- object
+properties:
+  url:
+    description: "Grid site URL to invite the owner as collaborator"
+    "$ref": "base.json#/definitions/url"
+  email:
+    description: "Email address of collaborator to invite"
+    "$ref": "base.json#/definitions/email"
+  name:
+    description: "Name of the person to invite"
+    type: string
+  subject:
+    description: "Subject of the invitation"
+    type: string
+  sender:
+    description: "Invitation sender name"
+    type: string
+additionalProperties: false
+
+oneOf:
+  - { required: [url] }
+  - { required: [email, name] }
