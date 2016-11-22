@@ -12,5 +12,8 @@ properties:
   type:
     type: string
     description: Type of the client
-    enum: [gcm, apn]
+    enum:
+      - gcm
+      - apn_production
+      - apn_development
 required: [client, type]

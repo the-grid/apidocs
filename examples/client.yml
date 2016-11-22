@@ -6,10 +6,16 @@
     type: gcm
 -
   _valid: true
-  _name: 'apn'
+  _name: 'apn_production'
   _data:
     client: jipcen3i2h3f0823h0f
-    type: apn
+    type: apn_production
+-
+  _valid: true
+  _name: 'apn_development'
+  _data:
+    client: jipcen3i2h3f0823h0f
+    type: apn_development
 -
   _valid: false
   _name: 'foo'
