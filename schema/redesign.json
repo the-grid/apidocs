@@ -1,0 +1,62 @@
+{
+  "id": "redesign.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Redesign",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "parent": {
+      "description": "Design this redesign is derived from",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "base.json#/definitions/uuid"
+        }
+      ]
+    },
+    "config": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "siteconfig.json"
+        }
+      ]
+    },
+    "rating": {
+      "$ref": "redesignrating.json"
+    },
+    "solution": {
+      "description": "Solution for this redesign",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "base.json#/definitions/uuid"
+        }
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    }
+  }
+}

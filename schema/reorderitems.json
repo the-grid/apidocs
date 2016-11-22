@@ -1,0 +1,31 @@
+{
+  "id": "reorderitems.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Item reordering request",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "items": {
+      "description": "Items to reorder, in order desired",
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "base.json#/definitions/uuid"
+      }
+    },
+    "site": {
+      "description": "Site to reorder on",
+      "$ref": "base.json#/definitions/site"
+    },
+    "published": {
+      "description": "Filter reordered items by published status",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "items"
+  ]
+}

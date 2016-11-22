@@ -11,5 +11,8 @@
       "description": "Client identifier",
       "$ref": "base.json#/definitions/uuid"
     }
-  }
+  },
+  "required": [
+    "client"
+  ]
 }

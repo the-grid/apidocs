@@ -1,0 +1,21 @@
+{
+  "id": "redesignrequest.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Redesign request",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "config": {
+      "$ref": "siteconfig.json"
+    },
+    "rating": {
+      "$ref": "redesignrating.json"
+    }
+  },
+  "required": [
+    "rating"
+  ]
+}

@@ -19,5 +19,9 @@
         "apn"
       ]
     }
-  }
+  },
+  "required": [
+    "client",
+    "type"
+  ]
 }

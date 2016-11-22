@@ -1,0 +1,39 @@
+{
+  "id": "redesignrating.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Redesign rating",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "layoutRating": {
+      "type": "integer",
+      "description": "Layout rating",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "typographyRating": {
+      "type": "integer",
+      "description": "Typography rating",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "colorRating": {
+      "type": "integer",
+      "description": "Color rating",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "filterRating": {
+      "type": "integer",
+      "description": "Image filters rating",
+      "minimum": 1,
+      "maximum": 5
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "layoutRating",
+    "typographyRating",
+    "colorRating"
+  ]
+}
