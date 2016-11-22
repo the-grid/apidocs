@@ -219,5 +219,7 @@ properties:
     uniqueItems: true
     items:
       "$ref": "contentblock.json"
-
-required: [name]
+  github:
+    description: Whether to synchronize site to GitHub
+    type: boolean
+    default: false

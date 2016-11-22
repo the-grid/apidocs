@@ -47,11 +47,6 @@
   _data:
     name: 123
 -
-  _valid: false
-  _name: 'missing-name'
-  _data:
-    style: 'A1'
--
   _valid: true
   _name: 'strong-brand-colors'
   _data:
