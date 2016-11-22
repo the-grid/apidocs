@@ -1,0 +1,22 @@
+---
+id: hr.json
+"$schema": "http://json-schema.org/draft-04/schema"
+title: HR block
+description: "Horizontal divider in content"
+type:
+- object
+properties:
+  id:
+    "$ref": "base.json#/definitions/uuid"
+  type:
+    description: Block type
+    example: "text"
+    type: string
+    enum:
+      - hr
+  html:
+    description: HTML content of the block
+    example: "<hr>"
+    type: string
+    minLength: 4
+required: [type, html]

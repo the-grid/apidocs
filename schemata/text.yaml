@@ -16,7 +16,6 @@ properties:
       - text
       - code
       - quote
-      - hr
       - unknown
   html:
     "$ref": "contentblock.json#/definitions/html"
