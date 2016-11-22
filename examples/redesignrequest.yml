@@ -19,6 +19,15 @@
       color:
         brandColors: [ "#FFFC4F", "#3AFFD6" ]
 -
+  _valid: true
+  _name: 'with-config-null-parent'
+  _data:
+    parent: null
+    rating:
+      brandColors: [ "#080000", "#f6cc9e", "#bf956d", "#411d0d", "#926b4a" ]
+      layoutRating: 4
+      colorRating: 4
+-
   _valid: false
   _name: 'invalid-ratings'
   _data:

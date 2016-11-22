@@ -5,8 +5,10 @@ title: Redesign request
 description: ''
 type: object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
+  parent:
+    oneOf:
+      - { type: 'null' }
+      - { "$ref": "base.json#/definitions/uuid" }
   config:
     "$ref": "siteconfig.json"
   rating:
