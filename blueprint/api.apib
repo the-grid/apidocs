@@ -187,6 +187,90 @@ Performing such an action returns a Location header with a Job URL.
 
   + Body
 
+## Redesigns [/site/{id}/redesign{?inflight}]
+
+### Listing redesigns [GET]
+
+Users can request a listing of the current redesigns for a website.
+
+Whenever the site configuration is changed or new content is published, the redesigns list resets to only contain the current live design.
+
++ Parameters
+  + id (required, string) - Site UUID
+  + inflight (optional, boolean) - Whether to include in-flight redesigns in the listing
+
++ Response 200 (application/json)
+
+### Requesting a redesign [POST]
+
+New redesigns can be requested by submitting a rating on an existing design.
+
++ Parameters
+  + id (required, string) - Site UUID
+
++ Request (application/json)
+
+  + Body
+
+      ```
+      <!-- include(examples/redesignrequest-minimal.json) -->
+      ```
+
+  + Schema
+
+      ```
+      <!-- include(full-schema/redesignrequest.json) -->
+      ```
+
++ Response 202
+
+  + Headers
+
+            Location: /job/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
+## Redesign [/site/{id}/redesign/{redesign}{?inflight}]
+
+### Individual redesign [GET]
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+  + inflight (optional, boolean) - Whether to include in-flight redesigns in the listing
+
++ Response 200 (application/json)
+
+### Publish a redesign [POST]
+
+A site can be updated to use any of the redesigns by publishing it. This will trigger a re-solve of the website.
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+
++ Response 202
+
+  + Headers
+
+            Location: /job/61a23f6a-d438-49c3-a0b9-7cd5bb0fe177
+
+### Delete a redesign [DELETE]
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+
++ Response 200
+
+## Redesign Previews [/site/{id}/redesign/{redesign}/preview]
+
+### Showing redesign preview [GET]
+
++ Parameters
+  + id (required, string) - Site UUID
+  + redesign (required, string) - Redesign UUID
+
++ Response 200 (text/html)
+
 # Group Content Management
 
 ## Share [/share]

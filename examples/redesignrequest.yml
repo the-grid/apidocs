@@ -1,0 +1,28 @@
+-
+  _valid: true
+  _name: 'minimal'
+  _data:
+    rating:
+      layoutRating: 3
+      typographyRating: 5
+      colorRating: 1
+-
+  _valid: true
+  _name: 'with-config'
+  _data:
+    rating:
+      layoutRating: 3
+      typographyRating: 5
+      colorRating: 1
+    config:
+      name: 'Hello World'
+      color:
+        brandColors: [ "#FFFC4F", "#3AFFD6" ]
+-
+  _valid: false
+  _name: 'invalid-ratings'
+  _data:
+    rating:
+      layoutRating: 10
+      typographyRating: 5
+      colorRating: 1
