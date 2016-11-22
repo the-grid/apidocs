@@ -13,3 +13,4 @@ properties:
     type: string
     description: Type of the client
     enum: [gcm, apn]
+required: [client, type]
