@@ -1,4 +1,3 @@
-
 tv4 = require 'tv4'
 tv4Formats = require 'tv4-formats'
 chai = require 'chai' if not chai
@@ -9,15 +8,16 @@ lib = require '../index'
 
 describe 'Schemas', ->
   schemas = []
+  validator = tv4.freshApi()
   before ->
-    tv4.addFormat tv4Formats
+    validator.addFormat tv4Formats
   after ->
-    tv4.reset()
-    tv4.dropSchemas()
+    validator.reset()
+    validator.dropSchemas()
 
   lib.listSchemas().forEach (schemaName) ->
     schema = lib.getSchema schemaName
-    tv4.addSchema schema.id, schema
+    validator.addSchema schema.id, schema
     schemas.push schema
 
   schemas.forEach (schema) ->
@@ -31,16 +31,16 @@ describe 'Schemas', ->
       cases.forEach (testcase) ->
 
         describe "#{testcase._name}", ->
-          tv4.addSchema schema.id, schema
+          validator.addSchema schema.id, schema
           if testcase._valid
             it "should be valid", ->
-              results = tv4.validateMultiple testcase._data, schema.id
+              results = validator.validateMultiple testcase._data, schema.id
               chai.expect(results.errors).to.eql []
               chai.expect(results.missing).to.eql []
               chai.expect(results.valid).to.equal true
           else
             it "should be invalid", ->
-              results = tv4.validateMultiple testcase._data, schema.id
+              results = validator.validateMultiple testcase._data, schema.id
               chai.expect(results.errors).to.not.eql []
               chai.expect(results.missing).to.eql []
               chai.expect(results.valid).to.equal false
