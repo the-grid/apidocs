@@ -7,16 +7,12 @@ description: "An HTML representing a call to action with the verb
 type:
 - object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
   type:
     description: Block type
     example: "text"
     type: string
     enum:
       - cta
-  html:
-    "$ref": "contentblock.json#/definitions/html"
   verb:
     description: "A verb that defines the action"
     example: "purchase"

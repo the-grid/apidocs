@@ -66,10 +66,15 @@ properties:
 allOf:
   - { required: [type] }
   - oneOf:
-    - { '$ref': 'headline.json' }
-    - { '$ref': 'text.json' }
-    - { '$ref': 'hr.json' }
+    - { '$ref': 'audio.json' }
+    - { '$ref': 'article.json' }
+    - { '$ref': 'code.json' }
     - { '$ref': 'cta.json' }
+    - { '$ref': 'headline.json' }
+    - { '$ref': 'hr.json' }
     - { '$ref': 'image.json' }
     - { '$ref': 'list.json' }
+    - { '$ref': 'location.json' }
     - { '$ref': 'placeholder.json' }
+    - { '$ref': 'text.json' }
+    - { '$ref': 'video.json' }
