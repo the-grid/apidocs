@@ -151,7 +151,8 @@ properties:
             - { type: 'null' }
             - { "$ref": "base.json#/definitions/email" }
         avatar:
-          type: object
+          description: Author avatar image
+          "$ref": "media.json#/definitions/cover"
       additionalProperties: false
   coverPrefs:
     name: coverPrefs
