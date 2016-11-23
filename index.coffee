@@ -1,8 +1,4 @@
-
 yaml = require 'js-yaml'
-path = require 'path'
-fs = require 'fs'
-
 path = require 'path'
 fs = require 'fs'
 
@@ -25,3 +21,12 @@ exports.getExamples = (name) ->
   filepath = path.join __dirname, './examples', name+'.yml'
   content = fs.readFileSync filepath, { encoding: 'utf-8' }
   return yaml.safeLoad content
+
+exports.enableCustomErrors = (validator) ->
+  unless typeof validator.setErrorReporter is 'function'
+    throw 'Your validator doesn\'t support custom error messages'
+  validator.setErrorReporter (error, data, schema) ->
+    return error.message unless schema.messages
+    lastSchemaPath = error.schemaPath.split('/').pop()
+    return error.message unless schema.messages[lastSchemaPath]
+    schema.messages[lastSchemaPath]
