@@ -9,7 +9,7 @@ type:
 properties:
   type:
     description: Block type
-    example: "text"
+    example: "article"
     type: string
     enum:
       - article

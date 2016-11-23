@@ -8,7 +8,7 @@ type:
 properties:
   type:
     description: Block type
-    example: "text"
+    example: "audio"
     type: string
     enum:
       - audio
