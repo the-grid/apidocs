@@ -119,6 +119,7 @@ module.exports = ->
     schemas.forEach (e) =>
       schema = @file.readJSON e
       fullschema = deref schema, options
+      throw fullschema if fullschema instanceof Error
       basename = path.basename e
       filename = "full-schema/#{basename}"
       @file.write filename, JSON.stringify fullschema, null, 2
