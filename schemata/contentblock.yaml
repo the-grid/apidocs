@@ -68,6 +68,7 @@ allOf:
   - oneOf:
     - { '$ref': 'audio.json' }
     - { '$ref': 'article.json' }
+    - { '$ref': 'code.json' }
     - { '$ref': 'cta.json' }
     - { '$ref': 'headline.json' }
     - { '$ref': 'hr.json' }

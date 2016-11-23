@@ -6,12 +6,12 @@ description: "A source code snippet"
 type:
 - object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
   type:
-    "$ref": "contentblock.json#/definitions/type"
-  html:
-    "$ref": "contentblock.json#/definitions/html"
+    description: Block type
+    example: "video"
+    type: string
+    enum:
+      - code
   text:
     description: Extracted text
     example: "var foo = 42;"
@@ -24,5 +24,4 @@ properties:
     description: Detected programming language
     example: "javascript"
     type: string
-
-required: [id, type, html]
+required: [type, html]
