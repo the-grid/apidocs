@@ -48,6 +48,10 @@ JavaScript validation example (using [tv4 library](https://github.com/geraintluf
     var postSchema = apidocs.getSchema('item');
     var valid = tv4.validate(myPost, postSchema);
 
+Some of our schemas provide user-friendly error messages. To enable them, load the custom error reporter:
+
+    apidocs.enableCustomErrors(tv4);
+
 Blueprints
 ----------
 
