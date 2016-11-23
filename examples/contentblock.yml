@@ -493,12 +493,6 @@
     type: 42
 -
   _valid: false
-  _name: "location-without-id"
-  _data:
-    type: "location"
-    html: "<p>4242 Blue St. San Francisco, CA</p>"
--
-  _valid: false
   _name: "location-without-type"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"

@@ -19,5 +19,4 @@ properties:
     minLength: 7
   cover:
     "$ref": "media.json#/definitions/cover"
-
-required: [id, type, html]
+required: [type, html]
