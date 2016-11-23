@@ -114,6 +114,7 @@ module.exports = ->
   @registerTask 'build_fullschemas', 'Create full schemas dereferencing them', =>
     options =
       baseFolder: 'schema'
+      failOnMissing: true
     @file.mkdir 'full-schema'
     schemas = @file.expand ['schema/*.json']
     schemas.forEach (e) =>
