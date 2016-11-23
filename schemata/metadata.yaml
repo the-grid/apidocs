@@ -139,11 +139,17 @@ properties:
           type: string
           example: Henri Bergius
         url:
-          "$ref": "base.json#/definitions/url"
+          description: Author URL
+          example: "http://bergie.iki.fi"
+          oneOf:
+            - { type: 'null' }
+            - { "$ref": "base.json#/definitions/url" }
         email:
-          type: string
-          format: email
+          description: Author email address
           example: bergie@iki.fi
+          oneOf:
+            - { type: 'null' }
+            - { "$ref": "base.json#/definitions/email" }
         avatar:
           type: object
       additionalProperties: false
