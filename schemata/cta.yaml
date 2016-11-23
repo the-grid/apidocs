@@ -13,6 +13,11 @@ properties:
     type: string
     enum:
       - cta
+  html:
+    description: HTML content of the block
+    example: '<a href="https://link.com/" data-role="cta">Call to action!</a>'
+    type: string
+    minLength: 7
   verb:
     description: "A verb that defines the action"
     example: "purchase"

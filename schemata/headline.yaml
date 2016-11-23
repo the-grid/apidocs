@@ -9,7 +9,7 @@ type:
 properties:
   type:
     description: Block type
-    example: "text"
+    example: "h1"
     type: string
     enum:
       - headline
@@ -19,6 +19,11 @@ properties:
       - h4
       - h5
       - h6
+  html:
+    description: HTML content of the block
+    example: "<h1>Hello, world!</h1>"
+    type: string
+    minLength: 7
   text:
     description: Extracted text
     example: "This is a headline"

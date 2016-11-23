@@ -12,6 +12,11 @@ properties:
     type: string
     enum:
       - list
+  html:
+    description: HTML content of the block
+    example: '<ul><li>Hello world<ul><li>Foo</li></ul></li><li>Foo bar</li></ul>'
+    type: string
+    minLength: 7
   items:
     description: "The measured number of items on the list"
     type: integer

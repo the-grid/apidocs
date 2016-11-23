@@ -8,9 +8,8 @@ type:
 properties:
   type:
     description: Block type
-    example: "text"
+    example: "placeholder"
     type: string
     enum:
       - placeholder
-
 required: [type]
