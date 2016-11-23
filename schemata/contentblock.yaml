@@ -76,3 +76,4 @@ allOf:
     - { '$ref': 'location.json' }
     - { '$ref': 'placeholder.json' }
     - { '$ref': 'text.json' }
+    - { '$ref': 'video.json' }

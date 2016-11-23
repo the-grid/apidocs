@@ -544,3 +544,35 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "location"
     html: 73
+-
+  _valid: false
+  _name: "valid-video-without-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
+-
+  _valid: false
+  _name: "video-with-invalid-id"
+  _data:
+    id: "bdcc6765-444444d-b01d3132ef69"
+    type: "video"
+    html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
+-
+  _valid: false
+  _name: "valid-video-with-invalid-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "videozzzz"
+-
+  _valid: false
+  _name: "video-with-invalid-id-type"
+  _data:
+    id: 42
+    type: "video"
+    html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
+-
+  _valid: false
+  _name: "valid-video-with-invalid-type-type"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: 42

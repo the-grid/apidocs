@@ -13,7 +13,6 @@ properties:
     type: string
     enum:
       - image
-      - video
       - interactive
   cover:
     "$ref": "media.json#/definitions/cover"
