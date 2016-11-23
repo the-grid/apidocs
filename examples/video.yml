@@ -14,8 +14,7 @@
     type: "video"
     html: '<iframe src="//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"></iframe>'
     src: null
-    video:
-      src: "//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"
+    video: "//www.youtube.com/embed/P5cdlLTqb24?list=UUnPE7t9tqwcsO0LLyw5zuPQ"
 -
   _valid: true
   _name: "valid-video-with-cover"
