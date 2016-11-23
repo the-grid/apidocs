@@ -18,3 +18,18 @@
   _name: 'isbasedonurl-invalid'
   _data:
     isBasedOnUrl: 1234
+-
+  _valid: true
+  _name: 'language-valid'
+  _data:
+    inLanguage: en
+-
+  _valid: true
+  _name: 'language-null'
+  _data:
+    inLanguage: null
+-
+  _valid: false
+  _name: 'language-invalid'
+  _data:
+    inLanguage: a

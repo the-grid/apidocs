@@ -33,10 +33,11 @@ properties:
     example: "blog/my-cool-article.html"
   inLanguage:
     name: inLanguage
-    type: string
     description: Content language
     example: en
-    minLength: 2
+    oneOf:
+    - { type: 'null' }
+    - { type: 'string', minLength: 2 }
   starred:
     type: boolean
     description: Indicates if an item should be shown on feed or not
