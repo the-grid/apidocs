@@ -1,1 +1,35 @@
-{}
+{
+  "id": "text.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Text",
+  "description": "A chunk of text which can be annotated with measurement data like the extracted text and it's length",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "text",
+        "quote",
+        "unknown"
+      ]
+    },
+    "text": {
+      "description": "Extracted text",
+      "example": "Foo bar",
+      "type": "string"
+    },
+    "length": {
+      "description": "Length of extracted text",
+      "example": 7,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type",
+    "html"
+  ]
+}

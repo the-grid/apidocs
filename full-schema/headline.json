@@ -1,1 +1,38 @@
-{}
+{
+  "id": "headline.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "HTML Headline",
+  "description": "An HTML headline with measurement data like extracted text and its length in characters",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "headline",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ]
+    },
+    "text": {
+      "description": "Extracted text",
+      "example": "This is a headline",
+      "type": "string"
+    },
+    "length": {
+      "description": "Length of extracted text",
+      "example": 18,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "html"
+  ]
+}

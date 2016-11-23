@@ -1,1 +1,22 @@
-{}
+{
+  "id": "placeholder.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "HTML placeholder",
+  "description": "Placeholder for content being shared",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "placeholder"
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

@@ -7,9 +7,6 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
       "description": "Block type",
       "example": "text",
@@ -17,9 +14,6 @@
       "enum": [
         "cta"
       ]
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
     },
     "verb": {
       "description": "A verb that defines the action",

@@ -7,14 +7,13 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
-      "$ref": "contentblock.json#/definitions/type"
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
+      "description": "Block type",
+      "example": "video",
+      "type": "string",
+      "enum": [
+        "code"
+      ]
     },
     "text": {
       "description": "Extracted text",
@@ -33,7 +32,6 @@
     }
   },
   "required": [
-    "id",
     "type",
     "html"
   ]

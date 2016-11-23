@@ -7,9 +7,6 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
       "description": "Block type",
       "example": "text",
@@ -23,9 +20,6 @@
         "h5",
         "h6"
       ]
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
     },
     "text": {
       "description": "Extracted text",

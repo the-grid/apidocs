@@ -7,23 +7,19 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
-      "$ref": "contentblock.json#/definitions/type"
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
-    },
-    "src": {
-      "$ref": "contentblock.json#/definitions/src"
+      "description": "Block type",
+      "example": "image",
+      "type": "string",
+      "enum": [
+        "video"
+      ]
     },
     "video": {
       "type": "object",
       "properties": {
         "src": {
-          "$ref": "contentblock.json#/definitions/src"
+          "$ref": "base.json#/definitions/url"
         }
       }
     },
@@ -32,9 +28,7 @@
     }
   },
   "required": [
-    "id",
     "type",
-    "html",
-    "src"
+    "html"
   ]
 }

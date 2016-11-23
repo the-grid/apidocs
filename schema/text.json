@@ -7,23 +7,15 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
       "description": "Block type",
       "example": "text",
       "type": "string",
       "enum": [
         "text",
-        "code",
         "quote",
-        "hr",
         "unknown"
       ]
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
     },
     "text": {
       "description": "Extracted text",

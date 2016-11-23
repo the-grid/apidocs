@@ -7,27 +7,14 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
       "description": "Block type",
       "example": "image",
       "type": "string",
       "enum": [
         "image",
-        "video",
-        "audio",
-        "article",
-        "location",
         "interactive"
       ]
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
-    },
-    "src": {
-      "$ref": "contentblock.json#/definitions/src"
     },
     "cover": {
       "$ref": "media.json#/definitions/cover"

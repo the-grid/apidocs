@@ -7,9 +7,6 @@
     "object"
   ],
   "properties": {
-    "id": {
-      "$ref": "base.json#/definitions/uuid"
-    },
     "type": {
       "description": "Block type",
       "example": "text",
@@ -17,9 +14,6 @@
       "enum": [
         "placeholder"
       ]
-    },
-    "html": {
-      "$ref": "contentblock.json#/definitions/html"
     }
   },
   "required": [

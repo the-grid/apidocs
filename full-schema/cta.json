@@ -1,1 +1,56 @@
-{}
+{
+  "id": "cta.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Call to action",
+  "description": "An HTML representing a call to action with the verb which defines the action, a tagged price and some measurement data",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "cta"
+      ]
+    },
+    "verb": {
+      "description": "A verb that defines the action",
+      "example": "purchase",
+      "type": "string"
+    },
+    "url": {
+      "description": "Unique Resource Locator",
+      "format": "uri",
+      "example": "http://thegrid.io",
+      "type": "string"
+    },
+    "cta": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "price": {
+      "description": "A tagged price, in USD cents",
+      "example": "9600",
+      "type": "string"
+    },
+    "label": {
+      "description": "Extracted text from the HTML",
+      "example": "Buy now",
+      "type": "string"
+    },
+    "length": {
+      "description": "Lenght of the extracted text",
+      "example": 7,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type",
+    "html"
+  ]
+}

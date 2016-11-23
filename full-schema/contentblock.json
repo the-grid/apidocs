@@ -1,1 +1,4249 @@
-{}
+{
+  "id": "contentblock.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Content block",
+  "description": "Any valid block of content like text, image or video",
+  "definitions": {
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "headline",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "text",
+        "list",
+        "code",
+        "image",
+        "video",
+        "audio",
+        "article",
+        "quote",
+        "location",
+        "cta",
+        "interactive",
+        "hr",
+        "placeholder",
+        "unknown"
+      ]
+    },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<p>Hello, world!</p>",
+      "type": "string",
+      "minLength": 7
+    },
+    "src": {
+      "description": "Source URL",
+      "example": "http://techcrunch.com/2015/04/15/mozilla-restructure/",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
+    }
+  },
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "item": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "type": {
+      "description": "Block type",
+      "example": "text",
+      "type": "string",
+      "enum": [
+        "headline",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "text",
+        "list",
+        "code",
+        "image",
+        "video",
+        "audio",
+        "article",
+        "quote",
+        "location",
+        "cta",
+        "interactive",
+        "hr",
+        "placeholder",
+        "unknown"
+      ]
+    },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<p>Hello, world!</p>",
+      "type": "string",
+      "minLength": 7
+    },
+    "src": {
+      "description": "Source URL",
+      "example": "http://techcrunch.com/2015/04/15/mozilla-restructure/",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
+    },
+    "metadata": {
+      "id": "metadata.json",
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "title": "The Grid metadata definition",
+      "description": "",
+      "type": [
+        "object"
+      ],
+      "properties": {
+        "@type": {
+          "name": "@type",
+          "type": "string",
+          "description": "Schema.org type the item or block represents",
+          "example": "Article"
+        },
+        "isBasedOnUrl": {
+          "name": "isBasedOnUrl",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Source URL for the item or block",
+          "example": "http://www.fastcolabs.com/3016289/how-an-arcane-coding-method-from-1970s-banking-software-could-save-the-sanity-of-web-develop"
+        },
+        "title": {
+          "name": "title",
+          "type": "string",
+          "description": "Textual title for the entry"
+        },
+        "description": {
+          "name": "description",
+          "type": "string",
+          "description": "Textual title for the entry"
+        },
+        "permalinkUrl": {
+          "name": "permalinkUrl",
+          "type": "string",
+          "description": "Custom permalink path for the item",
+          "example": "blog/my-cool-article.html"
+        },
+        "inLanguage": {
+          "name": "inLanguage",
+          "type": "string",
+          "description": "Content language",
+          "example": "en",
+          "minLength": 2
+        },
+        "starred": {
+          "type": "boolean",
+          "description": "Indicates if an item should be shown on feed or not",
+          "example": false
+        },
+        "emphasis": {
+          "type": "number",
+          "description": "How much emphasis an item has in some context. For example, we can say if an image has low emphasis (thumbnail, icon) or high emphasis level (a.k.a. \"Please, show this image bigger\"). Helps to reproduce a client - designer feedback cycle: show the client a layout and he can say if designer should increase emphasis or decrease it. That is why emphasis can be a negative value, in a range from -1.0 to 1.0.",
+          "example": -1,
+          "minimum": -1,
+          "maximum": 1
+        },
+        "keywords": {
+          "name": "keywords",
+          "description": "Tags describing the content",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "design",
+            "blogs"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "description": "Original publisher of the item or block",
+          "type": "object",
+          "properties": {
+            "name": {
+              "name": "name",
+              "type": "string",
+              "description": "Human-readable publisher name",
+              "example": "Fast Company"
+            },
+            "domain": {
+              "name": "domain",
+              "type": "string",
+              "format": "hostname",
+              "description": "The publisher's domain name",
+              "example": "www.fastcompany.com"
+            },
+            "url": {
+              "name": "url",
+              "type": "string",
+              "format": "uri",
+              "description": "URL of the publisher's main page",
+              "example": "http://www.fastcompany.com/"
+            },
+            "favicon": {
+              "name": "favicon",
+              "description": "URL of the publisher's favicon",
+              "example": "http://www.fastcompany.com/favicon.ico",
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "description": "Unique Resource Locator",
+                  "format": "uri",
+                  "example": "http://thegrid.io",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "via": {
+          "name": "via",
+          "description": "Publisher the item was discovered via",
+          "type": "object",
+          "properties": {
+            "name": {
+              "name": "name",
+              "type": "string",
+              "description": "Human-readable publisher name",
+              "example": "Bergie Today"
+            },
+            "domain": {
+              "name": "domain",
+              "type": "string",
+              "description": "The publisher's domain name",
+              "example": "bergie.today",
+              "format": "hostname"
+            },
+            "url": {
+              "name": "url",
+              "type": "string",
+              "format": "uri",
+              "description": "Permalink URL the item was on or URL of the publisher's main page",
+              "example": "https://bergie.today/"
+            },
+            "favicon": {
+              "name": "favicon",
+              "description": "URL of the publisher's favicon",
+              "example": "https://bergie.today/favicon.ico",
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "description": "Unique Resource Locator",
+                  "format": "uri",
+                  "example": "http://thegrid.io",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "author": {
+          "name": "author",
+          "type": "array",
+          "description": "Authors of the item or block",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "name": "name",
+                "type": "string",
+                "example": "Henri Bergius"
+              },
+              "url": {
+                "description": "Unique Resource Locator",
+                "format": "uri",
+                "example": "http://thegrid.io",
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "bergie@iki.fi"
+              },
+              "avatar": {
+                "type": "object"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "coverPrefs": {
+          "name": "coverPrefs",
+          "description": "Image processing to allow on the cover. All default true.",
+          "type": "object",
+          "properties": {
+            "filter": {
+              "name": "filter",
+              "type": "boolean",
+              "description": "Allow image filtering",
+              "example": true
+            },
+            "crop": {
+              "name": "crop",
+              "type": "boolean",
+              "description": "Allow image cropping",
+              "example": true
+            },
+            "overlay": {
+              "name": "overlay",
+              "type": "boolean",
+              "description": "Allow image overlaying",
+              "example": true
+            }
+          }
+        },
+        "geo": {
+          "type": "object",
+          "description": "Geographical data",
+          "properties": {
+            "latitude": {
+              "name": "latitude",
+              "type": "number",
+              "description": "Latitude coordinate",
+              "example": 45.5
+            },
+            "longitude": {
+              "name": "longitude",
+              "type": "number",
+              "description": "Longitude coordinate",
+              "example": -122.7
+            },
+            "zoom": {
+              "name": "zoom",
+              "type": "number",
+              "description": "Zoom level of map",
+              "example": 4
+            }
+          }
+        },
+        "address": {
+          "name": "address",
+          "type": "string",
+          "description": "Location address",
+          "example": "4242 Blue Street, San Francisco, CA"
+        },
+        "hasMap": {
+          "description": "Unique Resource Locator",
+          "format": "uri",
+          "example": "http://thegrid.io",
+          "type": "string"
+        },
+        "dateCreated": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "dateModified": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "datePublished": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "id": "audio.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Audio",
+          "description": "An audio source",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "audio",
+              "type": "string",
+              "enum": [
+                "audio"
+              ]
+            },
+            "cover": {
+              "description": "A cover image that has many details about the media, useful for previews",
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "src": {
+                  "description": "ImgFlo URL for the cover image. Caching is generally done by ImgFlo and this URL redirects the consumer to the cached URL. This URL preserves all the queries requested for the ImgFlo image processing graph",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "original": {
+                  "description": "Original URL, no matter if it's a salvaged media or not, this property stores the URL shared/uploaded to TheGrid at the first time",
+                  "type": "string",
+                  "example": "http://automata.cc/thumb-chuck-wiimote.png"
+                },
+                "altsrc": {
+                  "description": "Alternative URL, if the image has a fullscale URL, the original URL will be stored here",
+                  "type": "string",
+                  "example": "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+                },
+                "imgflosrc": {
+                  "description": "ImgFlo'ed URL",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "resized": {
+                  "description": "URL to image resized by Caliper and used by its preprocess and feature extract workers. In other words, that is the image Caliper really process and extract features from",
+                  "type": "string",
+                  "example": "http://caliper-tests.s3-us-west-2.amazonaws.com/caliper-resized/87abee46986c09f0b721f73dd309ed99.png"
+                },
+                "ratio": {
+                  "description": "Cover image ratio",
+                  "type": "string",
+                  "example": "128:101"
+                },
+                "aspect": {
+                  "description": "Calculated image ratio",
+                  "type": "number",
+                  "example": 1.2673267326732673
+                },
+                "orientation": {
+                  "description": "Cover image orientation based on image ratio. If image ration equals 1:1 then its orientation is square. If image's width is larger than its height then its orientation is landscape. If image's height is larger than its width then its orientation is portrait",
+                  "type": "string",
+                  "enum": [
+                    "landscape",
+                    "portrait",
+                    "square"
+                  ],
+                  "example": "landscape"
+                },
+                "width": {
+                  "description": "Cover image width",
+                  "type": "integer",
+                  "example": 1024
+                },
+                "height": {
+                  "description": "Cover image height",
+                  "type": "integer",
+                  "example": 808
+                },
+                "rotation": {
+                  "description": "Rotation performed by AI using auto-rotate based on EXIF or user preference",
+                  "type": "integer",
+                  "example": 90
+                },
+                "animated": {
+                  "description": "Is GIF animated?",
+                  "type": "boolean"
+                },
+                "unsalvageable": {
+                  "description": "Is media unsalvageable a.k.a cannot be rescued on Archive or other mirror?",
+                  "type": "boolean"
+                },
+                "faces": {
+                  "description": "Extracted faces from the image",
+                  "type": "array",
+                  "items": {
+                    "description": "Bounding box of a detected face",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "name": "x",
+                            "type": "number",
+                            "description": "Cartesian coordinate along x-axis",
+                            "example": 608.1907
+                          },
+                          "y": {
+                            "name": "y",
+                            "type": "number",
+                            "description": "Cartesian coordinate along y-axis",
+                            "example": 189.909
+                          },
+                          "width": {
+                            "name": "width",
+                            "type": "number",
+                            "description": "Width",
+                            "example": 229.2087
+                          },
+                          "height": {
+                            "name": "height",
+                            "type": "number",
+                            "description": "Height",
+                            "example": 229.2087
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "confidence": {
+                        "description": "How much an extracted feature should be considered as a true positive",
+                        "type": "number",
+                        "example": 5.08
+                      }
+                    }
+                  }
+                },
+                "colors": {
+                  "description": "Extracted colors from the image, represented as an array of at least 5 RGB colors",
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "description": "Tuple of RGB values representing a color",
+                    "items": [
+                      {
+                        "type": "number",
+                        "description": "Red channel",
+                        "example": 255
+                      },
+                      {
+                        "type": "number",
+                        "description": "Green channel",
+                        "example": 200
+                      },
+                      {
+                        "type": "number",
+                        "description": "Blue channel",
+                        "example": 190
+                      }
+                    ]
+                  },
+                  "minItens": 5
+                },
+                "saliency": {
+                  "description": "Extracted salient region from an image",
+                  "type": "object",
+                  "properties": {
+                    "bbox": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "name": "x",
+                          "type": "number",
+                          "description": "Cartesian coordinate along x-axis",
+                          "example": 608.1907
+                        },
+                        "y": {
+                          "name": "y",
+                          "type": "number",
+                          "description": "Cartesian coordinate along y-axis",
+                          "example": 189.909
+                        },
+                        "width": {
+                          "name": "width",
+                          "type": "number",
+                          "description": "Width",
+                          "example": 229.2087
+                        },
+                        "height": {
+                          "name": "height",
+                          "type": "number",
+                          "description": "Height",
+                          "example": 229.2087
+                        }
+                      }
+                    },
+                    "confidence": {
+                      "description": "How much an extracted feature should be considered as a true positive",
+                      "type": "number",
+                      "example": 5.08
+                    },
+                    "regions": {
+                      "description": "Extracted salient regions",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bbox": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Cartesian coordinate along x-axis",
+                                "example": 608.1907
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Cartesian coordinate along y-axis",
+                                "example": 189.909
+                              },
+                              "width": {
+                                "name": "width",
+                                "type": "number",
+                                "description": "Width",
+                                "example": 229.2087
+                              },
+                              "height": {
+                                "name": "height",
+                                "type": "number",
+                                "description": "Height",
+                                "example": 229.2087
+                              }
+                            }
+                          },
+                          "center": {
+                            "description": "Cartesian coordinate",
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Value on x-axis",
+                                "example": 4.2
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Value on y-axis",
+                                "example": 2.4
+                              }
+                            }
+                          },
+                          "radius": {
+                            "type": "number"
+                          },
+                          "polygon": {
+                            "description": "Coordinates of a polygon shape",
+                            "type": "array",
+                            "items": {
+                              "description": "Cartesian coordinate",
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "name": "x",
+                                  "type": "number",
+                                  "description": "Value on x-axis",
+                                  "example": 4.2
+                                },
+                                "y": {
+                                  "name": "y",
+                                  "type": "number",
+                                  "description": "Value on y-axis",
+                                  "example": 2.4
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "polygon": {
+                      "description": "Coordinates of a 2D polygon shape (warning: to be deprecated by `polygon`)",
+                      "type": "array",
+                      "items": {
+                        "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "number",
+                            "description": "Value on x-axis"
+                          },
+                          {
+                            "type": "number",
+                            "description": "Value on y-axis"
+                          }
+                        ]
+                      }
+                    },
+                    "center": {
+                      "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number",
+                          "description": "Value on x-axis"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Value on y-axis"
+                        }
+                      ]
+                    },
+                    "radius": {
+                      "description": "Radius of the circle around the salient region (warning: to be deprecated by `regions` radius)",
+                      "type": "number",
+                      "example": 108.079
+                    },
+                    "bounding_rect": {
+                      "description": "Coordinates of a 2D rectangle shape (warning: to be deprecated by `bbox`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        },
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "histogram": {
+                  "description": "Histogram of color levels",
+                  "type": "object",
+                  "properties": {
+                    "r": {
+                      "name": "r",
+                      "type": "array",
+                      "description": "Red channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "g": {
+                      "name": "g",
+                      "type": "array",
+                      "description": "Green channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "b": {
+                      "name": "b",
+                      "type": "array",
+                      "description": "Blue channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "a": {
+                      "name": "a",
+                      "type": "array",
+                      "description": "Alpha channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "array",
+                      "description": "Y histogram (CIE Y Rec. 601)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "h": {
+                      "name": "h",
+                      "type": "array",
+                      "description": "Hue histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "s": {
+                      "name": "s",
+                      "type": "array",
+                      "description": "Saturation histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "l": {
+                      "name": "l",
+                      "type": "array",
+                      "description": "Lightness histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "c": {
+                      "name": "c",
+                      "type": "array",
+                      "description": "Chroma histogram (CIE LCH or HSL)"
+                    }
+                  }
+                },
+                "exif": {
+                  "description": "EXIF metadata. A more comprehensive list of available EXIF attributes can be found at http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html",
+                  "type": "object",
+                  "properties": {
+                    "exif": {
+                      "name": "exif",
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "name": "image",
+                          "type": "object",
+                          "description": "Image information data (IFD0)",
+                          "example": {
+                            "Make": "FUJIFILM",
+                            "Model": "FinePix40i",
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "Software": "Digital Camera FinePix40i Ver1.39",
+                            "ModifyDate": "2000:08:04 18:22:57",
+                            "YCbCrPositioning": 2,
+                            "ExifOffset": 250
+                          }
+                        },
+                        "thumbnail": {
+                          "name": "thumbnail",
+                          "type": "object",
+                          "description": "Information regarding a possibly embedded thumbnail (IFD1)",
+                          "example": {
+                            "Compression": 6,
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "ThumbnailOffset": 1074,
+                            "ThumbnailLength": 8691,
+                            "YCbCrPositioning": 2
+                          }
+                        },
+                        "exif": {
+                          "name": "exif",
+                          "type": "object",
+                          "description": "Exif-specific attribute information (Exif IFD)",
+                          "example": {
+                            "FNumber": 2.8,
+                            "ExposureProgram": 2,
+                            "ISO": 200,
+                            "DateTimeOriginal": "2000:08:04 18:22:57",
+                            "CreateDate": "2000:08:04 18:22:57",
+                            "CompressedBitsPerPixel": 1.5,
+                            "ShutterSpeedValue": 5.5,
+                            "ApertureValue": 3,
+                            "BrightnessValue": 0.26,
+                            "ExposureCompensation": 0,
+                            "MaxApertureValue": 3,
+                            "MeteringMode": 5,
+                            "Flash": 1,
+                            "FocalLength": 8.7,
+                            "ColorSpace": 1,
+                            "ExifImageWidth": 2400,
+                            "ExifImageHeight": 1800,
+                            "InteropOffset": 926,
+                            "FocalPlaneXResolution": 2381,
+                            "FocalPlaneYResolution": 2381,
+                            "FocalPlaneResolutionUnit": 3,
+                            "SensingMethod": 2
+                          }
+                        },
+                        "gps": {
+                          "name": "gps",
+                          "type": "object",
+                          "description": "GPS information (GPS IFD)"
+                        },
+                        "interoperability": {
+                          "name": "interoperability",
+                          "type": "object",
+                          "description": "Interoperability information (Interoperability IFD)",
+                          "example": {
+                            "InteropIndex": "R98"
+                          }
+                        },
+                        "makernote": {
+                          "name": "makernote",
+                          "type": "object",
+                          "description": "Vendor specific Exif information (Makernotes)",
+                          "example": {
+                            "Quality": "NORMAL",
+                            "Sharpness": 3,
+                            "WhiteBalance": 0,
+                            "FujiFlashMode": 1,
+                            "FlashExposureComp": 0,
+                            "Macro": 0,
+                            "FocusMode": 0,
+                            "SlowSync": 0,
+                            "AutoBracketing": 0,
+                            "BlurWarning": 0,
+                            "FocusWarning": 0,
+                            "ExposureWarning": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "anyOf": {
+                  "id": "helpermeasurements.json",
+                  "$schema": "http://json-schema.org/draft-04/schema",
+                  "title": "HelperMeasurements",
+                  "description": "Measurements calculated by TheGrid's data-helper",
+                  "definitions": {
+                    "scene": {
+                      "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
+                      "type": "object",
+                      "properties": {
+                        "bbox": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Cartesian coordinate along x-axis",
+                              "example": 608.1907
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Cartesian coordinate along y-axis",
+                              "example": 189.909
+                            },
+                            "width": {
+                              "name": "width",
+                              "type": "number",
+                              "description": "Width",
+                              "example": 229.2087
+                            },
+                            "height": {
+                              "name": "height",
+                              "type": "number",
+                              "description": "Height",
+                              "example": 229.2087
+                            }
+                          }
+                        },
+                        "center": {
+                          "description": "Cartesian coordinate",
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Value on x-axis",
+                              "example": 4.2
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Value on y-axis",
+                              "example": 2.4
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lines": {
+                      "description": "This measurement/feature/heuristics takes inspiration from the Rule of Thirds, a well known \"rule of thumb\" in visual composing. Lines are bounding boxes that represent negative spaces as columns or rows around cover's scene. We can overlay content (e.g. text) in space columns or rows around the scene. We also associate a direction to a line, defining the direction we should place content ('horizontal' or 'vertical'). We calculate lines for each image that has scene",
+                      "type": "object",
+                      "properties": {
+                        "lines": {
+                          "name": "lines",
+                          "type": "object",
+                          "properties": {
+                            "direction": {
+                              "description": "Direction we should place content",
+                              "type": "string",
+                              "enum": [
+                                "horizontal",
+                                "vertical"
+                              ]
+                            },
+                            "stripes": {
+                              "description": "Rows or columns representing 3, 2 or 1-stripes around the scene and the scene itself",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "name": "type",
+                                    "description": "A negative space or the scene",
+                                    "type": "string",
+                                    "enum": [
+                                      "space",
+                                      "scene"
+                                    ]
+                                  },
+                                  "bbox": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along x-axis",
+                                        "example": 608.1907
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along y-axis",
+                                        "example": 189.909
+                                      },
+                                      "width": {
+                                        "name": "width",
+                                        "type": "number",
+                                        "description": "Width",
+                                        "example": 229.2087
+                                      },
+                                      "height": {
+                                        "name": "height",
+                                        "type": "number",
+                                        "description": "Height",
+                                        "example": 229.2087
+                                      }
+                                    }
+                                  },
+                                  "center": {
+                                    "description": "Cartesian coordinate",
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Value on x-axis",
+                                        "example": 4.2
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Value on y-axis",
+                                        "example": 2.4
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "minItens": 1,
+                              "maxItens": 3
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lightness": {
+                      "description": "For blocks that have Lightness histogram we provide a lightness level as a [0-1] float number. Greater the value, more light is the whole image",
+                      "type": "number",
+                      "example": 0.8
+                    },
+                    "saturation": {
+                      "description": "For blocks that have Saturation histogram we provide a saturation level as a [0-1] float number. Greater the value, more saturated is the whole image",
+                      "type": "number",
+                      "example": 0.2
+                    },
+                    "closest_aspect": {
+                      "description": "For blocks that have dimensions, we try to find the closest aspect ratio, considering well known \"good\" aspects like 2:1, 1:2, 2:3 and so on",
+                      "type": "number",
+                      "example": 1
+                    },
+                    "transparent": {
+                      "description": "For blocks that have Alpha histogram we provide a transparecy level as a [0-1] float number. Greater the value, more transparent is the whole image. Another way to put it is: if `transparent` is greater than zero, it has at least one transparent pixel",
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "article.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Article",
+          "description": "An article from some source which can have a cover image with measurement data",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "article",
+              "type": "string",
+              "enum": [
+                "article"
+              ]
+            },
+            "cover": {
+              "description": "A cover image that has many details about the media, useful for previews",
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "src": {
+                  "description": "ImgFlo URL for the cover image. Caching is generally done by ImgFlo and this URL redirects the consumer to the cached URL. This URL preserves all the queries requested for the ImgFlo image processing graph",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "original": {
+                  "description": "Original URL, no matter if it's a salvaged media or not, this property stores the URL shared/uploaded to TheGrid at the first time",
+                  "type": "string",
+                  "example": "http://automata.cc/thumb-chuck-wiimote.png"
+                },
+                "altsrc": {
+                  "description": "Alternative URL, if the image has a fullscale URL, the original URL will be stored here",
+                  "type": "string",
+                  "example": "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+                },
+                "imgflosrc": {
+                  "description": "ImgFlo'ed URL",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "resized": {
+                  "description": "URL to image resized by Caliper and used by its preprocess and feature extract workers. In other words, that is the image Caliper really process and extract features from",
+                  "type": "string",
+                  "example": "http://caliper-tests.s3-us-west-2.amazonaws.com/caliper-resized/87abee46986c09f0b721f73dd309ed99.png"
+                },
+                "ratio": {
+                  "description": "Cover image ratio",
+                  "type": "string",
+                  "example": "128:101"
+                },
+                "aspect": {
+                  "description": "Calculated image ratio",
+                  "type": "number",
+                  "example": 1.2673267326732673
+                },
+                "orientation": {
+                  "description": "Cover image orientation based on image ratio. If image ration equals 1:1 then its orientation is square. If image's width is larger than its height then its orientation is landscape. If image's height is larger than its width then its orientation is portrait",
+                  "type": "string",
+                  "enum": [
+                    "landscape",
+                    "portrait",
+                    "square"
+                  ],
+                  "example": "landscape"
+                },
+                "width": {
+                  "description": "Cover image width",
+                  "type": "integer",
+                  "example": 1024
+                },
+                "height": {
+                  "description": "Cover image height",
+                  "type": "integer",
+                  "example": 808
+                },
+                "rotation": {
+                  "description": "Rotation performed by AI using auto-rotate based on EXIF or user preference",
+                  "type": "integer",
+                  "example": 90
+                },
+                "animated": {
+                  "description": "Is GIF animated?",
+                  "type": "boolean"
+                },
+                "unsalvageable": {
+                  "description": "Is media unsalvageable a.k.a cannot be rescued on Archive or other mirror?",
+                  "type": "boolean"
+                },
+                "faces": {
+                  "description": "Extracted faces from the image",
+                  "type": "array",
+                  "items": {
+                    "description": "Bounding box of a detected face",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "name": "x",
+                            "type": "number",
+                            "description": "Cartesian coordinate along x-axis",
+                            "example": 608.1907
+                          },
+                          "y": {
+                            "name": "y",
+                            "type": "number",
+                            "description": "Cartesian coordinate along y-axis",
+                            "example": 189.909
+                          },
+                          "width": {
+                            "name": "width",
+                            "type": "number",
+                            "description": "Width",
+                            "example": 229.2087
+                          },
+                          "height": {
+                            "name": "height",
+                            "type": "number",
+                            "description": "Height",
+                            "example": 229.2087
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "confidence": {
+                        "description": "How much an extracted feature should be considered as a true positive",
+                        "type": "number",
+                        "example": 5.08
+                      }
+                    }
+                  }
+                },
+                "colors": {
+                  "description": "Extracted colors from the image, represented as an array of at least 5 RGB colors",
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "description": "Tuple of RGB values representing a color",
+                    "items": [
+                      {
+                        "type": "number",
+                        "description": "Red channel",
+                        "example": 255
+                      },
+                      {
+                        "type": "number",
+                        "description": "Green channel",
+                        "example": 200
+                      },
+                      {
+                        "type": "number",
+                        "description": "Blue channel",
+                        "example": 190
+                      }
+                    ]
+                  },
+                  "minItens": 5
+                },
+                "saliency": {
+                  "description": "Extracted salient region from an image",
+                  "type": "object",
+                  "properties": {
+                    "bbox": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "name": "x",
+                          "type": "number",
+                          "description": "Cartesian coordinate along x-axis",
+                          "example": 608.1907
+                        },
+                        "y": {
+                          "name": "y",
+                          "type": "number",
+                          "description": "Cartesian coordinate along y-axis",
+                          "example": 189.909
+                        },
+                        "width": {
+                          "name": "width",
+                          "type": "number",
+                          "description": "Width",
+                          "example": 229.2087
+                        },
+                        "height": {
+                          "name": "height",
+                          "type": "number",
+                          "description": "Height",
+                          "example": 229.2087
+                        }
+                      }
+                    },
+                    "confidence": {
+                      "description": "How much an extracted feature should be considered as a true positive",
+                      "type": "number",
+                      "example": 5.08
+                    },
+                    "regions": {
+                      "description": "Extracted salient regions",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bbox": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Cartesian coordinate along x-axis",
+                                "example": 608.1907
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Cartesian coordinate along y-axis",
+                                "example": 189.909
+                              },
+                              "width": {
+                                "name": "width",
+                                "type": "number",
+                                "description": "Width",
+                                "example": 229.2087
+                              },
+                              "height": {
+                                "name": "height",
+                                "type": "number",
+                                "description": "Height",
+                                "example": 229.2087
+                              }
+                            }
+                          },
+                          "center": {
+                            "description": "Cartesian coordinate",
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Value on x-axis",
+                                "example": 4.2
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Value on y-axis",
+                                "example": 2.4
+                              }
+                            }
+                          },
+                          "radius": {
+                            "type": "number"
+                          },
+                          "polygon": {
+                            "description": "Coordinates of a polygon shape",
+                            "type": "array",
+                            "items": {
+                              "description": "Cartesian coordinate",
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "name": "x",
+                                  "type": "number",
+                                  "description": "Value on x-axis",
+                                  "example": 4.2
+                                },
+                                "y": {
+                                  "name": "y",
+                                  "type": "number",
+                                  "description": "Value on y-axis",
+                                  "example": 2.4
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "polygon": {
+                      "description": "Coordinates of a 2D polygon shape (warning: to be deprecated by `polygon`)",
+                      "type": "array",
+                      "items": {
+                        "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "number",
+                            "description": "Value on x-axis"
+                          },
+                          {
+                            "type": "number",
+                            "description": "Value on y-axis"
+                          }
+                        ]
+                      }
+                    },
+                    "center": {
+                      "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number",
+                          "description": "Value on x-axis"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Value on y-axis"
+                        }
+                      ]
+                    },
+                    "radius": {
+                      "description": "Radius of the circle around the salient region (warning: to be deprecated by `regions` radius)",
+                      "type": "number",
+                      "example": 108.079
+                    },
+                    "bounding_rect": {
+                      "description": "Coordinates of a 2D rectangle shape (warning: to be deprecated by `bbox`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        },
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "histogram": {
+                  "description": "Histogram of color levels",
+                  "type": "object",
+                  "properties": {
+                    "r": {
+                      "name": "r",
+                      "type": "array",
+                      "description": "Red channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "g": {
+                      "name": "g",
+                      "type": "array",
+                      "description": "Green channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "b": {
+                      "name": "b",
+                      "type": "array",
+                      "description": "Blue channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "a": {
+                      "name": "a",
+                      "type": "array",
+                      "description": "Alpha channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "array",
+                      "description": "Y histogram (CIE Y Rec. 601)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "h": {
+                      "name": "h",
+                      "type": "array",
+                      "description": "Hue histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "s": {
+                      "name": "s",
+                      "type": "array",
+                      "description": "Saturation histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "l": {
+                      "name": "l",
+                      "type": "array",
+                      "description": "Lightness histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "c": {
+                      "name": "c",
+                      "type": "array",
+                      "description": "Chroma histogram (CIE LCH or HSL)"
+                    }
+                  }
+                },
+                "exif": {
+                  "description": "EXIF metadata. A more comprehensive list of available EXIF attributes can be found at http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html",
+                  "type": "object",
+                  "properties": {
+                    "exif": {
+                      "name": "exif",
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "name": "image",
+                          "type": "object",
+                          "description": "Image information data (IFD0)",
+                          "example": {
+                            "Make": "FUJIFILM",
+                            "Model": "FinePix40i",
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "Software": "Digital Camera FinePix40i Ver1.39",
+                            "ModifyDate": "2000:08:04 18:22:57",
+                            "YCbCrPositioning": 2,
+                            "ExifOffset": 250
+                          }
+                        },
+                        "thumbnail": {
+                          "name": "thumbnail",
+                          "type": "object",
+                          "description": "Information regarding a possibly embedded thumbnail (IFD1)",
+                          "example": {
+                            "Compression": 6,
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "ThumbnailOffset": 1074,
+                            "ThumbnailLength": 8691,
+                            "YCbCrPositioning": 2
+                          }
+                        },
+                        "exif": {
+                          "name": "exif",
+                          "type": "object",
+                          "description": "Exif-specific attribute information (Exif IFD)",
+                          "example": {
+                            "FNumber": 2.8,
+                            "ExposureProgram": 2,
+                            "ISO": 200,
+                            "DateTimeOriginal": "2000:08:04 18:22:57",
+                            "CreateDate": "2000:08:04 18:22:57",
+                            "CompressedBitsPerPixel": 1.5,
+                            "ShutterSpeedValue": 5.5,
+                            "ApertureValue": 3,
+                            "BrightnessValue": 0.26,
+                            "ExposureCompensation": 0,
+                            "MaxApertureValue": 3,
+                            "MeteringMode": 5,
+                            "Flash": 1,
+                            "FocalLength": 8.7,
+                            "ColorSpace": 1,
+                            "ExifImageWidth": 2400,
+                            "ExifImageHeight": 1800,
+                            "InteropOffset": 926,
+                            "FocalPlaneXResolution": 2381,
+                            "FocalPlaneYResolution": 2381,
+                            "FocalPlaneResolutionUnit": 3,
+                            "SensingMethod": 2
+                          }
+                        },
+                        "gps": {
+                          "name": "gps",
+                          "type": "object",
+                          "description": "GPS information (GPS IFD)"
+                        },
+                        "interoperability": {
+                          "name": "interoperability",
+                          "type": "object",
+                          "description": "Interoperability information (Interoperability IFD)",
+                          "example": {
+                            "InteropIndex": "R98"
+                          }
+                        },
+                        "makernote": {
+                          "name": "makernote",
+                          "type": "object",
+                          "description": "Vendor specific Exif information (Makernotes)",
+                          "example": {
+                            "Quality": "NORMAL",
+                            "Sharpness": 3,
+                            "WhiteBalance": 0,
+                            "FujiFlashMode": 1,
+                            "FlashExposureComp": 0,
+                            "Macro": 0,
+                            "FocusMode": 0,
+                            "SlowSync": 0,
+                            "AutoBracketing": 0,
+                            "BlurWarning": 0,
+                            "FocusWarning": 0,
+                            "ExposureWarning": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "anyOf": {
+                  "id": "helpermeasurements.json",
+                  "$schema": "http://json-schema.org/draft-04/schema",
+                  "title": "HelperMeasurements",
+                  "description": "Measurements calculated by TheGrid's data-helper",
+                  "definitions": {
+                    "scene": {
+                      "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
+                      "type": "object",
+                      "properties": {
+                        "bbox": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Cartesian coordinate along x-axis",
+                              "example": 608.1907
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Cartesian coordinate along y-axis",
+                              "example": 189.909
+                            },
+                            "width": {
+                              "name": "width",
+                              "type": "number",
+                              "description": "Width",
+                              "example": 229.2087
+                            },
+                            "height": {
+                              "name": "height",
+                              "type": "number",
+                              "description": "Height",
+                              "example": 229.2087
+                            }
+                          }
+                        },
+                        "center": {
+                          "description": "Cartesian coordinate",
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Value on x-axis",
+                              "example": 4.2
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Value on y-axis",
+                              "example": 2.4
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lines": {
+                      "description": "This measurement/feature/heuristics takes inspiration from the Rule of Thirds, a well known \"rule of thumb\" in visual composing. Lines are bounding boxes that represent negative spaces as columns or rows around cover's scene. We can overlay content (e.g. text) in space columns or rows around the scene. We also associate a direction to a line, defining the direction we should place content ('horizontal' or 'vertical'). We calculate lines for each image that has scene",
+                      "type": "object",
+                      "properties": {
+                        "lines": {
+                          "name": "lines",
+                          "type": "object",
+                          "properties": {
+                            "direction": {
+                              "description": "Direction we should place content",
+                              "type": "string",
+                              "enum": [
+                                "horizontal",
+                                "vertical"
+                              ]
+                            },
+                            "stripes": {
+                              "description": "Rows or columns representing 3, 2 or 1-stripes around the scene and the scene itself",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "name": "type",
+                                    "description": "A negative space or the scene",
+                                    "type": "string",
+                                    "enum": [
+                                      "space",
+                                      "scene"
+                                    ]
+                                  },
+                                  "bbox": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along x-axis",
+                                        "example": 608.1907
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along y-axis",
+                                        "example": 189.909
+                                      },
+                                      "width": {
+                                        "name": "width",
+                                        "type": "number",
+                                        "description": "Width",
+                                        "example": 229.2087
+                                      },
+                                      "height": {
+                                        "name": "height",
+                                        "type": "number",
+                                        "description": "Height",
+                                        "example": 229.2087
+                                      }
+                                    }
+                                  },
+                                  "center": {
+                                    "description": "Cartesian coordinate",
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Value on x-axis",
+                                        "example": 4.2
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Value on y-axis",
+                                        "example": 2.4
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "minItens": 1,
+                              "maxItens": 3
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lightness": {
+                      "description": "For blocks that have Lightness histogram we provide a lightness level as a [0-1] float number. Greater the value, more light is the whole image",
+                      "type": "number",
+                      "example": 0.8
+                    },
+                    "saturation": {
+                      "description": "For blocks that have Saturation histogram we provide a saturation level as a [0-1] float number. Greater the value, more saturated is the whole image",
+                      "type": "number",
+                      "example": 0.2
+                    },
+                    "closest_aspect": {
+                      "description": "For blocks that have dimensions, we try to find the closest aspect ratio, considering well known \"good\" aspects like 2:1, 1:2, 2:3 and so on",
+                      "type": "number",
+                      "example": 1
+                    },
+                    "transparent": {
+                      "description": "For blocks that have Alpha histogram we provide a transparecy level as a [0-1] float number. Greater the value, more transparent is the whole image. Another way to put it is: if `transparent` is greater than zero, it has at least one transparent pixel",
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "code.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Code",
+          "description": "A source code snippet",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "video",
+              "type": "string",
+              "enum": [
+                "code"
+              ]
+            },
+            "text": {
+              "description": "Extracted text",
+              "example": "var foo = 42;",
+              "type": "string"
+            },
+            "length": {
+              "description": "Length of extracted text",
+              "example": 13,
+              "type": "integer"
+            },
+            "programming_language": {
+              "description": "Detected programming language",
+              "example": "javascript",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "cta.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Call to action",
+          "description": "An HTML representing a call to action with the verb which defines the action, a tagged price and some measurement data",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "text",
+              "type": "string",
+              "enum": [
+                "cta"
+              ]
+            },
+            "verb": {
+              "description": "A verb that defines the action",
+              "example": "purchase",
+              "type": "string"
+            },
+            "url": {
+              "description": "Unique Resource Locator",
+              "format": "uri",
+              "example": "http://thegrid.io",
+              "type": "string"
+            },
+            "cta": {
+              "description": "Unique identifier",
+              "format": "uuid",
+              "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "type": "string"
+            },
+            "price": {
+              "description": "A tagged price, in USD cents",
+              "example": "9600",
+              "type": "string"
+            },
+            "label": {
+              "description": "Extracted text from the HTML",
+              "example": "Buy now",
+              "type": "string"
+            },
+            "length": {
+              "description": "Lenght of the extracted text",
+              "example": 7,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "headline.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "HTML Headline",
+          "description": "An HTML headline with measurement data like extracted text and its length in characters",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "text",
+              "type": "string",
+              "enum": [
+                "headline",
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6"
+              ]
+            },
+            "text": {
+              "description": "Extracted text",
+              "example": "This is a headline",
+              "type": "string"
+            },
+            "length": {
+              "description": "Length of extracted text",
+              "example": 18,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "html"
+          ]
+        },
+        {
+          "id": "hr.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "HR block",
+          "description": "Horizontal divider in content",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "description": "Unique identifier",
+              "format": "uuid",
+              "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "type": "string"
+            },
+            "type": {
+              "description": "Block type",
+              "example": "text",
+              "type": "string",
+              "enum": [
+                "hr"
+              ]
+            },
+            "html": {
+              "description": "HTML content of the block",
+              "example": "<hr>",
+              "type": "string",
+              "minLength": 4
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "image.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Image",
+          "description": "An HTML image element which can have a cover image with annotated measurements data",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "image",
+              "type": "string",
+              "enum": [
+                "image",
+                "interactive"
+              ]
+            },
+            "cover": {
+              "description": "A cover image that has many details about the media, useful for previews",
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "src": {
+                  "description": "ImgFlo URL for the cover image. Caching is generally done by ImgFlo and this URL redirects the consumer to the cached URL. This URL preserves all the queries requested for the ImgFlo image processing graph",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "original": {
+                  "description": "Original URL, no matter if it's a salvaged media or not, this property stores the URL shared/uploaded to TheGrid at the first time",
+                  "type": "string",
+                  "example": "http://automata.cc/thumb-chuck-wiimote.png"
+                },
+                "altsrc": {
+                  "description": "Alternative URL, if the image has a fullscale URL, the original URL will be stored here",
+                  "type": "string",
+                  "example": "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+                },
+                "imgflosrc": {
+                  "description": "ImgFlo'ed URL",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "resized": {
+                  "description": "URL to image resized by Caliper and used by its preprocess and feature extract workers. In other words, that is the image Caliper really process and extract features from",
+                  "type": "string",
+                  "example": "http://caliper-tests.s3-us-west-2.amazonaws.com/caliper-resized/87abee46986c09f0b721f73dd309ed99.png"
+                },
+                "ratio": {
+                  "description": "Cover image ratio",
+                  "type": "string",
+                  "example": "128:101"
+                },
+                "aspect": {
+                  "description": "Calculated image ratio",
+                  "type": "number",
+                  "example": 1.2673267326732673
+                },
+                "orientation": {
+                  "description": "Cover image orientation based on image ratio. If image ration equals 1:1 then its orientation is square. If image's width is larger than its height then its orientation is landscape. If image's height is larger than its width then its orientation is portrait",
+                  "type": "string",
+                  "enum": [
+                    "landscape",
+                    "portrait",
+                    "square"
+                  ],
+                  "example": "landscape"
+                },
+                "width": {
+                  "description": "Cover image width",
+                  "type": "integer",
+                  "example": 1024
+                },
+                "height": {
+                  "description": "Cover image height",
+                  "type": "integer",
+                  "example": 808
+                },
+                "rotation": {
+                  "description": "Rotation performed by AI using auto-rotate based on EXIF or user preference",
+                  "type": "integer",
+                  "example": 90
+                },
+                "animated": {
+                  "description": "Is GIF animated?",
+                  "type": "boolean"
+                },
+                "unsalvageable": {
+                  "description": "Is media unsalvageable a.k.a cannot be rescued on Archive or other mirror?",
+                  "type": "boolean"
+                },
+                "faces": {
+                  "description": "Extracted faces from the image",
+                  "type": "array",
+                  "items": {
+                    "description": "Bounding box of a detected face",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "name": "x",
+                            "type": "number",
+                            "description": "Cartesian coordinate along x-axis",
+                            "example": 608.1907
+                          },
+                          "y": {
+                            "name": "y",
+                            "type": "number",
+                            "description": "Cartesian coordinate along y-axis",
+                            "example": 189.909
+                          },
+                          "width": {
+                            "name": "width",
+                            "type": "number",
+                            "description": "Width",
+                            "example": 229.2087
+                          },
+                          "height": {
+                            "name": "height",
+                            "type": "number",
+                            "description": "Height",
+                            "example": 229.2087
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "confidence": {
+                        "description": "How much an extracted feature should be considered as a true positive",
+                        "type": "number",
+                        "example": 5.08
+                      }
+                    }
+                  }
+                },
+                "colors": {
+                  "description": "Extracted colors from the image, represented as an array of at least 5 RGB colors",
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "description": "Tuple of RGB values representing a color",
+                    "items": [
+                      {
+                        "type": "number",
+                        "description": "Red channel",
+                        "example": 255
+                      },
+                      {
+                        "type": "number",
+                        "description": "Green channel",
+                        "example": 200
+                      },
+                      {
+                        "type": "number",
+                        "description": "Blue channel",
+                        "example": 190
+                      }
+                    ]
+                  },
+                  "minItens": 5
+                },
+                "saliency": {
+                  "description": "Extracted salient region from an image",
+                  "type": "object",
+                  "properties": {
+                    "bbox": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "name": "x",
+                          "type": "number",
+                          "description": "Cartesian coordinate along x-axis",
+                          "example": 608.1907
+                        },
+                        "y": {
+                          "name": "y",
+                          "type": "number",
+                          "description": "Cartesian coordinate along y-axis",
+                          "example": 189.909
+                        },
+                        "width": {
+                          "name": "width",
+                          "type": "number",
+                          "description": "Width",
+                          "example": 229.2087
+                        },
+                        "height": {
+                          "name": "height",
+                          "type": "number",
+                          "description": "Height",
+                          "example": 229.2087
+                        }
+                      }
+                    },
+                    "confidence": {
+                      "description": "How much an extracted feature should be considered as a true positive",
+                      "type": "number",
+                      "example": 5.08
+                    },
+                    "regions": {
+                      "description": "Extracted salient regions",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bbox": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Cartesian coordinate along x-axis",
+                                "example": 608.1907
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Cartesian coordinate along y-axis",
+                                "example": 189.909
+                              },
+                              "width": {
+                                "name": "width",
+                                "type": "number",
+                                "description": "Width",
+                                "example": 229.2087
+                              },
+                              "height": {
+                                "name": "height",
+                                "type": "number",
+                                "description": "Height",
+                                "example": 229.2087
+                              }
+                            }
+                          },
+                          "center": {
+                            "description": "Cartesian coordinate",
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Value on x-axis",
+                                "example": 4.2
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Value on y-axis",
+                                "example": 2.4
+                              }
+                            }
+                          },
+                          "radius": {
+                            "type": "number"
+                          },
+                          "polygon": {
+                            "description": "Coordinates of a polygon shape",
+                            "type": "array",
+                            "items": {
+                              "description": "Cartesian coordinate",
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "name": "x",
+                                  "type": "number",
+                                  "description": "Value on x-axis",
+                                  "example": 4.2
+                                },
+                                "y": {
+                                  "name": "y",
+                                  "type": "number",
+                                  "description": "Value on y-axis",
+                                  "example": 2.4
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "polygon": {
+                      "description": "Coordinates of a 2D polygon shape (warning: to be deprecated by `polygon`)",
+                      "type": "array",
+                      "items": {
+                        "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "number",
+                            "description": "Value on x-axis"
+                          },
+                          {
+                            "type": "number",
+                            "description": "Value on y-axis"
+                          }
+                        ]
+                      }
+                    },
+                    "center": {
+                      "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number",
+                          "description": "Value on x-axis"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Value on y-axis"
+                        }
+                      ]
+                    },
+                    "radius": {
+                      "description": "Radius of the circle around the salient region (warning: to be deprecated by `regions` radius)",
+                      "type": "number",
+                      "example": 108.079
+                    },
+                    "bounding_rect": {
+                      "description": "Coordinates of a 2D rectangle shape (warning: to be deprecated by `bbox`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        },
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "histogram": {
+                  "description": "Histogram of color levels",
+                  "type": "object",
+                  "properties": {
+                    "r": {
+                      "name": "r",
+                      "type": "array",
+                      "description": "Red channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "g": {
+                      "name": "g",
+                      "type": "array",
+                      "description": "Green channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "b": {
+                      "name": "b",
+                      "type": "array",
+                      "description": "Blue channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "a": {
+                      "name": "a",
+                      "type": "array",
+                      "description": "Alpha channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "array",
+                      "description": "Y histogram (CIE Y Rec. 601)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "h": {
+                      "name": "h",
+                      "type": "array",
+                      "description": "Hue histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "s": {
+                      "name": "s",
+                      "type": "array",
+                      "description": "Saturation histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "l": {
+                      "name": "l",
+                      "type": "array",
+                      "description": "Lightness histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "c": {
+                      "name": "c",
+                      "type": "array",
+                      "description": "Chroma histogram (CIE LCH or HSL)"
+                    }
+                  }
+                },
+                "exif": {
+                  "description": "EXIF metadata. A more comprehensive list of available EXIF attributes can be found at http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html",
+                  "type": "object",
+                  "properties": {
+                    "exif": {
+                      "name": "exif",
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "name": "image",
+                          "type": "object",
+                          "description": "Image information data (IFD0)",
+                          "example": {
+                            "Make": "FUJIFILM",
+                            "Model": "FinePix40i",
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "Software": "Digital Camera FinePix40i Ver1.39",
+                            "ModifyDate": "2000:08:04 18:22:57",
+                            "YCbCrPositioning": 2,
+                            "ExifOffset": 250
+                          }
+                        },
+                        "thumbnail": {
+                          "name": "thumbnail",
+                          "type": "object",
+                          "description": "Information regarding a possibly embedded thumbnail (IFD1)",
+                          "example": {
+                            "Compression": 6,
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "ThumbnailOffset": 1074,
+                            "ThumbnailLength": 8691,
+                            "YCbCrPositioning": 2
+                          }
+                        },
+                        "exif": {
+                          "name": "exif",
+                          "type": "object",
+                          "description": "Exif-specific attribute information (Exif IFD)",
+                          "example": {
+                            "FNumber": 2.8,
+                            "ExposureProgram": 2,
+                            "ISO": 200,
+                            "DateTimeOriginal": "2000:08:04 18:22:57",
+                            "CreateDate": "2000:08:04 18:22:57",
+                            "CompressedBitsPerPixel": 1.5,
+                            "ShutterSpeedValue": 5.5,
+                            "ApertureValue": 3,
+                            "BrightnessValue": 0.26,
+                            "ExposureCompensation": 0,
+                            "MaxApertureValue": 3,
+                            "MeteringMode": 5,
+                            "Flash": 1,
+                            "FocalLength": 8.7,
+                            "ColorSpace": 1,
+                            "ExifImageWidth": 2400,
+                            "ExifImageHeight": 1800,
+                            "InteropOffset": 926,
+                            "FocalPlaneXResolution": 2381,
+                            "FocalPlaneYResolution": 2381,
+                            "FocalPlaneResolutionUnit": 3,
+                            "SensingMethod": 2
+                          }
+                        },
+                        "gps": {
+                          "name": "gps",
+                          "type": "object",
+                          "description": "GPS information (GPS IFD)"
+                        },
+                        "interoperability": {
+                          "name": "interoperability",
+                          "type": "object",
+                          "description": "Interoperability information (Interoperability IFD)",
+                          "example": {
+                            "InteropIndex": "R98"
+                          }
+                        },
+                        "makernote": {
+                          "name": "makernote",
+                          "type": "object",
+                          "description": "Vendor specific Exif information (Makernotes)",
+                          "example": {
+                            "Quality": "NORMAL",
+                            "Sharpness": 3,
+                            "WhiteBalance": 0,
+                            "FujiFlashMode": 1,
+                            "FlashExposureComp": 0,
+                            "Macro": 0,
+                            "FocusMode": 0,
+                            "SlowSync": 0,
+                            "AutoBracketing": 0,
+                            "BlurWarning": 0,
+                            "FocusWarning": 0,
+                            "ExposureWarning": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "anyOf": {
+                  "id": "helpermeasurements.json",
+                  "$schema": "http://json-schema.org/draft-04/schema",
+                  "title": "HelperMeasurements",
+                  "description": "Measurements calculated by TheGrid's data-helper",
+                  "definitions": {
+                    "scene": {
+                      "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
+                      "type": "object",
+                      "properties": {
+                        "bbox": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Cartesian coordinate along x-axis",
+                              "example": 608.1907
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Cartesian coordinate along y-axis",
+                              "example": 189.909
+                            },
+                            "width": {
+                              "name": "width",
+                              "type": "number",
+                              "description": "Width",
+                              "example": 229.2087
+                            },
+                            "height": {
+                              "name": "height",
+                              "type": "number",
+                              "description": "Height",
+                              "example": 229.2087
+                            }
+                          }
+                        },
+                        "center": {
+                          "description": "Cartesian coordinate",
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Value on x-axis",
+                              "example": 4.2
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Value on y-axis",
+                              "example": 2.4
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lines": {
+                      "description": "This measurement/feature/heuristics takes inspiration from the Rule of Thirds, a well known \"rule of thumb\" in visual composing. Lines are bounding boxes that represent negative spaces as columns or rows around cover's scene. We can overlay content (e.g. text) in space columns or rows around the scene. We also associate a direction to a line, defining the direction we should place content ('horizontal' or 'vertical'). We calculate lines for each image that has scene",
+                      "type": "object",
+                      "properties": {
+                        "lines": {
+                          "name": "lines",
+                          "type": "object",
+                          "properties": {
+                            "direction": {
+                              "description": "Direction we should place content",
+                              "type": "string",
+                              "enum": [
+                                "horizontal",
+                                "vertical"
+                              ]
+                            },
+                            "stripes": {
+                              "description": "Rows or columns representing 3, 2 or 1-stripes around the scene and the scene itself",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "name": "type",
+                                    "description": "A negative space or the scene",
+                                    "type": "string",
+                                    "enum": [
+                                      "space",
+                                      "scene"
+                                    ]
+                                  },
+                                  "bbox": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along x-axis",
+                                        "example": 608.1907
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along y-axis",
+                                        "example": 189.909
+                                      },
+                                      "width": {
+                                        "name": "width",
+                                        "type": "number",
+                                        "description": "Width",
+                                        "example": 229.2087
+                                      },
+                                      "height": {
+                                        "name": "height",
+                                        "type": "number",
+                                        "description": "Height",
+                                        "example": 229.2087
+                                      }
+                                    }
+                                  },
+                                  "center": {
+                                    "description": "Cartesian coordinate",
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Value on x-axis",
+                                        "example": 4.2
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Value on y-axis",
+                                        "example": 2.4
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "minItens": 1,
+                              "maxItens": 3
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lightness": {
+                      "description": "For blocks that have Lightness histogram we provide a lightness level as a [0-1] float number. Greater the value, more light is the whole image",
+                      "type": "number",
+                      "example": 0.8
+                    },
+                    "saturation": {
+                      "description": "For blocks that have Saturation histogram we provide a saturation level as a [0-1] float number. Greater the value, more saturated is the whole image",
+                      "type": "number",
+                      "example": 0.2
+                    },
+                    "closest_aspect": {
+                      "description": "For blocks that have dimensions, we try to find the closest aspect ratio, considering well known \"good\" aspects like 2:1, 1:2, 2:3 and so on",
+                      "type": "number",
+                      "example": 1
+                    },
+                    "transparent": {
+                      "description": "For blocks that have Alpha histogram we provide a transparecy level as a [0-1] float number. Greater the value, more transparent is the whole image. Another way to put it is: if `transparent` is greater than zero, it has at least one transparent pixel",
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "caption": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "list.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "HTML list",
+          "description": "An ordered or unordered list of elements. It can be annotated with measurements data like the number of items",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "text",
+              "type": "string",
+              "enum": [
+                "list"
+              ]
+            },
+            "items": {
+              "description": "The measured number of items on the list",
+              "type": "integer",
+              "example": 3
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "location.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Location",
+          "description": "A geographical location",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "locatation",
+              "type": "string",
+              "enum": [
+                "location"
+              ]
+            },
+            "cover": {
+              "description": "A cover image that has many details about the media, useful for previews",
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "src": {
+                  "description": "ImgFlo URL for the cover image. Caching is generally done by ImgFlo and this URL redirects the consumer to the cached URL. This URL preserves all the queries requested for the ImgFlo image processing graph",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "original": {
+                  "description": "Original URL, no matter if it's a salvaged media or not, this property stores the URL shared/uploaded to TheGrid at the first time",
+                  "type": "string",
+                  "example": "http://automata.cc/thumb-chuck-wiimote.png"
+                },
+                "altsrc": {
+                  "description": "Alternative URL, if the image has a fullscale URL, the original URL will be stored here",
+                  "type": "string",
+                  "example": "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+                },
+                "imgflosrc": {
+                  "description": "ImgFlo'ed URL",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "resized": {
+                  "description": "URL to image resized by Caliper and used by its preprocess and feature extract workers. In other words, that is the image Caliper really process and extract features from",
+                  "type": "string",
+                  "example": "http://caliper-tests.s3-us-west-2.amazonaws.com/caliper-resized/87abee46986c09f0b721f73dd309ed99.png"
+                },
+                "ratio": {
+                  "description": "Cover image ratio",
+                  "type": "string",
+                  "example": "128:101"
+                },
+                "aspect": {
+                  "description": "Calculated image ratio",
+                  "type": "number",
+                  "example": 1.2673267326732673
+                },
+                "orientation": {
+                  "description": "Cover image orientation based on image ratio. If image ration equals 1:1 then its orientation is square. If image's width is larger than its height then its orientation is landscape. If image's height is larger than its width then its orientation is portrait",
+                  "type": "string",
+                  "enum": [
+                    "landscape",
+                    "portrait",
+                    "square"
+                  ],
+                  "example": "landscape"
+                },
+                "width": {
+                  "description": "Cover image width",
+                  "type": "integer",
+                  "example": 1024
+                },
+                "height": {
+                  "description": "Cover image height",
+                  "type": "integer",
+                  "example": 808
+                },
+                "rotation": {
+                  "description": "Rotation performed by AI using auto-rotate based on EXIF or user preference",
+                  "type": "integer",
+                  "example": 90
+                },
+                "animated": {
+                  "description": "Is GIF animated?",
+                  "type": "boolean"
+                },
+                "unsalvageable": {
+                  "description": "Is media unsalvageable a.k.a cannot be rescued on Archive or other mirror?",
+                  "type": "boolean"
+                },
+                "faces": {
+                  "description": "Extracted faces from the image",
+                  "type": "array",
+                  "items": {
+                    "description": "Bounding box of a detected face",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "name": "x",
+                            "type": "number",
+                            "description": "Cartesian coordinate along x-axis",
+                            "example": 608.1907
+                          },
+                          "y": {
+                            "name": "y",
+                            "type": "number",
+                            "description": "Cartesian coordinate along y-axis",
+                            "example": 189.909
+                          },
+                          "width": {
+                            "name": "width",
+                            "type": "number",
+                            "description": "Width",
+                            "example": 229.2087
+                          },
+                          "height": {
+                            "name": "height",
+                            "type": "number",
+                            "description": "Height",
+                            "example": 229.2087
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "confidence": {
+                        "description": "How much an extracted feature should be considered as a true positive",
+                        "type": "number",
+                        "example": 5.08
+                      }
+                    }
+                  }
+                },
+                "colors": {
+                  "description": "Extracted colors from the image, represented as an array of at least 5 RGB colors",
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "description": "Tuple of RGB values representing a color",
+                    "items": [
+                      {
+                        "type": "number",
+                        "description": "Red channel",
+                        "example": 255
+                      },
+                      {
+                        "type": "number",
+                        "description": "Green channel",
+                        "example": 200
+                      },
+                      {
+                        "type": "number",
+                        "description": "Blue channel",
+                        "example": 190
+                      }
+                    ]
+                  },
+                  "minItens": 5
+                },
+                "saliency": {
+                  "description": "Extracted salient region from an image",
+                  "type": "object",
+                  "properties": {
+                    "bbox": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "name": "x",
+                          "type": "number",
+                          "description": "Cartesian coordinate along x-axis",
+                          "example": 608.1907
+                        },
+                        "y": {
+                          "name": "y",
+                          "type": "number",
+                          "description": "Cartesian coordinate along y-axis",
+                          "example": 189.909
+                        },
+                        "width": {
+                          "name": "width",
+                          "type": "number",
+                          "description": "Width",
+                          "example": 229.2087
+                        },
+                        "height": {
+                          "name": "height",
+                          "type": "number",
+                          "description": "Height",
+                          "example": 229.2087
+                        }
+                      }
+                    },
+                    "confidence": {
+                      "description": "How much an extracted feature should be considered as a true positive",
+                      "type": "number",
+                      "example": 5.08
+                    },
+                    "regions": {
+                      "description": "Extracted salient regions",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bbox": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Cartesian coordinate along x-axis",
+                                "example": 608.1907
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Cartesian coordinate along y-axis",
+                                "example": 189.909
+                              },
+                              "width": {
+                                "name": "width",
+                                "type": "number",
+                                "description": "Width",
+                                "example": 229.2087
+                              },
+                              "height": {
+                                "name": "height",
+                                "type": "number",
+                                "description": "Height",
+                                "example": 229.2087
+                              }
+                            }
+                          },
+                          "center": {
+                            "description": "Cartesian coordinate",
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Value on x-axis",
+                                "example": 4.2
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Value on y-axis",
+                                "example": 2.4
+                              }
+                            }
+                          },
+                          "radius": {
+                            "type": "number"
+                          },
+                          "polygon": {
+                            "description": "Coordinates of a polygon shape",
+                            "type": "array",
+                            "items": {
+                              "description": "Cartesian coordinate",
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "name": "x",
+                                  "type": "number",
+                                  "description": "Value on x-axis",
+                                  "example": 4.2
+                                },
+                                "y": {
+                                  "name": "y",
+                                  "type": "number",
+                                  "description": "Value on y-axis",
+                                  "example": 2.4
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "polygon": {
+                      "description": "Coordinates of a 2D polygon shape (warning: to be deprecated by `polygon`)",
+                      "type": "array",
+                      "items": {
+                        "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "number",
+                            "description": "Value on x-axis"
+                          },
+                          {
+                            "type": "number",
+                            "description": "Value on y-axis"
+                          }
+                        ]
+                      }
+                    },
+                    "center": {
+                      "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number",
+                          "description": "Value on x-axis"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Value on y-axis"
+                        }
+                      ]
+                    },
+                    "radius": {
+                      "description": "Radius of the circle around the salient region (warning: to be deprecated by `regions` radius)",
+                      "type": "number",
+                      "example": 108.079
+                    },
+                    "bounding_rect": {
+                      "description": "Coordinates of a 2D rectangle shape (warning: to be deprecated by `bbox`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        },
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "histogram": {
+                  "description": "Histogram of color levels",
+                  "type": "object",
+                  "properties": {
+                    "r": {
+                      "name": "r",
+                      "type": "array",
+                      "description": "Red channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "g": {
+                      "name": "g",
+                      "type": "array",
+                      "description": "Green channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "b": {
+                      "name": "b",
+                      "type": "array",
+                      "description": "Blue channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "a": {
+                      "name": "a",
+                      "type": "array",
+                      "description": "Alpha channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "array",
+                      "description": "Y histogram (CIE Y Rec. 601)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "h": {
+                      "name": "h",
+                      "type": "array",
+                      "description": "Hue histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "s": {
+                      "name": "s",
+                      "type": "array",
+                      "description": "Saturation histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "l": {
+                      "name": "l",
+                      "type": "array",
+                      "description": "Lightness histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "c": {
+                      "name": "c",
+                      "type": "array",
+                      "description": "Chroma histogram (CIE LCH or HSL)"
+                    }
+                  }
+                },
+                "exif": {
+                  "description": "EXIF metadata. A more comprehensive list of available EXIF attributes can be found at http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html",
+                  "type": "object",
+                  "properties": {
+                    "exif": {
+                      "name": "exif",
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "name": "image",
+                          "type": "object",
+                          "description": "Image information data (IFD0)",
+                          "example": {
+                            "Make": "FUJIFILM",
+                            "Model": "FinePix40i",
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "Software": "Digital Camera FinePix40i Ver1.39",
+                            "ModifyDate": "2000:08:04 18:22:57",
+                            "YCbCrPositioning": 2,
+                            "ExifOffset": 250
+                          }
+                        },
+                        "thumbnail": {
+                          "name": "thumbnail",
+                          "type": "object",
+                          "description": "Information regarding a possibly embedded thumbnail (IFD1)",
+                          "example": {
+                            "Compression": 6,
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "ThumbnailOffset": 1074,
+                            "ThumbnailLength": 8691,
+                            "YCbCrPositioning": 2
+                          }
+                        },
+                        "exif": {
+                          "name": "exif",
+                          "type": "object",
+                          "description": "Exif-specific attribute information (Exif IFD)",
+                          "example": {
+                            "FNumber": 2.8,
+                            "ExposureProgram": 2,
+                            "ISO": 200,
+                            "DateTimeOriginal": "2000:08:04 18:22:57",
+                            "CreateDate": "2000:08:04 18:22:57",
+                            "CompressedBitsPerPixel": 1.5,
+                            "ShutterSpeedValue": 5.5,
+                            "ApertureValue": 3,
+                            "BrightnessValue": 0.26,
+                            "ExposureCompensation": 0,
+                            "MaxApertureValue": 3,
+                            "MeteringMode": 5,
+                            "Flash": 1,
+                            "FocalLength": 8.7,
+                            "ColorSpace": 1,
+                            "ExifImageWidth": 2400,
+                            "ExifImageHeight": 1800,
+                            "InteropOffset": 926,
+                            "FocalPlaneXResolution": 2381,
+                            "FocalPlaneYResolution": 2381,
+                            "FocalPlaneResolutionUnit": 3,
+                            "SensingMethod": 2
+                          }
+                        },
+                        "gps": {
+                          "name": "gps",
+                          "type": "object",
+                          "description": "GPS information (GPS IFD)"
+                        },
+                        "interoperability": {
+                          "name": "interoperability",
+                          "type": "object",
+                          "description": "Interoperability information (Interoperability IFD)",
+                          "example": {
+                            "InteropIndex": "R98"
+                          }
+                        },
+                        "makernote": {
+                          "name": "makernote",
+                          "type": "object",
+                          "description": "Vendor specific Exif information (Makernotes)",
+                          "example": {
+                            "Quality": "NORMAL",
+                            "Sharpness": 3,
+                            "WhiteBalance": 0,
+                            "FujiFlashMode": 1,
+                            "FlashExposureComp": 0,
+                            "Macro": 0,
+                            "FocusMode": 0,
+                            "SlowSync": 0,
+                            "AutoBracketing": 0,
+                            "BlurWarning": 0,
+                            "FocusWarning": 0,
+                            "ExposureWarning": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "anyOf": {
+                  "id": "helpermeasurements.json",
+                  "$schema": "http://json-schema.org/draft-04/schema",
+                  "title": "HelperMeasurements",
+                  "description": "Measurements calculated by TheGrid's data-helper",
+                  "definitions": {
+                    "scene": {
+                      "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
+                      "type": "object",
+                      "properties": {
+                        "bbox": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Cartesian coordinate along x-axis",
+                              "example": 608.1907
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Cartesian coordinate along y-axis",
+                              "example": 189.909
+                            },
+                            "width": {
+                              "name": "width",
+                              "type": "number",
+                              "description": "Width",
+                              "example": 229.2087
+                            },
+                            "height": {
+                              "name": "height",
+                              "type": "number",
+                              "description": "Height",
+                              "example": 229.2087
+                            }
+                          }
+                        },
+                        "center": {
+                          "description": "Cartesian coordinate",
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Value on x-axis",
+                              "example": 4.2
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Value on y-axis",
+                              "example": 2.4
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lines": {
+                      "description": "This measurement/feature/heuristics takes inspiration from the Rule of Thirds, a well known \"rule of thumb\" in visual composing. Lines are bounding boxes that represent negative spaces as columns or rows around cover's scene. We can overlay content (e.g. text) in space columns or rows around the scene. We also associate a direction to a line, defining the direction we should place content ('horizontal' or 'vertical'). We calculate lines for each image that has scene",
+                      "type": "object",
+                      "properties": {
+                        "lines": {
+                          "name": "lines",
+                          "type": "object",
+                          "properties": {
+                            "direction": {
+                              "description": "Direction we should place content",
+                              "type": "string",
+                              "enum": [
+                                "horizontal",
+                                "vertical"
+                              ]
+                            },
+                            "stripes": {
+                              "description": "Rows or columns representing 3, 2 or 1-stripes around the scene and the scene itself",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "name": "type",
+                                    "description": "A negative space or the scene",
+                                    "type": "string",
+                                    "enum": [
+                                      "space",
+                                      "scene"
+                                    ]
+                                  },
+                                  "bbox": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along x-axis",
+                                        "example": 608.1907
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along y-axis",
+                                        "example": 189.909
+                                      },
+                                      "width": {
+                                        "name": "width",
+                                        "type": "number",
+                                        "description": "Width",
+                                        "example": 229.2087
+                                      },
+                                      "height": {
+                                        "name": "height",
+                                        "type": "number",
+                                        "description": "Height",
+                                        "example": 229.2087
+                                      }
+                                    }
+                                  },
+                                  "center": {
+                                    "description": "Cartesian coordinate",
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Value on x-axis",
+                                        "example": 4.2
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Value on y-axis",
+                                        "example": 2.4
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "minItens": 1,
+                              "maxItens": 3
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lightness": {
+                      "description": "For blocks that have Lightness histogram we provide a lightness level as a [0-1] float number. Greater the value, more light is the whole image",
+                      "type": "number",
+                      "example": 0.8
+                    },
+                    "saturation": {
+                      "description": "For blocks that have Saturation histogram we provide a saturation level as a [0-1] float number. Greater the value, more saturated is the whole image",
+                      "type": "number",
+                      "example": 0.2
+                    },
+                    "closest_aspect": {
+                      "description": "For blocks that have dimensions, we try to find the closest aspect ratio, considering well known \"good\" aspects like 2:1, 1:2, 2:3 and so on",
+                      "type": "number",
+                      "example": 1
+                    },
+                    "transparent": {
+                      "description": "For blocks that have Alpha histogram we provide a transparecy level as a [0-1] float number. Greater the value, more transparent is the whole image. Another way to put it is: if `transparent` is greater than zero, it has at least one transparent pixel",
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "placeholder.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "HTML placeholder",
+          "description": "Placeholder for content being shared",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "text",
+              "type": "string",
+              "enum": [
+                "placeholder"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        {
+          "id": "text.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Text",
+          "description": "A chunk of text which can be annotated with measurement data like the extracted text and it's length",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "text",
+              "type": "string",
+              "enum": [
+                "text",
+                "quote",
+                "unknown"
+              ]
+            },
+            "text": {
+              "description": "Extracted text",
+              "example": "Foo bar",
+              "type": "string"
+            },
+            "length": {
+              "description": "Length of extracted text",
+              "example": 7,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        },
+        {
+          "id": "video.json",
+          "$schema": "http://json-schema.org/draft-04/schema",
+          "title": "Video",
+          "description": "An HTML video element which can have a cover image with annotated measurements data",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "description": "Block type",
+              "example": "image",
+              "type": "string",
+              "enum": [
+                "video"
+              ]
+            },
+            "video": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "description": "Unique Resource Locator",
+                  "format": "uri",
+                  "example": "http://thegrid.io",
+                  "type": "string"
+                }
+              }
+            },
+            "cover": {
+              "description": "A cover image that has many details about the media, useful for previews",
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "src": {
+                  "description": "ImgFlo URL for the cover image. Caching is generally done by ImgFlo and this URL redirects the consumer to the cached URL. This URL preserves all the queries requested for the ImgFlo image processing graph",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "original": {
+                  "description": "Original URL, no matter if it's a salvaged media or not, this property stores the URL shared/uploaded to TheGrid at the first time",
+                  "type": "string",
+                  "example": "http://automata.cc/thumb-chuck-wiimote.png"
+                },
+                "altsrc": {
+                  "description": "Alternative URL, if the image has a fullscale URL, the original URL will be stored here",
+                  "type": "string",
+                  "example": "https://farm8.staticflickr.com/7614/17055279932_6e242fddd5.jpg"
+                },
+                "imgflosrc": {
+                  "description": "ImgFlo'ed URL",
+                  "type": "string",
+                  "example": "https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6fe8db68da2dbcc38ba759348a5ba400/noop.png?input=http%3A%2F%2Fweb.archive.org%2Fweb%2F20130725203730%2Fhttp%3A%2F%2Fautomata.cc%2Fthumb-chuck-wiimote.png"
+                },
+                "resized": {
+                  "description": "URL to image resized by Caliper and used by its preprocess and feature extract workers. In other words, that is the image Caliper really process and extract features from",
+                  "type": "string",
+                  "example": "http://caliper-tests.s3-us-west-2.amazonaws.com/caliper-resized/87abee46986c09f0b721f73dd309ed99.png"
+                },
+                "ratio": {
+                  "description": "Cover image ratio",
+                  "type": "string",
+                  "example": "128:101"
+                },
+                "aspect": {
+                  "description": "Calculated image ratio",
+                  "type": "number",
+                  "example": 1.2673267326732673
+                },
+                "orientation": {
+                  "description": "Cover image orientation based on image ratio. If image ration equals 1:1 then its orientation is square. If image's width is larger than its height then its orientation is landscape. If image's height is larger than its width then its orientation is portrait",
+                  "type": "string",
+                  "enum": [
+                    "landscape",
+                    "portrait",
+                    "square"
+                  ],
+                  "example": "landscape"
+                },
+                "width": {
+                  "description": "Cover image width",
+                  "type": "integer",
+                  "example": 1024
+                },
+                "height": {
+                  "description": "Cover image height",
+                  "type": "integer",
+                  "example": 808
+                },
+                "rotation": {
+                  "description": "Rotation performed by AI using auto-rotate based on EXIF or user preference",
+                  "type": "integer",
+                  "example": 90
+                },
+                "animated": {
+                  "description": "Is GIF animated?",
+                  "type": "boolean"
+                },
+                "unsalvageable": {
+                  "description": "Is media unsalvageable a.k.a cannot be rescued on Archive or other mirror?",
+                  "type": "boolean"
+                },
+                "faces": {
+                  "description": "Extracted faces from the image",
+                  "type": "array",
+                  "items": {
+                    "description": "Bounding box of a detected face",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "name": "x",
+                            "type": "number",
+                            "description": "Cartesian coordinate along x-axis",
+                            "example": 608.1907
+                          },
+                          "y": {
+                            "name": "y",
+                            "type": "number",
+                            "description": "Cartesian coordinate along y-axis",
+                            "example": 189.909
+                          },
+                          "width": {
+                            "name": "width",
+                            "type": "number",
+                            "description": "Width",
+                            "example": 229.2087
+                          },
+                          "height": {
+                            "name": "height",
+                            "type": "number",
+                            "description": "Height",
+                            "example": 229.2087
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "confidence": {
+                        "description": "How much an extracted feature should be considered as a true positive",
+                        "type": "number",
+                        "example": 5.08
+                      }
+                    }
+                  }
+                },
+                "colors": {
+                  "description": "Extracted colors from the image, represented as an array of at least 5 RGB colors",
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "description": "Tuple of RGB values representing a color",
+                    "items": [
+                      {
+                        "type": "number",
+                        "description": "Red channel",
+                        "example": 255
+                      },
+                      {
+                        "type": "number",
+                        "description": "Green channel",
+                        "example": 200
+                      },
+                      {
+                        "type": "number",
+                        "description": "Blue channel",
+                        "example": 190
+                      }
+                    ]
+                  },
+                  "minItens": 5
+                },
+                "saliency": {
+                  "description": "Extracted salient region from an image",
+                  "type": "object",
+                  "properties": {
+                    "bbox": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "name": "x",
+                          "type": "number",
+                          "description": "Cartesian coordinate along x-axis",
+                          "example": 608.1907
+                        },
+                        "y": {
+                          "name": "y",
+                          "type": "number",
+                          "description": "Cartesian coordinate along y-axis",
+                          "example": 189.909
+                        },
+                        "width": {
+                          "name": "width",
+                          "type": "number",
+                          "description": "Width",
+                          "example": 229.2087
+                        },
+                        "height": {
+                          "name": "height",
+                          "type": "number",
+                          "description": "Height",
+                          "example": 229.2087
+                        }
+                      }
+                    },
+                    "confidence": {
+                      "description": "How much an extracted feature should be considered as a true positive",
+                      "type": "number",
+                      "example": 5.08
+                    },
+                    "regions": {
+                      "description": "Extracted salient regions",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bbox": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Cartesian coordinate along x-axis",
+                                "example": 608.1907
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Cartesian coordinate along y-axis",
+                                "example": 189.909
+                              },
+                              "width": {
+                                "name": "width",
+                                "type": "number",
+                                "description": "Width",
+                                "example": 229.2087
+                              },
+                              "height": {
+                                "name": "height",
+                                "type": "number",
+                                "description": "Height",
+                                "example": 229.2087
+                              }
+                            }
+                          },
+                          "center": {
+                            "description": "Cartesian coordinate",
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "name": "x",
+                                "type": "number",
+                                "description": "Value on x-axis",
+                                "example": 4.2
+                              },
+                              "y": {
+                                "name": "y",
+                                "type": "number",
+                                "description": "Value on y-axis",
+                                "example": 2.4
+                              }
+                            }
+                          },
+                          "radius": {
+                            "type": "number"
+                          },
+                          "polygon": {
+                            "description": "Coordinates of a polygon shape",
+                            "type": "array",
+                            "items": {
+                              "description": "Cartesian coordinate",
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "name": "x",
+                                  "type": "number",
+                                  "description": "Value on x-axis",
+                                  "example": 4.2
+                                },
+                                "y": {
+                                  "name": "y",
+                                  "type": "number",
+                                  "description": "Value on y-axis",
+                                  "example": 2.4
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "polygon": {
+                      "description": "Coordinates of a 2D polygon shape (warning: to be deprecated by `polygon`)",
+                      "type": "array",
+                      "items": {
+                        "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "number",
+                            "description": "Value on x-axis"
+                          },
+                          {
+                            "type": "number",
+                            "description": "Value on y-axis"
+                          }
+                        ]
+                      }
+                    },
+                    "center": {
+                      "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number",
+                          "description": "Value on x-axis"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Value on y-axis"
+                        }
+                      ]
+                    },
+                    "radius": {
+                      "description": "Radius of the circle around the salient region (warning: to be deprecated by `regions` radius)",
+                      "type": "number",
+                      "example": 108.079
+                    },
+                    "bounding_rect": {
+                      "description": "Coordinates of a 2D rectangle shape (warning: to be deprecated by `bbox`)",
+                      "type": "array",
+                      "items": [
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        },
+                        {
+                          "description": "Coordinate in a 2D plane (warning: to be deprecated by `point`)",
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number",
+                              "description": "Value on x-axis"
+                            },
+                            {
+                              "type": "number",
+                              "description": "Value on y-axis"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "histogram": {
+                  "description": "Histogram of color levels",
+                  "type": "object",
+                  "properties": {
+                    "r": {
+                      "name": "r",
+                      "type": "array",
+                      "description": "Red channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "g": {
+                      "name": "g",
+                      "type": "array",
+                      "description": "Green channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "b": {
+                      "name": "b",
+                      "type": "array",
+                      "description": "Blue channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "a": {
+                      "name": "a",
+                      "type": "array",
+                      "description": "Alpha channel histogram",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "y": {
+                      "name": "y",
+                      "type": "array",
+                      "description": "Y histogram (CIE Y Rec. 601)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "h": {
+                      "name": "h",
+                      "type": "array",
+                      "description": "Hue histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "s": {
+                      "name": "s",
+                      "type": "array",
+                      "description": "Saturation histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "l": {
+                      "name": "l",
+                      "type": "array",
+                      "description": "Lightness histogram (CIE LCH or HSL)",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    "c": {
+                      "name": "c",
+                      "type": "array",
+                      "description": "Chroma histogram (CIE LCH or HSL)"
+                    }
+                  }
+                },
+                "exif": {
+                  "description": "EXIF metadata. A more comprehensive list of available EXIF attributes can be found at http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html",
+                  "type": "object",
+                  "properties": {
+                    "exif": {
+                      "name": "exif",
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "name": "image",
+                          "type": "object",
+                          "description": "Image information data (IFD0)",
+                          "example": {
+                            "Make": "FUJIFILM",
+                            "Model": "FinePix40i",
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "Software": "Digital Camera FinePix40i Ver1.39",
+                            "ModifyDate": "2000:08:04 18:22:57",
+                            "YCbCrPositioning": 2,
+                            "ExifOffset": 250
+                          }
+                        },
+                        "thumbnail": {
+                          "name": "thumbnail",
+                          "type": "object",
+                          "description": "Information regarding a possibly embedded thumbnail (IFD1)",
+                          "example": {
+                            "Compression": 6,
+                            "Orientation": 1,
+                            "XResolution": 72,
+                            "YResolution": 72,
+                            "ResolutionUnit": 2,
+                            "ThumbnailOffset": 1074,
+                            "ThumbnailLength": 8691,
+                            "YCbCrPositioning": 2
+                          }
+                        },
+                        "exif": {
+                          "name": "exif",
+                          "type": "object",
+                          "description": "Exif-specific attribute information (Exif IFD)",
+                          "example": {
+                            "FNumber": 2.8,
+                            "ExposureProgram": 2,
+                            "ISO": 200,
+                            "DateTimeOriginal": "2000:08:04 18:22:57",
+                            "CreateDate": "2000:08:04 18:22:57",
+                            "CompressedBitsPerPixel": 1.5,
+                            "ShutterSpeedValue": 5.5,
+                            "ApertureValue": 3,
+                            "BrightnessValue": 0.26,
+                            "ExposureCompensation": 0,
+                            "MaxApertureValue": 3,
+                            "MeteringMode": 5,
+                            "Flash": 1,
+                            "FocalLength": 8.7,
+                            "ColorSpace": 1,
+                            "ExifImageWidth": 2400,
+                            "ExifImageHeight": 1800,
+                            "InteropOffset": 926,
+                            "FocalPlaneXResolution": 2381,
+                            "FocalPlaneYResolution": 2381,
+                            "FocalPlaneResolutionUnit": 3,
+                            "SensingMethod": 2
+                          }
+                        },
+                        "gps": {
+                          "name": "gps",
+                          "type": "object",
+                          "description": "GPS information (GPS IFD)"
+                        },
+                        "interoperability": {
+                          "name": "interoperability",
+                          "type": "object",
+                          "description": "Interoperability information (Interoperability IFD)",
+                          "example": {
+                            "InteropIndex": "R98"
+                          }
+                        },
+                        "makernote": {
+                          "name": "makernote",
+                          "type": "object",
+                          "description": "Vendor specific Exif information (Makernotes)",
+                          "example": {
+                            "Quality": "NORMAL",
+                            "Sharpness": 3,
+                            "WhiteBalance": 0,
+                            "FujiFlashMode": 1,
+                            "FlashExposureComp": 0,
+                            "Macro": 0,
+                            "FocusMode": 0,
+                            "SlowSync": 0,
+                            "AutoBracketing": 0,
+                            "BlurWarning": 0,
+                            "FocusWarning": 0,
+                            "ExposureWarning": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "anyOf": {
+                  "id": "helpermeasurements.json",
+                  "$schema": "http://json-schema.org/draft-04/schema",
+                  "title": "HelperMeasurements",
+                  "description": "Measurements calculated by TheGrid's data-helper",
+                  "definitions": {
+                    "scene": {
+                      "description": "Defines the most important region of an image. It is calculated based on other information like salient or text regions, faces and image dimensions.",
+                      "type": "object",
+                      "properties": {
+                        "bbox": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Cartesian coordinate along x-axis",
+                              "example": 608.1907
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Cartesian coordinate along y-axis",
+                              "example": 189.909
+                            },
+                            "width": {
+                              "name": "width",
+                              "type": "number",
+                              "description": "Width",
+                              "example": 229.2087
+                            },
+                            "height": {
+                              "name": "height",
+                              "type": "number",
+                              "description": "Height",
+                              "example": 229.2087
+                            }
+                          }
+                        },
+                        "center": {
+                          "description": "Cartesian coordinate",
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "name": "x",
+                              "type": "number",
+                              "description": "Value on x-axis",
+                              "example": 4.2
+                            },
+                            "y": {
+                              "name": "y",
+                              "type": "number",
+                              "description": "Value on y-axis",
+                              "example": 2.4
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lines": {
+                      "description": "This measurement/feature/heuristics takes inspiration from the Rule of Thirds, a well known \"rule of thumb\" in visual composing. Lines are bounding boxes that represent negative spaces as columns or rows around cover's scene. We can overlay content (e.g. text) in space columns or rows around the scene. We also associate a direction to a line, defining the direction we should place content ('horizontal' or 'vertical'). We calculate lines for each image that has scene",
+                      "type": "object",
+                      "properties": {
+                        "lines": {
+                          "name": "lines",
+                          "type": "object",
+                          "properties": {
+                            "direction": {
+                              "description": "Direction we should place content",
+                              "type": "string",
+                              "enum": [
+                                "horizontal",
+                                "vertical"
+                              ]
+                            },
+                            "stripes": {
+                              "description": "Rows or columns representing 3, 2 or 1-stripes around the scene and the scene itself",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "name": "type",
+                                    "description": "A negative space or the scene",
+                                    "type": "string",
+                                    "enum": [
+                                      "space",
+                                      "scene"
+                                    ]
+                                  },
+                                  "bbox": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along x-axis",
+                                        "example": 608.1907
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Cartesian coordinate along y-axis",
+                                        "example": 189.909
+                                      },
+                                      "width": {
+                                        "name": "width",
+                                        "type": "number",
+                                        "description": "Width",
+                                        "example": 229.2087
+                                      },
+                                      "height": {
+                                        "name": "height",
+                                        "type": "number",
+                                        "description": "Height",
+                                        "example": 229.2087
+                                      }
+                                    }
+                                  },
+                                  "center": {
+                                    "description": "Cartesian coordinate",
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "name": "x",
+                                        "type": "number",
+                                        "description": "Value on x-axis",
+                                        "example": 4.2
+                                      },
+                                      "y": {
+                                        "name": "y",
+                                        "type": "number",
+                                        "description": "Value on y-axis",
+                                        "example": 2.4
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "minItens": 1,
+                              "maxItens": 3
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lightness": {
+                      "description": "For blocks that have Lightness histogram we provide a lightness level as a [0-1] float number. Greater the value, more light is the whole image",
+                      "type": "number",
+                      "example": 0.8
+                    },
+                    "saturation": {
+                      "description": "For blocks that have Saturation histogram we provide a saturation level as a [0-1] float number. Greater the value, more saturated is the whole image",
+                      "type": "number",
+                      "example": 0.2
+                    },
+                    "closest_aspect": {
+                      "description": "For blocks that have dimensions, we try to find the closest aspect ratio, considering well known \"good\" aspects like 2:1, 1:2, 2:3 and so on",
+                      "type": "number",
+                      "example": 1
+                    },
+                    "transparent": {
+                      "description": "For blocks that have Alpha histogram we provide a transparecy level as a [0-1] float number. Greater the value, more transparent is the whole image. Another way to put it is: if `transparent` is greater than zero, it has at least one transparent pixel",
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "type",
+            "html"
+          ]
+        }
+      ]
+    }
+  ]
+}
