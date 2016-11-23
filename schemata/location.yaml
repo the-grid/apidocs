@@ -6,11 +6,13 @@ description: "A geographical location"
 type:
 - object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
   type:
-    "$ref": "contentblock.json#/definitions/type"
-  html:
-    "$ref": "contentblock.json#/definitions/html"
+    description: Block type
+    example: "locatation"
+    type: string
+    enum:
+      - location
+  cover:
+    "$ref": "media.json#/definitions/cover"
 
 required: [id, type, html]

@@ -3,25 +3,29 @@
   _name: 'valid-article'
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    type: "image"
+    type: "article"
     src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
-    html: "<img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" />"
+    html: "<article><img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" /></article>"
 -
   _valid: true
   _name: 'valid-article-with-measurements'
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
-    type: "image"
+    type: "article"
     src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
-    html: "<img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" />"
+    html: "<article><img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" /></article>"
     cover:
       orientation: "landscape"
 -
   _valid: false
-  _name: 'article-without-id'
+  _name: 'valid-article-with-invalid-measurements'
   _data:
-    type: "image"
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "article"
     src: "http://techcrunch.com/2015/04/15/mozilla-restructure/"
+    html: "<article><img src=\"http://techcrunch.com/2015/04/15/mozilla-restructure/\" /></article>"
+    cover:
+      orientation: "fancy"
 -
   _valid: false
   _name: 'article-without-type'
@@ -55,4 +59,3 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "image"
     src: 42
-

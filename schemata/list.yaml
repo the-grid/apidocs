@@ -6,16 +6,12 @@ description: "An ordered or unordered list of elements. It can be annotated with
 type:
 - object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
   type:
     description: Block type
     example: "text"
     type: string
     enum:
       - list
-  html:
-    "$ref": "contentblock.json#/definitions/html"
   items:
     description: "The measured number of items on the list"
     type: integer

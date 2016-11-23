@@ -6,8 +6,6 @@ description: "A chunk of text which can be annotated with measurement data like 
 type:
 - object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
   type:
     description: Block type
     example: "text"
@@ -17,8 +15,6 @@ properties:
       - code
       - quote
       - unknown
-  html:
-    "$ref": "contentblock.json#/definitions/html"
   text:
     description: Extracted text
     example: "Foo bar"
