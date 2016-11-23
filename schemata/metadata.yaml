@@ -75,16 +75,18 @@ properties:
         example: Fast Company
       domain:
         name: domain
-        type: string
-        format: hostname
         description: The publisher's domain name
         example: www.fastcompany.com
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/hostname" }
       url:
         name: url
-        type: string
-        format: uri
         description: URL of the publisher's main page
         example: "http://www.fastcompany.com/"
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/url" }
       favicon:
         name: favicon
         description: URL of the publisher's favicon
@@ -105,16 +107,18 @@ properties:
         example: Bergie Today
       domain:
         name: domain
-        type: string
         description: The publisher's domain name
         example: bergie.today
-        format: hostname
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/hostname" }
       url:
         name: url
-        type: string
-        format: uri
         description: Permalink URL the item was on or URL of the publisher's main page
         example: "https://bergie.today/"
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/url" }
       favicon:
         name: favicon
         description: "URL of the publisher's favicon"
