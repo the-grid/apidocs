@@ -650,9 +650,8 @@
       src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fi.imgur.com%2FaK4RY7D.mp4&src_secure=1&url=https%3A%2F%2Fi.imgur.com%2FaK4RY7D.gifv&image=https%3A%2F%2Fi.imgur.com%2FaK4RY7Dh.jpg&key=b7d04c9b404c499eba89ee7072e1c4f7&type=video%2Fmp4&schema=imgur"
       width="718" height="404" scrolling="no" frameborder="0"
       allowfullscreen></iframe>
-    video:
-      src: >-
-        https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fi.imgur.com%2FaK4RY7D.mp4&src_secure=1&url=https%3A%2F%2Fi.imgur.com%2FaK4RY7D.gifv&image=https%3A%2F%2Fi.imgur.com%2FaK4RY7Dh.jpg&key=b7d04c9b404c499eba89ee7072e1c4f7&type=video%2Fmp4&schema=imgur
+    video: >-
+      https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fi.imgur.com%2FaK4RY7D.mp4&src_secure=1&url=https%3A%2F%2Fi.imgur.com%2FaK4RY7D.gifv&image=https%3A%2F%2Fi.imgur.com%2FaK4RY7Dh.jpg&key=b7d04c9b404c499eba89ee7072e1c4f7&type=video%2Fmp4&schema=imgur
     metadata:
       author: []
       related: []

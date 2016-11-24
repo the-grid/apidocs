@@ -14,9 +14,7 @@ properties:
     enum:
       - video
   video:
-    oneOf:
-      - { "$ref": "base.json#/definitions/url" }
-      - { type: 'object', properties: { src: { "$ref": "base.json#/definitions/url" }}}
+    "$ref": "base.json#/definitions/url"
   cover:
     "$ref": "media.json#/definitions/cover"
 
