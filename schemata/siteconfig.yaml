@@ -160,10 +160,14 @@ properties:
         type: string
       email:
         type: string
-        "$ref": "base.json#/definitions/email"
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/email" }
       url:
         type: string
-        "$ref": "base.json#/definitions/url"
+        oneOf:
+        - { type: 'null' }
+        - { "$ref": "base.json#/definitions/url" }
   navigation:
     type: array
     description: "External links to include in site navigation"
