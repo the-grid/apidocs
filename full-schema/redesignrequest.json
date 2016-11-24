@@ -184,10 +184,6 @@
         },
         "opengraph": {
           "type": "object",
-          "required": [
-            "type",
-            "image"
-          ],
           "properties": {
             "image": {
               "name": "image",
