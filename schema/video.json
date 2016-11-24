@@ -17,11 +17,7 @@
     },
     "video": {
       "type": "object",
-      "properties": {
-        "src": {
-          "$ref": "base.json#/definitions/url"
-        }
-      }
+      "$ref": "base.json#/definitions/url"
     },
     "cover": {
       "$ref": "media.json#/definitions/cover"

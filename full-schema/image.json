@@ -16,6 +16,12 @@
         "interactive"
       ]
     },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<img src=\"http://blog.interfacevision.com/assets/img/posts/example_visual_language_minecraft_01.png\">",
+      "type": "string",
+      "minLength": 7
+    },
     "cover": {
       "description": "A cover image that has many details about the media, useful for previews",
       "type": [

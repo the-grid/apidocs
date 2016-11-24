@@ -57,18 +57,31 @@
         "domain": {
           "name": "domain",
           "description": "CDN to serve the CtA from",
-          "type": "string"
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "base.json#/definitions/hostname"
+            }
+          ]
         },
         "bucket": {
           "name": "bucket",
           "description": "S3 bucket to serve the CtA from",
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "version": {
           "name": "version",
           "description": "CtA version to use on site",
-          "type": "string",
-          "example": "1.0.0"
+          "example": "1.0.0",
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     },
@@ -77,18 +90,27 @@
       "properties": {
         "google": {
           "name": "google",
-          "type": "string",
-          "description": "Google Analytics ID for the site"
+          "description": "Google Analytics ID for the site",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "facebook": {
           "name": "facebook",
-          "type": "string",
-          "description": "Facebook tracking ID for the site"
+          "description": "Facebook tracking ID for the site",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "twitter": {
           "name": "twitter",
-          "type": "string",
-          "description": "Twitter tracking ID for the site"
+          "description": "Twitter tracking ID for the site",
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     },

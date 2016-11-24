@@ -17,6 +17,12 @@
     },
     "cover": {
       "$ref": "media.json#/definitions/cover"
+    },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<article><h1>Hello, world!</h1></article>",
+      "type": "string",
+      "minLength": 7
     }
   },
   "required": [

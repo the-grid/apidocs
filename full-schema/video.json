@@ -16,15 +16,10 @@
       ]
     },
     "video": {
-      "type": "object",
-      "properties": {
-        "src": {
-          "description": "Unique Resource Locator",
-          "format": "uri",
-          "example": "http://thegrid.io",
-          "type": "string"
-        }
-      }
+      "description": "Unique Resource Locator",
+      "format": "uri",
+      "example": "http://thegrid.io",
+      "type": "string"
     },
     "cover": {
       "description": "A cover image that has many details about the media, useful for previews",

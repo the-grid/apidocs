@@ -32,12 +32,6 @@
         "unknown"
       ]
     },
-    "html": {
-      "description": "HTML content of the block",
-      "example": "<p>Hello, world!</p>",
-      "type": "string",
-      "minLength": 7
-    },
     "src": {
       "description": "Source URL",
       "example": "http://techcrunch.com/2015/04/15/mozilla-restructure/",
@@ -64,9 +58,6 @@
     },
     "type": {
       "$ref": "#/definitions/type"
-    },
-    "html": {
-      "$ref": "#/definitions/html"
     },
     "src": {
       "$ref": "#/definitions/src"
@@ -124,6 +115,9 @@
         },
         {
           "$ref": "location.json"
+        },
+        {
+          "$ref": "quote.json"
         },
         {
           "$ref": "placeholder.json"

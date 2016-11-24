@@ -15,6 +15,12 @@
         "code"
       ]
     },
+    "html": {
+      "description": "HTML content of the block",
+      "example": "<pre><code>one\ntwo</code></pre>",
+      "type": "string",
+      "minLength": 7
+    },
     "text": {
       "description": "Extracted text",
       "example": "var foo = 42;",
