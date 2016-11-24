@@ -77,9 +77,6 @@ properties:
     required: ['server', 'key', 'secret']
   opengraph:
     type: object
-    required:
-    - type
-    - image
     properties:
       image:
         name: image
