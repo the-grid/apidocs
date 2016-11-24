@@ -6,8 +6,6 @@ description: "Horizontal divider in content"
 type:
 - object
 properties:
-  id:
-    "$ref": "base.json#/definitions/uuid"
   type:
     description: Block type
     example: "text"

@@ -8,11 +8,15 @@ type:
 properties:
   type:
     description: Block type
-    example: "locatation"
+    example: "location"
     type: string
     enum:
       - location
+  html:
+    description: HTML content of the block
+    example: '<iframe src=\"https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.google.com%2Fmaps%2Fembed%2Fv1%2Fview%3Fmaptype%3Dsatellite%26center%3D35.0349449%252C-83.9676685%26key%3DAIzaSyBctFF2JCjitURssT91Am-_ZWMzRaYBm4Q%26zoom%3D15&url=https%3A%2F%2Fwww.google.com%2Fmaps%2F%4035.0349449%2C-83.9676685%2C585m%2Fdata%3D%213m1%211e3%3Fdg%3Ddbrw%26newdg%3D1&image=http%3A%2F%2Fmaps-api-ssl.google.com%2Fmaps%2Fapi%2Fstaticmap%3Fcenter%3D35.0349449%2C-83.9676685%26zoom%3D15%26size%3D250x250%26sensor%3Dfalse&key=b7d04c9b404c499eba89ee7072e1c4f7&type=text%2Fhtml&schema=google\" width=\"600\" height=\"450\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe>'
+    type: string
+    minLength: 7
   cover:
     "$ref": "media.json#/definitions/cover"
-
-required: [id, type, html]
+required: [type, html]

@@ -12,8 +12,12 @@ properties:
     type: string
     enum:
       - text
-      - quote
       - unknown
+  html:
+    description: HTML content of the block
+    example: "<p>Foo bar</p>"
+    type: string
+    minLength: 7
   text:
     description: Extracted text
     example: "Foo bar"

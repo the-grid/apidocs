@@ -19,13 +19,6 @@
     type: "hr"
 -
   _valid: false
-  _name: "with-invalid-id"
-  _data:
-    id: "bdcc677d-b01d3132ef69"
-    type: "hr"
-    html: "<hr>"
--
-  _valid: false
   _name: "with-invalid-type"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"

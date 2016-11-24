@@ -14,6 +14,11 @@ properties:
     enum:
       - image
       - interactive
+  html:
+    description: HTML content of the block
+    example: '<img src="http://blog.interfacevision.com/assets/img/posts/example_visual_language_minecraft_01.png">'
+    type: string
+    minLength: 7
   cover:
     "$ref": "media.json#/definitions/cover"
   title:

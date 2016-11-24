@@ -16,12 +16,6 @@
     length: 7
 -
   _valid: false
-  _name: "quote-without-id"
-  _data:
-    type: "quote"
-    html: "<p>Foo bar</p>"
--
-  _valid: false
   _name: "quote-without-type"
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
@@ -32,13 +26,6 @@
   _data:
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "quote"
--
-  _valid: false
-  _name: "quote-with-invalid-id"
-  _data:
-    id: "bdcc677d-b01d3132ef69"
-    type: "quote"
-    html: "<p>Foo bar</p>"
 -
   _valid: false
   _name: "quote-with-invalid-type"
@@ -53,13 +40,6 @@
     id: "bdcc6765-114a-4184-977d-b01d3132ef69"
     type: "quote"
     html: "<p>/p>"
--
-  _valid: false
-  _name: "quote-with-invalid-id-type"
-  _data:
-    id: 4242
-    type: "quote"
-    html: "<p>Foo bar</p>"
 -
   _valid: false
   _name: "quote-with-invalid-type-type"
