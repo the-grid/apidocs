@@ -14,7 +14,6 @@ properties:
     enum:
       - video
   video:
-    type: object
     "$ref": "base.json#/definitions/url"
   cover:
     "$ref": "media.json#/definitions/cover"
