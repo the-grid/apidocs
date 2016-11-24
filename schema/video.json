@@ -16,7 +16,6 @@
       ]
     },
     "video": {
-      "type": "object",
       "$ref": "base.json#/definitions/url"
     },
     "cover": {

@@ -1694,25 +1694,37 @@
                 "type": "string"
               },
               "dateCreated": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "format": "date-time"
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
               },
               "dateModified": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "format": "date-time"
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
               },
               "datePublished": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "format": "date-time"
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
               }
             },
             "additionalProperties": true
