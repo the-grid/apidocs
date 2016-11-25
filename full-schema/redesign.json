@@ -385,19 +385,40 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
                 },
                 "email": {
-                  "description": "Email address",
-                  "format": "email",
-                  "example": "info@thegrid.io",
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "description": "Email address",
+                      "format": "email",
+                      "example": "info@thegrid.io",
+                      "type": "string"
+                    }
+                  ]
                 },
                 "url": {
-                  "description": "Unique Resource Locator",
-                  "format": "uri",
-                  "example": "http://thegrid.io",
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "description": "Unique Resource Locator",
+                      "format": "uri",
+                      "example": "http://thegrid.io",
+                      "type": "string"
+                    }
+                  ]
                 }
               }
             },

@@ -14,23 +14,47 @@
       "example": "01234567-89ab-cdef-0123-456789abcdef",
       "type": "string"
     },
+    "path": {
+      "description": "Path of the page on the site",
+      "type": "string",
+      "example": "index.html"
+    },
+    "type": {
+      "description": "Page type",
+      "type": "string",
+      "example": "feeda"
+    },
+    "siteUrl": {
+      "description": "Unique Resource Locator",
+      "format": "uri",
+      "example": "http://thegrid.io",
+      "type": "string"
+    },
+    "siteId": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "number": {
+      "description": "How many items fit on the page",
+      "type": "integer"
+    },
+    "ordered": {
+      "type": "boolean",
+      "description": "If content must be rendered in order or not",
+      "example": false
+    },
+    "format": {
+      "type": "string",
+      "description": "Expected format for the page output",
+      "example": "html"
+    },
     "site": {
       "type": "string",
       "example": "the-domains/the-grid",
       "pattern": "^[a-z0-9-_\\.]+/[a-z0-9-_\\.]+$"
-    },
-    "path": {
-      "type": "string",
-      "example": "index.html"
-    },
-    "title": {
-      "type": "string",
-      "example": "Home"
-    },
-    "ordered": {
-      "type": "boolean",
-      "description": "If content is ordered or not",
-      "example": false
     },
     "items": {
       "description": "Content items in the page",
@@ -6193,7 +6217,6 @@
             "description": "Content blocks of the item",
             "type": "array",
             "minItems": 0,
-            "uniqueItems": true,
             "items": {
               "id": "contentblock.json",
               "$schema": "http://json-schema.org/draft-04/schema",
@@ -11299,6 +11322,21 @@
         ]
       }
     },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    },
     "config": {
       "id": "siteconfig.json",
       "$schema": "http://json-schema.org/draft-04/schema",
@@ -11652,19 +11690,40 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             },
             "email": {
-              "description": "Email address",
-              "format": "email",
-              "example": "info@thegrid.io",
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "description": "Email address",
+                  "format": "email",
+                  "example": "info@thegrid.io",
+                  "type": "string"
+                }
+              ]
             },
             "url": {
-              "description": "Unique Resource Locator",
-              "format": "uri",
-              "example": "http://thegrid.io",
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "description": "Unique Resource Locator",
+                  "format": "uri",
+                  "example": "http://thegrid.io",
+                  "type": "string"
+                }
+              ]
             }
           }
         },
@@ -16967,16 +17026,87 @@
         }
       }
     },
-    "created_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "updated_at": {
+    "style": {
+      "description": "Style used for rendering the site",
+      "example": "the-composer",
       "oneOf": [
         {
-          "type": "null"
+          "type": "string"
+        },
+        {
+          "description": "Unique Resource Locator",
+          "format": "uri",
+          "example": "http://thegrid.io",
+          "type": "string"
         }
       ]
+    },
+    "theme": {
+      "description": "Family of design systems the style is part of",
+      "example": "flowerflip"
+    },
+    "title": {
+      "description": "Page title",
+      "type": "string",
+      "example": "Home"
+    },
+    "navigable": {
+      "description": "Whether page appears in navigation",
+      "type": "boolean"
+    },
+    "navigation": {
+      "description": "Main navigation entries",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "example": "index.html"
+          },
+          "title": {
+            "type": "string",
+            "example": "Home"
+          },
+          "rel": {
+            "type": "string",
+            "example": "home"
+          },
+          "type": {
+            "type": "string",
+            "example": "MainPage"
+          }
+        }
+      }
+    },
+    "links": {
+      "description": "Secondary navigation entries",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "example": "rss.html"
+          },
+          "title": {
+            "type": "string",
+            "example": "RSS feed"
+          },
+          "rel": {
+            "type": "string",
+            "example": "alternate"
+          },
+          "type": {
+            "type": "string",
+            "example": "application/rss+xml"
+          }
+        }
+      }
     }
   },
   "required": [

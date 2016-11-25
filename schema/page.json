@@ -10,23 +10,40 @@
     "id": {
       "$ref": "base.json#/definitions/uuid"
     },
+    "path": {
+      "description": "Path of the page on the site",
+      "type": "string",
+      "example": "index.html"
+    },
+    "type": {
+      "description": "Page type",
+      "type": "string",
+      "example": "feeda"
+    },
+    "siteUrl": {
+      "$ref": "base.json#/definitions/url"
+    },
+    "siteId": {
+      "$ref": "base.json#/definitions/uuid"
+    },
+    "number": {
+      "description": "How many items fit on the page",
+      "type": "integer"
+    },
+    "ordered": {
+      "type": "boolean",
+      "description": "If content must be rendered in order or not",
+      "example": false
+    },
+    "format": {
+      "type": "string",
+      "description": "Expected format for the page output",
+      "example": "html"
+    },
     "site": {
       "description": "Site this page belongs to",
       "example": "the-domains/the-grid",
       "$ref": "base.json#/definitions/site"
-    },
-    "path": {
-      "type": "string",
-      "example": "index.html"
-    },
-    "title": {
-      "type": "string",
-      "example": "Home"
-    },
-    "ordered": {
-      "type": "boolean",
-      "description": "If content is ordered or not",
-      "example": false
     },
     "items": {
       "description": "Content items in the page",
@@ -37,9 +54,6 @@
         "$ref": "item.json"
       }
     },
-    "config": {
-      "$ref": "siteconfig.json"
-    },
     "created_at": {
       "type": "string",
       "format": "date-time"
@@ -48,8 +62,94 @@
       "oneOf": [
         {
           "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
         }
       ]
+    },
+    "config": {
+      "$ref": "siteconfig.json"
+    },
+    "style": {
+      "description": "Style used for rendering the site",
+      "example": "the-composer",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "base.json#/definitions/url"
+        }
+      ]
+    },
+    "theme": {
+      "description": "Family of design systems the style is part of",
+      "example": "flowerflip"
+    },
+    "title": {
+      "description": "Page title",
+      "type": "string",
+      "example": "Home"
+    },
+    "navigable": {
+      "description": "Whether page appears in navigation",
+      "type": "boolean"
+    },
+    "navigation": {
+      "description": "Main navigation entries",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "example": "index.html"
+          },
+          "title": {
+            "type": "string",
+            "example": "Home"
+          },
+          "rel": {
+            "type": "string",
+            "example": "home"
+          },
+          "type": {
+            "type": "string",
+            "example": "MainPage"
+          }
+        }
+      }
+    },
+    "links": {
+      "description": "Secondary navigation entries",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "example": "rss.html"
+          },
+          "title": {
+            "type": "string",
+            "example": "RSS feed"
+          },
+          "rel": {
+            "type": "string",
+            "example": "alternate"
+          },
+          "type": {
+            "type": "string",
+            "example": "application/rss+xml"
+          }
+        }
+      }
     }
   },
   "required": [

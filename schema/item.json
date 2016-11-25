@@ -34,7 +34,6 @@
       "description": "Content blocks of the item",
       "type": "array",
       "minItems": 0,
-      "uniqueItems": true,
       "items": {
         "$ref": "contentblock.json"
       }
