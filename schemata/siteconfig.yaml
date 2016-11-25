@@ -157,14 +157,14 @@ properties:
     type: object
     properties:
       name:
-        type: string
+        oneOf:
+        - { type: 'null' }
+        - { type: string }
       email:
-        type: string
         oneOf:
         - { type: 'null' }
         - { "$ref": "base.json#/definitions/email" }
       url:
-        type: string
         oneOf:
         - { type: 'null' }
         - { "$ref": "base.json#/definitions/url" }
