@@ -18,6 +18,8 @@
         "h6",
         "text",
         "list",
+        "ul",
+        "ol",
         "code",
         "image",
         "video",

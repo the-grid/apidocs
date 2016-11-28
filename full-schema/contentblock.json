@@ -18,6 +18,8 @@
         "h6",
         "text",
         "list",
+        "ul",
+        "ol",
         "code",
         "image",
         "video",
@@ -78,6 +80,8 @@
         "h6",
         "text",
         "list",
+        "ul",
+        "ol",
         "code",
         "image",
         "video",
@@ -3515,7 +3519,9 @@
               "example": "text",
               "type": "string",
               "enum": [
-                "list"
+                "list",
+                "ul",
+                "ol"
               ]
             },
             "html": {

@@ -12,7 +12,9 @@
       "example": "text",
       "type": "string",
       "enum": [
-        "list"
+        "list",
+        "ul",
+        "ol"
       ]
     },
     "html": {
