@@ -89,6 +89,20 @@
     type: "hr"
     html: "<hr>"
 -
+  _valid: true
+  _name: "valid-ul"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "ul"
+    html: "<ul><li>Foo</li><li>Bar</li></ul>"
+-
+  _valid: true
+  _name: "valid-ol"
+  _data:
+    id: "bdcc6765-114a-4184-977d-b01d3132ef69"
+    type: "ol"
+    html: "<ol><li>One</li><li>Two</li></ol>"
+-
   _valid: false
   _name: 'text-h1-join-evolution-invalid-author'
   _data:

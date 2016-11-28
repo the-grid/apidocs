@@ -12,6 +12,8 @@ properties:
     type: string
     enum:
       - list
+      - ul
+      - ol
   html:
     description: HTML content of the block
     example: '<ul><li>Hello world<ul><li>Foo</li></ul></li><li>Foo bar</li></ul>'
