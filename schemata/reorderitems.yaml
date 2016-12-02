@@ -19,4 +19,9 @@ properties:
   published:
     description: "Filter reordered items by published status"
     type: boolean
+  publish:
+    description: "Publish items after reordering"
+    type: boolean
 required: [items]
+dependencies:
+  publish: [site, published]

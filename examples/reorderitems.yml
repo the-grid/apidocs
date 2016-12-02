@@ -40,3 +40,31 @@
       - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
     site: "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
     published: false
+-
+  _valid: true
+  _name: "valid-publish"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    site: "the-domains/example.net"
+    published: true
+    publish: true
+-
+  _valid: false
+  _name: "invalid-publish-no-site"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    published: true
+    publish: true
+-
+  _valid: false
+  _name: "invalid-publish-no-published"
+  _data:
+    items:
+      - "bdcc6765-114a-4184-977d-b01d3132ef69"
+      - "b04d3a7f-689f-4bc5-a7c6-304b39f271f3"
+    site: "the-domains/example.net"
+    publish: true
