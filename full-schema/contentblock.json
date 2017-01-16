@@ -1112,6 +1112,7 @@
           "type": "string"
         },
         "dateCreated": {
+          "description": "When the entity was created",
           "oneOf": [
             {
               "type": "null"
@@ -1123,6 +1124,7 @@
           ]
         },
         "dateModified": {
+          "description": "When the entity was last modified",
           "oneOf": [
             {
               "type": "null"
@@ -1134,6 +1136,19 @@
           ]
         },
         "datePublished": {
+          "description": "When the entity was last published",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "datePublishedOriginal": {
+          "description": "When the entity was originally published",
           "oneOf": [
             {
               "type": "null"
