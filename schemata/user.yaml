@@ -17,4 +17,8 @@ properties:
   avatar:
     type: string
     example: "http://example.net/user.png"
+  canUse:
+    description: Feature flagging based on user's plan
+    type: object
+
 required: [uuid, name]
