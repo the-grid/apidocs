@@ -15,14 +15,22 @@ properties:
     type: string
     example: "Example User"
   avatar:
-    type: string
-    example: "http://example.net/user.png"
+    $ref": "base.json#/definitions/url"
   founder:
     example: 6
     description: Founding member number
     oneOf:
     - { type: 'null' }
     - { type: 'integer' }
+  scope:
+    description: Usage scopes granted to the user
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+      example: content_management
+  app:
+    "$ref": "base.json#/definitions/uuid"
   plan:
     "$ref": "base.json#/definitions/uuid"
   quotaSites:
