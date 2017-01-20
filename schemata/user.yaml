@@ -6,7 +6,7 @@ description: "User profile"
 type:
 - object
 properties:
-  uuid:
+  id:
     "$ref": "base.json#/definitions/uuid"
   email:
     type: string
@@ -21,4 +21,4 @@ properties:
     description: Feature flagging based on user's plan. Available flags are siteMediaCta, edCta, edEmbed
     type: object
 
-required: [uuid, name]
+required: [id, name]
