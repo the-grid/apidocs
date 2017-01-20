@@ -17,6 +17,12 @@ properties:
   avatar:
     type: string
     example: "http://example.net/user.png"
+  founder:
+    example: 6
+    description: Founding member number
+    oneOf:
+    - { type: 'null' }
+    - { type: 'integer' }
   canUse:
     description: Feature flagging based on user plan
     type: object
