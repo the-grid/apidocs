@@ -23,6 +23,12 @@ properties:
     oneOf:
     - { type: 'null' }
     - { type: 'integer' }
+  plan:
+    "$ref": "base.json#/definitions/uuid"
+  quotaSites:
+    example: 1
+    description: How many sites the user is allowed to create
+    type: integer
   canUse:
     description: Feature flagging based on user plan
     type: object
@@ -36,4 +42,8 @@ properties:
       edEmbed:
         description: If user can create embedded block in Ed
         type: boolean
+  activatedAt:
+    description: When the user plan was activated
+    type: string
+    format: 'date-time'
 required: [id, name]
