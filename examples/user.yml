@@ -2,7 +2,7 @@
   _valid: true
   _name: 'with-avatar'
   _data:
-    uuid: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+    id: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
     email: "user@domain.com"
     name: "Example User"
     avatar: "http://example.net/user.png"
@@ -10,6 +10,6 @@
   _valid: true
   _name: 'without-email'
   _data:
-    uuid: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
+    id: "0d1fbca0-ee3c-4157-9881-b03db3e462b9"
     name: "Example User"
     avatar: "http://example.net/user.png"
