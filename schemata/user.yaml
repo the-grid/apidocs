@@ -26,13 +26,14 @@ properties:
   canUse:
     description: Feature flagging based on user plan
     type: object
-    siteMediaCta:
-      description: If user can create CTA in the site header
-      type: boolean
-    edCta:
-      description: If user can create CTA in Ed
-      type: boolean
-    edEmbed:
-      description: If user can create embedded block in Ed
-      type: boolean
+    properties:
+      siteMediaCta:
+        description: If user can create CTA in the site header
+        type: boolean
+      edCta:
+        description: If user can create CTA in Ed
+        type: boolean
+      edEmbed:
+        description: If user can create embedded block in Ed
+        type: boolean
 required: [id, name]
