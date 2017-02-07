@@ -1,0 +1,23 @@
+{
+  "id": "commercehook.json",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Molly Commerce Webhook",
+  "description": "",
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "client": {
+      "description": "Client uuid",
+      "type": "string"
+    },
+    "jwt": {
+      "description": "JWT-encrypted payload",
+      "type": "string"
+    }
+  },
+  "required": [
+    "client",
+    "jwt"
+  ]
+}

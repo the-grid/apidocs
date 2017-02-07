@@ -7,7 +7,7 @@
     "object"
   ],
   "properties": {
-    "uuid": {
+    "id": {
       "description": "Unique identifier",
       "format": "uuid",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
@@ -23,12 +23,74 @@
       "example": "Example User"
     },
     "avatar": {
+      "$ref\"": "base.json#/definitions/url"
+    },
+    "founder": {
+      "example": 6,
+      "description": "Founding member number",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "scope": {
+      "description": "Usage scopes granted to the user",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "example": "content_management"
+      }
+    },
+    "app": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "plan": {
+      "description": "Unique identifier",
+      "format": "uuid",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "example": "01234567-89ab-cdef-0123-456789abcdef",
+      "type": "string"
+    },
+    "quotaSites": {
+      "example": 1,
+      "description": "How many sites the user is allowed to create",
+      "type": "integer"
+    },
+    "canUse": {
+      "description": "Feature flagging based on user plan",
+      "type": "object",
+      "properties": {
+        "siteMediaCta": {
+          "description": "If user can create CTA in the site header",
+          "type": "boolean"
+        },
+        "edCta": {
+          "description": "If user can create CTA in Ed",
+          "type": "boolean"
+        },
+        "edEmbed": {
+          "description": "If user can create embedded block in Ed",
+          "type": "boolean"
+        }
+      }
+    },
+    "activatedAt": {
+      "description": "When the user plan was activated",
       "type": "string",
-      "example": "http://example.net/user.png"
+      "format": "date-time"
     }
   },
   "required": [
-    "uuid",
+    "id",
     "name"
   ]
 }
